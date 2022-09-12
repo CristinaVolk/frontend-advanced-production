@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+
+    // does not mean that any is not possible to use; it should be used explicitly
+    "noImplicitAny": true,
+    "module": "ESNext",
+    // Points what specification the app is compiled in for browser support
+    "target": "es5",
+    "jsx": "react",
+    // The compiler will process not only ts but also js files
+    "allowJs": true,
+    "moduleResolution": "node",
+    // instead of require(), but with * as
+    "esModuleInterop": true,
+    // without * as
+    "allowSyntheticDefaultImports": true
+  },
+  "ts-node": {
+    "compilerOptions": {
+      "module": "CommonJS"
+    }
+  }
+}
