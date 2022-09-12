@@ -10,6 +10,7 @@
     "jsx": "react",
     // The compiler will process not only ts but also js files
     "allowJs": true,
+    "baseUrl": ".",
     "moduleResolution": "node",
     // instead of require(), but with * as
     "esModuleInterop": true,
