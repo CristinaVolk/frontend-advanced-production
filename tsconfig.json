@@ -1,13 +1,12 @@
 {
   "compilerOptions": {
     "outDir": "./dist/",
-
     // does not mean that any is not possible to use; it should be used explicitly
     "noImplicitAny": true,
     "module": "ESNext",
     // Points what specification the app is compiled in for browser support
     "target": "es5",
-    "jsx": "react",
+    "jsx": "react-jsx",
     // The compiler will process not only ts but also js files
     "allowJs": true,
     // "baseUrl": ".",
