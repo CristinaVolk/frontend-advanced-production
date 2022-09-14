@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-import './Counter.css'
+import classes from './Counter.module.css'
 
 export const Counter = () => {
 
@@ -10,10 +10,10 @@ export const Counter = () => {
     }
 
     return (
-        <div>
-            <h1>{count}</h1>
-            <button className="increment-btn" onClick={increment}>Increment</button>
-        </div>
+        <>
+            <h1 className={classes.count}>{count}</h1>
+            <button className={classes.incrementBtn} onClick={increment}>Increment</button>
+        </>
     );
 };
 

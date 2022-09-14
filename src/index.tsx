@@ -1,10 +1,7 @@
 import {render} from 'react-dom';
-import {Counter} from "./components/Counter/Counter";
+import App from "./App";
 
 render(
-	<div>
-		<strong>Hello Ulbi TV</strong>
-		<Counter />
-	</div>,
+	<App />,
 	document.getElementById('root')
 )
