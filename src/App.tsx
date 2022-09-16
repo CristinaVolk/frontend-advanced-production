@@ -5,14 +5,15 @@ import {AboutPageAsync} from "./pages/AboutPage/AboutPage.async";
 import {MainPageAsync} from "./pages/MainPage/MainPage.async";
 import {useTheme} from "./theme/useTheme";
 import './styles/index.scss'
+import {classNames} from "./helpers/classNames";
 
 
 function App() {
 
-const {theme, toggleTheme} = useTheme();
+	const {theme, toggleTheme} = useTheme();
 
 	return (
-		<div className={`app ${theme}`}>
+		<div className={classNames('app', {dark: true}, [theme])}>
 			<button onClick={toggleTheme}>Change Theme</button>
 			<Suspense fallback={<h1>Loading...</h1>}>
 				<Link to={'/'}>Main</Link>
@@ -22,7 +23,6 @@ const {theme, toggleTheme} = useTheme();
 					<Route path={'/about'} element={<AboutPageAsync />} />
 				</Routes>
 			</Suspense>
-
 		</div>
 	);
 }
