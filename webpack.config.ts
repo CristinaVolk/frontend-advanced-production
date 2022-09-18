@@ -13,7 +13,8 @@ export default (env: BuildEnvVar) => {
 	const paths: BuildPaths = {
 		entry: path.resolve(__dirname, 'src', 'index'),
 		dist: path.resolve(__dirname, 'dist'),
-		html: path.resolve(__dirname, 'public', 'index.html')
+		html: path.resolve(__dirname, 'public', 'index.html'),
+		src: path.resolve(__dirname, 'src')
 	}
 
 	const config: webpack.Configuration = buildWebpackConfig({
