@@ -1,4 +1,4 @@
-@import "variables/global.scss";
+@import "variables/global";
 @import "themes/dark";
 @import "themes/light";
 @import "reset";
@@ -10,4 +10,11 @@
     color: var(--primary-color);
 
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px;
+}
+
+button {
+    width: fit-content;
 }

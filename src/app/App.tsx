@@ -1,27 +1,25 @@
-import {Suspense} from 'react';
-import {Link, Route, Routes} from "react-router-dom";
+import {Link} from "react-router-dom";
+import React, {Suspense} from "react";
 
-import {AboutPageAsync} from "pages/AboutPage/ui/AboutPage.async";
-import {MainPageAsync} from "pages/MainPage/ui/MainPage.async";
 import {useTheme} from "app/providers/ThemeProvider";
+import {AppRouter} from "app/providers/router";
+
+import {AppRoutes, RoutePaths} from "shared/config/routes";
 import {classNames} from "shared/lib/classNames";
+
 import './styles/index.scss'
 
 
 function App() {
-
 	const {theme, toggleTheme} = useTheme();
 
 	return (
 		<div className={classNames('app', {dark: true}, [theme])}>
 			<button onClick={toggleTheme}>Change Theme</button>
 			<Suspense fallback={<h1>Loading...</h1>}>
-				<Link to={'/'}>Main</Link>
-				<Link to={'/about'}>About</Link>
-				<Routes>
-					<Route path={'/'} element={<MainPageAsync />} />
-					<Route path={'/about'} element={<AboutPageAsync />} />
-				</Routes>
+				<Link to={RoutePaths[AppRoutes.MAIN]}>Main</Link>
+				<Link to={RoutePaths[AppRoutes.ABOUT]}>About</Link>
+			<AppRouter />
 			</Suspense>
 		</div>
 	);
