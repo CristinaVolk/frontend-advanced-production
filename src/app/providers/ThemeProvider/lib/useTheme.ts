@@ -2,12 +2,12 @@ import {useContext} from "react";
 
 import {LOCAL_STORAGE_THEME_KEY, ThemeContext, ThemeEnum} from "./ThemeContext";
 
-interface IUseThemeHook {
+interface UseThemeHook {
 	theme: ThemeEnum;
 	toggleTheme: () => void;
 }
 
-export function useTheme(): IUseThemeHook {
+export function useTheme(): UseThemeHook {
 	const {theme, setTheme} = useContext(ThemeContext)
 
 	const toggleTheme = () => {

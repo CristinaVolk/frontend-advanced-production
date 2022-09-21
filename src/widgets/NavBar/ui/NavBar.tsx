@@ -2,11 +2,10 @@ import React from 'react';
 
 import {AppRoutes, RoutePaths} from "shared/config/routes";
 import {classNames} from "shared/lib/classNames";
-import {AppLink} from "shared/ui";
-import {AppLinkTheme} from "shared/ui/AppLink/AppLink";
+import {AppLink, AppLinkTheme} from "shared/ui/AppLink/ui/AppLink";
+import {ThemeSwitcher} from "shared/ui/ThemeSwitcher";
 
 import classes from './NavBar.module.scss'
-
 
 interface NavBarProps {
 	className?: string;
@@ -14,7 +13,9 @@ interface NavBarProps {
 
 export const NavBar = ({className}: NavBarProps) => {
 	return (
-		<div className={classNames(classes.navbar, {}, [className])}>
+		<div className={classNames(classes.NavBar, {}, [className])}>
+			<ThemeSwitcher />
+
 			<div className={classes.links}>
 				<AppLink
 					theme={AppLinkTheme.PRIMARY}
