@@ -5,9 +5,9 @@ import webpack from "webpack";
 import {BuildOptions} from "./types/optionsConfig";
 
 
-type buildPluginsType = ({ paths }: BuildOptions) => webpack.WebpackPluginInstance[];
+type buildPluginsType = ({ paths, isDev }: BuildOptions) => webpack.WebpackPluginInstance[];
 
-export const buildPlugins: buildPluginsType = ({paths}) => {
+export const buildPlugins: buildPluginsType = ({paths, isDev}) => {
 	return [
 		new HtmlWebpackPlugin({
 				template: paths.html
@@ -17,5 +17,8 @@ export const buildPlugins: buildPluginsType = ({paths}) => {
 			filename: 'css/[name].[contenthash:8].css',
 			chunkFilename: 'css/[name].[contenthash:8].css'
 		}),
+		new webpack.DefinePlugin({
+			__IS_DEV__: JSON.stringify(isDev)
+		})
 	]
 }
