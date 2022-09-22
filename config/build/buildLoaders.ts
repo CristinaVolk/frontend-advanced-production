@@ -43,6 +43,25 @@ export const buildLoaders: buildLoadersType = (options) => {
 		]
 	}
 
+	const babelLoader = {
+		test: /\.(js|jsx|tsx)$/,
+		use: {
+			loader: 'babel-loader',
+			options: {
+				presets: ['@babel/preset-env'],
+				"plugins": [
+					[
+						"i18next-extract",
+						{
+							locales: ['ru', 'en']
+						}
+					]
+				]
+			}
+		},
+		exclude: /node_modules/,
+	}
+
 	const tsLoader = {
 		test: /\.tsx?$/,
 		use: 'ts-loader',
@@ -52,6 +71,7 @@ export const buildLoaders: buildLoadersType = (options) => {
 	return [
 		fileLoader,
 		svgLoader,
+		babelLoader,
 		tsLoader,
 		cssLoader,
 	]
