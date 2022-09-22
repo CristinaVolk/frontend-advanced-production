@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {classNames} from "shared/lib/classNames";
-import {Button, ThemeButton} from "shared/ui/Button";
+import {Button, ThemeButton} from "shared/ui/Button/Button";
 
 import {ThemeEnum, useTheme} from "app/providers/ThemeProvider";
 

@@ -2,7 +2,7 @@ import React from 'react';
 
 import {AppRoutes, RoutePaths} from "shared/config/routes/routes";
 import {classNames} from "shared/lib/classNames";
-import {AppLink, AppLinkTheme} from "shared/ui/AppLink/ui/AppLink";
+import {AppLink, AppLinkTheme} from "shared/ui/AppLink/AppLink";
 
 import classes from './NavBar.module.scss'
 

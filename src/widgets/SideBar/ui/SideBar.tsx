@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 
 import {classNames} from "shared/lib/classNames";
+import {Button, ThemeButton} from "shared/ui/Button/Button";
 
 import {ThemeSwitcher} from "widgets/ThemeSwitcher";
 import {LangSwitcher} from "widgets/LangSwitcher";
@@ -26,7 +27,19 @@ export const SideBar = ({className}: SideBarProps) => {
 				[className]
 			)
 		}>
-			<button onClick={onToggle}>Toggle</button>
+			<Button className={
+				classNames(
+					classes.toggle,
+					{[classes.toggleBtnCollapsed]: collapsed},
+					[]
+				)
+			}
+					theme={ThemeButton.CLEAR}
+					onClick={onToggle}
+			>
+				Toggle
+			</Button>
+
 			<div className={
 				classNames(
 					classes.switchers,
