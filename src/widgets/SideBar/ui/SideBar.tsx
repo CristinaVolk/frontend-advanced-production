@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { classNames } from 'shared/lib/classNames';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
@@ -14,6 +15,7 @@ interface SideBarProps {
 
 export function SideBar({ className }: SideBarProps) {
   const [collapsed, setCollapsed] = useState<boolean>(false);
+  const { t } = useTranslation();
 
   const onToggle = () => {
     setCollapsed((prevState) => !prevState);
@@ -39,7 +41,7 @@ export function SideBar({ className }: SideBarProps) {
                  theme={ThemeButton.CLEAR}
                  onClick={onToggle}
             >
-                 Toggle
+                 {t('toggle')}
             </Button>
 
             <div className={

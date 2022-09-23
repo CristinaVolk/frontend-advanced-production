@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { AppRoutes, RoutePaths } from 'shared/config/routes/routes';
 import { classNames } from 'shared/lib/classNames';
@@ -11,6 +12,8 @@ interface NavBarProps {
 }
 
 export function NavBar({ className }: NavBarProps) {
+  const { t } = useTranslation();
+
   return (
        <div className={classNames(classes.NavBar, {}, [className])}>
             <div className={classes.links}>
@@ -19,14 +22,14 @@ export function NavBar({ className }: NavBarProps) {
                       className={classes.mainLink}
                       to={RoutePaths[AppRoutes.MAIN]}
                  >
-                      Main
+                      {t('main')}
                  </AppLink>
                  <AppLink
                       theme={AppLinkTheme.INVERTED}
                       className={classes.mainLink}
                       to={RoutePaths[AppRoutes.ABOUT]}
                  >
-                      About
+                      {t('about')}
                  </AppLink>
             </div>
        </div>

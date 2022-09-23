@@ -1,18 +1,18 @@
 .NavBar {
-  width: 100%;
-  height: var(--navbar-height);
-  background: var(--bar-bg-color);
-  display: flex;
-  align-items: center;
-  padding: 20px;
+    width: 100%;
+    height: var(--navbar-height);
+    background: var(--bar-bg-color);
+    display: flex;
+    align-items: center;
+    padding: 20px;
 }
 
 .links {
-  margin-left: auto;
-  display: flex;
-  gap: 15px;
+    margin-left: auto;
+    display: flex;
+    gap: 15px;
 }
 
 .mainLink {
-  margin-right: 15px;
+    margin-right: 15px;
 }

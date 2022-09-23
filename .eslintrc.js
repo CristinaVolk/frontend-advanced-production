@@ -4,10 +4,11 @@ module.exports = {
     es2021: true,
   },
   extends: [
-    'plugin:react/recommended',
-    'airbnb',
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:react/recommended',
+    'airbnb',
+    'plugin:i18next/recommended',
   ],
   overrides: [
   ],
@@ -18,9 +19,10 @@ module.exports = {
   plugins: [
     'react',
     '@typescript-eslint',
+    'i18next',
   ],
   rules: {
-    'import/no-unresolved': 'off',
+    'import/no-unresolved': [0],
     'react/jsx-indent': [2, 5],
     'react/jsx-indent-props': [2, 5],
     'no-tabs': [0],
@@ -34,6 +36,9 @@ module.exports = {
     'no-shadow': [0],
     'react/react-in-jsx-scope': [0],
     'no-underscore-dangle': [0],
+    'i18next/no-literal-string': [2, { markupOnly: true }],
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': ['error'],
   },
   globals: {
     __IS_DEV__: true,

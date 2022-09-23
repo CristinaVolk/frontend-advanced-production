@@ -1,11 +1,8 @@
-import React from 'react';
-
 import { classNames } from 'shared/lib/classNames';
-import { Button } from 'shared/ui/Button/Button';
+import { Button, ThemeButton } from 'shared/ui/Button/Button';
 
 import { ThemeEnum, useTheme } from 'app/providers/ThemeProvider';
 
-import { ThemeButton } from 'shared/ui/Button/ThemeButton';
 import IconLightTheme from '../../../shared/assets/icons/theme-light.svg';
 import IconDarkTheme from '../../../shared/assets/icons/theme-dark.svg';
 

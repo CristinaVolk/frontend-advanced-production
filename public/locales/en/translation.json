@@ -1,5 +1,7 @@
 {
   "translate": "translate",
   "main": "Main Page",
-  "language": "English"
+  "language": "English",
+  "loading": "Loading",
+  "toggle": "toggle"
 }
