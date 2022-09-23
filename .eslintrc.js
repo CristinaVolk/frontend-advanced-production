@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    jest: true,
   },
   extends: [
     'eslint:recommended',
@@ -37,6 +38,7 @@ module.exports = {
     'react/react-in-jsx-scope': [0],
     'no-underscore-dangle': [0],
     'i18next/no-literal-string': [2, { markupOnly: true }],
+    'max-len': [2, { ignoreComments: true }],
     'no-unused-vars': 'off',
     '@typescript-eslint/no-unused-vars': ['error'],
   },
