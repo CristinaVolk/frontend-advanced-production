@@ -10,7 +10,7 @@ import { LangSwitcher } from 'widgets/LangSwitcher';
 import classes from './SideBar.module.scss';
 
 interface SideBarProps {
-	className: string;
+	className?: string;
 }
 
 export function SideBar({ className }: SideBarProps) {
@@ -31,15 +31,15 @@ export function SideBar({ className }: SideBarProps) {
           }
        >
             <Button
-                 className={
+               className={
                          classNames(
 				  classes.toggle,
 				  { [classes.toggleBtnCollapsed]: collapsed },
 				  [],
                          )
                     }
-                 theme={ThemeButton.CLEAR}
-                 onClick={onToggle}
+               theme={ThemeButton.CLEAR}
+               onClick={onToggle}
             >
                  {t('toggle')}
             </Button>

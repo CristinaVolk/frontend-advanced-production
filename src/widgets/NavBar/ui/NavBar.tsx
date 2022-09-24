@@ -18,16 +18,16 @@ export function NavBar({ className }: NavBarProps) {
        <div className={classNames(classes.NavBar, {}, [className])}>
             <div className={classes.links}>
                  <AppLink
-                      theme={AppLinkTheme.PRIMARY}
-                      className={classes.mainLink}
-                      to={RoutePaths[AppRoutes.MAIN]}
+                    theme={AppLinkTheme.PRIMARY}
+                    className={classes.mainLink}
+                    to={RoutePaths[AppRoutes.MAIN]}
                  >
                       {t('main')}
                  </AppLink>
                  <AppLink
-                      theme={AppLinkTheme.INVERTED}
-                      className={classes.mainLink}
-                      to={RoutePaths[AppRoutes.ABOUT]}
+                    theme={AppLinkTheme.PRIMARY}
+                    className={classes.mainLink}
+                    to={RoutePaths[AppRoutes.ABOUT]}
                  >
                       {t('about')}
                  </AppLink>

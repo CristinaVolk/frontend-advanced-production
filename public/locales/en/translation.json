@@ -1,7 +1,9 @@
 {
   "translate": "translate",
-  "main": "Main Page",
+  "main": "Main",
+  "about": "About",
   "language": "English",
   "loading": "Loading",
-  "toggle": "toggle"
+  "toggle": "toggle",
+  "not-found-page": "Sorry, the page is not found"
 }

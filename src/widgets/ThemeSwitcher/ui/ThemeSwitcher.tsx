@@ -17,9 +17,9 @@ export function ThemeSwitcher({ className }: ThemeSwitcherProps) {
 
   return (
        <Button
-            theme={ThemeButton.CLEAR}
-            className={classNames(classes.ThemeSwitcher, {}, [className])}
-            onClick={toggleTheme}
+          theme={ThemeButton.CLEAR}
+          className={classNames(classes.ThemeSwitcher, {}, [className])}
+          onClick={toggleTheme}
        >
             {theme === ThemeEnum.LIGHT ? <IconLightTheme /> : <IconDarkTheme />}
        </Button>
