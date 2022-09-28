@@ -5,5 +5,7 @@
   "language": "English",
   "loading": "Loading",
   "toggle": "toggle",
-  "not-found-page": "Sorry, the page is not found"
+  "not-found-page": "Sorry, the page is not found",
+  "test": "test"
+
 }
