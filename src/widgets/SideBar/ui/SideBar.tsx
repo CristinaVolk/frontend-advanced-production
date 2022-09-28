@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { classNames } from 'shared/lib/classNames';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
 
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher';
+
+import { classNames } from 'shared/lib/classNames';
 
 import classes from './SideBar.module.scss';
 
@@ -22,7 +23,9 @@ export function SideBar({ className }: SideBarProps) {
   };
 
   return (
-       <div className={
+       <div
+          data-testid="sidebar"
+          className={
                classNames(
 			     classes.SideBar,
 			  { [classes.collapsed]: collapsed },
@@ -31,6 +34,7 @@ export function SideBar({ className }: SideBarProps) {
           }
        >
             <Button
+               data-testid="sidebar-toggle"
                className={
                          classNames(
 				  classes.toggle,
