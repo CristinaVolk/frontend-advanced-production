@@ -53,7 +53,7 @@ module.exports = {
       },
     ],
     'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': [1],
+    '@typescript-eslint/no-unused-vars': [2],
   },
   globals: {
     __IS_DEV__: true,
