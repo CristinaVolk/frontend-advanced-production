@@ -38,7 +38,8 @@ module.exports = {
     'no-shadow': [0],
     'react/react-in-jsx-scope': [0],
     'no-underscore-dangle': [0],
-    'i18next/no-literal-string': [2,
+    'i18next/no-literal-string': [
+      2,
       {
         markupOnly: true,
         ignoreAttribute: ['data-testid'],
@@ -52,7 +53,7 @@ module.exports = {
       },
     ],
     'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': ['error'],
+    '@typescript-eslint/no-unused-vars': [1],
   },
   globals: {
     __IS_DEV__: true,
