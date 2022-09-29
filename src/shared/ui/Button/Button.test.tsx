@@ -1,16 +1,14 @@
+import { Button, ThemeButton } from 'shared/ui/Button/Button';
 import { render, screen } from '@testing-library/react';
-import { Button, ThemeButton } from './Button';
-import i18n from '../../config/i18n/i18n';
-import { renderWithTranslations } from '../../../helpers/tests/renderWithTranslations';
 
 describe('Button test', () => {
   test('component render', () => {
-    renderWithTranslations(
+    render(
          <Button
-            theme={ThemeButton.CLEAR}
             className="btn"
+            theme={ThemeButton.CLEAR}
          >
-              {i18n.t('test')}
+              test
          </Button>,
     );
     // screen.debug();
