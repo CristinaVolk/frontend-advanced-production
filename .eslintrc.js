@@ -34,7 +34,7 @@ module.exports = {
     'react/jsx-filename-extension': [0],
     'no-mixed-spaces-and-tabs': [0],
     'react/function-component-definition': [0],
-    'react/jsx-props-no-spreading': [1],
+    'react/jsx-props-no-spreading': [0],
     'no-shadow': [0],
     'react/react-in-jsx-scope': [0],
     'no-underscore-dangle': [0],
@@ -42,7 +42,7 @@ module.exports = {
       2,
       {
         markupOnly: true,
-        ignoreAttribute: ['data-testid'],
+        ignoreAttribute: ['data-testid', 'to'],
       },
     ],
     'max-len': [2,

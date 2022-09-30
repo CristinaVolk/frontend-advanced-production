@@ -41,7 +41,7 @@ export function SideBar({ className }: SideBarProps) {
 				  [],
                          )
                     }
-               theme={ThemeButton.CLEAR}
+               theme={ThemeButton.CREATIVE}
                onClick={onToggle}
             >
                  {t('toggle')}

@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 
 import { classNames } from 'shared/lib/classNames';
 import { Button, ThemeButton } from 'shared/ui/Button/Button';
-
 import classes from './PageError.module.scss';
 
 interface PageErrorProps {
@@ -20,7 +19,7 @@ export const PageError = ({ className }: PageErrorProps) => {
        <div className={classNames(classes.PageError, {}, [className])}>
             <Button
                onClick={onRefresh}
-               theme={ThemeButton.CLEAR}
+               theme={ThemeButton.CREATIVE}
             >
                  {t('refresh')}
             </Button>
