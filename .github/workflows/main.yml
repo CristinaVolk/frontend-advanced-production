@@ -30,7 +30,7 @@ jobs:
       - name: build storybook
         run: npm run build:storybook
       - name: screenshot testing
-        run: test:ui:ci
+        run: npm run test:ui:ci
 
 
 
