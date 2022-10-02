@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { classNames } from 'shared/lib/classNames';
 
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
@@ -15,7 +14,6 @@ interface SideBarProps {
 
 export function SideBar({ className }: SideBarProps) {
   const [collapsed, setCollapsed] = useState<boolean>(false);
-  const { t } = useTranslation();
 
   const onToggle = () => {
     setCollapsed((prevState) => !prevState);
@@ -35,16 +33,14 @@ export function SideBar({ className }: SideBarProps) {
             <Button
                data-testid="sidebar-toggle"
                className={
-                         classNames(
-				  classes.toggle,
-				  { [classes.toggleBtnCollapsed]: collapsed },
-				  [],
-                         )
+                         classNames(classes.toggle, {}, [ButtonTheme.ROUNDED])
                     }
-               theme={ThemeButton.CREATIVE}
+               theme={ButtonTheme.BACKGROUND}
+               square
+               size={ButtonSize.M}
                onClick={onToggle}
             >
-                 {t('toggle')}
+                 {collapsed ? '>' : '<' }
             </Button>
 
             <div className={

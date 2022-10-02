@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/classNames';
-import { Button, ThemeButton } from 'shared/ui/Button/Button';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 
 import { ThemeEnum, useTheme } from 'app/providers/ThemeProvider';
 
@@ -17,7 +17,7 @@ export function ThemeSwitcher({ className }: ThemeSwitcherProps) {
 
   return (
        <Button
-          theme={ThemeButton.CLEAR}
+          theme={ButtonTheme.CLEAR}
           className={classNames(classes.ThemeSwitcher, {}, [className])}
           onClick={toggleTheme}
        >
