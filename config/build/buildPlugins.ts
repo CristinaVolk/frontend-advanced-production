@@ -13,7 +13,7 @@ export const buildPlugins: buildPluginsType = ({ paths, isDev }) => [
     template: paths.html,
   }),
   new webpack.ProgressPlugin(),
-  isDev && new MiniCssExtractPlugin({
+  !isDev && new MiniCssExtractPlugin({
     filename: 'css/[name].[contenthash:8].css',
     chunkFilename: 'css/[name].[contenthash:8].css',
   }),
