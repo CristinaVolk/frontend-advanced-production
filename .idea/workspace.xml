@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e725b3b2-48f8-4e91-8706-1f4e96612e43" name="Changes" comment="3.27 CI pipeline. build storybook &amp; testing loki for CI with checks [added]">
+      <change afterPath="$PROJECT_DIR$/storybook-static/229.b211cf78.iframe.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/229.c634ce48bab98905baf3.manager.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/273.5c4b7247.iframe.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/273.5c4b7247.iframe.bundle.js.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/295.83cefc65a5af03d7436a.manager.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/330.7e2cab0d.iframe.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/330.7e2cab0d.iframe.bundle.js.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/409.e03547505fc0fe557360.manager.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/409.e03547505fc0fe557360.manager.bundle.js.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/51.2adba5cf.iframe.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/51.2adba5cf.iframe.bundle.js.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/51.6bc2f85cd58025edcc43.manager.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/51.6bc2f85cd58025edcc43.manager.bundle.js.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/551.e6ce79b614a3e481e4d7.manager.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/551.f0c73925.iframe.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/701.3e71a4d4.iframe.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/807.5a5b2f1c.iframe.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/807.5a5b2f1c.iframe.bundle.js.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/807.d1517d61182590b84b92.manager.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/807.d1517d61182590b84b92.manager.bundle.js.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/897.328317e6.iframe.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/897.328317e6.iframe.bundle.js.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/897.dac2c83fb40c2f1aafaa.manager.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/897.dac2c83fb40c2f1aafaa.manager.bundle.js.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/935.1f6b99484e321efbf934.manager.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/935.d3ff0f51.iframe.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/iframe.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/main.00a3749d.iframe.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/main.3c26f59b999de0d8e1d0.manager.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/project.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/runtime~main.e4a4c4c8101d4a83d7c8.manager.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storybook-static/runtime~main.eafc6726.iframe.bundle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/main.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="TypeScript JSX File" />
+        <option value="SCSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="develop-module-fix" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2EWrq8Q000E5Ut4iXLdDUlN9HYn" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/kvolk/WebstormProjects/advanced-frontend&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;/Users/kvolk/WebstormProjects/advanced-frontend/node_modules/stylelint&quot;,
+    &quot;nodejs.jest.jest_package&quot;: &quot;/Users/kvolk/WebstormProjects/advanced-frontend/node_modules/jest&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;actions.on.save&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/kvolk/WebstormProjects/advanced-frontend/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/public/locales/en" />
+      <recent name="$PROJECT_DIR$/public/locales/ru" />
+      <recent name="$PROJECT_DIR$/config/build" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/shared/config/storybook/decorators" />
+      <recent name="$PROJECT_DIR$/src/shared/config/storybook" />
+      <recent name="$PROJECT_DIR$/config" />
+      <recent name="$PROJECT_DIR$/config/jest" />
+      <recent name="$PROJECT_DIR$/src/shared/ui/Button" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Jest.Button test.theme clear">
+    <configuration name="Button test.component render" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/shared/ui/Button/Button.test.tsx" />
+      <test-names>
+        <test-name value="Button test" />
+        <test-name value="component render" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Button test.theme clear" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/shared/ui/Button/Button.test.tsx" />
+      <test-names>
+        <test-name value="Button test" />
+        <test-name value="theme clear" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="classname style test" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/shared/lib/classNames.test.ts" />
+      <test-names>
+        <test-name value="classname style test" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="index.tsx" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="index.tsx" working-dir="$PROJECT_DIR$/src">
+      <method v="2" />
+    </configuration>
+    <configuration name="test.ts" type="NodeJSConfigurationType" temporary="true" nameIsGenerated="true" path-to-js-file="$PROJECT_DIR$/src/test.ts" working-dir="$PROJECT_DIR$/src">
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Jest.Button test.component render" />
+      <item itemvalue="Jest.Button test.theme clear" />
+      <item itemvalue="Jest.classname style test" />
+      <item itemvalue="Node.js.index.tsx" />
+      <item itemvalue="Node.js.test.ts" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Jest.Button test.theme clear" />
+        <item itemvalue="Jest.Button test.component render" />
+        <item itemvalue="Jest.classname style test" />
+        <item itemvalue="Node.js.test.ts" />
+        <item itemvalue="Node.js.index.tsx" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e725b3b2-48f8-4e91-8706-1f4e96612e43" name="Changes" comment="" />
+      <created>1662722370213</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1662722370213</updated>
+      <workItem from="1662722373553" duration="340000" />
+      <workItem from="1662722719390" duration="1121000" />
+      <workItem from="1662732734950" duration="1421000" />
+      <workItem from="1662737523924" duration="598000" />
+      <workItem from="1662909619417" duration="19000" />
+      <workItem from="1662919054692" duration="23000" />
+      <workItem from="1662919099088" duration="2320000" />
+      <workItem from="1662978008758" duration="9434000" />
+      <workItem from="1662991700097" duration="653000" />
+      <workItem from="1663067637703" duration="2422000" />
+      <workItem from="1663070163081" duration="2091000" />
+      <workItem from="1663072576560" duration="1860000" />
+      <workItem from="1663074592331" duration="1882000" />
+      <workItem from="1663076665056" duration="1556000" />
+      <workItem from="1663079352254" duration="643000" />
+      <workItem from="1663086532110" duration="1252000" />
+      <workItem from="1663162472441" duration="7348000" />
+      <workItem from="1663175228372" duration="2645000" />
+      <workItem from="1663344669789" duration="9000" />
+      <workItem from="1663344707106" duration="1444000" />
+      <workItem from="1663357198307" duration="7728000" />
+      <workItem from="1663367357815" duration="2774000" />
+      <workItem from="1663494160719" duration="2712000" />
+      <workItem from="1663684980695" duration="11534000" />
+      <workItem from="1663712219548" duration="4666000" />
+      <workItem from="1663757026291" duration="11973000" />
+      <workItem from="1663774882063" duration="8814000" />
+      <workItem from="1663799104145" duration="1361000" />
+      <workItem from="1663852412029" duration="2764000" />
+      <workItem from="1663860389230" duration="599000" />
+      <workItem from="1663862034684" duration="212000" />
+      <workItem from="1663862643321" duration="2187000" />
+      <workItem from="1663887013783" duration="268000" />
+      <workItem from="1663887289974" duration="2753000" />
+      <workItem from="1663934065978" duration="2160000" />
+      <workItem from="1663937416947" duration="725000" />
+      <workItem from="1663938190136" duration="5966000" />
+      <workItem from="1663945182458" duration="8671000" />
+      <workItem from="1664037197405" duration="8979000" />
+      <workItem from="1664213236485" duration="6453000" />
+      <workItem from="1664232734380" duration="4496000" />
+      <workItem from="1664318601297" duration="845000" />
+      <workItem from="1664384576045" duration="6359000" />
+      <workItem from="1664391684728" duration="231000" />
+      <workItem from="1664399856969" duration="3496000" />
+      <workItem from="1664405124095" duration="1443000" />
+      <workItem from="1664406594652" duration="415000" />
+      <workItem from="1664407044978" duration="1545000" />
+      <workItem from="1664456720936" duration="2175000" />
+      <workItem from="1664459734898" duration="2805000" />
+      <workItem from="1664466825780" duration="571000" />
+      <workItem from="1664467430899" duration="202000" />
+      <workItem from="1664467699131" duration="258000" />
+      <workItem from="1664467989964" duration="106000" />
+      <workItem from="1664468127486" duration="180000" />
+      <workItem from="1664468370083" duration="251000" />
+      <workItem from="1664468656257" duration="936000" />
+      <workItem from="1664470272172" duration="3471000" />
+      <workItem from="1664473998105" duration="80000" />
+      <workItem from="1664474084671" duration="146000" />
+      <workItem from="1664474264846" duration="232000" />
+      <workItem from="1664474505206" duration="467000" />
+      <workItem from="1664475118669" duration="76000" />
+      <workItem from="1664475210163" duration="49000" />
+      <workItem from="1664475281395" duration="84000" />
+      <workItem from="1664475379019" duration="138000" />
+      <workItem from="1664475527722" duration="145000" />
+      <workItem from="1664475686283" duration="79000" />
+      <workItem from="1664475774423" duration="587000" />
+      <workItem from="1664476378493" duration="98000" />
+      <workItem from="1664476488242" duration="54000" />
+      <workItem from="1664476552018" duration="1455000" />
+      <workItem from="1664478018836" duration="223000" />
+      <workItem from="1664478251504" duration="1586000" />
+      <workItem from="1664480302750" duration="2294000" />
+      <workItem from="1664491674854" duration="2673000" />
+      <workItem from="1664494400235" duration="201000" />
+      <workItem from="1664494611306" duration="379000" />
+      <workItem from="1664495032749" duration="1525000" />
+      <workItem from="1664547275273" duration="8380000" />
+      <workItem from="1664558421524" duration="5126000" />
+      <workItem from="1664563767046" duration="6619000" />
+      <workItem from="1664579911604" duration="3627000" />
+      <workItem from="1664584617569" duration="580000" />
+      <workItem from="1664649167918" duration="1634000" />
+      <workItem from="1664651036705" duration="6177000" />
+      <workItem from="1664712987988" duration="4555000" />
+    </task>
+    <task id="LOCAL-00001" summary="2.1 The beginning of development. Webpack config.Adding TS">
+      <created>1662983088782</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1662983088782</updated>
+    </task>
+    <task id="LOCAL-00002" summary="2.2 decomposition of the config and its options.">
+      <created>1662987050455</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1662987050456</updated>
+    </task>
+    <task id="LOCAL-00003" summary="2.3 Webpack-dev-server.Environment vars">
+      <created>1663073838608</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1663073838608</updated>
+    </task>
+    <task id="LOCAL-00004" summary="2.4 Implementing React and CSS into the webpack">
+      <created>1663077080065</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1663077080065</updated>
+    </task>
+    <task id="LOCAL-00005" summary="2.4 [fix]: build folder name [changed]&#10;proper files added to gitignore">
+      <created>1663079939299</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1663079939299</updated>
+    </task>
+    <task id="LOCAL-00006" summary="2.5 Setting up CSS modules">
+      <created>1663166720344</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1663166720344</updated>
+    </task>
+    <task id="LOCAL-00007" summary="2.6  Routing. Code splitting Lazy Suspense.">
+      <created>1663170560606</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1663170560609</updated>
+    </task>
+    <task id="LOCAL-00008" summary="2.7  Styles organising. Theme adding.">
+      <created>1663361288865</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1663361288865</updated>
+    </task>
+    <task id="LOCAL-00009" summary="2.8  Creating classNames function and initializing git repo.">
+      <created>1663365534807</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1663365534807</updated>
+    </task>
+    <task id="LOCAL-00010" summary="2.8  [fix] .idea [added] to gitignore">
+      <created>1663366577920</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1663366577920</updated>
+    </task>
+    <task id="LOCAL-00011" summary="2.9 Architecture. Implementation FSD. [theory]&#10;2.10 Architecture. Implementation FSD. [practice]">
+      <created>1663497204896</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1663497204896</updated>
+    </task>
+    <task id="LOCAL-00012" summary="3.11 AppRouter. Config for router">
+      <created>1663692878905</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1663692878905</updated>
+    </task>
+    <task id="LOCAL-00013" summary="3.12 Navbar. Templates for development. First UI Kit component">
+      <created>1663715885934</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1663715885934</updated>
+    </task>
+    <task id="LOCAL-00014" summary="2.13 Svg loader. File loader. Button UI kit.">
+      <created>1663771465257</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1663771465257</updated>
+    </task>
+    <task id="LOCAL-00015" summary="2.14 SideBar. App Layout. Theme Palette [updated]">
+      <created>1663777854186</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1663777854186</updated>
+    </task>
+    <task id="LOCAL-00016" summary="2.15 i18n Internalization. Define Plugin. Plugin for translating.">
+      <created>1663800451546</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1663800451546</updated>
+    </task>
+    <task id="LOCAL-00017" summary="2.16 Webpack hot module replacement. ui components [updated]&#10; public api [removed]">
+      <created>1663889399104</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1663889399104</updated>
+    </task>
+    <task id="LOCAL-00018" summary="2.17 Babel. Extract plugin [optional]">
+      <created>1663889422857</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1663889422857</updated>
+    </task>
+    <task id="LOCAL-00019" summary="2.18 Eslint init and configuration. Lint errors fixing">
+      <created>1663941520622</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1663941520622</updated>
+    </task>
+    <task id="LOCAL-00020" summary="2.19 Stylelint init and configuration. Stylelint errors fixing. Plugin for i18next.">
+      <created>1663947157543</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1663947157544</updated>
+    </task>
+    <task id="LOCAL-00021" summary="2.20 Testing environment. Jest setup. Tests for the classNames function [added]">
+      <created>1663973517027</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1663973517027</updated>
+    </task>
+    <task id="LOCAL-00022" summary="2.21 Not found routes. Loader components [added]">
+      <created>1664045755099</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1664045755100</updated>
+    </task>
+    <task id="LOCAL-00023" summary="3.23 ErrorBoundary. Error handling">
+      <created>1664237269459</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1664237269459</updated>
+    </task>
+    <task id="LOCAL-00024" summary="3.24 Plugin BundleAnalizer.&#10;overlay: false [added] to the RefreshReactPlugin">
+      <created>1664384977609</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1664384977610</updated>
+    </task>
+    <task id="LOCAL-00025" summary="3.24 React Testing Library. Tests for components">
+      <created>1664406835172</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1664406835172</updated>
+    </task>
+    <task id="LOCAL-00026" summary="3.24 React Testing Library. Tests for components">
+      <created>1664406847704</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1664406847704</updated>
+    </task>
+    <task id="LOCAL-00027" summary="3.24 import classes [fixing]">
+      <created>1664467245645</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1664467245645</updated>
+    </task>
+    <task id="LOCAL-00028" summary="3.24 import classes [fixing]">
+      <created>1664467482569</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1664467482569</updated>
+    </task>
+    <task id="LOCAL-00029" summary="3.24 import classes [fixing]">
+      <created>1664470548818</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1664470548818</updated>
+    </task>
+    <task id="LOCAL-00030" summary="3.24 import classes [fixing]">
+      <created>1664478679955</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1664478679956</updated>
+    </task>
+    <task id="LOCAL-00031" summary="3.24 import classes from .module.scss [fixed!]">
+      <created>1664580243067</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1664580243067</updated>
+    </task>
+    <task id="LOCAL-00032" summary="3.25 StoryBook setup. Decorators. Writing story cases for the components.">
+      <created>1664581087384</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1664581087385</updated>
+    </task>
+    <task id="LOCAL-00033" summary="3.26 Screenshot tests. Loki. Regression UI Testing.">
+      <created>1664585184492</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1664585184492</updated>
+    </task>
+    <task id="LOCAL-00034" summary="3.27 CI pipeline.&#10;[added] main.yml">
+      <created>1664666458124</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1664666458125</updated>
+    </task>
+    <task id="LOCAL-00035" summary="3.27 CI pipeline.&#10;install check [added]">
+      <created>1664667126827</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1664667126827</updated>
+    </task>
+    <task id="LOCAL-00036" summary="3.27 CI pipeline.&#10;install check [added]">
+      <created>1664667401683</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1664667401683</updated>
+    </task>
+    <task id="LOCAL-00037" summary="3.27 CI pipeline.&#10;install check [added]">
+      <created>1664667577501</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1664667577501</updated>
+    </task>
+    <task id="LOCAL-00038" summary="3.27 CI pipeline.&#10;other checks [added]">
+      <created>1664668172759</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1664668172759</updated>
+    </task>
+    <task id="LOCAL-00039" summary="3.27 CI pipeline. loki &#10;[updated]">
+      <created>1664716834510</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1664716834512</updated>
+    </task>
+    <task id="LOCAL-00040" summary="3.27 CI pipeline. loki &#10;[updated]">
+      <created>1664717046819</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1664717046820</updated>
+    </task>
+    <task id="LOCAL-00041" summary="3.27 CI pipeline. &#10;BundleAnalyzerPlugin starts on dev env [fixed]">
+      <created>1664717387090</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1664717387090</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="main.yml" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="2.9 Architecture. Implementation FSD. [theory]&#10;2.10 Architecture. Implementation FSD. [practice]" />
+    <MESSAGE value="3.11 AppRouter. Config for router" />
+    <MESSAGE value="3.12 Navbar. Templates for development. First UI Kit component" />
+    <MESSAGE value="2.13 Svg loader. File loader. Button UI kit." />
+    <MESSAGE value="2.14 SideBar. App Layout. Theme Palette [updated]" />
+    <MESSAGE value="2.15 i18n Internalization. Define Plugin. Plugin for translating." />
+    <MESSAGE value="2.16 Webpack hot module replacement. ui components [updated]&#10; public api [removed]" />
+    <MESSAGE value="2.17 Babel. Extract plugin [optional]" />
+    <MESSAGE value="2.18 Eslint init and configuration. Lint errors fixing" />
+    <MESSAGE value="2.19 Stylelint init and configuration. Stylelint errors fixing. Plugin for i18next." />
+    <MESSAGE value="2.20 Testing environment. Jest setup. Tests for the classNames function [added]" />
+    <MESSAGE value="2.21 Not found routes. Loader components [added]" />
+    <MESSAGE value="3.23 ErrorBoundary. Error handling" />
+    <MESSAGE value="3.24 Plugin BundleAnalizer.&#10;overlay: false [added] to the RefreshReactPlugin" />
+    <MESSAGE value="3.24 React Testing Library. Tests for components" />
+    <MESSAGE value="3.24 import classes [fixing]" />
+    <MESSAGE value="3.24 import classes from .module.scss [fixed!]" />
+    <MESSAGE value="3.25 StoryBook setup. Decorators. Writing story cases for the components." />
+    <MESSAGE value="3.26 Screenshot tests. Loki. Regression UI Testing." />
+    <MESSAGE value="3.27 CI pipeline.&#10;[added] main.yml" />
+    <MESSAGE value="3.27 CI pipeline.&#10;install check [added]" />
+    <MESSAGE value="3.27 CI pipeline.&#10;other checks [added]" />
+    <MESSAGE value="3.27 CI pipeline. loki &#10;[updated]" />
+    <MESSAGE value="3.27 CI pipeline. &#10;BundleAnalyzerPlugin starts on dev env [fixed]" />
+    <MESSAGE value="3.27 CI pipeline. build storybook &amp; testing loki for CI with checks [added]" />
+    <option name="LAST_COMMIT_MESSAGE" value="3.27 CI pipeline. build storybook &amp; testing loki for CI with checks [added]" />
+  </component>
+</project>

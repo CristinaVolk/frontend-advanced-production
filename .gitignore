@@ -1,4 +1,4 @@
-node_modules
-dist
-.idea
-extractedTranslations
+/node_modules
+/dist
+/storybook-static/
+/extractedTranslations/
