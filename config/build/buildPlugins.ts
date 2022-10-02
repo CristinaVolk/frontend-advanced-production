@@ -24,5 +24,5 @@ export const buildPlugins: buildPluginsType = ({ paths, isDev }) => [
   isDev && new ReactRefreshWebpackPlugin({
     overlay: false,
   }),
-  new BundleAnalyzerPlugin(),
+  isDev && new BundleAnalyzerPlugin(),
 ].filter(Boolean);
