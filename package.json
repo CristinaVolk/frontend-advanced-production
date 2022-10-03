@@ -16,7 +16,10 @@
     "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static --chromeDockerImage=yukinying/chrome-headless-browser-stable:latest",
     "test:ui:ci:ok": "npx loki approve",
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
-    "build:storybook": "build-storybook -c ./config/storybook"
+    "build:storybook": "build-storybook -c ./config/storybook",
+    "visual:report:json": "node scripts/generate-visual-json-report.js",
+    "visual:report:html": "reg-cli --from .loki/report.json --report .loki/report.html",
+    "visual:report:ui": "npm run visual:report:json && npm run visual:report:html"
   },
   "keywords": [],
   "author": "",

@@ -2,3 +2,5 @@
 /dist
 /storybook-static/
 /extractedTranslations/
+/.loki/report.json
+/.loki/report.html
