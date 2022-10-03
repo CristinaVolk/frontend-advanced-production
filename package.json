@@ -104,6 +104,7 @@
     "webpack-dev-server": "^4.7.4"
   },
   "loki": {
+    "diffingEngine": "pixelmatch",
     "configurations": {
       "chrome.laptop": {
         "target": "chrome.app",
