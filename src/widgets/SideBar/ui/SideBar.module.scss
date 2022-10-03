@@ -29,26 +29,26 @@
     display: flex;
     flex-direction: column;
     margin-top: 10px;
+}
 
-    .linkItem {
-        margin-left: 10px;
-        
-        .link {
-            display: flex;
-            align-items: center;
-            margin: 8px;
+.linkItem {
+    margin-left: 10px;
+}
 
-            .icon {
-                width: 24px;
-                height: 24px;
-            }
+.link {
+    display: flex;
+    align-items: center;
+    margin: 8px;
 
-            span {
-                margin-left: 8px;
-                opacity: 1;  
-                transition: width 0.2s;
-            }
-        }   
+    .icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    span {
+        margin-left: 8px;
+        opacity: 1;
+        transition: width 0.2s;
     }
 }
 
@@ -72,7 +72,3 @@
         }
     }
 }
-
-
-
-

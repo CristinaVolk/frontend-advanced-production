@@ -55,9 +55,7 @@ export function SideBar({ className }: SideBarProps) {
                          to={RoutePaths[AppRoutes.ABOUT]}
                       >
                            <AboutIcon className={classes.icon} />
-                           <span>
-                                {t('about')}
-                           </span>
+                           <span>{t('about')}</span>
                       </AppLink>
                  </div>
             </div>
