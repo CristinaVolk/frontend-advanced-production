@@ -1,11 +1,11 @@
 {
-  "translate": "translate",
-  "main": "Main",
-  "about": "About",
-  "language": "English",
-  "loading": "Loading",
-  "toggle": "toggle",
-  "not-found-page": "Sorry, the page is not found",
-  "test": "test"
-
+	"translate": "translate",
+	"main": "Main",
+	"about": "About",
+	"loading": "Loading",
+	"toggle": "toggle",
+	"not-found-page": "Sorry, the page is not found",
+	"test": "test",
+  "language-short": "En",
+  "language-long": "English"
 }
