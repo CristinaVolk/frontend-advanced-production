@@ -6,7 +6,7 @@ on:
     branches: [ master ]
 jobs:
   pipeline:
-    runs-on: macos-12
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [16.x]
