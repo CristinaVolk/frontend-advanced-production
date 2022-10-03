@@ -38,6 +38,8 @@ module.exports = {
     'no-shadow': [0],
     'react/react-in-jsx-scope': [0],
     'no-underscore-dangle': [0],
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': [2],
     'i18next/no-literal-string': [
       2,
       {
@@ -52,15 +54,13 @@ module.exports = {
 
       },
     ],
-    'no-unused-vars': 'off',
-    '@typescript-eslint/no-unused-vars': [2],
   },
   globals: {
     __IS_DEV__: true,
   },
   overrides: [
     {
-      files: ['**/src/**/*.test.{ts,tsx}'],
+      files: ['**/src/**/*.test.{ts,tsx,js}'],
       rules: {
         'i18next/no-literal-string': [0],
       },
