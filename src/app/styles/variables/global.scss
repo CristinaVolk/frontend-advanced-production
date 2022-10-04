@@ -1,4 +1,5 @@
 :root {
+    // Fonts
     --font-family-main: "Domaine Text";
     --font-size-m: 16px;
     --font-line-m: 24px;
@@ -12,7 +13,15 @@
     --font-line-xl: 40px;
     --font-weight-xl: 800;
     --font-xl: var(--font-size-xl) / var(--font-line-xl) / var(--font-weight-xl)  var(--font-family-main);
+
+    // Sizes
     --navbar-height: 50px;
     --sidebar-width: 300px;
     --sidebar-width-collapsed: 80px;
+
+    // z  Indexes
+    --modal-z-index: 10;
+
+    // colors
+    --overlay-color: rgba(0 0 0 / 60%);
 }
