@@ -1,5 +1,8 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+
+import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
+import { ThemeEnum } from 'app/providers/ThemeProvider';
 import MainPage from './MainPage';
 
 export default {
@@ -16,3 +19,7 @@ const Template: ComponentStory<typeof MainPage> = (args) => (
 
 export const LightAboutPage = Template.bind({});
 LightAboutPage.args = {};
+
+export const DarkAboutPage = Template.bind({});
+DarkAboutPage.args = {};
+DarkAboutPage.decorators = [ThemeDecorator(ThemeEnum.DARK)];
