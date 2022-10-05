@@ -4,3 +4,4 @@
 /.loki/report.json
 /.loki/report.html
 /storybook-static/
+/.idea/
