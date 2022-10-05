@@ -21,7 +21,7 @@ export const BugButton = () => {
   return (
 
        <Button
-          theme={ButtonTheme.CREATIVE}
+          theme={ButtonTheme.ROUNDED}
           onClick={onThrow}
        >
             {t('throw')}

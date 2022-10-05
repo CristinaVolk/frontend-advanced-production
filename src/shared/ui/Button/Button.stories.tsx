@@ -34,19 +34,6 @@ RoundedDark.args = {
 };
 RoundedDark.decorators = [ThemeDecorator(ThemeEnum.DARK)];
 
-export const CreativeDark = Template.bind({});
-CreativeDark.args = {
-  children: 'Creative',
-  theme: ButtonTheme.CREATIVE,
-};
-CreativeDark.decorators = [ThemeDecorator(ThemeEnum.DARK)];
-
-export const CreativeLight = Template.bind({});
-CreativeLight.args = {
-  children: 'Creative',
-  theme: ButtonTheme.CREATIVE,
-};
-
 export const Background = Template.bind({});
 Background.args = {
   children: 'Click',

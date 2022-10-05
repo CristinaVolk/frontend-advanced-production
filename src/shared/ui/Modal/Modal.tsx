@@ -5,16 +5,24 @@ import classes from './Modal.module.scss';
 
 interface ModalProps {
 	className?: string;
-    children: ReactNode
+    children: ReactNode;
+    isOpen?: boolean;
+    onClose?: () => void
 }
 
-export const Modal = ({ children, className }: ModalProps) => (
-     <div className={classNames(classes.Modal, {}, [className])}>
-          <div className={classes.overlay}>
-               <div className={classes.content}>
-                    {children}
-               </div>
-          </div>
+export const Modal = (props: ModalProps) => {
+  const {
+    className, children,
+  } = props;
 
-     </div>
-);
+  return (
+       <div className={classNames(classes.Modal, {}, [className])}>
+            <div className={classes.overlay}>
+                 <div className={classes.content}>
+                      {children}
+                 </div>
+            </div>
+
+       </div>
+  );
+};
