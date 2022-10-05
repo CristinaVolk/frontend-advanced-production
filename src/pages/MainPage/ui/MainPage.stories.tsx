@@ -17,9 +17,9 @@ const Template: ComponentStory<typeof MainPage> = (args) => (
      <MainPage {...(args as typeof MainPage)} />
 );
 
-export const LightAboutPage = Template.bind({});
-LightAboutPage.args = {};
+export const MainLight = Template.bind({});
+MainLight.args = {};
 
-export const DarkAboutPage = Template.bind({});
-DarkAboutPage.args = {};
-DarkAboutPage.decorators = [ThemeDecorator(ThemeEnum.DARK)];
+export const MainDark = Template.bind({});
+MainDark.args = {};
+MainDark.decorators = [ThemeDecorator(ThemeEnum.DARK)];
