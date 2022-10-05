@@ -24,9 +24,9 @@ jobs:
         run: npm run build:prod
         if: always()
 
-#      - name: linting typescript
-#        run: npm run lint:ts
-#        if: always()
+      - name: linting typescript
+        run: npm run lint:ts
+        if: always()
 #
 #      - name: linting css
 #        run: npm run stylelint:scss
