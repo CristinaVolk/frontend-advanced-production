@@ -40,8 +40,8 @@ jobs:
         run: npm run build:storybook
         if: always()
 
-      - name: screenshot testing
-        run: npm run test:ui:ci
+#      - name: screenshot testing
+#        run: npm run test:ui:ci
 
 
 
