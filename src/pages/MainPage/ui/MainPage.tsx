@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next';
-import { BugButton } from 'app/providers/ErrorBoundary';
 import { Modal } from 'shared/ui/Modal/Modal';
 
 function MainPage() {
@@ -8,7 +7,6 @@ function MainPage() {
   return (
        <>
             <h1>{t('main')}</h1>
-            <BugButton />
             <Modal><h1>{t('main')}</h1></Modal>
        </>
   );
