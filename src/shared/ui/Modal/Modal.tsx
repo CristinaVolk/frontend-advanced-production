@@ -6,7 +6,9 @@ import classes from './Modal.module.scss';
 interface ModalProps {
 	className?: string;
     children: ReactNode;
+  // eslint-disable-next-line react/no-unused-prop-types
     isOpen?: boolean;
+  // eslint-disable-next-line react/no-unused-prop-types
     onClose?: () => void
 }
 
