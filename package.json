@@ -13,12 +13,12 @@
     "stylelint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "test": "jest --config ./config/jest/jest.config.ts",
 
-    "test:ui": "npx loki test --chromeDockerImage=yukinying/chrome-headless-browser-stable",
-    "test:ui:ok": "npx loki approve --chromeDockerImage=yukinying/chrome-headless-browser-stable",
+    "test:ui": "npx loki test --chromeDockerImage=yukinying/chrome-headless-browser-stable:100.0.4896.127",
+    "test:ui:ok": "npx loki approve --chromeDockerImage=yukinying/chrome-headless-browser-stable:100.0.4896.127",
 
-    "test:ui:ci": "npx loki test --chromeDockerImage=yukinying/chrome-headless-browser-stable --requireReference --reactUri file:./storybook-static --reference=./.loki/reference",
-    "test:ui:ci:ok": "npx loki approve --chromeDockerImage=yukinying/chrome-headless-browser-stable --requireReference --reactUri file:./storybook-static --reference=./.loki/reference",
-    "test:ui:ci:update": "npx loki update --chromeDockerImage=yukinying/chrome-headless-browser-stable --requireReference --reactUri file:./storybook-static --reference=./.loki/reference",
+    "test:ui:ci": "npx loki test --chromeDockerImage=yukinying/chrome-headless-browser-stable:100.0.4896.127 --requireReference --reactUri file:./storybook-static",
+    "test:ui:ci:ok": "npx loki approve --chromeDockerImage=yukinying/chrome-headless-browser-stable:100.0.4896.127 --requireReference --reactUri file:./storybook-static",
+    "test:ui:ci:update": "npx loki update --chromeDockerImage=yukinying/chrome-headless-browser-stable:100.0.4896.127 --requireReference --reactUri file:./storybook-static",
 
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
     "build:storybook": "build-storybook -c ./config/storybook",
