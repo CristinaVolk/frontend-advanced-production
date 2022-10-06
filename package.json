@@ -111,9 +111,6 @@
     "webpack-dev-server": "^4.7.4"
   },
   "loki": {
-    "pixelmatch": {
-      "treshold": 1
-    },
     "configurations": {
       "chrome.laptop": {
         "target": "chrome.docker",
