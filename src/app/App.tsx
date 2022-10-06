@@ -7,6 +7,7 @@ import { NavBar } from 'widgets/NavBar';
 import { SideBar } from 'widgets/SideBar';
 
 import { classNames } from 'shared/lib/classNames';
+
 import './styles/index.scss';
 
 function App() {

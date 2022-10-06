@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-
-import { AppRoutes, RoutePaths } from 'shared/config/routes/routes';
 import { classNames } from 'shared/lib/classNames';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 
+import { Modal } from 'shared/ui/Modal/Modal';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { useTheme } from 'app/providers/ThemeProvider';
 import classes from './NavBar.module.scss';
 
 interface NavBarProps {
@@ -13,25 +13,29 @@ interface NavBarProps {
 
 export function NavBar({ className }: NavBarProps) {
   const { t } = useTranslation();
+  const [isAuthModal, setIsAuthModal] = useState(false);
+  const { theme } = useTheme();
+
+  const onToggleModal = useCallback(() => {
+    setIsAuthModal((prev) => !prev);
+  }, []);
 
   return (
        <div className={classNames(classes.NavBar, {}, [className])}>
-            <div className={classes.links}>
-                 <AppLink
-                    theme={AppLinkTheme.PRIMARY}
-                    className={classes.mainLink}
-                    to={RoutePaths[AppRoutes.MAIN]}
-                 >
-                      {t('main')}
-                 </AppLink>
-                 <AppLink
-                    theme={AppLinkTheme.PRIMARY}
-                    className={classes.mainLink}
-                    to={RoutePaths[AppRoutes.ABOUT]}
-                 >
-                      {t('about')}
-                 </AppLink>
-            </div>
+            <Button
+               className={classes.links}
+               theme={ButtonTheme.BACKGROUND}
+               onClick={onToggleModal}
+            >
+                 {t('Login')}
+            </Button>
+            <Modal
+               className={theme}
+               isOpen={isAuthModal}
+               onClose={onToggleModal}
+            >
+                 {t('Login')}
+            </Modal>
        </div>
   );
 }

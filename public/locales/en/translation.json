@@ -6,6 +6,8 @@
 	"toggle": "toggle",
 	"not-found-page": "Sorry, the page is not found",
 	"test": "test",
-  "language-short": "En",
-  "language-long": "English"
+    "language-short": "En",
+    "language-long": "English",
+	"Login": "Login"
+
 }

@@ -6,6 +6,7 @@
 	"toggle": "Переключить",
 	"not-found-page": "Извините, страница не найдена",
 	"test": "Test",
-  "language-short": "Ру",
-  "language-long": "Русский"
+    "language-short": "Ру",
+    "language-long": "Русский",
+    "Login": "Login"
 }

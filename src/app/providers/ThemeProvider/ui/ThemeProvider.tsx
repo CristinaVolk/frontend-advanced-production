@@ -4,8 +4,12 @@ import { LOCAL_STORAGE_THEME_KEY, ThemeContext, ThemeEnum } from '../lib/ThemeCo
 
 const defaultTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as ThemeEnum || ThemeEnum.LIGHT;
 
-export const ThemeProvider: FC = ({ children }) => {
-  const [theme, setTheme] = useState<ThemeEnum>(defaultTheme);
+interface ThemeProviderProps {
+  initialTheme: ThemeEnum
+}
+export const ThemeProvider: FC<ThemeProviderProps> = (props) => {
+  const { children, initialTheme } = props;
+  const [theme, setTheme] = useState<ThemeEnum>(initialTheme || defaultTheme);
 
   const defaultProps = useMemo(() => ({
     theme,
