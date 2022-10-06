@@ -13,13 +13,13 @@
     "stylelint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "test": "jest --config ./config/jest/jest.config.ts",
 
-    "test:ui": "npx loki test --chromeDockerImage=yukinying/chrome-headless-browser-stable:100.0.4896.127",
-    "test:ui:ok": "npx loki approve --chromeDockerImage=yukinying/chrome-headless-browser-stable:100.0.4896.127",
-    "test:ui:update": "npx loki update --chromeDockerImage=yukinying/chrome-headless-browser-stable:100.0.4896.127",
+    "test:ui": "npx loki test --chromeFlags=\"--headless --no-sandbox\"",
+    "test:ui:ok": "npx loki approve --chromeFlags=\"--headless --no-sandbox\"",
+    "test:ui:update": "npx loki update --chromeFlags=\"--headless --no-sandbox\"",
 
-    "test:ui:ci": "npx loki test --requireReference --reactUri file:./storybook-static --chromeFlags --headless --disable-gpu --hide-scrollbars",
-    "test:ui:ci:ok": "npx loki approve --chromeDockerImage=yukinying/chrome-headless-browser-stable:100.0.4896.127 --requireReference --reactUri file:./storybook-static",
-    "test:ui:ci:update": "npx loki update --chromeDockerImage=yukinying/chrome-headless-browser-stable:100.0.4896.127 --requireReference --reactUri file:./storybook-static",
+    "test:ui:ci": "npx loki test --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox\"",
+    "test:ui:ci:ok": "npx loki approve --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox\"",
+    "test:ui:ci:update": "npx loki update --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox\"",
 
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
     "build:storybook": "build-storybook -c ./config/storybook",
