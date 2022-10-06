@@ -16,12 +16,12 @@ export default {
 
 const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
 
-export const LightVersion = Template.bind({});
-LightVersion.args = {
+export const LightModal = Template.bind({});
+LightModal.args = {
   className: 'light',
 };
 
-export const DarkVersion = Template.bind({});
-DarkVersion.args = {
+export const DarkModal = Template.bind({});
+DarkModal.args = {
   className: 'dark',
 };
