@@ -24,14 +24,7 @@
 
     // colors
     --overlay-color: rgba(0 0 0 / 60%);
-
-    .dark {
-    }
-
-    .light {
-    }
 }
-
 
 .dark {
     --bg-color: #420516;
@@ -42,8 +35,7 @@
     --secondary-color: #b42b51;
     --inverted-primary-color: #1c3b64;
     --inverted-secondary-color: #fff6bf;
-
-    --modal-font-color: #fdbbcc
+    --modal-font-color: #fdbbcc;
 }
 
 .light {
@@ -55,6 +47,5 @@
     --secondary-color: #fff6bf;
     --inverted-primary-color: #fcbebe;
     --inverted-secondary-color: #b42b51;
-
     --modal-font-color: #abd9ff;
 }

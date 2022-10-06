@@ -15,6 +15,7 @@
 
     "test:ui": "npx loki test --chromeDockerImage=yukinying/chrome-headless-browser-stable:100.0.4896.127",
     "test:ui:ok": "npx loki approve --chromeDockerImage=yukinying/chrome-headless-browser-stable:100.0.4896.127",
+    "test:ui:update": "npx loki update --chromeDockerImage=yukinying/chrome-headless-browser-stable:100.0.4896.127",
 
     "test:ui:ci": "npx loki test --chromeDockerImage=yukinying/chrome-headless-browser-stable:100.0.4896.127 --requireReference --reactUri file:./storybook-static",
     "test:ui:ci:ok": "npx loki approve --chromeDockerImage=yukinying/chrome-headless-browser-stable:100.0.4896.127 --requireReference --reactUri file:./storybook-static",
