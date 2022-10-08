@@ -11,6 +11,7 @@ module.exports = {
     'airbnb',
     'plugin:i18next/recommended',
   ],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -25,6 +26,7 @@ module.exports = {
     'react-hooks',
   ],
   rules: {
+    'no-param-reassign': [0],
     'react-hooks/rules-of-hooks': [2],
     'react-hooks/exhaustive-deps': [2],
     'import/no-unresolved': [0],

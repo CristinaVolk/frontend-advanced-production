@@ -10,6 +10,17 @@
     ]
   ],
   "plugins": [
-    "i18next-extract"
+    [
+      "i18next-extract",
+      {
+        "locales": [
+          "en",
+          "ru"
+        ],
+        "outputPath": "public/locales/{{lng}}/{{ns}}.json",
+        "discardOldKeys": true,
+        "keyAsDefaultValue": true
+      }
+    ]
   ]
 }

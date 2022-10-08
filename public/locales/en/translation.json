@@ -8,6 +8,8 @@
 	"test": "test",
     "language-short": "En",
     "language-long": "English",
-	"Login": "Login"
-
+	"Login": "Login",
+	"Decrement": "Decrement",
+	"Increment": "Increment",
+	"value": "value"
 }

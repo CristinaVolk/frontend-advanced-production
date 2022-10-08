@@ -8,5 +8,8 @@
 	"test": "Test",
     "language-short": "Ру",
     "language-long": "Русский",
-    "Login": "Login"
+    "Login": "Login",
+	"Decrement": "Decrement",
+	"Increment": "Increment",
+	"value": "value"
 }
