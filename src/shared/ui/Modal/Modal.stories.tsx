@@ -21,7 +21,7 @@ LightModal.args = {
   className: 'light',
 };
 
-export const DarkModal = Template.bind({});
-DarkModal.args = {
-  className: 'dark',
-};
+// export const DarkModal = Template.bind({});
+// DarkModal.args = {
+//   className: 'dark',
+// };

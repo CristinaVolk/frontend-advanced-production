@@ -13,9 +13,9 @@
     "stylelint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "test": "jest --config ./config/jest/jest.config.ts",
 
-    "test:ui": "npx loki test --chromeFlags=\"--headless --no-sandbox\"",
-    "test:ui:ok": "npx loki approve --chromeFlags=\"--headless --no-sandbox\"",
-    "test:ui:update": "npx loki update --chromeFlags=\"--headless --no-sandbox\"",
+    "test:ui": "npx loki test",
+    "test:ui:ok": "npx loki approve",
+    "test:ui:update": "npx loki update",
 
     "test:ui:ci": "npx loki test --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox\"",
     "test:ui:ci:ok": "npx loki approve --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox\"",
@@ -113,14 +113,14 @@
   "loki": {
     "configurations": {
       "chrome.laptop": {
-        "target": "chrome.app",
+        "target": "chrome.docker",
         "width": 1366,
         "height": 768,
         "deviceScaleFactor": 1,
         "mobile": false
       },
       "chrome.iphone7": {
-        "target": "chrome.app",
+        "target": "chrome.docker",
         "preset": "iPhone 7"
       }
     }

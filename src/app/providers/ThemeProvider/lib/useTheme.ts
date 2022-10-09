@@ -11,8 +11,23 @@ export function useTheme(): UseThemeHook {
   const { theme, setTheme } = useContext(ThemeContext);
 
   const toggleTheme = () => {
-    const newTheme = theme === ThemeEnum.LIGHT ? ThemeEnum.DARK : ThemeEnum.LIGHT;
-    setTheme(newTheme);
+    let newTheme;
+
+    switch (theme) {
+      case ThemeEnum.DARK:
+        newTheme = ThemeEnum.LIGHT;
+        break;
+
+      case ThemeEnum.LIGHT:
+        newTheme = ThemeEnum.DARK;
+        break;
+
+      default:
+        newTheme = ThemeEnum.LIGHT;
+    }
+
+    setTheme?.(newTheme);
+    document.body.className = newTheme;
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
   };
 
