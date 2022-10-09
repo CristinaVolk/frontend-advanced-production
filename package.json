@@ -12,18 +12,14 @@
     "stylelint:scss": "npx stylelint \"**/*.scss\"",
     "stylelint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "test": "jest --config ./config/jest/jest.config.ts",
-
     "test:ui": "npx loki test",
     "test:ui:ok": "npx loki approve",
     "test:ui:update": "npx loki update",
-
-    "test:ui:ci": "npx loki test --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox\"",
-    "test:ui:ci:ok": "npx loki approve --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox\"",
-    "test:ui:ci:update": "npx loki update --requireReference --reactUri file:./storybook-static --chromeFlags=\"--headless --no-sandbox\"",
-
+    "test:ui:ci": "npx loki test --requireReference --reactUri file:./storybook-static",
+    "test:ui:ci:ok": "npx loki approve --requireReference --reactUri file:./storybook-static",
+    "test:ui:ci:update": "npx loki update --requireReference --reactUri file:./storybook-static",
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
     "build:storybook": "build-storybook -c ./config/storybook",
-
     "visual:report:json": "node scripts/generate-visual-json-report.js",
     "visual:report:html": "reg-cli --from .loki/report.json --report .loki/report.html",
     "visual:report:ui": "npm run visual:report:json && npm run visual:report:html"

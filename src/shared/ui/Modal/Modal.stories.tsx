@@ -1,5 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
+import { ThemeEnum } from 'app/providers/ThemeProvider';
 import { Modal } from './Modal';
 
 export default {
@@ -18,8 +20,9 @@ const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
 
 export const LightModal = Template.bind({});
 LightModal.args = {
-  className: 'light',
+  className: 'app',
 };
+LightModal.decorators = [ThemeDecorator(ThemeEnum.LIGHT)];
 
 // export const DarkModal = Template.bind({});
 // DarkModal.args = {
