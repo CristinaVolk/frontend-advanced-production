@@ -11,7 +11,7 @@ export default {
     backgroundColor: { control: 'color' },
   },
   args: {
-    isOpen: true,
+    isOpen: false,
     children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid commodi consequatur eligendi impedit incidunt necessitatibus possimus quis saepe sunt totam.\n ',
   },
 } as ComponentMeta<typeof Modal>;
@@ -23,7 +23,7 @@ LightModal.args = {
 };
 LightModal.decorators = [ThemeDecorator(ThemeEnum.LIGHT)];
 
-// export const DarkModal = Template.bind({});
-// DarkModal.args = {
-//   className: 'dark',
-// };
+export const DarkModal = Template.bind({});
+DarkModal.args = {
+  className: 'dark',
+};
