@@ -25,7 +25,6 @@
     "visual:report:html": "reg-cli --from .loki/report.json --report .loki/report.html",
     "visual:report:ui": "npm run visual:report:json && npm run visual:report:html"
   },
-  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
