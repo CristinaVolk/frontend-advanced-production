@@ -5,3 +5,4 @@ npm run build:prod
 npm run lint:ts
 npm run stylelint:scss
 npm run test
+npm run build:storybook
