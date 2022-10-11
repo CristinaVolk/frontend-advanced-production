@@ -11,6 +11,8 @@ body {
 .app {
     min-height: 100vh;
     background: var(--bg-color);
+    font: var(--font-m);
+    color: var(--primary-color);
 }
 
 .content-page {
