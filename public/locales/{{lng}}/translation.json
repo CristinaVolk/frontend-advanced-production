@@ -1,6 +1,5 @@
 {
-  "EnterPassword": "EnterPassword",
-  "EnterUsername": "EnterUsername",
-  "Login": "Login",
-  "main": "main"
+  "Decrement": "Decrement",
+  "Increment": "Increment",
+  "value": "value"
 }
