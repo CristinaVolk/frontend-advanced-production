@@ -1,5 +1,5 @@
 import React, {
-  InputHTMLAttributes, memo, useEffect, useState,
+  InputHTMLAttributes, memo, useEffect, useRef, useState,
 } from 'react';
 import { classNames } from 'shared/lib/classNames';
 import classes from './Input.module.scss';
@@ -26,6 +26,7 @@ export const Input = memo((props:InputProps) => {
 
   const [focused, setFocused] = useState(false);
   const [caretPosition, setCaretPosition] = useState(0);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const onBlur = () => {
     setFocused(false);
@@ -36,16 +37,17 @@ export const Input = memo((props:InputProps) => {
   };
 
   const onSelect = (event: any) => {
-    setCaretPosition(event?.target?.selectionStart);
+    setCaretPosition(event?.target?.selectionStart || 0);
   };
 
-  const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const onHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onChange?.(event.target.value);
     setCaretPosition(event.target.value.length);
   };
 
   useEffect(() => {
     if (autofocus) {
+      inputRef.current?.focus();
       setFocused(true);
     }
   }, [autofocus]);
@@ -59,10 +61,11 @@ export const Input = memo((props:InputProps) => {
             )}
             <div className={classes.caretWrapper}>
                  <input
+                    ref={inputRef}
                     className={classes.input}
                     value={value}
                     type={type}
-                    onChange={changeHandler}
+                    onChange={onHandleChange}
                     onFocus={onFocus}
                     onBlur={onBlur}
                     onSelect={onSelect}
@@ -71,7 +74,7 @@ export const Input = memo((props:InputProps) => {
                  {focused && (
                  <span
                     className={classes.caret}
-                    style={{ left: `${caretPosition * 8}px` }}
+                    style={{ left: `${caretPosition * 5}px` }}
                  />
                  )}
             </div>

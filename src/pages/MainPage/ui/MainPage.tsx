@@ -14,8 +14,10 @@ function MainPage() {
        <div>
             <h1>{t('main')}</h1>
             <Input
-               placeholder="Enter your username"
+               style={{ textShadow: '0 0 0 black' }}
+               placeholder={t('EnterUsername')}
                value={value}
+               autofocus
                onChange={onChange}
             />
        </div>

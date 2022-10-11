@@ -17,11 +17,12 @@ export const LoginForm = ({ className }: LoginFormProps) => {
        <div className={classNames(classes.LoginForm, {}, [className])}>
             <Input
                className={classes.input}
-               placeholder="Enter username"
+               placeholder={t('EnterUsername')}
+               autofocus
             />
             <Input
                type="password"
-               placeholder="Enter password"
+               placeholder={t('EnterPassword')}
                className={classes.input}
             />
             <Button
