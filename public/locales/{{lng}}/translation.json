@@ -1,8 +1,6 @@
 {
+  "EnterPassword": "EnterPassword",
+  "EnterUsername": "EnterUsername",
   "Login": "Login",
-  "about": "about",
-  "language-long": "language-long",
-  "language-short": "language-short",
-  "main": "main",
-  "not-found-page": "not-found-page"
+  "main": "main"
 }
