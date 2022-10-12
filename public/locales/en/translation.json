@@ -12,6 +12,7 @@
 	"Decrement": "Decrement",
 	"Increment": "Increment",
 	"value": "value",
-    "EnterPassword": "Enter Password",
-	"EnterUsername": "Enter Username"
+    "EnterPassword": "Password",
+	"EnterUsername": "Username",
+    "AgreementTerms": "By logging in you agree to the ridiculously long terms\n that you did not bother to read"
 }

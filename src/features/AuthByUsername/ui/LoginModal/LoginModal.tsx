@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 
 import { classNames } from 'shared/lib/classNames';
 import { Modal } from 'shared/ui/Modal/Modal';
-import { LoginForm } from '../LoginForm/LoginForm';
+import { LoginForm } from 'features/AuthByUsername/ui/LoginForm/LoginForm';
 
 interface LoginModalProps {
 	className?: string;
