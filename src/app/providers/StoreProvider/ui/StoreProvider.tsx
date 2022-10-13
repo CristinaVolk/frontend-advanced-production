@@ -8,12 +8,13 @@ import { createReduxStore } from '../config/store';
 interface StoreProviderProps {
   children?: ReactNode,
   initialState?: DeepPartial<StateSchema>;
+  isForStorybook?: boolean;
 }
 
 export const StoreProvider = (props: StoreProviderProps) => {
-  const { children, initialState } = props;
+  const { children, initialState, isForStorybook } = props;
 
-  const store = createReduxStore(initialState as StateSchema);
+  const store = createReduxStore(initialState as StateSchema, isForStorybook);
 
   return (
        <Provider store={store}>
