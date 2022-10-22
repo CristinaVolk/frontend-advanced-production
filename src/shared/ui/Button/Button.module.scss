@@ -132,3 +132,7 @@
     height: var(--font-line-xl);
     right: calc(var(--font-line-xl) * -1);
 }
+
+.disabled {
+    color: gray;
+}

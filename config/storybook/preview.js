@@ -16,7 +16,13 @@ export const parameters = {
   },
 };
 
-addDecorator(StoreDecorator);
+addDecorator(StoreDecorator({
+  loginForm: {
+    username: 'admin',
+    password: '123',
+  },
+}));
 addDecorator(StyleDecorator);
 addDecorator(ThemeDecorator(ThemeEnum.LIGHT));
 addDecorator(RouterDecorator);
+// addDecorator(TranslationDecorator);

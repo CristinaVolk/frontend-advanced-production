@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import React, { useState } from 'react';
 import { Input } from 'shared/ui/Input/Input';
+import { Text } from 'shared/ui/Text/Text';
 
 function MainPage() {
   const { t } = useTranslation();
@@ -13,6 +14,7 @@ function MainPage() {
   return (
        <div>
             <h1>{t('main')}</h1>
+            <Text text={t('main')} title={t('main')} />
             <Input
                style={{ textShadow: '0 0 0 black' }}
                placeholder={t('EnterUsername')}

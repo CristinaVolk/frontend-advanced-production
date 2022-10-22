@@ -47,6 +47,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': [2],
     'jsx-a11y/no-static-element-interactions': [0],
     'jsx-a11y/click-events-have-key-events': [0],
+    'no-restricted-syntax': [0],
     'i18next/no-literal-string': [
       2,
       {

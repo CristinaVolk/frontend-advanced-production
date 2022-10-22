@@ -76,3 +76,11 @@ SizeExtraLarge.args = {
   square: true,
   size: ButtonSize.XL,
 };
+
+export const SizeXLDisabled = Template.bind({});
+SizeXLDisabled.args = {
+  children: 'Login',
+  theme: ButtonTheme.CLEAR,
+  size: ButtonSize.XL,
+  disabled: true,
+};

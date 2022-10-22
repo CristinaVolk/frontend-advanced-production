@@ -48,6 +48,7 @@
     "react-i18next": "^11.15.5",
     "react-redux": "^7.2.6",
     "react-router-dom": "^6.2.1",
+    "redux": "^4.2.0",
     "regenerator-runtime": "^0.13.9",
     "webpack": "^5.69.1",
     "webpack-bundle-analyzer": "^4.5.0"

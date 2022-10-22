@@ -1,5 +1,7 @@
 {
-  "Decrement": "Decrement",
-  "Increment": "Increment",
-  "value": "value"
+  "AgreementTerms": "AgreementTerms",
+  "EnterPassword": "EnterPassword",
+  "EnterUsername": "EnterUsername",
+  "Login": "Login",
+  "Logout": "Logout"
 }

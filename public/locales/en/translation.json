@@ -14,5 +14,7 @@
 	"value": "value",
     "EnterPassword": "Password",
 	"EnterUsername": "Username",
-    "AgreementTerms": "By logging in you agree to the ridiculously long terms\n that you did not bother to read"
+	"INCORRECT_CREDENTIALS": "Wrong username or password",
+    "AgreementTerms": "By logging in you agree to the ridiculously long terms\n that you did not bother to read",
+    "Logout": "Logout"
 }
