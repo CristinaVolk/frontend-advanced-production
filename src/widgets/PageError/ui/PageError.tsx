@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from 'shared/lib/classNames';
@@ -10,7 +10,7 @@ interface PageErrorProps {
 	className?: string;
 }
 
-export const PageError = ({ className }: PageErrorProps) => {
+export const PageError = memo(({ className }: PageErrorProps) => {
   const { t } = useTranslation('error');
   const onRefresh = () => {
     // eslint-disable-next-line no-restricted-globals
@@ -29,4 +29,4 @@ export const PageError = ({ className }: PageErrorProps) => {
             </div>
        </div>
   );
-};
+});

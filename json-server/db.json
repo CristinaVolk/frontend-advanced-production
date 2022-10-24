@@ -12,5 +12,13 @@
   "comments": [
     { "id": "1", "body": "some comment", "postId": 1 }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "firstname": "Cristina",
+    "surname": "Volk",
+    "age": "23",
+    "currency": "GBP",
+    "country": "Scotland",
+    "username": "admin",
+    "avatar": "https://pbs.twimg.com/profile_images/540611068721364992/J4ityfdN_400x400.jpeg"
+  }
 }

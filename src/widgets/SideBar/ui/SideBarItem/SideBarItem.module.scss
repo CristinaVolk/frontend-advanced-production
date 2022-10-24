@@ -1,0 +1,16 @@
+.link {
+    display: flex;
+    align-items: center;
+    margin: 8px;
+
+    .icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    span {
+        margin-left: 8px;
+        opacity: 1;
+        transition: width 0.2s;
+    }
+}

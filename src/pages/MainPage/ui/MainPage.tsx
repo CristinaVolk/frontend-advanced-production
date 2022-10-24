@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Input } from 'shared/ui/Input/Input';
 import { Text } from 'shared/ui/Text/Text';
 
-function MainPage() {
+const MainPage = () => {
   const { t } = useTranslation();
   const [value, setValue] = useState('');
 
@@ -24,6 +24,6 @@ function MainPage() {
             />
        </div>
   );
-}
+};
 
 export default MainPage;

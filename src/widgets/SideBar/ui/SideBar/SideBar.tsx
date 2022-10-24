@@ -1,16 +1,12 @@
-import React, { useState } from 'react';
-import { t } from 'i18next';
+import React, { useMemo, useState } from 'react';
 
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { classNames } from 'shared/lib/classNames';
-
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { RoutePaths, AppRoutes } from 'shared/config/routes/routes';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher';
-import MainIcon from '../../../shared/assets/icons/home.svg';
-import AboutIcon from '../../../shared/assets/icons/about.svg';
 
+import { SideBarItemsList } from 'widgets/SideBar/model/items';
+import { SideBarItem } from 'widgets/SideBar/ui/SideBarItem/SideBarItem';
 import classes from './SideBar.module.scss';
 
 interface SideBarProps {
@@ -24,6 +20,12 @@ export function SideBar({ className }: SideBarProps) {
     setCollapsed((prevState) => !prevState);
   };
 
+  const itemsList = useMemo(() => SideBarItemsList.map((item) => (
+       <div key={item.path} className={classes.linkItem}>
+            <SideBarItem item={item} />
+       </div>
+  )), []);
+
   return (
        <div
           data-testid="sidebar"
@@ -36,28 +38,7 @@ export function SideBar({ className }: SideBarProps) {
           }
        >
             <div className={classes.linkItems}>
-                 <div className={classes.linkItem}>
-                      <AppLink
-                         theme={AppLinkTheme.PRIMARY}
-                         className={classes.link}
-                         to={RoutePaths[AppRoutes.MAIN]}
-                      >
-                           <MainIcon className={classes.icon} />
-                           <span>
-                                {t('main')}
-                           </span>
-                      </AppLink>
-                 </div>
-                 <div className={classes.linkItem}>
-                      <AppLink
-                         theme={AppLinkTheme.PRIMARY}
-                         className={classes.link}
-                         to={RoutePaths[AppRoutes.ABOUT]}
-                      >
-                           <AboutIcon className={classes.icon} />
-                           <span>{t('about')}</span>
-                      </AppLink>
-                 </div>
+                 {itemsList}
             </div>
 
             <Button

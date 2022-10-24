@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { classNames } from 'shared/lib/classNames';
 
 import { Loader } from 'shared/ui/Loader/Loader';
@@ -9,7 +9,7 @@ interface PageLoaderProps {
 	className?: string;
 }
 
-export const PageLoader = ({ className }: PageLoaderProps) => {
+export const PageLoader = memo(({ className }: PageLoaderProps) => {
   const { t } = useTranslation();
   return (
        <div className={classNames(classes.PageLoader, {}, [className])}>
@@ -17,4 +17,4 @@ export const PageLoader = ({ className }: PageLoaderProps) => {
             <Loader className="lds-grid" />
        </div>
   );
-};
+});
