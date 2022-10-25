@@ -8,6 +8,7 @@ export default (env: BuildEnvVar) => {
   const mode = env.mode || 'development';
   const port = env.port || 3000;
   const isDev = mode === 'development';
+  const apiURL = env.apiURL || 'http://localhost:8000';
 
   const paths: BuildPaths = {
     entry: path.resolve(__dirname, 'src', 'index'),
@@ -21,6 +22,7 @@ export default (env: BuildEnvVar) => {
     paths,
     isDev,
     port,
+    apiURL,
   });
 
   return config;

@@ -2,7 +2,8 @@ export type BuildMode = 'development' | 'production';
 
 export type BuildEnvVar = {
 	mode: BuildMode;
-	port: number
+	port: number;
+	apiURL: string;
 }
 
 export type BuildPaths = {
@@ -17,4 +18,5 @@ export interface BuildOptions {
 	paths: BuildPaths,
 	isDev: boolean,
 	port: number,
+	apiURL: string;
 }

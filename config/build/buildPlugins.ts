@@ -8,7 +8,7 @@ import { BuildOptions } from './types/optionsConfig';
 
 type buildPluginsType = ({ paths, isDev }: BuildOptions) => webpack.WebpackPluginInstance[];
 
-export const buildPlugins: buildPluginsType = ({ paths, isDev }) => [
+export const buildPlugins: buildPluginsType = ({ paths, isDev, apiURL }) => [
   new HtmlWebpackPlugin({
     template: paths.html,
   }),
@@ -19,6 +19,7 @@ export const buildPlugins: buildPluginsType = ({ paths, isDev }) => [
   }),
   new webpack.DefinePlugin({
     __IS_DEV__: JSON.stringify(isDev),
+    __API__: JSON.stringify(apiURL),
   }),
   isDev && new webpack.HotModuleReplacementPlugin(),
   isDev && new ReactRefreshWebpackPlugin({
