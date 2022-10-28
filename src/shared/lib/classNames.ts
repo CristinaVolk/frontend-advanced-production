@@ -1,8 +1,13 @@
 type Modes = Record<string, string | boolean>;
 
-export function classNames(cls: string, modes?: Modes, additional?: string[]): string {
+export function classNames(
+  className: string,
+  modes: Modes | undefined = {},
+  additional: Array<string|undefined> = [],
+)
+: string {
   return [
-    cls,
+    className,
 	    ...additional.filter(Boolean),
 	    ...Object.entries(modes)
       .filter(([className, value]) => (value ? className : null))
