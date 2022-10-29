@@ -1,7 +1,7 @@
 import React, {
-  ReactNode, useCallback, useEffect, useRef, useState,
+  MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState,
 } from 'react';
-import { classNames } from 'shared/lib/classNames';
+import { classNames, Modes } from 'shared/lib/classNames';
 
 import { Portal } from 'shared/ui/Portal/Portal';
 import { useTheme } from 'app/providers/ThemeProvider';
@@ -23,14 +23,16 @@ export const Modal = (props: ModalProps) => {
   const {
     className, children, isOpen, onClose, lazy,
   } = props;
+
   const { theme } = useTheme();
 
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
+  const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
+
   const [isMounted, setIsMounted] = useState(false);
 
   const [isClosing, setIsCLosing] = useState(false);
 
-  const modes: Record<string, boolean> = {
+  const modes: Modes = {
     [classes.opened]: isOpen,
     [classes.isClosing]: isClosing,
   };
@@ -49,7 +51,7 @@ export const Modal = (props: ModalProps) => {
     event.stopPropagation();
   };
 
-  function onKeyDownCallback(this: typeof Window, event: KeyboardEvent) {
+  function onKeyDownCallback(this: Window, event: KeyboardEvent) {
     if (event.key === 'Escape') {
       closeHandler();
     }

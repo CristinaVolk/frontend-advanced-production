@@ -49,6 +49,7 @@ module.exports = {
     'jsx-a11y/click-events-have-key-events': [0],
     'no-restricted-syntax': [0],
     'react/jsx-no-useless-fragment': [0],
+    'no-undef': [0],
     'i18next/no-literal-string': [
       2,
       {

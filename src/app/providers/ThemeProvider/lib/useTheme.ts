@@ -32,7 +32,7 @@ export function useTheme(): UseThemeHook {
   };
 
   return {
-    theme,
+    theme: theme || ThemeEnum.LIGHT,
     toggleTheme,
   };
 }

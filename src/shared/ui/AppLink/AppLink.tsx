@@ -20,7 +20,7 @@ export const AppLink: FC<AppLinkProps> = memo((props: AppLinkProps) => {
     children,
     to,
     className,
-    theme,
+    theme = AppLinkTheme.PRIMARY,
     ...restProps
   } = props;
 

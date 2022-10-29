@@ -8,22 +8,29 @@ import { BuildOptions } from './types/optionsConfig';
 
 type buildPluginsType = ({ paths, isDev }: BuildOptions) => webpack.WebpackPluginInstance[];
 
-export const buildPlugins: buildPluginsType = ({ paths, isDev, apiURL }) => [
-  new HtmlWebpackPlugin({
-    template: paths.html,
-  }),
-  new webpack.ProgressPlugin(),
-  !isDev && new MiniCssExtractPlugin({
-    filename: 'css/[name].[contenthash:8].css',
-    chunkFilename: 'css/[name].[contenthash:8].css',
-  }),
-  new webpack.DefinePlugin({
-    __IS_DEV__: JSON.stringify(isDev),
-    __API__: JSON.stringify(apiURL),
-  }),
-  isDev && new webpack.HotModuleReplacementPlugin(),
-  isDev && new ReactRefreshWebpackPlugin({
-    overlay: false,
-  }),
-  isDev && new BundleAnalyzerPlugin(),
-].filter(Boolean);
+export const buildPlugins: buildPluginsType = ({ paths, isDev, apiURL }) => {
+  const plugins = [
+    new HtmlWebpackPlugin({
+      template: paths.html,
+    }),
+    new webpack.ProgressPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'css/[name].[contenthash:8].css',
+      chunkFilename: 'css/[name].[contenthash:8].css',
+    }),
+    new webpack.DefinePlugin({
+      __IS_DEV__: JSON.stringify(isDev),
+      __API__: JSON.stringify(apiURL),
+    }),
+  ];
+
+  if (isDev) {
+    plugins.push(new webpack.HotModuleReplacementPlugin());
+    plugins.push(new ReactRefreshWebpackPlugin({
+      overlay: false,
+    }));
+    plugins.push(new BundleAnalyzerPlugin());
+  }
+
+  return plugins;
+};

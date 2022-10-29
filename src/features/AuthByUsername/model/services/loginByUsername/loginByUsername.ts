@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { User } from 'entities/User';
 import { userActions } from 'entities/User/model/slices/userSlice';
-import { ThunkConfig } from 'app/providers/StoreProvider';
+import { ThunkConfig } from 'app/providers/StoreProvider/config/StateSchema';
 
 interface LoginByUsernameProps {
   username: string;
@@ -29,7 +29,10 @@ export const loginByUsername = createAsyncThunk<
         }
 
         dispatch(userActions.setAuthData(response.data));
-        extra.navigate('/about');
+
+        if (extra.navigate) {
+          extra.navigate('/about');
+        }
 
         return response.data;
       } catch (e) {

@@ -16,13 +16,9 @@ export default {
 const Template: ComponentStory<typeof SideBar> = (args) => <SideBar {...args} />;
 
 export const LightBar = Template.bind({});
-LightBar.args = {
-
-};
+LightBar.args = {};
 LightBar.decorators = [ThemeDecorator(ThemeEnum.LIGHT)];
 
 export const Dark = Template.bind({});
-Dark.args = {
-  children: 'Main',
-};
+Dark.args = {};
 Dark.decorators = [ThemeDecorator(ThemeEnum.DARK)];

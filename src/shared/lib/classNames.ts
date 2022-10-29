@@ -1,4 +1,4 @@
-type Modes = Record<string, string | boolean>;
+export type Modes = Record<string, boolean | undefined>;
 
 export function classNames(
   className: string,
