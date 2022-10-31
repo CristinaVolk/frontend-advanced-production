@@ -7,9 +7,9 @@ import { Button, ButtonTextColor, ButtonTheme } from 'shared/ui/Button/Button';
 import {
   getProfileReadonly,
 } from 'entities/Profile/model/selectors/getProfileReadonly/getProfileReadonly';
-
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { profileActions } from 'entities/Profile';
+import { Text } from '../../../../shared/ui/Text/Text';
 import classes from './ProfilePageHeader.module.scss';
 
 interface ProfilePageHeaderProps {
@@ -36,7 +36,7 @@ export const ProfilePageHeader = memo(({ className }: ProfilePageHeaderProps) =>
 
   return (
        <div className={classNames(classes.ProfilePageHeader, {}, [className])}>
-            <h1 className={classes.header}>{t('profile-page')}</h1>
+            <Text title={t('profile-page')} />
             {readonly ? (
                  <Button
                     className={classes.editBtn}
