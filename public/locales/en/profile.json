@@ -3,5 +3,11 @@
   "profile": "profile",
   "change": "change",
   "enter your firstname": "enter your firstname",
-  "enter your username": "enter your username"
+  "enter your username": "enter your username",
+  "enter your age": "enter your age",
+  "place the link to your new avatar": "place the link to your new avatar",
+  "edit": "edit",
+  "save": "save",
+  "cancel": "cancel",
+  "avatar": "avatar"
 }

@@ -19,12 +19,19 @@ export enum ButtonSize {
   XL = 'size_xl',
 }
 
+export enum ButtonTextColor {
+  RED = 'red',
+  BLACK = 'black',
+  WHITE = 'white'
+}
+
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	className?: string;
 	theme: ButtonTheme;
     square?: boolean;
     size?: ButtonSize;
     disabled?: boolean;
+    textColor?: string;
     children: ReactNode
 }
 
@@ -36,6 +43,7 @@ export const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
     square,
     size = ButtonSize.M,
     disabled,
+    textColor = '',
     ...restProps
   } = props;
 
@@ -51,7 +59,12 @@ export const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
          classNames(
            classes.Button,
            modes,
-           [className, classes[theme], classes[size]],
+           [
+             className,
+             classes[theme],
+             classes[size],
+             classes[textColor],
+           ],
          )
        }
           disabled={disabled}

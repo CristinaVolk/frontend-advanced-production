@@ -18,9 +18,7 @@
         rgb(206 200 200) 0 -25px 18px -14px inset,
         rgb(28 6 6) 0 1px 2px,
         rgb(28 29 31) 0 2px 4px,
-        rgb(255 255 255) 0 4px 8px,
-        rgb(44 187 99 / 15%) 0 8px 16px,
-        rgb(44 187 99 / 15%) 0 16px 32px;
+        rgb(255 255 255) 0 4px 8px;
     color: var(--secondary-color);
     cursor: pointer;
     display: inline-block;
@@ -135,4 +133,8 @@
 
 .disabled {
     color: gray;
+}
+
+.red {
+    color: #d33333;
 }

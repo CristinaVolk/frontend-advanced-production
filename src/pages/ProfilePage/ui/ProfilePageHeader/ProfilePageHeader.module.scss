@@ -1,0 +1,20 @@
+.ProfilePageHeader {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.header {
+    margin-left: 10px;
+}
+
+.wrapperBtn {
+    display: flex;
+    justify-content: flex-end;
+    flex-flow: wrap;
+
+    .editBtn {
+        align-self: flex-end;
+        margin: 0 0 10px 10px;
+    }
+}

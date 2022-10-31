@@ -1,9 +1,22 @@
 .InputWrapper {
     display: flex;
+    justify-content: space-between;
+    box-shadow:
+        rgb(0 0 0 / 9%) 0 2px 1px,
+        rgb(0 0 0 / 9%) 0 4px 2px,
+        rgb(0 0 0 / 9%) 0 8px 4px,
+        rgb(0 0 0 / 9%) 0 16px 8px,
+        rgb(0 0 0 / 9%) 0 32px 16px;
+    margin: 10px 0;
+    padding: 5px 10px;
 }
 
 .placeholder {
     margin: 5px 10px 0 0;
+}
+
+.loginFormInput {
+    color: var(--bar-bg-color) !important;
 }
 
 .input {
@@ -11,16 +24,19 @@
     width: 100%;
     border: none;
     outline: none;
-    color: var(--primary-color);
     text-shadow: 0 0 0 var(--modal-font-color);
+    color: var(--primary-color);
 
     &:focus {
         outline: none;
     }
 }
 
+.readonly {
+    opacity: 0.7;
+}
+
 .caretWrapper {
-    flex-grow: 1;
     position: relative;
     margin-top: 5px;
 }
