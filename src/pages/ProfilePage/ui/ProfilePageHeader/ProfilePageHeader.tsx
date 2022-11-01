@@ -8,7 +8,7 @@ import {
   getProfileReadonly,
 } from 'entities/Profile/model/selectors/getProfileReadonly/getProfileReadonly';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { profileActions } from 'entities/Profile';
+import { profileActions, updateProfileData } from 'entities/Profile';
 import { Text } from '../../../../shared/ui/Text/Text';
 import classes from './ProfilePageHeader.module.scss';
 
@@ -23,11 +23,10 @@ export const ProfilePageHeader = memo(({ className }: ProfilePageHeaderProps) =>
 
   const onCancelEdit = useCallback(() => {
     dispatch(profileActions.cancelEdit());
-    dispatch(profileActions.setReadOnly(true));
   }, [dispatch]);
 
   const onSave = useCallback(() => {
-    dispatch(profileActions.setReadOnly(true));
+    dispatch(updateProfileData());
   }, [dispatch]);
 
   const onEdit = useCallback(() => {
