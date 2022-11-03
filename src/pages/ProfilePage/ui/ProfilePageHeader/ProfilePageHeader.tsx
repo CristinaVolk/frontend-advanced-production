@@ -3,13 +3,19 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
 import { classNames } from 'shared/lib/classNames';
+import { Text } from 'shared/ui/Text/Text';
 import { Button, ButtonTextColor, ButtonTheme } from 'shared/ui/Button/Button';
-import {
-  getProfileReadonly,
-} from 'entities/Profile/model/selectors/getProfileReadonly/getProfileReadonly';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { profileActions, updateProfileData } from 'entities/Profile';
-import { Text } from '../../../../shared/ui/Text/Text';
+
+import { editableProfileCardActions } from 'features/EditableProfileCard';
+import {
+  updateProfileData,
+} from 'features/EditableProfileCard/model/services/updateProfileData/updateProfileData';
+
+import {
+  getProfileFormReadonly,
+} from 'features/EditableProfileCard/model/selectors/getProfileFormReadonly/getProfileFormReadonly';
+
 import classes from './ProfilePageHeader.module.scss';
 
 interface ProfilePageHeaderProps {
@@ -18,11 +24,11 @@ interface ProfilePageHeaderProps {
 
 export const ProfilePageHeader = memo(({ className }: ProfilePageHeaderProps) => {
   const { t } = useTranslation('profile');
-  const readonly = useSelector(getProfileReadonly);
+  const readonly = useSelector(getProfileFormReadonly);
   const dispatch = useAppDispatch();
 
   const onCancelEdit = useCallback(() => {
-    dispatch(profileActions.cancelEdit());
+    dispatch(editableProfileCardActions.cancelEdit());
   }, [dispatch]);
 
   const onSave = useCallback(() => {
@@ -30,7 +36,7 @@ export const ProfilePageHeader = memo(({ className }: ProfilePageHeaderProps) =>
   }, [dispatch]);
 
   const onEdit = useCallback(() => {
-    dispatch(profileActions.setReadOnly(false));
+    dispatch(editableProfileCardActions.setReadOnly(false));
   }, [dispatch]);
 
   return (

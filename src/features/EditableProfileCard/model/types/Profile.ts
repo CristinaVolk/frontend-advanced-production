@@ -11,9 +11,10 @@ export interface Profile {
   avatar?: string;
 }
 
-export interface ProfileSchema {
+export interface EditableProfileCardSchema {
   formData?: Profile;
   data?: Profile;
   isLoading: boolean;
   error?: string;
+  readonly: boolean;
 }
