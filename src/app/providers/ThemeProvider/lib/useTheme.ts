@@ -8,26 +8,27 @@ interface UseThemeHook {
 }
 
 export function useTheme(): UseThemeHook {
-  const { theme, setTheme } = useContext(ThemeContext);
+  const {
+    theme,
+    setTheme,
+  } = useContext(ThemeContext);
 
   const toggleTheme = () => {
-    let newTheme;
-
+    let newTheme: ThemeEnum;
     switch (theme) {
       case ThemeEnum.DARK:
         newTheme = ThemeEnum.LIGHT;
         break;
-
       case ThemeEnum.LIGHT:
+        newTheme = ThemeEnum.BLUE;
+        break;
+      case ThemeEnum.BLUE:
         newTheme = ThemeEnum.DARK;
         break;
-
       default:
         newTheme = ThemeEnum.LIGHT;
     }
-
     setTheme?.(newTheme);
-    document.body.className = newTheme;
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
   };
 
