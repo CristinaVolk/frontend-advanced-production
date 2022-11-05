@@ -3,4 +3,4 @@ export {
   editableProfileCardReducer,
 } from './model/slices/editableProfileCardSlice/editableProfileCardSlice';
 
-export { EditableProfileCardSchema } from './model/types/Profile';
+export { EditableProfileCardSchema } from './model/types/EditableProfile';

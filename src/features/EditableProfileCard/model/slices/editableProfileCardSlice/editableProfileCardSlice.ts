@@ -1,7 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { EditableProfileCardSchema, Profile } from '../../types/Profile';
+import { ErrorCodes } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
+import {
+  EditableProfile, EditableProfileCardSchema, ValidateProfileError,
+} from '../../types/EditableProfile';
 
 import { updateProfileData } from '../../services/updateProfileData/updateProfileData';
+import { fetchProfileData } from '../../services/fetchProfileData/fetchProfileData';
 
 const initialState: EditableProfileCardSchema = {
   formData: undefined,
@@ -9,24 +13,23 @@ const initialState: EditableProfileCardSchema = {
   error: undefined,
   isLoading: false,
   readonly: true,
+  validateProfileErrors: undefined,
 };
 
 export const editableProfileCardSlice = createSlice({
   name: 'editableProfileSliceCard',
   initialState,
   reducers: {
-    setInitialFormData: (state, action: PayloadAction<Profile>) => {
-      state.formData = action.payload;
-      state.data = action.payload;
-    },
     setReadOnly: (state, action: PayloadAction<boolean>) => {
       state.readonly = action.payload;
     },
     cancelEdit: (state) => {
       state.readonly = true;
       state.formData = state.data;
+      state.validateProfileErrors = undefined;
     },
-    updateData: (state, action: PayloadAction<Profile>) => {
+    updateData: (state, action: PayloadAction<EditableProfile>) => {
+      state.readonly = true;
       state.formData = {
         ...state.formData,
         ...action.payload,
@@ -35,19 +38,35 @@ export const editableProfileCardSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(updateProfileData.pending, (state) => {
+      .addCase(fetchProfileData.pending, (state) => {
         state.error = undefined;
         state.isLoading = true;
       })
-      .addCase(updateProfileData.fulfilled, (state, action: PayloadAction<Profile>) => {
+      .addCase(fetchProfileData.fulfilled, (state, action: PayloadAction<EditableProfile>) => {
+        state.isLoading = false;
+        state.data = action.payload;
+        state.formData = action.payload;
+      })
+      .addCase(fetchProfileData.rejected, (state, action: PayloadAction<string | undefined>) => {
+        state.isLoading = false;
+        state.error = action.payload;
+      })
+      .addCase(updateProfileData.pending, (state) => {
+        state.isLoading = true;
+        state.error = undefined;
+      })
+      .addCase(updateProfileData.fulfilled, (state, action: PayloadAction<EditableProfile>) => {
         state.isLoading = false;
         state.data = action.payload;
         state.formData = action.payload;
         state.readonly = true;
       })
-      .addCase(updateProfileData.rejected, (state, action: PayloadAction<string | undefined>) => {
+      .addCase(updateProfileData.rejected, (
+        state,
+        action: PayloadAction<Array<ValidateProfileError| ErrorCodes> | undefined>,
+      ) => {
         state.isLoading = false;
-        state.error = action.payload;
+        state.validateProfileErrors = action.payload;
       });
   },
 });

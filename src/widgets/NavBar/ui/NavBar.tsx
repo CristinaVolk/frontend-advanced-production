@@ -1,4 +1,6 @@
-import React, { memo, useCallback, useState } from 'react';
+import React, {
+  memo, MutableRefObject, useCallback, useRef, useState,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
@@ -12,18 +14,32 @@ interface NavBarProps {
 	className?: string;
 }
 
+const ANIMATION_DELAY = 2000;
+
 export const NavBar = memo(({ className }: NavBarProps) => {
   const { t } = useTranslation();
   const [isAuthModal, setIsAuthModal] = useState(false);
   const authData = useSelector(getUserAuthData);
   const dispatch = useDispatch();
-
-  const onCloseModal = useCallback(() => {
-    setIsAuthModal(false);
-  }, []);
+  const [isOpening, setIsOpening] = useState(false);
+  const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
   const onOpenModal = useCallback(() => {
     setIsAuthModal(true);
+  }, []);
+
+  const openHandler = useCallback(() => {
+    console.log('opening');
+    setIsOpening(true);
+    timerRef.current = setTimeout(() => {
+      onOpenModal();
+      setIsOpening(false);
+      console.log('opening');
+    }, ANIMATION_DELAY);
+  }, [onOpenModal]);
+
+  const onCloseModal = useCallback(() => {
+    setIsAuthModal(false);
   }, []);
 
   const onLogout = useCallback(() => {
@@ -49,7 +65,7 @@ export const NavBar = memo(({ className }: NavBarProps) => {
             <Button
                className={classes.links}
                theme={ButtonTheme.BACKGROUND}
-               onClick={onOpenModal}
+               onClick={openHandler}
             >
                  {t('Login')}
             </Button>
@@ -57,6 +73,13 @@ export const NavBar = memo(({ className }: NavBarProps) => {
             <LoginModal
                isOpen={isAuthModal}
                onClose={onCloseModal}
+               className={
+              classNames(
+                classes.LoginModal,
+                { [classes.isOpening]: isOpening },
+                [className],
+              )
+            }
             >
                  {t('Login')}
             </LoginModal>

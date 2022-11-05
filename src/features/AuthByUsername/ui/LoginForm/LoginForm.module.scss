@@ -6,10 +6,10 @@
     position: absolute;
     place-content: center;
     width: calc(100% - 40px);
-}
+    right: 200px;
 
-@media (max-width: 767px) {
-    .LoginForm {
+    @media (max-width: 812px) {
+        right: 0;
         height: auto;
         margin-bottom: 20px;
         padding-bottom: 20px;
@@ -23,7 +23,7 @@
     width: 640px;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 812px) {
     .container {
         flex-direction: column;
         height: 630px;
@@ -39,7 +39,7 @@
     width: 50%;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 812px) {
     .leftBox {
         height: 100%;
         left: 20px;
@@ -75,7 +75,7 @@
     width: 50%;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 812px) {
     .rightBox {
         flex-shrink: 0;
         height: 100%;

@@ -1,4 +1,4 @@
-import React, { memo, useCallback } from 'react';
+import React, { memo, useCallback, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
@@ -17,15 +17,22 @@ import { editableProfileCardActions } from 'features/EditableProfileCard';
 import {
   getProfileFormData,
 } from 'features/EditableProfileCard/model/selectors/getProfileFormData/getProfileFormData';
+import { ValidateProfileError } from 'features/EditableProfileCard/model/types/EditableProfile';
+import { ErrorCodes } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
 import {
   getProfileFormReadonly,
 } from '../model/selectors/getProfileFormReadonly/getProfileFormReadonly';
 import {
   getProfileUpdateIsLoading,
 } from '../model/selectors/getProfileUpdateIsLoading/getProfileIsLoading';
+import {
+  getProfileUpdateError,
+} from '../model/selectors/getProfileUpdateError/getProfileUpdateError';
+import {
+  getProfileValidateErrors,
+} from '../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 
-import { getProfileUpdateError } from '../model/selectors/getProfileUpdateError/getLoginError';
-
+import { fetchProfileData } from '../model/services/fetchProfileData/fetchProfileData';
 import classes from './EditableProfileCard.module.scss';
 
 interface EditableProfileCardProps {
@@ -41,10 +48,17 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   const error = useSelector(getProfileUpdateError);
   const profileFormData = useSelector(getProfileFormData);
   const readonly = useSelector(getProfileFormReadonly);
+  const validateProfileErrors = useSelector(getProfileValidateErrors);
 
   const modes: Modes = {
     [classes.isEditing]: !readonly,
   };
+
+  useEffect(() => {
+    if (__PROJECT__ !== 'storybook') {
+      dispatch(fetchProfileData());
+    }
+  }, [dispatch]);
 
   const onChangeFirstname = useCallback((value?: string) => {
     dispatch(editableProfileCardActions.updateData({ firstname: value || '' }));
@@ -77,6 +91,15 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     ) {
       event.preventDefault();
     }
+  };
+
+  const validateErrorTranslates: Record<ErrorCodes | ValidateProfileError, string> = {
+    [ErrorCodes.SERVER_DOWN]: t('Server error occurred'),
+    [ErrorCodes.INCORRECT_CREDENTIALS]: t('Incorrect username or password'),
+    [ValidateProfileError.INCORRECT_COUNTRY]: t('Wrong country'),
+    [ValidateProfileError.NO_DATA]: t('The data has not been entered'),
+    [ValidateProfileError.INCORRECT_USER_DATA]: t('Firstname and username are required'),
+    [ValidateProfileError.INCORRECT_AGE]: t('Wrong age'),
   };
 
   if (isLoading) {
@@ -112,6 +135,13 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
          [className],
        )}
        >
+            {validateProfileErrors?.length && validateProfileErrors.map((validationError) => (
+                 <Text
+                    key={validationError}
+                    theme={TextTheme.ERROR}
+                    text={validateErrorTranslates[validationError]}
+                 />
+            ))}
             {profileFormData && (
                  <div>
                       <Text title={t('profile')} />

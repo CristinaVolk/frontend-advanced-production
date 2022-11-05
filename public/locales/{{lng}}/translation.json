@@ -1,7 +1,14 @@
 {
-  "AgreementTerms": "AgreementTerms",
-  "EnterPassword": "EnterPassword",
-  "EnterUsername": "EnterUsername",
-  "Login": "Login",
-  "Logout": "Logout"
+  "Firstname and username are required": "Firstname and username are required",
+  "Incorrect username or password": "Incorrect username or password",
+  "Server error occurred": "Server error occurred",
+  "The data has not been entered": "The data has not been entered",
+  "Wrong age": "Wrong age",
+  "Wrong country": "Wrong country",
+  "avatar": "avatar",
+  "enter your age": "enter your age",
+  "enter your firstname": "enter your firstname",
+  "enter your username": "enter your username",
+  "place the link to your new avatar": "place the link to your new avatar",
+  "profile": "profile"
 }

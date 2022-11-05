@@ -9,14 +9,12 @@ import classes from './Modal.module.scss';
 
 const ANIMATION_DELAY = 500;
 
-type OnCloseFunc = () => void;
-
 interface ModalProps {
 	className?: string;
     children?: ReactNode;
     isOpen: boolean;
     lazy?: boolean;
-    onClose?: OnCloseFunc
+    onClose?: () => void
 }
 
 export const Modal = (props: ModalProps) => {
@@ -37,7 +35,7 @@ export const Modal = (props: ModalProps) => {
     [classes.isClosing]: isClosing,
   };
 
-  const closeHandler: OnCloseFunc = useCallback(() => {
+  const closeHandler = useCallback(() => {
     if (onClose) {
       setIsCLosing(true);
       timerRef.current = setTimeout(() => {

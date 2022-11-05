@@ -15,11 +15,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media (max-width: 812px) {
+        align-items: unset;
+    }
 }
 
 .content {
     padding: 20px;
-    background: var(--overlay-color);
     transition: 0.6s transform;
     transform: scale(0.5);
     max-width: 60%;

@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { classNames } from 'shared/lib/classNames';
-import { Profile } from 'features/EditableProfileCard/model/types/Profile';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { Profile } from '../../model/types/Profile';
 import classes from './ProfileCard.module.scss';
 
 interface ProfileCardProps {

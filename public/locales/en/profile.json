@@ -9,5 +9,11 @@
   "edit": "edit",
   "save": "save",
   "cancel": "cancel",
-  "avatar": "avatar"
+  "avatar": "avatar",
+  "Server error occurred": "Server error occurred",
+  "Wrong country": "Wrong country",
+  "The data has not been entered": "The data has not been entered",
+  "Firstname and username are required": "Firstname and username are required",
+  "Wrong age": "Wrong age",
+  "Incorrect username or password": "Incorrect username or password"
 }

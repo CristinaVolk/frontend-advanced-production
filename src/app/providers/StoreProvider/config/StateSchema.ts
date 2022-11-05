@@ -9,14 +9,13 @@ import { To } from '@remix-run/router';
 import { AxiosInstance } from 'axios';
 import { NavigateOptions } from 'react-router/dist/lib/context';
 
-import { ProfileSchema } from 'entities/Profile';
 import { EditableProfileCardSchema } from 'features/EditableProfileCard';
 
 export interface StateSchema {
   user: UserSchema
   counter: CounterSchema;
+  // Async reducers
   loginForm?: LoginSchema;
-  profile?: ProfileSchema;
   editableProfileCard?: EditableProfileCardSchema;
 }
 

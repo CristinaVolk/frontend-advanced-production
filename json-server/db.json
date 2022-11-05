@@ -2,7 +2,7 @@
   "users": [
     {
       "id": "1",
-      "username": "admin",
+      "username": "admin@admin.com",
       "password": "123"
     }
   ],
@@ -21,12 +21,12 @@
     }
   ],
   "profile": {
-    "firstname": "Cristina",
+    "firstname": "Cris",
     "surname": "Volk",
-    "age": "23",
-    "currency": "GBP",
+    "age": 22,
+    "currency": "EUR",
     "country": "Scotland",
-    "username": "admin",
+    "username": "admin@admin.com",
     "avatar": "https://pbs.twimg.com/profile_images/540611068721364992/J4ityfdN_400x400.jpeg"
   }
 }
