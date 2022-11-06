@@ -1,7 +1,8 @@
 import webpack from 'webpack';
 
 import { BuildOptions } from './types/optionsConfig';
-import { buildCSSLoader } from './buildCSSLoaders';
+import { buildCSSLoader } from './loaders/buildCSSLoaders';
+import { buildBabelLoader } from './loaders/buildBabelLoader';
 
 type buildLoadersType = (options: BuildOptions) => webpack.RuleSetRule[];
 
@@ -24,24 +25,7 @@ export const buildLoaders: buildLoadersType = (options) => {
 
   const cssLoader = buildCSSLoader(isDev);
 
-  const babelLoader = {
-    test: /\.(js|jsx|tsx)$/,
-    use: {
-      loader: 'babel-loader',
-      options: {
-        presets: ['@babel/preset-env'],
-        plugins: [
-          [
-            'i18next-extract',
-            {
-              locales: ['ru', 'en'],
-            },
-          ],
-        ],
-      },
-    },
-    exclude: /node_modules/,
-  };
+  const babelLoader = buildBabelLoader(isDev);
 
   const tsLoader = {
     test: /\.tsx?$/,

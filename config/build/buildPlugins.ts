@@ -32,7 +32,9 @@ export const buildPlugins: buildPluginsType = ({
     plugins.push(new ReactRefreshWebpackPlugin({
       overlay: false,
     }));
-    plugins.push(new BundleAnalyzerPlugin());
+    plugins.push(new BundleAnalyzerPlugin({
+      openAnalyzer: false,
+    }));
   }
 
   return plugins;
