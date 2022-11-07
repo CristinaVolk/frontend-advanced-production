@@ -7,7 +7,7 @@ import { Portal } from 'shared/ui/Portal/Portal';
 import { useTheme } from 'app/providers/ThemeProvider';
 import classes from './Modal.module.scss';
 
-const ANIMATION_DELAY = 500;
+const ANIMATION_DELAY = 1000;
 
 interface ModalProps {
 	className?: string;
@@ -27,10 +27,10 @@ export const Modal = (props: ModalProps) => {
   const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
   const [isMounted, setIsMounted] = useState(false);
-
   const [isClosing, setIsCLosing] = useState(false);
 
   const modes: Modes = {
+    [classes.isVisible]: isMounted,
     [classes.opened]: isOpen,
     [classes.isClosing]: isClosing,
   };

@@ -1,4 +1,3 @@
-import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername/model/types/LoginSchema';
 import {
@@ -13,7 +12,6 @@ import { EditableProfileCardSchema } from 'features/EditableProfileCard';
 
 export interface StateSchema {
   user: UserSchema
-  counter: CounterSchema;
   // Async reducers
   loginForm?: LoginSchema;
   editableProfileCard?: EditableProfileCardSchema;
