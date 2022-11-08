@@ -6,6 +6,8 @@ import { ProfilePageAsync } from 'pages/ProfilePage';
 import { NotFoundPage } from 'pages/NotFoundPage';
 
 import { AppRoutes, RoutePaths } from 'shared/config/routes/routes';
+import { ArticlePageAsync } from 'pages/ArticlePage';
+import { ArticleDetailsPageAsync } from 'pages/ArticleDetailsPage/ui/ArticleDetailsPageAsync';
 
 export type AppRoutesProps = RouteProps & {
   authOnly?: boolean;
@@ -23,6 +25,16 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.PROFILE]: {
     path: RoutePaths[AppRoutes.PROFILE],
     element: <ProfilePageAsync />,
+    authOnly: true,
+  },
+  [AppRoutes.ARTICLES]: {
+    path: RoutePaths[AppRoutes.ARTICLES],
+    element: <ArticlePageAsync />,
+    authOnly: true,
+  },
+  [AppRoutes.ARTICLE_DETAILS]: {
+    path: `${RoutePaths[AppRoutes.ARTICLE_DETAILS]}:id`,
+    element: <ArticleDetailsPageAsync />,
     authOnly: true,
   },
   [AppRoutes.NOT_FOUND]: {
