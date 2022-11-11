@@ -16,5 +16,7 @@
 	"EnterUsername": "Username",
 	"INCORRECT_CREDENTIALS": "Wrong username or password",
 	"AgreementTerms": "By logging in you agree to the ridiculously long terms\n that you did not bother to read",
-    "Logout": "Logout"
+    "Logout": "Logout",
+    "article": "article",
+    "Article has not been found": "Article has not been found"
 }

@@ -1,5 +1,3 @@
-import { UserSchema } from 'entities/User';
-import { LoginSchema } from 'features/AuthByUsername/model/types/LoginSchema';
 import {
   AnyAction, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
@@ -8,13 +6,17 @@ import { To } from '@remix-run/router';
 import { AxiosInstance } from 'axios';
 import { NavigateOptions } from 'react-router/dist/lib/context';
 
+import { UserSchema } from 'entities/User';
+import { LoginSchema } from 'features/AuthByUsername/model/types/LoginSchema';
 import { EditableProfileCardSchema } from 'features/EditableProfileCard';
+import { ArticleDetailsSchema } from 'entities/Article';
 
 export interface StateSchema {
   user: UserSchema
   // Async reducers
   loginForm?: LoginSchema;
   editableProfileCard?: EditableProfileCardSchema;
+  articleDetails?: ArticleDetailsSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

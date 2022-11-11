@@ -32,8 +32,8 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     element: <ArticlePageAsync />,
     authOnly: true,
   },
-  [AppRoutes.ARTICLE_DETAILS]: {
-    path: `${RoutePaths[AppRoutes.ARTICLE_DETAILS]}:id`,
+  [AppRoutes.ARTICLES_DETAILS]: {
+    path: `${RoutePaths[AppRoutes.ARTICLES_DETAILS]}:id`,
     element: <ArticleDetailsPageAsync />,
     authOnly: true,
   },
