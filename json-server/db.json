@@ -3,7 +3,14 @@
     {
       "id": "1",
       "username": "admin@admin.com",
-      "password": "123"
+      "password": "123",
+      "avatar": "https://pbs.twimg.com/profile_images/540611068721364992/J4ityfdN_400x400.jpeg"
+    },
+    {
+      "id": "2",
+      "username": "user@user.com",
+      "password": "314",
+      "avatar": "https://i1.sndcdn.com/avatars-000756121903-98y986-t500x500.jpg"
     }
   ],
   "posts": [

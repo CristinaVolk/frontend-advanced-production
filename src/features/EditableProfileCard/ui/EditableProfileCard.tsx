@@ -1,4 +1,4 @@
-import React, { memo, useCallback, useEffect } from 'react';
+import React, { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
@@ -19,6 +19,9 @@ import {
 } from 'features/EditableProfileCard/model/selectors/getProfileFormData/getProfileFormData';
 import { ValidateProfileError } from 'features/EditableProfileCard/model/types/EditableProfile';
 import { ErrorCodes } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
+import {
+  useInitialEffect,
+} from 'shared/lib/hooks/useAppDispatch/useInitialEffect/useInitialEffect';
 import {
   getProfileFormReadonly,
 } from '../model/selectors/getProfileFormReadonly/getProfileFormReadonly';
@@ -54,11 +57,9 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     [classes.isEditing]: !readonly,
   };
 
-  useEffect(() => {
-    if (__PROJECT__ !== 'storybook') {
-      dispatch(fetchProfileData());
-    }
-  }, [dispatch]);
+  useInitialEffect(() => {
+    dispatch(fetchProfileData());
+  });
 
   const onChangeFirstname = useCallback((value?: string) => {
     dispatch(editableProfileCardActions.updateData({ firstname: value || '' }));

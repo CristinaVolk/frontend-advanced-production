@@ -7,7 +7,7 @@ import { NotFoundPage } from 'pages/NotFoundPage';
 
 import { AppRoutes, RoutePaths } from 'shared/config/routes/routes';
 import { ArticlePageAsync } from 'pages/ArticlePage';
-import { ArticleDetailsPageAsync } from 'pages/ArticleDetailsPage/ui/ArticleDetailsPageAsync';
+import { ArticleDetailsPageAsync } from 'pages/ArticleDetailsPage';
 
 export type AppRoutesProps = RouteProps & {
   authOnly?: boolean;
