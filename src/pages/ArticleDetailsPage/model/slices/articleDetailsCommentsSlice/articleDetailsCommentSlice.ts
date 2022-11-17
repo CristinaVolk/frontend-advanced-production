@@ -42,9 +42,7 @@ const articleDetailsCommentSlice = createSlice({
       },
     },
   }),
-  reducers: {
-
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(fetchCommentsByArticleId.pending, (state) => {

@@ -3,6 +3,7 @@ import { Country } from 'entities/Country';
 import { ErrorCodes } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
 
 export interface EditableProfile {
+  id?: string;
   firstname?: string;
   surname?: string;
   age?: number;

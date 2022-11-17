@@ -5,17 +5,16 @@ import {
 } from '../../../../AuthByUsername/model/services/loginByUsername/loginByUsername';
 import { EditableProfile } from '../../types/EditableProfile';
 
-export const fetchProfileData = createAsyncThunk<EditableProfile, void, ThunkConfig<string>>(
+export const fetchProfileData = createAsyncThunk<EditableProfile, string, ThunkConfig<string>>(
   'profile/fetchProfileData',
-  async (_, thunkAPI) => {
+  async (userId, thunkAPI) => {
     const { extra, rejectWithValue } = thunkAPI;
 
     try {
-      const response = await extra.api.get<EditableProfile>('/profile');
+      const response = await extra.api.get<EditableProfile>(`/profile/${userId}`);
 
       return response.data;
     } catch (e) {
-      console.log(e);
       return rejectWithValue(ErrorCodes.INCORRECT_CREDENTIALS);
     }
   },

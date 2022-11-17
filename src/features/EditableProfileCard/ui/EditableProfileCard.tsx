@@ -22,6 +22,7 @@ import { ErrorCodes } from 'features/AuthByUsername/model/services/loginByUserna
 import {
   useInitialEffect,
 } from 'shared/lib/hooks/useAppDispatch/useInitialEffect/useInitialEffect';
+import { useParams } from 'react-router-dom';
 import {
   getProfileFormReadonly,
 } from '../model/selectors/getProfileFormReadonly/getProfileFormReadonly';
@@ -45,6 +46,7 @@ interface EditableProfileCardProps {
 export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   const { className } = props;
   const { t } = useTranslation('profile');
+  const { id } = useParams<{id:string}>();
 
   const dispatch = useAppDispatch();
   const isLoading = useSelector(getProfileUpdateIsLoading);
@@ -58,7 +60,9 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   };
 
   useInitialEffect(() => {
-    dispatch(fetchProfileData());
+    if (id) {
+      dispatch(fetchProfileData(id));
+    }
   });
 
   const onChangeFirstname = useCallback((value?: string) => {

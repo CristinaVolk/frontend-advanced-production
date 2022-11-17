@@ -59,7 +59,7 @@ module.exports = {
     ],
     'max-len': [2,
       {
-        code: 100,
+        code: 103,
         ignoreComments: true,
       },
     ],

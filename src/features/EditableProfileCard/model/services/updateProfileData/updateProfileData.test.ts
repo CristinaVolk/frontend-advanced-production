@@ -4,6 +4,7 @@ import { ValidateProfileError } from 'features/EditableProfileCard/model/types/E
 import { updateProfileData } from './updateProfileData';
 
 const dataValue = {
+  id: '1',
   firstname: 'Cris',
   surname: 'Volk',
   age: 22,

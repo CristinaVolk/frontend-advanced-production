@@ -13,7 +13,7 @@ const initialReducers: ReducersList = {
 };
 
 const ProfilePage = () => (
-     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
+     <DynamicModuleLoader reducers={initialReducers}>
           <ProfilePageHeader />
           <EditableProfileCard />
      </DynamicModuleLoader>

@@ -5,7 +5,7 @@ import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorato
 import { CommentCard } from './CommentCard';
 
 export default {
-  title: '/CommentCard',
+  title: 'entities/CommentCard',
   component: CommentCard,
   argTypes: {
     backgroundColor: { control: 'color' },
@@ -30,6 +30,37 @@ Normal.args = {
 Normal.decorators = [StoreDecorator({
   articleDetailsComments: {
     isLoading: false,
+    error: undefined,
+    ids: ['1', '2'],
+    entities: {
+      1: {
+        id: '1',
+        text: 'comment 1',
+        user: {
+          id: '1',
+          username: 'admin@admin.com',
+          avatar: 'https://i1.sndcdn.com/avatars-000756121903-98y986-t500x500.jpg',
+        },
+      },
+      2: {
+        id: '2',
+        text: 'comment 2',
+        user: {
+          id: '1',
+          username: 'admin@admin.com',
+          avatar: 'https://i1.sndcdn.com/avatars-000756121903-98y986-t500x500.jpg',
+        },
+      },
+    },
+  },
+})];
+
+export const Loading = Template.bind({});
+Loading.args = {};
+
+Loading.decorators = [StoreDecorator({
+  articleDetailsComments: {
+    isLoading: true,
     error: undefined,
     ids: ['1', '2'],
     entities: {

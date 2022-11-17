@@ -16,6 +16,10 @@ import {
   getProfileFormReadonly,
 } from 'features/EditableProfileCard/model/selectors/getProfileFormReadonly/getProfileFormReadonly';
 
+import { getUserAuthData } from 'entities/User';
+import {
+  getProfileFormData,
+} from 'features/EditableProfileCard/model/selectors/getProfileFormData/getProfileFormData';
 import classes from './ProfilePageHeader.module.scss';
 
 interface ProfilePageHeaderProps {
@@ -25,6 +29,9 @@ interface ProfilePageHeaderProps {
 export const ProfilePageHeader = memo(({ className }: ProfilePageHeaderProps) => {
   const { t } = useTranslation('profile');
   const readonly = useSelector(getProfileFormReadonly);
+  const userData = useSelector(getUserAuthData);
+  const profileData = useSelector(getProfileFormData);
+  const canEdit = userData?.id === profileData?.id;
   const dispatch = useAppDispatch();
 
   const onCancelEdit = useCallback(() => {
@@ -42,34 +49,38 @@ export const ProfilePageHeader = memo(({ className }: ProfilePageHeaderProps) =>
   return (
        <div className={classNames(classes.ProfilePageHeader, {}, [className])}>
             <Text title={t('profile-page')} />
-            {readonly ? (
-                 <Button
-                    className={classes.editBtn}
-                    theme={ButtonTheme.CREATIVE}
-                    onClick={onEdit}
-                 >
-                      {t('edit')}
-                 </Button>
-            )
-              : (
-                   <div className={classes.wrapperBtn}>
-                        <Button
-                           className={classes.editBtn}
-                           theme={ButtonTheme.CREATIVE}
-                           onClick={onSave}
-                        >
-                             {t('save')}
-                        </Button>
-                        <Button
-                           className={classes.editBtn}
-                           theme={ButtonTheme.CREATIVE}
-                           textColor={ButtonTextColor.RED}
-                           onClick={onCancelEdit}
-                        >
-                             {t('cancel')}
-                        </Button>
-                   </div>
-              )}
+            {canEdit && (
+            <div className={classes.btnContainer}>
+                 {readonly ? (
+                      <Button
+                         className={classes.editBtn}
+                         theme={ButtonTheme.CREATIVE}
+                         onClick={onEdit}
+                      >
+                           {t('edit')}
+                      </Button>
+                 )
+                   : (
+                        <div className={classes.wrapperBtn}>
+                             <Button
+                                className={classes.editBtn}
+                                theme={ButtonTheme.CREATIVE}
+                                onClick={onSave}
+                             >
+                                  {t('save')}
+                             </Button>
+                             <Button
+                                className={classes.editBtn}
+                                theme={ButtonTheme.CREATIVE}
+                                textColor={ButtonTextColor.RED}
+                                onClick={onCancelEdit}
+                             >
+                                  {t('cancel')}
+                             </Button>
+                        </div>
+                   )}
+            </div>
+            )}
        </div>
   );
 });

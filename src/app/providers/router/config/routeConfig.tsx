@@ -23,7 +23,7 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     element: <AboutPageAsync />,
   },
   [AppRoutes.PROFILE]: {
-    path: RoutePaths[AppRoutes.PROFILE],
+    path: `${RoutePaths[AppRoutes.PROFILE]}:id`,
     element: <ProfilePageAsync />,
     authOnly: true,
   },

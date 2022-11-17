@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 
@@ -15,6 +15,10 @@ import {
   useInitialEffect,
 } from 'shared/lib/hooks/useAppDispatch/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { AddCommentFormAsync } from 'features/AddCommentForm';
+import {
+  addCommentFormForArticle,
+} from 'pages/ArticleDetailsPage/model/services/addCommentFormForArticle/addCommentFormForArticle';
 import {
   fetchCommentsByArticleId,
 } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -40,6 +44,10 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading);
   const dispatch = useAppDispatch();
 
+  const onSendComment = useCallback((text = '') => {
+    dispatch(addCommentFormForArticle(text));
+  }, [dispatch]);
+
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
   });
@@ -53,11 +61,12 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   }
 
   return (
-       <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
+       <DynamicModuleLoader reducers={reducers}>
             <div className={classNames(classes.ArticleDetailsPage, {}, [className])}>
                  {t('article')}
                  <ArticleDetails id={id} />
                  <Text title={t('Comments')} />
+                 <AddCommentFormAsync onSendComment={onSendComment} />
                  <CommentList
                     isLoading={commentsIsLoading}
                     comments={comments}

@@ -11,6 +11,7 @@ import { LoginSchema } from 'features/AuthByUsername/model/types/LoginSchema';
 import { EditableProfileCardSchema } from 'features/EditableProfileCard';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
+import { AddCommentFormSchema } from 'features/AddCommentForm';
 
 export interface StateSchema {
   user: UserSchema
@@ -19,6 +20,7 @@ export interface StateSchema {
   editableProfileCard?: EditableProfileCardSchema;
   articleDetails?: ArticleDetailsSchema;
   articleDetailsComments?: ArticleDetailsCommentsSchema;
+  addCommentForm?: AddCommentFormSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
