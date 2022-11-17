@@ -5,8 +5,9 @@ import { classNames } from 'shared/lib/classNames';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher';
 
-import { SideBarItemsList } from 'widgets/SideBar/model/items';
 import { SideBarItem } from 'widgets/SideBar/ui/SideBarItem/SideBarItem';
+import { useSelector } from 'react-redux';
+import { getSideBarItems } from '../../model/selectors/getSideBarItems';
 import classes from './SideBar.module.scss';
 
 interface SideBarProps {
@@ -20,11 +21,15 @@ export function SideBar({ className }: SideBarProps) {
     setCollapsed((prevState) => !prevState);
   };
 
-  const itemsList = useMemo(() => SideBarItemsList.map((item) => (
-       <div key={item.path} className={classes.linkItem}>
-            <SideBarItem item={item} />
-       </div>
-  )), []);
+  const sideBarItemsList = useSelector(getSideBarItems);
+
+  const itemsList = useMemo(() => sideBarItemsList.map(
+    (item) => (
+         <div key={item.path} className={classes.linkItem}>
+              <SideBarItem item={item} />
+         </div>
+    ),
+  ), [sideBarItemsList]);
 
   return (
        <div
