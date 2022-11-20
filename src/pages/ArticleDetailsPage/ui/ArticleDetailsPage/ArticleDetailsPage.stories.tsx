@@ -49,6 +49,11 @@ const article: Article = {
       ],
     },
   ],
+  user: {
+    id: '1',
+    username: 'admin@admin.com',
+    avatar: 'https://pbs.twimg.com/profile_images/540611068721364992/J4ityfdN_400x400.jpeg',
+  },
 };
 
 export const ArticleDetailsPageLight = Template.bind({});

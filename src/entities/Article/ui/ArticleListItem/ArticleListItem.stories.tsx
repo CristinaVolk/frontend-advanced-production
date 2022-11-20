@@ -1,15 +1,22 @@
-import React, { memo } from 'react';
-import { classNames } from 'shared/lib/classNames';
+import React from 'react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { ArticleList } from 'entities/Article';
 import {
   Article, ArticleBlockType, ArticleType, ArticleView,
 } from 'entities/Article/model/types/Article';
-import classes from './ArticlePage.module.scss';
+import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
+import { ThemeEnum } from 'app/providers/ThemeProvider';
+import { ArticleListItem } from './ArticleListItem';
 
-interface ArticlePageProps {
-	className?: string;
-}
+export default {
+  title: 'entities/ArticleListItem',
+  component: ArticleListItem,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
+} as ComponentMeta<typeof ArticleListItem>;
+
+const Template: ComponentStory<typeof ArticleListItem> = (args) => <ArticleListItem {...args} />;
 
 const article: Article = {
   id: '1',
@@ -53,19 +60,28 @@ const article: Article = {
   },
 };
 
-const ArticlePage = memo(({ className }: ArticlePageProps) => (
-     <div className={classNames(classes.ArticlePage, {}, [className])}>
-          <ArticleList
-             view={ArticleView.TILE}
-             articles={[
-               article, article, article, article,
-               article, article, article, article,
-               article, article, article, article,
-               article, article, article, article,
-               article, article, article, article,
-             ]}
-          />
-     </div>
-));
+export const ArticleTile = Template.bind({});
+ArticleTile.args = {
+  article,
+  view: ArticleView.TILE,
+};
 
-export default ArticlePage;
+export const ArticleList = Template.bind({});
+ArticleList.args = {
+  article,
+  view: ArticleView.LIST,
+};
+
+export const ArticleTileDark = Template.bind({});
+ArticleTileDark.args = {
+  article,
+  view: ArticleView.TILE,
+};
+ArticleTileDark.decorators = [ThemeDecorator(ThemeEnum.DARK)];
+
+export const ArticleTileBlue = Template.bind({});
+ArticleTileBlue.args = {
+  article,
+  view: ArticleView.LIST,
+};
+ArticleTileBlue.decorators = [ThemeDecorator(ThemeEnum.BLUE)];

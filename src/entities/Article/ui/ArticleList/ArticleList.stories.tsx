@@ -1,15 +1,20 @@
-import React, { memo } from 'react';
-import { classNames } from 'shared/lib/classNames';
+import React from 'react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { ArticleList } from 'entities/Article';
 import {
   Article, ArticleBlockType, ArticleType, ArticleView,
 } from 'entities/Article/model/types/Article';
-import classes from './ArticlePage.module.scss';
+import { ArticleList } from './ArticleList';
 
-interface ArticlePageProps {
-	className?: string;
-}
+export default {
+  title: 'entities/ArticleList',
+  component: ArticleList,
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
+} as ComponentMeta<typeof ArticleList>;
+
+const Template: ComponentStory<typeof ArticleList> = (args) => <ArticleList {...args} />;
 
 const article: Article = {
   id: '1',
@@ -52,20 +57,15 @@ const article: Article = {
     avatar: 'https://pbs.twimg.com/profile_images/540611068721364992/J4ityfdN_400x400.jpeg',
   },
 };
+const articleList = [
+  article, article, article,
+  article, article, article,
+  article, article, article,
+];
 
-const ArticlePage = memo(({ className }: ArticlePageProps) => (
-     <div className={classNames(classes.ArticlePage, {}, [className])}>
-          <ArticleList
-             view={ArticleView.TILE}
-             articles={[
-               article, article, article, article,
-               article, article, article, article,
-               article, article, article, article,
-               article, article, article, article,
-               article, article, article, article,
-             ]}
-          />
-     </div>
-));
-
-export default ArticlePage;
+export const Normal = Template.bind({});
+Normal.args = {
+  articles: articleList,
+  isLoading: false,
+  view: ArticleView.LIST,
+};

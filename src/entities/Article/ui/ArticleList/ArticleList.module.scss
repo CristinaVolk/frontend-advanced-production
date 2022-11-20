@@ -1,0 +1,7 @@
+.ArticleList {
+    &.TILE {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px 30px;
+    }
+}

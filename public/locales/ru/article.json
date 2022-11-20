@@ -1,5 +1,7 @@
 {
   "article": "article",
   "Article has not been found": "Article has not been found",
-  "loading-error": "There has been an error during fetching the article"
+  "loading-error": "There has been an error during fetching the article",
+  "read-more": "Read more ...",
+  "back-to-list": "Back to articles"
 }
