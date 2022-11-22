@@ -1,0 +1,10 @@
+.ArticleListViewSwitcher {
+    display: flex;
+    gap: 8px;
+
+    .notSelected {
+        transform: scale(0.7);
+        transition: all 0.2s;
+        opacity: 0.3;
+    }
+}

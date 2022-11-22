@@ -19,6 +19,10 @@
         justify-content: center;
         width: 100%;
 
+        .Avatar {
+            align-self: center;
+        }
+
         .articleParticles {
             display: flex;
             align-items: center;

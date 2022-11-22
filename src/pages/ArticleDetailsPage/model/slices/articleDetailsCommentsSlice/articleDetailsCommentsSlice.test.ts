@@ -6,7 +6,7 @@ import {
   fetchCommentsByArticleId,
 } from '../../services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 
-describe('addCommentFormSlice.test', () => {
+describe('articleDetailsCommentsSlice.test', () => {
   test('pending state', () => {
     const state: DeepPartial<ArticleDetailsCommentsSchema> = {
       isLoading: false,
@@ -18,15 +18,37 @@ describe('addCommentFormSlice.test', () => {
     )).toEqual({ isLoading: true });
   });
 
-  // test('with error', () => {
+  // test('fetching comments with success', () => {
   //   const state: DeepPartial<ArticleDetailsCommentsSchema> = {
-  //     isLoading: true,
+  //     isLoading: false,
   //     error: undefined,
   //   };
   //
-  //   expect(articleDetailsCommentsReducer(
-  //     state as ArticleDetailsCommentsSchema,
-  //     fetchCommentsByArticleId.rejected,
-  //   )).toEqual({ isLoading: false, error: undefined });
+  //   expect(
+  //     articleDetailsCommentsReducer(
+  //       state as ArticleDetailsCommentsSchema,
+  //       fetchCommentsByArticleId.fulfilled,
+  //     ),
+  //   ).toEqual({
+  //     isLoading: false,
+  //     error: undefined,
+  //   });
   // });
+
+  test('fetching comments with error', () => {
+    const state: DeepPartial<ArticleDetailsCommentsSchema> = {
+      isLoading: false,
+      error: undefined,
+    };
+
+    expect(
+      articleDetailsCommentsReducer(
+        state as ArticleDetailsCommentsSchema,
+        fetchCommentsByArticleId.rejected(new Error('error'), '', '', 'error', ''),
+      ),
+    ).toEqual({
+      isLoading: false,
+      error: 'error',
+    });
+  });
 });
