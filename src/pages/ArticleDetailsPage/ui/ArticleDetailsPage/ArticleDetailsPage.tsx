@@ -19,6 +19,7 @@ import { AddCommentFormAsync } from 'features/AddCommentForm';
 import {
   addCommentFormForArticle,
 } from 'pages/ArticleDetailsPage/model/services/addCommentFormForArticle/addCommentFormForArticle';
+import { Page } from 'shared/ui/Page/Page';
 import {
   fetchCommentsByArticleId,
 } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -54,15 +55,15 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
   if (!id) {
     return (
-         <div className={classNames(classes.ArticleDetailsPage, {}, [className])}>
+         <Page className={classNames(classes.ArticleDetailsPage, {}, [className])}>
               {t('Article has not been found')}
-         </div>
+         </Page>
     );
   }
 
   return (
        <DynamicModuleLoader reducers={reducers}>
-            <div className={classNames(classes.ArticleDetailsPage, {}, [className])}>
+            <Page className={classNames(classes.ArticleDetailsPage, {}, [className])}>
                  {t('article')}
                  <ArticleDetails id={id} />
                  <Text title={t('Comments')} />
@@ -71,7 +72,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
                     isLoading={commentsIsLoading}
                     comments={comments}
                  />
-            </div>
+            </Page>
 
        </DynamicModuleLoader>
   );

@@ -7,6 +7,7 @@ import { ProfilePageHeader } from 'pages/ProfilePage/ui/ProfilePageHeader/Profil
 import { editableProfileCardReducer } from 'features/EditableProfileCard';
 
 import { EditableProfileCard } from 'features/EditableProfileCard/ui/EditableProfileCard';
+import { Page } from 'shared/ui/Page/Page';
 
 const initialReducers: ReducersList = {
   editableProfileCard: editableProfileCardReducer,
@@ -14,8 +15,10 @@ const initialReducers: ReducersList = {
 
 const ProfilePage = () => (
      <DynamicModuleLoader reducers={initialReducers}>
-          <ProfilePageHeader />
-          <EditableProfileCard />
+          <Page>
+               <ProfilePageHeader />
+               <EditableProfileCard />
+          </Page>
      </DynamicModuleLoader>
 );
 

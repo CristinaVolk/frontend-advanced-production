@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import React, { useState } from 'react';
 import { Input } from 'shared/ui/Input/Input';
 import { Text } from 'shared/ui/Text/Text';
+import { Page } from 'shared/ui/Page/Page';
 
 const MainPage = () => {
   const { t } = useTranslation();
@@ -12,7 +13,7 @@ const MainPage = () => {
   };
 
   return (
-       <div>
+       <Page>
             <h1>{t('main')}</h1>
             <Text text={t('main')} title={t('main')} />
             <Input
@@ -22,7 +23,7 @@ const MainPage = () => {
                autofocus
                onChange={onChange}
             />
-       </div>
+       </Page>
   );
 };
 

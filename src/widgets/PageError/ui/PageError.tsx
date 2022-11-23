@@ -18,7 +18,7 @@ export const PageError = memo(({ className }: PageErrorProps) => {
   };
 
   return (
-       <div className={`app ${ThemeEnum.DARK}`}>
+       <section className={`app ${ThemeEnum.DARK}`}>
             <div className={classNames(classes.PageError, {}, [className])}>
                  <Button
                     onClick={onRefresh}
@@ -27,6 +27,6 @@ export const PageError = memo(({ className }: PageErrorProps) => {
                       {t('refresh')}
                  </Button>
             </div>
-       </div>
+       </section>
   );
 });

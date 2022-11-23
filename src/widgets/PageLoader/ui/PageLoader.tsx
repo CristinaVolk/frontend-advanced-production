@@ -12,9 +12,9 @@ interface PageLoaderProps {
 export const PageLoader = memo(({ className }: PageLoaderProps) => {
   const { t } = useTranslation();
   return (
-       <div className={classNames(classes.PageLoader, {}, [className])}>
+       <section className={classNames(classes.PageLoader, {}, [className])}>
             <h1>{t('loading')}</h1>
             <Loader className="lds-grid" />
-       </div>
+       </section>
   );
 });

@@ -32,7 +32,7 @@ export function SideBar({ className }: SideBarProps) {
   ), [sideBarItemsList]);
 
   return (
-       <div
+       <nav
           data-testid="sidebar"
           className={
                classNames(
@@ -70,6 +70,6 @@ export function SideBar({ className }: SideBarProps) {
                  <ThemeSwitcher />
                  <LangSwitcher short={collapsed} />
             </div>
-       </div>
+       </nav>
   );
 }

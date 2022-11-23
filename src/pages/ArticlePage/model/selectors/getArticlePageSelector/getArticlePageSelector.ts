@@ -11,3 +11,15 @@ export const getArticlePageError = ((
 export const getArticlePageView = ((
   state:StateSchema,
 ) => state.articlePage?.view);
+
+export const getArticlePagePage = ((
+  state:StateSchema,
+) => state.articlePage?.page || 1);
+
+export const getArticlePageHasMore = ((
+  state:StateSchema,
+) => state.articlePage?.hasMore);
+
+export const getArticlePageLimit = ((
+  state:StateSchema,
+) => state.articlePage?.limit || 9);
