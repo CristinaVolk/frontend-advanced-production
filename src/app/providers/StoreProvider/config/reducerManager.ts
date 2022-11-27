@@ -14,7 +14,6 @@ export function createReducerManager(
 
   return {
     getReducerMap: () => reducers,
-
     // This will be passed to the store
     reduce: (state:StateSchema, action: AnyAction) => {
       if (keysToRemove.length > 0) {
@@ -35,7 +34,6 @@ export function createReducerManager(
       }
 
       reducers[key] = reducer;
-
       // Generate a new combined reducer
       combinedReducer = combineReducers(reducers);
     },
@@ -45,7 +43,6 @@ export function createReducerManager(
       if (!key || !reducers[key]) {
         return;
       }
-
       // Remove it from the reducer mapping
       delete reducers[key];
 

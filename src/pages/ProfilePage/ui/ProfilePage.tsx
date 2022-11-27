@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import {
   DynamicModuleLoader, ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
@@ -13,13 +13,13 @@ const initialReducers: ReducersList = {
   editableProfileCard: editableProfileCardReducer,
 };
 
-const ProfilePage = () => (
-     <DynamicModuleLoader reducers={initialReducers}>
+const ProfilePage = memo(() => (
+     <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
           <Page>
                <ProfilePageHeader />
                <EditableProfileCard />
           </Page>
      </DynamicModuleLoader>
-);
+));
 
 export default ProfilePage;

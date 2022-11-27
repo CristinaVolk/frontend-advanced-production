@@ -34,8 +34,6 @@ export const useInfiniteScroll = ({
 
     return () => {
       if (observer) {
-        // eslint-disable-next-line no-debugger
-        debugger;
         // eslint-disable-next-line react-hooks/exhaustive-deps
         observer.unobserve(triggerRefObg.current);
       }

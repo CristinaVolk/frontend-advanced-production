@@ -15,7 +15,9 @@ import { Page } from 'shared/ui/Page/Page';
 import {
   fetchNextArticlePage,
 } from 'pages/ArticlePage/model/services/fetchNextArticlePage/fetchNextArticlePage';
-import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';
+import {
+  initArticlesPage,
+} from 'pages/ArticlePage/model/services/initArticlesPage/initArticlesPage';
 import {
   getArticlePageIsLoading, getArticlePageView,
 } from '../../model/selectors/getArticlePageSelector/getArticlePageSelector';
@@ -36,6 +38,7 @@ const ArticlePage = memo((props: ArticlePageProps) => {
   const articles = useSelector(getArticles.selectAll);
   const isLoading = useSelector(getArticlePageIsLoading);
   const view = useSelector(getArticlePageView) || ArticleView.TILE;
+
   const dispatch = useAppDispatch();
 
   const onChangeView = useCallback((value: ArticleView) => {
@@ -47,12 +50,11 @@ const ArticlePage = memo((props: ArticlePageProps) => {
   }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(articlePageActions.initState());
-    dispatch(fetchArticles({ _page: 1 }));
+    dispatch(initArticlesPage());
   });
 
   return (
-       <DynamicModuleLoader reducers={reducers}>
+       <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page
                onScrollEnd={onLoadPageNext}
                className={classNames(classes.ArticlePage, {}, [className])}
