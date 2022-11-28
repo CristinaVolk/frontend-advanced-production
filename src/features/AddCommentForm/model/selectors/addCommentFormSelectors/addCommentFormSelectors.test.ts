@@ -37,6 +37,6 @@ describe('getArticleDetailsCommentsError test', () => {
   test('with empty state passed', () => {
     const state:DeepPartial<StateSchema> = {};
 
-    expect(getAddCommentFormError(state as StateSchema)).toBe('');
+    expect(getAddCommentFormError(state as StateSchema)).toBe(undefined);
   });
 });

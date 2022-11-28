@@ -3,6 +3,7 @@ import { userReducer } from 'entities/User';
 import { createReducerManager } from 'app/providers/StoreProvider/config/reducerManager';
 import { $api } from 'shared/api/api';
 import { CombinedState } from 'redux';
+import { scrollMemorizingReducer } from 'features/ScrollMemorizing';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 
 export function createReduxStore(
@@ -12,6 +13,7 @@ export function createReduxStore(
   const rootReducer: ReducersMapObject<StateSchema> = {
     ...asyncReducers,
     user: userReducer,
+    scrollMemorizing: scrollMemorizingReducer,
   };
 
   const reducerManager = createReducerManager(rootReducer);

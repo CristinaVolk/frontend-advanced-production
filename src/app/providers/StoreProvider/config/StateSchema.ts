@@ -11,9 +11,11 @@ import { ArticleDetailsSchema } from 'entities/Article';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { ArticlePageSchema } from 'pages/ArticlePage';
+import { ScrollMemorizingSchema } from 'features/ScrollMemorizing';
 
 export interface StateSchema {
-  user: UserSchema
+  user: UserSchema;
+  scrollMemorizing: ScrollMemorizingSchema;
   // Async reducers
   loginForm?: LoginSchema;
   editableProfileCard?: EditableProfileCardSchema;
