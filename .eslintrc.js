@@ -26,6 +26,7 @@ module.exports = {
     'react-hooks',
   ],
   rules: {
+    'guard-for-in': [1],
     'no-param-reassign': [0],
     'react-hooks/rules-of-hooks': [2],
     'react-hooks/exhaustive-deps': [2],

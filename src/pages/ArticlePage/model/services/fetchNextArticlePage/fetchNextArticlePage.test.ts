@@ -1,4 +1,5 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { ArticleSortField, ArticleType } from 'entities/Article';
 import { fetchNextArticlePage } from './fetchNextArticlePage';
 import { fetchArticles } from '../fetchArticles/fetchArticles';
 
@@ -14,13 +15,18 @@ describe('fetchNextArticlePage.test', () => {
         limit: 3,
         isLoading: false,
         hasMore: true,
+        order: 'asc',
+        sort: ArticleSortField.CREATED,
+        search: '',
+        type: ArticleType.ALL,
+        _inited: false,
       },
     });
 
     await thunk.callThunk();
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(4);
-    expect(fetchArticles).toHaveBeenCalledWith({ _page: 3 });
+    expect(fetchArticles).toHaveBeenCalledWith({ replace: false });
   });
 
   test('failure fetchNextArticlePage', async () => {
@@ -32,13 +38,18 @@ describe('fetchNextArticlePage.test', () => {
         limit: 3,
         isLoading: false,
         hasMore: false,
+        order: 'asc',
+        sort: ArticleSortField.CREATED,
+        search: '',
+        type: ArticleType.ALL,
+        _inited: false,
       },
     });
 
     await thunk.callThunk();
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(2);
-    expect(fetchArticles).not.toHaveBeenCalledWith({ page: 3 });
+    expect(fetchArticles).not.toHaveBeenCalled();
   });
 
   test('failure fetchNextArticlePage during the Loading', async () => {
@@ -50,12 +61,17 @@ describe('fetchNextArticlePage.test', () => {
         limit: 3,
         isLoading: true,
         hasMore: false,
+        order: 'asc',
+        sort: ArticleSortField.CREATED,
+        search: '',
+        type: ArticleType.ALL,
+        _inited: false,
       },
     });
 
     await thunk.callThunk();
 
     expect(thunk.dispatch).toHaveBeenCalledTimes(2);
-    expect(fetchArticles).not.toHaveBeenCalledWith({ page: 3 });
+    expect(fetchArticles).not.toHaveBeenCalled();
   });
 });

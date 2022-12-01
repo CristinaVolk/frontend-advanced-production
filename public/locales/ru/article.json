@@ -3,5 +3,17 @@
   "Article has not been found": "Article has not been found",
   "loading-error": "There has been an error during fetching the article",
   "read-more": "Read more ...",
-  "back-to-list": "Back to articles"
+  "back-to-list": "Back to articles",
+  "sort": "Sort by",
+  "search": "search",
+  "by": "by",
+  "descending": "descending",
+  "ascending": "ascending",
+  "title": "title",
+  "created date": "created date",
+  "number of views": "number of views",
+  "IT": "IT",
+  "Science": "Science",
+  "Economics": "Economics",
+  "all articles": "all articles"
 }

@@ -4,22 +4,22 @@ import { Text, TextTheme } from '../Text/Text';
 
 import classes from './Select.module.scss';
 
-export type SelectOption = {
-  value: string;
+export type SelectOption<T extends string> = {
+  value: T;
   content:string;
 }
 
-interface SelectProps {
+interface SelectProps<T extends string> {
 	className?: string;
     title?: string
     label?: string;
-    options?: SelectOption[];
-    value?: string;
+    options?: SelectOption<T>[];
+    value?: T;
     readonly : boolean;
-    onChangeOption?: (value:string) => void;
+    onChangeOption?: (value:T) => void;
 }
 
-export const Select = (props: SelectProps) => {
+export const Select = <T extends string>(props: SelectProps<T>) => {
   const {
     className,
     title,
@@ -41,7 +41,7 @@ export const Select = (props: SelectProps) => {
 
   const onChange = (event: ChangeEvent<HTMLSelectElement>) => {
     if (onChangeOption) {
-      onChangeOption(event.target.value);
+      onChangeOption(event.target.value as T);
     }
   };
 

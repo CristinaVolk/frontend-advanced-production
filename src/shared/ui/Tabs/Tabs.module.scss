@@ -1,0 +1,15 @@
+.Tabs {
+    display: flex;
+    gap: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+
+    .tab {
+        box-shadow:
+            rgb(0 0 0 / 9%) 0 2px 1px,
+            rgb(0 0 0 / 9%) 0 4px 2px,
+            rgb(0 0 0 / 9%) 0 8px 4px,
+            rgb(0 0 0 / 9%) 0 16px 8px,
+            rgb(0 0 0 / 9%) 0 32px 16px;
+    }
+}
