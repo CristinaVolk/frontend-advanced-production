@@ -12,7 +12,9 @@ import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { TabItem } from 'shared/ui/Tabs/Tabs';
 
 import { ArticleTypedTabs } from 'entities/Article';
-import { ArticleSortField, ArticleType, ArticleView } from 'entities/Article/model/types/Article';
+import {
+  ArticleSortFieldType, ArticleType, ArticleView,
+} from 'entities/Article/model/types/Article';
 import { ArticleListViewSwitcher } from 'features/ArticleListViewSwitcher';
 
 import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';
@@ -50,7 +52,7 @@ export const ArticlePageFilter = memo((props: ArticlePageFilterProps) => {
     dispatch(articlePageActions.setPage(1));
   }, [dispatch]);
 
-  const onChangeSort = useCallback((value: ArticleSortField) => {
+  const onChangeSort = useCallback((value: ArticleSortFieldType) => {
     dispatch(articlePageActions.setSort(value));
     dispatch(articlePageActions.setPage(1));
     fetchData();

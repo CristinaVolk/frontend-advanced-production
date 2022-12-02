@@ -8,7 +8,7 @@ import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername/model/types/LoginSchema';
 import { EditableProfileCardSchema } from 'features/EditableProfileCard';
 import { ArticleDetailsSchema } from 'entities/Article';
-import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
+import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { ArticlePageSchema } from 'pages/ArticlePage';
 import { ScrollMemorizingSchema } from 'features/ScrollMemorizing';
@@ -20,9 +20,9 @@ export interface StateSchema {
   loginForm?: LoginSchema;
   editableProfileCard?: EditableProfileCardSchema;
   articleDetails?: ArticleDetailsSchema;
-  articleDetailsComments?: ArticleDetailsCommentsSchema;
   addCommentForm?: AddCommentFormSchema;
-  articlePage?: ArticlePageSchema
+  articlePage?: ArticlePageSchema,
+  articleDetailsPage?: ArticleDetailsPageSchema
 }
 
 export type StateSchemaKey = keyof StateSchema;

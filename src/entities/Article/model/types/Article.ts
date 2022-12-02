@@ -6,11 +6,14 @@ export enum ArticleBlockType {
   TEXT = 'TEXT'
 }
 
-export enum ArticleSortField {
-  VIEWS = 'views',
-  TITLE = 'title',
-  CREATED = 'created_at',
-}
+type ValueOf<T> = T[keyof T];
+export const ArticleSortField = {
+  VIEWS: 'views',
+  TITLE: 'title',
+  CREATED: 'created_at',
+} as const;
+
+export type ArticleSortFieldType = ValueOf<typeof ArticleSortField>;
 
 export interface ArticleBlockBase {
   id: string;

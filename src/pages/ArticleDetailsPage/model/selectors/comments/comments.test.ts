@@ -1,11 +1,15 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { getArticleDetailsCommentsError, getArticleDetailsCommentsIsLoading } from './comments';
+import {
+  getArticleDetailsCommentsError, getArticleDetailsCommentsIsLoading,
+} from 'pages/ArticleDetailsPage/model/selectors/comments/comments';
 
 describe('getArticleDetailsCommentsIsLoading test', () => {
   test('with value', () => {
     const state:DeepPartial<StateSchema> = {
-      articleDetailsComments: {
-        isLoading: true,
+      articleDetailsPage: {
+        comments: {
+          isLoading: true,
+        },
       },
     };
 
@@ -24,8 +28,10 @@ describe('getArticleDetailsCommentsError test', () => {
 
   test('with value', () => {
     const state:DeepPartial<StateSchema> = {
-      articleDetailsComments: {
-        error: 'error occurred',
+      articleDetailsPage: {
+        comments: {
+          error: 'error occurred',
+        },
       },
     };
 

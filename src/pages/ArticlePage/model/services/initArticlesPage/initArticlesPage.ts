@@ -3,26 +3,26 @@ import { ThunkConfig } from 'app/providers/StoreProvider/config/StateSchema';
 import {
   useInitialEffect,
 } from 'shared/lib/hooks/useAppDispatch/useInitialEffect/useInitialEffect';
+import { ArticleSortFieldType, ArticleType } from 'entities/Article/model/types/Article';
+import { SortOrder } from 'shared/types/Order';
 import { articlePageActions } from '../../slices/articlePageSlice/articlePageSlice';
 import { fetchArticles } from '../../services/fetchArticles/fetchArticles';
 import {
   getArticlePageInited,
 } from '../../selectors/getArticlePageSelector/getArticlePageSelector';
 
-// type Dispatched<T> = T extends ActionCreatorWithPayload<infer R>
-//   ? (args?: R) => void
-//   : () => void;
-
-// type DispatchAll<T> = {
-//   [P in keyof T]: Dispatched<T[P]>;
-// };
-
-const mapParamToAction: Record<string, ActionCreatorWithPayload<any>> = {
-  sort: articlePageActions.setSort,
-  order: articlePageActions.setOrder,
-  search: articlePageActions.setSearch,
-  type: articlePageActions.setType,
-};
+const mapParamToAction: Record<
+  string,
+  ActionCreatorWithPayload<ArticleSortFieldType> |
+  ActionCreatorWithPayload<SortOrder> |
+  ActionCreatorWithPayload<string> |
+  ActionCreatorWithPayload<ArticleType>
+  > = {
+    sort: articlePageActions.setSort,
+    order: articlePageActions.setOrder,
+    search: articlePageActions.setSearch,
+    type: articlePageActions.setType,
+  };
 
 export const initArticlesPage = createAsyncThunk<
   void,
@@ -34,13 +34,15 @@ export const initArticlesPage = createAsyncThunk<
       const { dispatch, getState } = thunkAPI;
       const isInited = getArticlePageInited(getState());
 
-      const getParamFromUrl = (param: string) => searchParams.get(param);
+      const getParamFromUrl = (param: string) : string | null => searchParams.get(param);
 
       // eslint-disable-next-line guard-for-in
       for (const mapParamToActionKey in mapParamToAction) {
         const paramValue = getParamFromUrl(mapParamToActionKey);
         if (paramValue) {
-          dispatch(mapParamToAction[mapParamToActionKey](paramValue));
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          dispatch(mapParamToAction.mapParamToActionKey(paramValue));
         }
       }
 

@@ -1,10 +1,11 @@
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-
-import { ArticleDetails } from 'entities/Article';
-import { CommentList } from 'entities/Comment';
 import { useSelector } from 'react-redux';
+
+import { ArticleDetails, ArticleList } from 'entities/Article';
+import { CommentList } from 'entities/Comment';
+import { AddCommentFormAsync } from 'features/AddCommentForm';
 
 import { Text } from 'shared/ui/Text/Text';
 import { classNames } from 'shared/lib/classNames';
@@ -15,27 +16,37 @@ import {
   useInitialEffect,
 } from 'shared/lib/hooks/useAppDispatch/useInitialEffect/useInitialEffect';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { AddCommentFormAsync } from 'features/AddCommentForm';
+import { Page } from 'shared/ui/Page/Page';
+
+import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slices';
+import {
+  getArticleDetailsRecommendationsIsLoading,
+} from '../../model/selectors/recommendations/recommendations';
 import {
   addCommentFormForArticle,
-} from 'pages/ArticleDetailsPage/model/services/addCommentFormForArticle/addCommentFormForArticle';
-import { Page } from 'shared/ui/Page/Page';
+} from '../../model/services/addCommentFormForArticle/addCommentFormForArticle';
+import {
+  getArticleRecommendations,
+} from '../../model/slices/articleDetailsPageRecommendationsSlice/articleDetailsPageRecommendationsSlice';
 import {
   fetchCommentsByArticleId,
 } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { getArticleDetailsCommentsIsLoading } from '../../model/selectors/comments';
+import { getArticleDetailsCommentsIsLoading } from '../../model/selectors/comments/comments';
 import {
-  articleDetailsCommentsReducer, getArticleComments,
+  getArticleComments,
 } from '../../model/slices/articleDetailsCommentsSlice/articleDetailsCommentSlice';
 
 import classes from './ArticleDetailsPage.module.scss';
+import {
+  fetchArticleRecommendations,
+} from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
 
 interface ArticleDetailsPageProps {
   className?: string;
 }
 
 const reducers:ReducersList = {
-  articleDetailsComments: articleDetailsCommentsReducer,
+  articleDetailsPage: articleDetailsPageReducer,
 };
 
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
@@ -43,6 +54,10 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const { id } = useParams<{id:string}>();
   const comments = useSelector(getArticleComments.selectAll);
   const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading);
+
+  const recommendations = useSelector(getArticleRecommendations.selectAll);
+  const recommendationsIsLoading = useSelector(getArticleDetailsRecommendationsIsLoading);
+
   const dispatch = useAppDispatch();
 
   const onSendComment = useCallback((text = '') => {
@@ -51,6 +66,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
+    dispatch(fetchArticleRecommendations());
   });
 
   if (!id) {
@@ -66,14 +82,21 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
             <Page className={classNames(classes.ArticleDetailsPage, {}, [className])}>
                  {t('article')}
                  <ArticleDetails id={id} />
-                 <Text title={t('Comments')} />
+                 <Text className={classes.commentTitle} title={t('Recommendations')} />
+                 <ArticleList
+                    className={classes.recommendations}
+                    target="_blank"
+                    isLoading={recommendationsIsLoading}
+                    articles={recommendations}
+                 />
+
+                 <Text className={classes.commentTitle} title={t('Comments')} />
                  <AddCommentFormAsync onSendComment={onSendComment} />
                  <CommentList
                     isLoading={commentsIsLoading}
                     comments={comments}
                  />
             </Page>
-
        </DynamicModuleLoader>
   );
 };

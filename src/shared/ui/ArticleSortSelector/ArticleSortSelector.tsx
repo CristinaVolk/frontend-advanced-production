@@ -6,13 +6,14 @@ import { classNames } from 'shared/lib/classNames';
 import { Select, SelectOption } from 'shared/ui/Select/Select';
 import { ArticleSortField } from 'entities/Article';
 import { SortOrder } from 'shared/types/Order';
+import { ArticleSortFieldType } from 'entities/Article/model/types/Article';
 import classes from './ArticleSortSelector.module.scss';
 
 interface ArticleSortSelectorProps {
   className?: string;
   order: SortOrder;
-  sort: ArticleSortField;
-  onChangeSort: (newSort: ArticleSortField) => void;
+  sort: ArticleSortFieldType;
+  onChangeSort: (newSort: ArticleSortFieldType) => void;
   onChangeOrder: (newOrder: SortOrder) => void;
 }
 
@@ -32,7 +33,7 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
 		  },
 	  ], [t]);
 
-  const sortFieldOptions = useMemo<SelectOption<ArticleSortField>[]>(() => [
+  const sortFieldOptions = useMemo<SelectOption<ArticleSortFieldType>[]>(() => [
     {
       value: ArticleSortField.CREATED,
       content: t('created date'),
@@ -49,7 +50,7 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
 
   return (
        <div className={classNames(classes.ArticleSortSelector, {}, [className])}>
-            <Select<ArticleSortField>
+            <Select<ArticleSortFieldType>
                className={classes.selectBox}
                options={sortFieldOptions}
                label={t('sort')}
