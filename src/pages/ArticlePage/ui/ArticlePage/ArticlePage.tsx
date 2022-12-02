@@ -48,7 +48,6 @@ const ArticlePage = memo((props: ArticlePageProps) => {
   }, [dispatch]);
 
   useInitialEffect(() => {
-    console.log(searchParams);
     dispatch(initArticlesPage(searchParams));
   });
 
@@ -67,7 +66,6 @@ const ArticlePage = memo((props: ArticlePageProps) => {
                  />
             </Page>
        </DynamicModuleLoader>
-
   );
 });
 

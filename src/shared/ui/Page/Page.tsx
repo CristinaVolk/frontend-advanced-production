@@ -41,7 +41,6 @@ export const Page = memo((props: PageProps) => {
   });
 
   const onScroll = useTrottle((event: UIEvent<HTMLDivElement>) => {
-    console.log('Scroll');
     dispatch(scrollMemorizingActions.setScrollPosition({
       position: event.currentTarget.scrollTop,
       path: pathname,

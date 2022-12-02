@@ -15,10 +15,6 @@ import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Icon } from 'shared/ui/Icon/Icon';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import CalendarIcon from 'shared/assets/icons/calendar.svg';
-
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { RoutePaths } from 'shared/config/routes/routes';
-import { useNavigate } from 'react-router-dom';
 import { ArticleBlock, ArticleBlockType } from '../../model/types/Article';
 import {
   ArticleCodeBlockComponent,
@@ -52,11 +48,6 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   const isLoading = useSelector(getArticleDetailsIsLoading);
   const error = useSelector(getArticleDetailsError);
   const articleDetailsData = useSelector(getArticleDetailsData);
-  const navigate = useNavigate();
-
-  const onBackToArticleList = useCallback(() => {
-    navigate(RoutePaths.articles_details);
-  }, [navigate]);
 
   const renderBlock = useCallback((block: ArticleBlock) => {
     switch (block.type) {
@@ -143,12 +134,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
   return (
        <DynamicModuleLoader reducers={reducers}>
             <div className={classNames(classes.ArticleDetails, {}, [className])}>
-                 <Button
-                    onClick={onBackToArticleList}
-                    theme={ButtonTheme.CREATIVE}
-                 >
-                      {t('back-to-list')}
-                 </Button>
+
                  {content}
             </div>
        </DynamicModuleLoader>

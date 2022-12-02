@@ -20,6 +20,9 @@ import { Page } from 'shared/ui/Page/Page';
 
 import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slices';
 import {
+  ArticleDetailsPageHeader,
+} from 'pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import {
   getArticleDetailsRecommendationsIsLoading,
 } from '../../model/selectors/recommendations/recommendations';
 import {
@@ -79,10 +82,15 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
   return (
        <DynamicModuleLoader reducers={reducers}>
+
             <Page className={classNames(classes.ArticleDetailsPage, {}, [className])}>
-                 {t('article')}
+
+                 <ArticleDetailsPageHeader />
+
                  <ArticleDetails id={id} />
+
                  <Text className={classes.commentTitle} title={t('Recommendations')} />
+
                  <ArticleList
                     className={classes.recommendations}
                     target="_blank"
@@ -91,7 +99,9 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
                  />
 
                  <Text className={classes.commentTitle} title={t('Comments')} />
+
                  <AddCommentFormAsync onSendComment={onSendComment} />
+
                  <CommentList
                     isLoading={commentsIsLoading}
                     comments={comments}

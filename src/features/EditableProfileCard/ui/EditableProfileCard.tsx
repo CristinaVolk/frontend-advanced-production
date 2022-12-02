@@ -20,10 +20,6 @@ import {
 import { ValidateProfileError } from 'features/EditableProfileCard/model/types/EditableProfile';
 import { ErrorCodes } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
 import {
-  useInitialEffect,
-} from 'shared/lib/hooks/useAppDispatch/useInitialEffect/useInitialEffect';
-import { useParams } from 'react-router-dom';
-import {
   getProfileFormReadonly,
 } from '../model/selectors/getProfileFormReadonly/getProfileFormReadonly';
 import {
@@ -35,8 +31,6 @@ import {
 import {
   getProfileValidateErrors,
 } from '../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
-
-import { fetchProfileData } from '../model/services/fetchProfileData/fetchProfileData';
 import classes from './EditableProfileCard.module.scss';
 
 interface EditableProfileCardProps {
@@ -46,7 +40,6 @@ interface EditableProfileCardProps {
 export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   const { className } = props;
   const { t } = useTranslation('profile');
-  const { id } = useParams<{id:string}>();
 
   const dispatch = useAppDispatch();
   const isLoading = useSelector(getProfileUpdateIsLoading);
@@ -58,12 +51,6 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   const modes: Modes = {
     [classes.isEditing]: !readonly,
   };
-
-  useInitialEffect(() => {
-    if (id) {
-      dispatch(fetchProfileData(id));
-    }
-  });
 
   const onChangeFirstname = useCallback((value?: string) => {
     dispatch(editableProfileCardActions.updateData({ firstname: value || '' }));

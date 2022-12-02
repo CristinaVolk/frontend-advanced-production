@@ -31,7 +31,7 @@ export const ProfilePageHeader = memo(({ className }: ProfilePageHeaderProps) =>
   const readonly = useSelector(getProfileFormReadonly);
   const userData = useSelector(getUserAuthData);
   const profileData = useSelector(getProfileFormData);
-  const canEdit = userData?.id === profileData?.id;
+  const canEdit = String(userData?.id) === String(profileData?.id);
   const dispatch = useAppDispatch();
 
   const onCancelEdit = useCallback(() => {

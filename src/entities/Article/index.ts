@@ -8,3 +8,4 @@ export {
 } from './model/types/Article';
 
 export { ArticleTypedTabs } from './ui/ArticleTypedTabs/ArticleTypedTabs';
+export { getArticleDetailsData } from './model/selectors/getArticleDetails/getArticleDetails';

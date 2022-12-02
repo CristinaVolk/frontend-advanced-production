@@ -1,10 +1,10 @@
 import React, { HTMLAttributeAnchorTarget, memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames';
+import { Text, TextSize } from 'shared/ui/Text/Text';
 import { Article, ArticleView } from 'entities/Article/model/types/Article';
 import { ArticleListItem } from 'entities/Article/ui/ArticleListItem/ArticleListItem';
-import {
-  ArticleListItemSkeleton,
-} from 'entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
+import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import classes from './ArticleList.module.scss';
 
 interface ArticleListProps {
@@ -29,11 +29,13 @@ const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.TILE 
 export const ArticleList = memo((props: ArticleListProps) => {
   const {
     className,
-	  articles,
-	  isLoading,
-	  view = ArticleView.TILE,
+    articles,
+    isLoading,
+    view = ArticleView.TILE,
     target,
   } = props;
+
+  const { t } = useTranslation('article');
 
   const renderArticle = (article: Article) => (
        <ArticleListItem
@@ -43,6 +45,14 @@ export const ArticleList = memo((props: ArticleListProps) => {
           key={article.id}
        />
 	  );
+
+  if (!isLoading && !articles.length) {
+    return (
+         <div className={classNames(classes.ArticleList, {}, [className, classes[view]])}>
+              <Text size={TextSize.L} title={t('not-found-articles')} />
+         </div>
+    );
+  }
 
   return (
        <div className={classNames(

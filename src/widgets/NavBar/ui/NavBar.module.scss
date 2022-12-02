@@ -6,8 +6,16 @@
     align-items: center;
     padding: 20px;
 
-    .links {
+    .createArticle {
         margin-left: auto;
+    }
+
+    .appName {
+        margin: 0 15px;
+    }
+
+    .links {
+        margin-left: 15px;
         display: flex;
         gap: 15px;
 

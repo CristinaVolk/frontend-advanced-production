@@ -15,5 +15,8 @@
   "IT": "IT",
   "Science": "Science",
   "Economics": "Economics",
-  "all articles": "all articles"
+  "all articles": "all articles",
+  "not-found-articles": "Articles have not been found",
+  "edit-article": "Editing the article",
+  "create-article": "Creating a new article"
 }
