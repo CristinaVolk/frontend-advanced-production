@@ -11,6 +11,7 @@ import {
   useInitialEffect,
 } from 'shared/lib/hooks/useAppDispatch/useInitialEffect/useInitialEffect';
 import { useTrottle } from 'shared/lib/hooks/useTrottle/useTrottle';
+import { PAGE_ID } from 'shared/const/common';
 import { useInfiniteScroll } from '../../lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import classes from './Page.module.scss';
 
@@ -49,6 +50,7 @@ export const Page = memo((props: PageProps) => {
 
   return (
        <section
+          id={PAGE_ID}
           ref={wrapperRef}
           className={classNames(classes.Page, {}, [className])}
           onScroll={onScroll}

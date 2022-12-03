@@ -3,3 +3,5 @@ export enum validKeyboardKeys {
   ARROWRIGHT = 'ArrowRight',
   ARROWLEFT = 'ArrowLeft',
 }
+
+export const PAGE_ID = 'PAGE_ID';

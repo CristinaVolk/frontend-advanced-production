@@ -3,5 +3,28 @@
         display: flex;
         flex-wrap: wrap;
         gap: 20px 30px;
+
+        .row {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 16px;
+        }
+
+        .card {
+            display: inline-flex;
+            height: 300px;
+            margin: 20px 10px;
+        }
+    }
+
+    &.LIST {
+        .row {
+            background: var(--bg-color);
+
+            .card {
+                height: 700px;
+                margin: 20px 0;
+            }
+        }
     }
 }
