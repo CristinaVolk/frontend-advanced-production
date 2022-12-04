@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { ArticleBlockType } from 'entities/Article/model/types/Article';
+import { ArticleBlockType } from '../../model/types/Article';
 import { ArticleTextBlockComponent } from './ArticleTextBlockComponent';
 
 export default {

@@ -1,6 +1,7 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { ErrorCodes } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
-import { ValidateProfileError } from 'features/EditableProfileCard/model/types/EditableProfile';
+import { ErrorCodes } from 'shared/const/common';
+
+import { ValidateProfileError } from '../../types/EditableProfile';
 import { updateProfileData } from './updateProfileData';
 
 const dataValue = {

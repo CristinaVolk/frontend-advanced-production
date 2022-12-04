@@ -3,10 +3,10 @@ import { List, ListRowProps, WindowScroller } from 'react-virtualized';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames';
 import { Text, TextSize } from 'shared/ui/Text/Text';
-import { Article, ArticleView } from 'entities/Article/model/types/Article';
-import { ArticleListItem } from 'entities/Article/ui/ArticleListItem/ArticleListItem';
-
 import { PAGE_ID } from 'shared/const/common';
+import { Article, ArticleView } from '../../model/types/Article';
+import { ArticleListItem } from '../../ui/ArticleListItem/ArticleListItem';
+
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import classes from './ArticleList.module.scss';
 

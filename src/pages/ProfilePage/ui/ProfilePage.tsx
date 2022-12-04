@@ -2,7 +2,6 @@ import React, { memo } from 'react';
 import {
   DynamicModuleLoader, ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { ProfilePageHeader } from 'pages/ProfilePage/ui/ProfilePageHeader/ProfilePageHeader';
 
 import { editableProfileCardReducer } from 'features/EditableProfileCard';
 
@@ -16,6 +15,7 @@ import {
 } from 'features/EditableProfileCard/model/services/fetchProfileData/fetchProfileData';
 import { useParams } from 'react-router-dom';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const initialReducers: ReducersList = {
   editableProfileCard: editableProfileCardReducer,

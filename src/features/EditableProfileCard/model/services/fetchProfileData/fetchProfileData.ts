@@ -1,8 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
-import {
-  ErrorCodes,
-} from '../../../../AuthByUsername/model/services/loginByUsername/loginByUsername';
+import { ErrorCodes } from 'shared/const/common';
+
 import { EditableProfile } from '../../types/EditableProfile';
 
 export const fetchProfileData = createAsyncThunk<EditableProfile, string, ThunkConfig<string>>(

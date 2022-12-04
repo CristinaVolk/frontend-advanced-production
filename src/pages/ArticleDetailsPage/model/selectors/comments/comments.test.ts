@@ -1,7 +1,7 @@
 import { StateSchema } from 'app/providers/StoreProvider';
 import {
   getArticleDetailsCommentsError, getArticleDetailsCommentsIsLoading,
-} from 'pages/ArticleDetailsPage/model/selectors/comments/comments';
+} from '../../selectors/comments/comments';
 
 describe('getArticleDetailsCommentsIsLoading test', () => {
   test('with value', () => {

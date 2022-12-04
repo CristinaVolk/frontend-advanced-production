@@ -1,6 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider/config/StateSchema';
 import { Article, ArticleError, ArticleType } from 'entities/Article/model/types/Article';
+import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
 import {
   getArticlePageLimit,
   getArticlePageOrder,
@@ -8,12 +9,7 @@ import {
   getArticlePageSearch,
   getArticlePageSort,
   getArticlePageType,
-} from 'pages/ArticlePage/model/selectors/getArticlePageSelector/getArticlePageSelector';
-import { addQueryParams } from 'shared/lib/url/addQueryParams/addQueryParams';
-
-export enum ErrorCodes {
-  SERVER_DOWN = 'SERVER_DOWN'
-}
+} from '../../selectors/getArticlePageSelector/getArticlePageSelector';
 
 type FetchArticlesArgs = {
   replace: boolean;

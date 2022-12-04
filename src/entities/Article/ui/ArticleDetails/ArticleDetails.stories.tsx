@@ -1,9 +1,10 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { Article, ArticleBlockType, ArticleType } from 'entities/Article/model/types/Article';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
-import { ErrorCodes } from 'entities/Article/model/services/fetchArticleById';
+import { ErrorCodes } from 'shared/const/common';
+
+import { Article, ArticleBlockType, ArticleType } from '../../model/types/Article';
 import { ArticleDetails } from './ArticleDetails';
 
 export default {

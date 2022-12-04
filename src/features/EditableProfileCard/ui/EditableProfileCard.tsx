@@ -8,17 +8,16 @@ import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
-import { validKeyboardKeys } from 'shared/const/common';
+import { ErrorCodes, validKeyboardKeys } from 'shared/const/common';
 
 import { CurrencySelect } from 'entities/Currency';
 import { CountrySelect } from 'entities/Country/ui/CountrySelect';
 
-import { editableProfileCardActions } from 'features/EditableProfileCard';
 import {
-  getProfileFormData,
-} from 'features/EditableProfileCard/model/selectors/getProfileFormData/getProfileFormData';
-import { ValidateProfileError } from 'features/EditableProfileCard/model/types/EditableProfile';
-import { ErrorCodes } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
+  editableProfileCardActions,
+} from '../model/slices/editableProfileCardSlice/editableProfileCardSlice';
+import { getProfileFormData } from '../model/selectors/getProfileFormData/getProfileFormData';
+import { ValidateProfileError } from '../model/types/EditableProfile';
 import {
   getProfileFormReadonly,
 } from '../model/selectors/getProfileFormReadonly/getProfileFormReadonly';

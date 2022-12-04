@@ -1,11 +1,11 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import {
-  Article, ArticleBlockType, ArticleType, ArticleView,
-} from 'entities/Article/model/types/Article';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { ThemeEnum } from 'app/providers/ThemeProvider';
+import {
+  Article, ArticleBlockType, ArticleType, ArticleView,
+} from '../../model/types/Article';
 import { ArticleListItem } from './ArticleListItem';
 
 export default {

@@ -24,8 +24,10 @@ module.exports = {
     '@typescript-eslint',
     'i18next',
     'react-hooks',
+    'kvolk-plugin',
   ],
   rules: {
+    'kvolk-plugin/path-checker': [2],
     'import/no-extraneous-dependencies': [0],
     'guard-for-in': [1],
     'no-param-reassign': [0],

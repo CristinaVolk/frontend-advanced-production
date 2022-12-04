@@ -1,7 +1,5 @@
-import {
-  validateProfileFormData,
-} from 'features/EditableProfileCard/model/services/validateProfileFormData/validateProfileFormData';
-import { ValidateProfileError } from 'features/EditableProfileCard/model/types/EditableProfile';
+import { validateProfileFormData } from '../validateProfileFormData/validateProfileFormData';
+import { ValidateProfileError } from '../../types/EditableProfile';
 
 const dataValue = {
   firstname: 'Cris',

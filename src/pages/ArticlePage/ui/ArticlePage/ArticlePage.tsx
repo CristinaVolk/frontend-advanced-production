@@ -14,10 +14,8 @@ import { ArticleView } from 'entities/Article/model/types/Article';
 import { Page } from 'shared/ui/Page/Page';
 import {
   fetchNextArticlePage,
-} from 'pages/ArticlePage/model/services/fetchNextArticlePage/fetchNextArticlePage';
-import {
-  initArticlesPage,
-} from 'pages/ArticlePage/model/services/initArticlesPage/initArticlesPage';
+} from '../../model/services/fetchNextArticlePage/fetchNextArticlePage';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { ArticlePageFilter } from '../ArticlePageFilter/ArticlePageFilter';
 import {
   getArticlePageIsLoading, getArticlePageView,

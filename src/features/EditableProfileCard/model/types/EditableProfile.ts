@@ -1,6 +1,6 @@
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
-import { ErrorCodes } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
+import { ErrorCodes } from 'shared/const/common';
 
 export interface EditableProfile {
   id?: string;

@@ -1,6 +1,4 @@
-import {
-  updateProfileData,
-} from 'features/EditableProfileCard/model/services/updateProfileData/updateProfileData';
+import { updateProfileData } from '../../services/updateProfileData/updateProfileData';
 import { editableProfileCardActions, editableProfileCardReducer } from './editableProfileCardSlice';
 import { EditableProfileCardSchema } from '../../types/EditableProfile';
 

@@ -1,6 +1,4 @@
-import {
-  EditableProfile, ValidateProfileError,
-} from 'features/EditableProfileCard/model/types/EditableProfile';
+import { EditableProfile, ValidateProfileError } from '../../types/EditableProfile';
 
 export const validateProfileFormData = (editableProfile?: EditableProfile) => {
   const errors: ValidateProfileError[] = [];

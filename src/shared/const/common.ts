@@ -4,4 +4,9 @@ export enum validKeyboardKeys {
   ARROWLEFT = 'ArrowLeft',
 }
 
+export enum ErrorCodes {
+  INCORRECT_CREDENTIALS = 'INCORRECT_CREDENTIALS',
+  SERVER_DOWN = 'SERVER_DOWN'
+}
+
 export const PAGE_ID = 'PAGE_ID';

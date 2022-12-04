@@ -3,8 +3,8 @@ import React, {
 } from 'react';
 import { classNames, Modes } from 'shared/lib/classNames';
 
-import { Portal } from 'shared/ui/Portal/Portal';
 import { useTheme } from 'app/providers/ThemeProvider';
+import { Portal } from '../Portal/Portal';
 import classes from './Modal.module.scss';
 
 const ANIMATION_DELAY = 1000;

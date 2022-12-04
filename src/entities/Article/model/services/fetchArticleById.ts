@@ -1,10 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider/config/StateSchema';
-import { Article, ArticleError } from 'entities/Article/model/types/Article';
-
-export enum ErrorCodes {
-  SERVER_DOWN = 'SERVER_DOWN'
-}
+import { Article, ArticleError } from '../types/Article';
 
 export const fetchArticleById = createAsyncThunk<
   Article,

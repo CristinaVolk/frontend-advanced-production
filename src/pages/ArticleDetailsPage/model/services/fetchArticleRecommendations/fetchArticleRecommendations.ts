@@ -1,10 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider/config/StateSchema';
 import { Article } from 'entities/Article';
-
-export enum ErrorCodes {
-  SERVER_DOWN = 'SERVER_DOWN'
-}
+import { ErrorCodes } from 'shared/const/common';
 
 export const fetchArticleRecommendations = createAsyncThunk<
   Array<Article>,

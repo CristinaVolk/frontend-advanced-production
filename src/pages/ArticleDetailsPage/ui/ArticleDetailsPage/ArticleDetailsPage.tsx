@@ -18,10 +18,8 @@ import {
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Page } from 'shared/ui/Page/Page';
 
-import { articleDetailsPageReducer } from 'pages/ArticleDetailsPage/model/slices';
-import {
-  ArticleDetailsPageHeader,
-} from 'pages/ArticleDetailsPage/ui/ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import { articleDetailsPageReducer } from '../../model/slices';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import {
   getArticleDetailsRecommendationsIsLoading,
 } from '../../model/selectors/recommendations/recommendations';

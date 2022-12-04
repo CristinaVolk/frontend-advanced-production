@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ErrorCodes } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
+import { ErrorCodes } from 'shared/const/common';
+
 import {
   EditableProfile, EditableProfileCardSchema, ValidateProfileError,
 } from '../../types/EditableProfile';

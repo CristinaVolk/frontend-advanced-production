@@ -5,8 +5,8 @@ import { classNames } from 'shared/lib/classNames';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher';
 
-import { SideBarItem } from 'widgets/SideBar/ui/SideBarItem/SideBarItem';
 import { useSelector } from 'react-redux';
+import { SideBarItem } from '../SideBarItem/SideBarItem';
 import { getSideBarItems } from '../../model/selectors/getSideBarItems';
 import classes from './SideBar.module.scss';
 

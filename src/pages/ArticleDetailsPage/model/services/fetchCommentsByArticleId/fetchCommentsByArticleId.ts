@@ -3,10 +3,6 @@ import { ThunkConfig } from 'app/providers/StoreProvider/config/StateSchema';
 import { ArticleError } from 'entities/Article/model/types/Article';
 import { Comment } from 'entities/Comment';
 
-export enum ErrorCodes {
-  SERVER_DOWN = 'SERVER_DOWN'
-}
-
 export const fetchCommentsByArticleId = createAsyncThunk<
   Array<Comment>,
   string | undefined,
