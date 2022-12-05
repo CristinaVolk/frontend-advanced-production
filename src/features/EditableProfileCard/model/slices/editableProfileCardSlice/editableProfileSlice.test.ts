@@ -56,7 +56,7 @@ describe('EditableProfileCardSchema.test', () => {
       state as EditableProfileCardSchema,
       editableProfileCardActions.updateData(profileDataUpdated),
     )).toEqual({
-      readonly: true,
+      readonly: false,
       data: dataValue,
       formData: profileDataUpdated,
       validateProfileErrors: undefined,

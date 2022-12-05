@@ -1198,12 +1198,24 @@
       "userId": "1",
       "text": "View is just view",
       "id": "9Q5DdHt"
+    },
+    {
+      "articleId": "12",
+      "userId": "1",
+      "text": "comment",
+      "id": "8cxYCwH"
+    },
+    {
+      "articleId": "12",
+      "userId": "1",
+      "text": "one more comment",
+      "id": "_LQf5K5"
     }
   ],
   "profile": [
     {
       "id": 1,
-      "firstname": "Cris",
+      "firstname": "Crisss",
       "surname": "Volk",
       "age": 22,
       "currency": "EUR",

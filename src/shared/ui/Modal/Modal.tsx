@@ -28,8 +28,10 @@ export const Modal = (props: ModalProps) => {
 
   const [isMounted, setIsMounted] = useState(false);
   const [isClosing, setIsCLosing] = useState(false);
+  const [animated, setAnimated] = useState(false);
 
   const modes: Modes = {
+    [classes.animated]: animated,
     [classes.isVisible]: isMounted,
     [classes.opened]: isOpen,
     [classes.isClosing]: isClosing,
@@ -60,6 +62,10 @@ export const Modal = (props: ModalProps) => {
   useEffect(() => {
     if (isOpen) {
       setIsMounted(true);
+
+      setTimeout(() => {
+        setAnimated(true);
+      }, ANIMATION_DELAY);
     }
   }, [isOpen]);
 

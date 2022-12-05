@@ -1,5 +1,6 @@
 import React, { ChangeEvent, useMemo } from 'react';
 import { classNames } from 'shared/lib/classNames';
+import { HStack } from '../Stack/HStack/HStack';
 import { Text, TextTheme } from '../Text/Text';
 
 import classes from './Select.module.scss';
@@ -46,8 +47,8 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
   };
 
   return (
-       <div className={classNames(classes.SelectWrapper, {}, [className])}>
-            <Text title={title} theme={TextTheme.PRIMARY} />
+       <HStack max className={classNames(classes.SelectWrapper, {}, [className])}>
+            <Text text={title} theme={TextTheme.PRIMARY} />
             <div className={classes.selectBox}>
                  {label && (
                  // eslint-disable-next-line jsx-a11y/label-has-associated-control
@@ -69,6 +70,6 @@ export const Select = <T extends string>(props: SelectProps<T>) => {
                       {optionsList}
                  </select>
             </div>
-       </div>
+       </HStack>
   );
 };

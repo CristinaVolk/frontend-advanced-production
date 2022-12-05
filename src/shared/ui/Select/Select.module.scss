@@ -1,5 +1,4 @@
 .SelectWrapper {
-    display: flex;
     justify-content: space-between;
     box-shadow:
         rgb(0 0 0 / 9%) 0 2px 1px,
@@ -7,7 +6,6 @@
         rgb(0 0 0 / 9%) 0 8px 4px,
         rgb(0 0 0 / 9%) 0 16px 8px,
         rgb(0 0 0 / 9%) 0 32px 16px;
-    margin: 10px 0;
     padding: 5px 10px;
     color: var(--primary-color);
 }

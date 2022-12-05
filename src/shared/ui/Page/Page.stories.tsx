@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Page } from './Page';
 
 export default {
-  title: '/Page',
+  title: 'shared/Page',
   component: Page,
   argTypes: {
     backgroundColor: { control: 'color' },

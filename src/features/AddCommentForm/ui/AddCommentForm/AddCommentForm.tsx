@@ -10,6 +10,7 @@ import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import {
   DynamicModuleLoader, ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { HStack } from 'shared/ui/Stack';
 import {
   getAddCommentFormError, getAddCommentFormText,
 } from '../../model/selectors/addCommentFormSelectors/addCommentFormSelectors';
@@ -45,10 +46,14 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
 
   return (
        <DynamicModuleLoader reducers={reducers}>
-            {
-              error && <Text theme={TextTheme.ERROR} align={TextAlign.CENTER} text={error} />
-            }
-            <div className={classNames(classes.AddCommentForm, {}, [className])}>
+            {error
+                   && <Text theme={TextTheme.ERROR} align={TextAlign.CENTER} text={error} />}
+
+            <HStack
+               max
+               gap="16"
+               className={classNames(classes.AddCommentForm, {}, [className])}
+            >
                  <Input
                     className={classes.input}
                     placeholder={t('enter-your-comment')}
@@ -61,8 +66,7 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
                  >
                       {t('send')}
                  </Button>
-
-            </div>
+            </HStack>
        </DynamicModuleLoader>
 
   );
