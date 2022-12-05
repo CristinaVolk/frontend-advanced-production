@@ -13,6 +13,7 @@ import { ErrorCodes, validKeyboardKeys } from 'shared/const/common';
 import { CurrencySelect } from 'entities/Currency';
 import { CountrySelect } from 'entities/Country/ui/CountrySelect';
 
+import { HStack, VStack } from 'shared/ui/Stack';
 import {
   editableProfileCardActions,
 } from '../model/slices/editableProfileCardSlice/editableProfileCardSlice';
@@ -95,36 +96,35 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 
   if (isLoading) {
     return (
-         <div className={classNames(
-           classes.ProfileCard,
-           {},
-           [className, classes.loading],
-         )}
-         >
+         <HStack justify="center">
               <Loader />
-         </div>
+         </HStack>
     );
   }
 
   if (error) {
     return (
-         <div className={classNames(
-           classes.EditableProfileCard,
-           modes,
-           [className, classes.error],
-         )}
+         <HStack
+            justify="center"
+            className={classNames(
+              classes.EditableProfileCard,
+              modes,
+              [className],
+            )}
          >
               <Text theme={TextTheme.ERROR} text={t(error)} />
-         </div>
+         </HStack>
     );
   }
 
   return (
-       <div className={classNames(
-         classes.EditableProfileCard,
-         modes,
-         [className],
-       )}
+       <VStack
+          max
+          className={classNames(
+            classes.EditableProfileCard,
+            modes,
+            [className],
+          )}
        >
             {validateProfileErrors?.length && validateProfileErrors.map((validationError) => (
                  <Text
@@ -134,9 +134,9 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
                  />
             ))}
             {profileFormData && (
-                 <div>
+                 <VStack align="center" max>
                       <Text title={t('profile')} />
-                      <div className={classes.avatarWrapper}>
+                      <div>
                            {profileFormData.avatar
                              && (
                              <Avatar
@@ -145,7 +145,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
                              />
                              )}
                       </div>
-                      <div className={classes.profileData}>
+                      <VStack gap="16" align="center" max className={classes.profileData}>
                            <Input
                               value={profileFormData.firstname}
                               placeholder={t('enter your firstname')}
@@ -186,9 +186,9 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
                               onChange={onChangeAvatar}
                               readonly={readonly}
                            />
-                      </div>
-                 </div>
+                      </VStack>
+                 </VStack>
             )}
-       </div>
+       </VStack>
   );
 });

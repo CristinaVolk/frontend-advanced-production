@@ -6,6 +6,7 @@ import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher';
 
 import { useSelector } from 'react-redux';
+import { VStack } from 'shared/ui/Stack/VStack/VStack';
 import { SideBarItem } from '../SideBarItem/SideBarItem';
 import { getSideBarItems } from '../../model/selectors/getSideBarItems';
 import classes from './SideBar.module.scss';
@@ -42,9 +43,9 @@ export const SideBar = memo(({ className }: SideBarProps) => {
                )
           }
        >
-            <div className={classes.linkItems}>
+            <VStack gap="4" className={classes.linkItems}>
                  {itemsList}
-            </div>
+            </VStack>
 
             <Button
                data-testid="sidebar-toggle"

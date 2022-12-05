@@ -1,20 +1,20 @@
 import React, { memo } from 'react';
+import { useParams } from 'react-router-dom';
+
 import {
   DynamicModuleLoader, ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-
-import { editableProfileCardReducer } from 'features/EditableProfileCard';
-
-import { EditableProfileCard } from 'features/EditableProfileCard/ui/EditableProfileCard';
 import { Page } from 'shared/ui/Page/Page';
 import {
   useInitialEffect,
 } from 'shared/lib/hooks/useAppDispatch/useInitialEffect/useInitialEffect';
-import {
-  fetchProfileData,
-} from 'features/EditableProfileCard/model/services/fetchProfileData/fetchProfileData';
-import { useParams } from 'react-router-dom';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { VStack } from 'shared/ui/Stack';
+
+import {
+  EditableProfileCard, editableProfileCardReducer, fetchProfileData,
+} from 'features/EditableProfileCard';
+
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const initialReducers: ReducersList = {
@@ -34,8 +34,10 @@ const ProfilePage = memo(() => {
   return (
        <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
             <Page>
-                 <ProfilePageHeader />
-                 <EditableProfileCard />
+                 <VStack gap="32">
+                      <ProfilePageHeader />
+                      <EditableProfileCard />
+                 </VStack>
             </Page>
        </DynamicModuleLoader>
   );

@@ -1,5 +1,4 @@
 .EditableProfileCard {
-    margin: 10px;
     border: 1px solid var(--bar-bg-color);
     padding: 20px;
     box-shadow: rgb(0 0 0 / 35%) 0 5px 15px;
@@ -9,16 +8,4 @@
             rgb(204 219 232) 3px 3px 6px 0 inset,
             rgb(255 255 255 / 50%) -3px -3px 6px 1px inset;
     }
-
-    .avatarWrapper {
-        display: flex;
-        justify-content: center;
-    }
-}
-
-.error,
-.loading {
-    display: grid;
-    place-items: center center;
-    height: 500px;
 }

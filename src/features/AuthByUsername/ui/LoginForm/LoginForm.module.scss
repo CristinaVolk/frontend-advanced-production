@@ -21,10 +21,8 @@
     height: 320px;
     margin: 0 auto;
     width: 640px;
-}
 
-@media (max-width: 812px) {
-    .container {
+    @media (max-width: 812px) {
         flex-direction: column;
         height: 630px;
         width: 320px;
@@ -37,10 +35,8 @@
     top: 20px;
     position: relative;
     width: 50%;
-}
 
-@media (max-width: 812px) {
-    .leftBox {
+    @media (max-width: 812px) {
         height: 100%;
         left: 20px;
         width: calc(100% - 40px);
@@ -73,10 +69,8 @@
     align-items: center;
     justify-content: center;
     width: 50%;
-}
 
-@media (max-width: 812px) {
-    .rightBox {
+    @media (max-width: 812px) {
         flex-shrink: 0;
         height: 100%;
         width: 100%;

@@ -4,7 +4,10 @@ import React, {
 import { classNames } from 'shared/lib/classNames';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
+import { HStack } from '../Stack/HStack/HStack';
 import classes from './Input.module.scss';
+
+type TextColor = 'primary' | 'secondary';
 
 type HTMLInputProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,
@@ -18,6 +21,7 @@ interface InputProps extends HTMLInputProps {
     onChange?: (value: string) => void;
     readonly?: boolean;
     onKeyPress?: (event: React.KeyboardEvent) => void;
+    textColor?: TextColor;
 }
 
 export const Input = memo((props:InputProps) => {
@@ -30,6 +34,7 @@ export const Input = memo((props:InputProps) => {
     type = 'text',
     autofocus,
     readonly,
+    textColor = 'primary',
     ...restProps
   } = props;
 
@@ -64,7 +69,11 @@ export const Input = memo((props:InputProps) => {
   }, [autofocus]);
 
   return (
-       <div className={classNames(classes.InputWrapper, {}, [])}>
+       <HStack
+          gap="8"
+          max
+          className={classNames(classes.InputWrapper, {}, [className])}
+       >
             {placeholder && (
             <div className={classes.placeholder}>
                  {`${placeholder} >`}
@@ -75,8 +84,8 @@ export const Input = memo((props:InputProps) => {
                     ref={inputRef}
                     className={classNames(
                       classes.input,
-                      { [classes.loginFormInput]: Boolean(className) },
-                      [],
+                      {},
+                      [classes[textColor]],
                     )}
                     value={value}
                     type={type}
@@ -95,6 +104,6 @@ export const Input = memo((props:InputProps) => {
                  />
                  )}
             </div>
-       </div>
+       </HStack>
   );
 });

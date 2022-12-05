@@ -66,7 +66,7 @@ export const NavBar = memo(({ className }: NavBarProps) => {
   return (
        <nav className={classNames(classes.NavBar, {}, [className])}>
             <Button
-               className={classes.links}
+               className={classes.loginBtn}
                theme={ButtonTheme.BACKGROUND}
                onClick={openHandler}
             >

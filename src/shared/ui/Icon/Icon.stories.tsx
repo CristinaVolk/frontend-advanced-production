@@ -5,7 +5,7 @@ import { Icon } from './Icon';
 import EyeIcon from '../../assets/icons/eye.svg';
 
 export default {
-  title: '/Icon',
+  title: 'shared/Icon',
   component: Icon,
   argTypes: {
     backgroundColor: { control: 'color' },

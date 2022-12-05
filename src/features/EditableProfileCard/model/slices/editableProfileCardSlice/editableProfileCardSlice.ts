@@ -30,7 +30,6 @@ export const editableProfileCardSlice = createSlice({
       state.validateProfileErrors = undefined;
     },
     updateData: (state, action: PayloadAction<EditableProfile>) => {
-      state.readonly = true;
       state.formData = {
         ...state.formData,
         ...action.payload,

@@ -58,7 +58,16 @@ module.exports = {
       2,
       {
         markupOnly: true,
-        ignoreAttribute: ['data-testid', 'to', 'target'],
+        ignoreAttribute: [
+          'data-testid',
+          'to',
+          'target',
+          'direction',
+          'justify',
+          'align',
+          'gap',
+          'textColor',
+        ],
       },
     ],
     'max-len': [2,

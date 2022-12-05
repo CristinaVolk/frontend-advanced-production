@@ -7,6 +7,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { AppRoutes, RoutePaths } from 'shared/config/routes/routes';
 import { classNames } from 'shared/lib/classNames';
 import { getArticleDetailsData } from 'entities/Article';
+import { HStack } from 'shared/ui/Stack';
 import { getCanEditArticle } from '../../model/selectors/article/article';
 import classes from './ArticleDetailsPageHeader.module.scss';
 
@@ -30,7 +31,12 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
   }, [articleData?.id, navigate]);
 
   return (
-       <div className={classNames(classes.ArticleDetailsPageHeader, {}, [className])}>
+       <HStack
+          justify="between"
+          className={
+         classNames(classes.ArticleDetailsPageHeader, {}, [className])
+       }
+       >
             <Button
                onClick={onBackToArticleList}
                theme={ButtonTheme.CREATIVE}
@@ -47,6 +53,6 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
                 {t('edit-article')}
            </Button>
            )}
-       </div>
+       </HStack>
   );
 });

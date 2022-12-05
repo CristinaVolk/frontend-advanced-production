@@ -14,8 +14,7 @@ const MainPage = () => {
 
   return (
        <Page>
-            <h1>{t('main')}</h1>
-            <Text text={t('main')} title={t('main')} />
+            <Text title={t('main')} />
             <Input
                style={{ textShadow: '0 0 0 black' }}
                placeholder={t('EnterUsername')}

@@ -25,7 +25,6 @@
 
 .content {
     padding: 20px;
-    transform: scale(0.98);
     max-width: 60%;
     color: var(--bar-bg-color);
 }
@@ -34,15 +33,22 @@
     opacity: 1;
     pointer-events: auto;
     z-index: var(--modal-z-index);
+
+    .content {
+        transform: scale(0);
+    }
+}
+
+.animated {
+    .content {
+        transform: scale(0.98);
+        animation: modal-show 1s alternate ease-out;
+    }
 }
 
 .isVisible {
     .overlay {
         background: var(--overlay-color);
-    }
-
-    .content {
-        animation: modal-show 1s alternate ease-out;
     }
 }
 
