@@ -1,24 +1,23 @@
 import React, { memo, useCallback } from 'react';
-import { Select } from 'shared/ui/Select/Select';
 import { useTranslation } from 'react-i18next';
+import { ListBox } from 'shared/ui/ListBox/ListBox';
 import { Currency } from '../model/types/Currency';
 
 interface CurrencySelectProps {
     readonly: boolean;
-	label?: string;
 	value?: string;
 	onChangeOption?: (value:Currency) => void;
 }
 
 export const CurrencySelect = memo((props: CurrencySelectProps) => {
   const {
-    onChangeOption, label, value, readonly,
+    onChangeOption, value, readonly,
   } = props;
 
   const options = [
-    { value: Currency.RUB, content: Currency.RUB },
-    { value: Currency.EUR, content: Currency.EUR },
-    { value: Currency.USD, content: Currency.USD },
+    { value: Currency.RUB, content: Currency.RUB, unavailable: false },
+    { value: Currency.EUR, content: Currency.EUR, unavailable: false },
+    { value: Currency.USD, content: Currency.USD, unavailable: false },
   ];
 
   const { t } = useTranslation();
@@ -28,13 +27,16 @@ export const CurrencySelect = memo((props: CurrencySelectProps) => {
   }, [onChangeOption]);
 
   return (
-       <Select
-          title={t('Choose your currency')}
-          label={label}
-          value={value}
-          onChangeOption={onChangeHandler}
-          options={options}
+
+       <ListBox
+          direction="bottom"
+          defaultValue={t('Choose your currency')}
+          selectedValue={value}
+          onChange={onChangeHandler}
+          items={options}
           readonly={readonly}
+          label={t('Choose your currency >')}
        />
+
   );
 });

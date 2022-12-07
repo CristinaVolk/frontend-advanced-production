@@ -22,6 +22,27 @@ const MainPage = () => {
                autofocus
                onChange={onChange}
             />
+            {/* <ListBox */}
+            {/*    direction="top" */}
+            {/*    defaultValue="Choose items" */}
+            {/*    items={[ */}
+            {/*      { */}
+            {/*        value: 'Apple', */}
+            {/*        content: 'Apple', */}
+            {/*        unavailable: true, */}
+            {/*      }, */}
+            {/*      { */}
+            {/*        value: 'Banana', */}
+            {/*        content: 'Banana', */}
+            {/*        unavailable: false, */}
+            {/*      }, */}
+            {/*      { */}
+            {/*        value: 'Peach', */}
+            {/*        content: 'Peach', */}
+            {/*        unavailable: true, */}
+            {/*      }, */}
+            {/*    ]} */}
+            {/* /> */}
        </Page>
   );
 };

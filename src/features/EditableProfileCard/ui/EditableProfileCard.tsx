@@ -161,14 +161,12 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 
                            <CurrencySelect
                               readonly={readonly || false}
-                              label={profileFormData.currency}
                               value={profileFormData?.currency}
                               onChangeOption={onChangeCurrency}
                            />
 
                            <CountrySelect
                               readonly={readonly || false}
-                              label={profileFormData.country}
                               value={profileFormData.country}
                               onChangeOption={onChangeCountry}
                            />
