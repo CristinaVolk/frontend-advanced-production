@@ -50,7 +50,7 @@ export const SideBar = memo(({ className }: SideBarProps) => {
             <Button
                data-testid="sidebar-toggle"
                className={
-                         classNames(classes.toggle, {}, [ButtonTheme.ROUNDED])
+                         classNames(classes.toggle, {}, [])
                     }
                theme={ButtonTheme.BACKGROUND}
                square

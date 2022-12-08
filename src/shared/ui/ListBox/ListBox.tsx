@@ -38,7 +38,7 @@ export const ListBox = (props:ListBoxProps) => {
   } = props;
 
   return (
-       <HStack max justify="between">
+       <HStack max justify="between" className={classes.wrapper}>
             {label && <Text text={label} theme={TextTheme.PRIMARY} />}
             <HListbox
                as="div"
@@ -56,7 +56,7 @@ export const ListBox = (props:ListBoxProps) => {
                     className={classes.trigger}
                  >
                       <Button
-                         theme={ButtonTheme.CREATIVE}
+                         theme={ButtonTheme.NEAT}
                       >
                            {selectedValue ?? defaultValue}
                       </Button>
@@ -85,7 +85,7 @@ export const ListBox = (props:ListBoxProps) => {
                                           [],
                                         )}
                                      >
-                                          {selected && '!!!'}
+                                          {selected}
                                           {item.content}
                                      </li>
                                 )}

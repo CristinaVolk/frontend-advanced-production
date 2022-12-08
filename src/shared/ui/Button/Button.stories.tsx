@@ -27,13 +27,6 @@ ClearDark.args = {
 };
 ClearDark.decorators = [ThemeDecorator(ThemeEnum.DARK)];
 
-export const RoundedDark = Template.bind({});
-RoundedDark.args = {
-  children: 'Rounded',
-  theme: ButtonTheme.ROUNDED,
-};
-RoundedDark.decorators = [ThemeDecorator(ThemeEnum.DARK)];
-
 export const Background = Template.bind({});
 Background.args = {
   children: 'Click',
@@ -44,6 +37,12 @@ export const BackgroundInverted = Template.bind({});
 Background.args = {
   children: 'Click',
   theme: ButtonTheme.INVERTED_BACKGROUND,
+};
+
+export const Neat = Template.bind({});
+Neat.args = {
+  children: 'Neat',
+  theme: ButtonTheme.NEAT,
 };
 
 export const Square = Template.bind({});
