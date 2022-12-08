@@ -14,6 +14,7 @@
         margin: 0 15px;
     }
 
+    .dropdown,
     .links {
         margin-left: 15px;
         display: flex;
@@ -21,6 +22,10 @@
 
         .mainLink {
             margin-right: 15px;
+        }
+
+        img {
+            margin: 0;
         }
     }
 
