@@ -15,8 +15,15 @@ import { CountrySelect } from 'entities/Country/ui/CountrySelect';
 
 import { HStack, VStack } from 'shared/ui/Stack';
 import {
-  editableProfileCardActions,
+  useInitialEffect,
+} from 'shared/lib/hooks/useAppDispatch/useInitialEffect/useInitialEffect';
+import {
+  DynamicModuleLoader, ReducersList,
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import {
+  editableProfileCardActions, editableProfileCardReducer,
 } from '../model/slices/editableProfileCardSlice/editableProfileCardSlice';
+import { ProfileCardHeader } from './ProfileCardHeader/ProfileCardHeader';
 import { getProfileFormData } from '../model/selectors/getProfileFormData/getProfileFormData';
 import { ValidateProfileError } from '../model/types/EditableProfile';
 import {
@@ -26,24 +33,22 @@ import {
   getProfileUpdateIsLoading,
 } from '../model/selectors/getProfileUpdateIsLoading/getProfileIsLoading';
 import {
-  getProfileUpdateError,
-} from '../model/selectors/getProfileUpdateError/getProfileUpdateError';
-import {
   getProfileValidateErrors,
 } from '../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
+import { fetchProfileData } from '../model/services/fetchProfileData/fetchProfileData';
 import classes from './EditableProfileCard.module.scss';
 
 interface EditableProfileCardProps {
-	className?: string;
+  id?: string;
+  className?: string;
 }
 
 export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
-  const { className } = props;
+  const { className, id } = props;
   const { t } = useTranslation('profile');
 
   const dispatch = useAppDispatch();
   const isLoading = useSelector(getProfileUpdateIsLoading);
-  const error = useSelector(getProfileUpdateError);
   const profileFormData = useSelector(getProfileFormData);
   const readonly = useSelector(getProfileFormReadonly);
   const validateProfileErrors = useSelector(getProfileValidateErrors);
@@ -51,6 +56,12 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   const modes: Modes = {
     [classes.isEditing]: !readonly,
   };
+
+  useInitialEffect(() => {
+    if (id) {
+      dispatch(fetchProfileData(id));
+    }
+  });
 
   const onChangeFirstname = useCallback((value?: string) => {
     dispatch(editableProfileCardActions.updateData({ firstname: value || '' }));
@@ -94,56 +105,41 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     [ValidateProfileError.INCORRECT_AGE]: t('Wrong age'),
   };
 
-  if (isLoading) {
-    return (
-         <HStack justify="center">
-              <Loader />
-         </HStack>
-    );
-  }
-
-  if (error) {
-    return (
-         <HStack
-            justify="center"
-            className={classNames(
-              classes.EditableProfileCard,
-              modes,
-              [className],
-            )}
-         >
-              <Text theme={TextTheme.ERROR} text={t(error)} />
-         </HStack>
-    );
-  }
+  const initialReducers: ReducersList = {
+    editableProfileCard: editableProfileCardReducer,
+  };
 
   return (
-       <VStack
-          max
-          className={classNames(
-            classes.EditableProfileCard,
-            modes,
-            [className],
-          )}
-       >
-            {validateProfileErrors?.length && validateProfileErrors.map((validationError) => (
-                 <Text
-                    key={validationError}
-                    theme={TextTheme.ERROR}
-                    text={validateErrorTranslates[validationError]}
-                 />
-            ))}
-            {profileFormData && (
+       <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
+            {isLoading && <HStack justify="center"><Loader /></HStack>}
+            <VStack
+               max
+               className={classNames(
+                 classes.EditableProfileCard,
+                 modes,
+                 [className],
+               )}
+            >
+                 <ProfileCardHeader />
+
+                 {validateProfileErrors?.length && validateProfileErrors.map((validationError) => (
+                      <Text
+                         key={validationError}
+                         theme={TextTheme.ERROR}
+                         text={validateErrorTranslates[validationError]}
+                      />
+                 ))}
+                 {profileFormData && (
                  <VStack align="center" max>
                       <Text title={t('profile')} />
                       <div>
                            {profileFormData.avatar
-                             && (
-                             <Avatar
-                                src={profileFormData.avatar}
-                                alt={t('avatar')}
-                             />
-                             )}
+                && (
+                <Avatar
+                   src={profileFormData.avatar}
+                   alt={t('avatar')}
+                />
+                )}
                       </div>
                       <VStack gap="16" align="center" max className={classes.profileData}>
                            <Input
@@ -186,7 +182,9 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
                            />
                       </VStack>
                  </VStack>
-            )}
-       </VStack>
+                 )}
+            </VStack>
+       </DynamicModuleLoader>
+
   );
 });

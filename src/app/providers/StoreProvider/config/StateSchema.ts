@@ -12,10 +12,13 @@ import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
 import { AddCommentFormSchema } from 'features/AddCommentForm';
 import { ArticlePageSchema } from 'pages/ArticlePage';
 import { ScrollMemorizingSchema } from 'features/ScrollMemorizing';
+import { rtkApi } from 'shared/api/rtkApi';
 
 export interface StateSchema {
   user: UserSchema;
   scrollMemorizing: ScrollMemorizingSchema;
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
+
   // Async reducers
   loginForm?: LoginSchema;
   editableProfileCard?: EditableProfileCardSchema;

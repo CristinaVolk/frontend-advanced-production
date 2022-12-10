@@ -32,6 +32,7 @@ export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderPro
 
   return (
        <HStack
+          max
           justify="between"
           className={
          classNames(classes.ArticleDetailsPageHeader, {}, [className])

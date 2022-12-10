@@ -9,10 +9,15 @@ import { Button, ButtonTextColor, ButtonTheme } from 'shared/ui/Button/Button';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getUserAuthData } from 'entities/User';
 import {
-  editableProfileCardActions, getProfileFormData, getProfileFormReadonly, updateProfileData,
-} from 'features/EditableProfileCard';
+  editableProfileCardActions,
+} from '../../model/slices/editableProfileCardSlice/editableProfileCardSlice';
+import { getProfileFormData } from '../../model/selectors/getProfileFormData/getProfileFormData';
+import {
+  getProfileFormReadonly,
+} from '../../model/selectors/getProfileFormReadonly/getProfileFormReadonly';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 
-export const ProfilePageHeader = memo(() => {
+export const ProfileCardHeader = memo(() => {
   const { t } = useTranslation('profile');
   const readonly = useSelector(getProfileFormReadonly);
   const userData = useSelector(getUserAuthData);
