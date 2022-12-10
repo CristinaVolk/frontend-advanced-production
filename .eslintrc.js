@@ -30,6 +30,7 @@ module.exports = {
     'kvolk-plugin/path-checker': [2],
     'import/no-extraneous-dependencies': [0],
     'guard-for-in': [1],
+    '@typescript-eslint/no-var-requires': [0],
     'no-param-reassign': [0],
     'react-hooks/rules-of-hooks': [2],
     'react-hooks/exhaustive-deps': [2],
