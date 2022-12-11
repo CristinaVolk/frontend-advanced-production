@@ -34,6 +34,7 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
             <Text title={t('Recommendations')} />
             {articles && (
             <ArticleList
+               isVirtualized={false}
                isLoading={isLoading}
                target="_blank"
                articles={articles}

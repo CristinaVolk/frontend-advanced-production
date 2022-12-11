@@ -21,4 +21,4 @@ export {
   getProfileUpdateIsLoading,
 } from './model/selectors/getProfileUpdateIsLoading/getProfileIsLoading';
 
-export { EditableProfileCard } from './ui/EditableProfileCard';
+export { EditableProfileCard } from './ui/EditableProfileCard/EditableProfileCard';

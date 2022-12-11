@@ -5,9 +5,7 @@ import { useSelector } from 'react-redux';
 import { ArticleList, ArticleView } from 'entities/Article';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSearchParams } from 'react-router-dom';
-import {
-  useInitialEffect,
-} from 'shared/lib/hooks/useAppDispatch/useInitialEffect/useInitialEffect';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import {
   getArticlePageIsLoading, getArticlePageView,
 } from '../../model/selectors/getArticlePageSelector/getArticlePageSelector';
@@ -32,13 +30,12 @@ export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
   });
 
   return (
-
        <ArticleList
+          isVirtualized={false}
           articles={articles}
           isLoading={isLoading}
           view={view}
           className={classNames('', {}, [className])}
        />
-
   );
 });

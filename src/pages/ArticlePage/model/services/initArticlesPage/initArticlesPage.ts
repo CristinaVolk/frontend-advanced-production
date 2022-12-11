@@ -1,8 +1,6 @@
 import { ActionCreatorWithPayload, createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider/config/StateSchema';
-import {
-  useInitialEffect,
-} from 'shared/lib/hooks/useAppDispatch/useInitialEffect/useInitialEffect';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { ArticleSortFieldType, ArticleType } from 'entities/Article/model/types/Article';
 import { SortOrder } from 'shared/types/Order';
 import { articlePageActions } from '../../slices/articlePageSlice/articlePageSlice';

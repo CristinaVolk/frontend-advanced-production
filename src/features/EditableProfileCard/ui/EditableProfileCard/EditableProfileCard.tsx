@@ -5,37 +5,31 @@ import { useTranslation } from 'react-i18next';
 import { classNames, Modes } from 'shared/lib/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { ErrorCodes, validKeyboardKeys } from 'shared/const/common';
 
-import { CurrencySelect } from 'entities/Currency';
-import { CountrySelect } from 'entities/Country/ui/CountrySelect';
-
 import { HStack, VStack } from 'shared/ui/Stack';
-import {
-  useInitialEffect,
-} from 'shared/lib/hooks/useAppDispatch/useInitialEffect/useInitialEffect';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import {
   DynamicModuleLoader, ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { ProfileCard } from 'entities/Profile';
 import {
   editableProfileCardActions, editableProfileCardReducer,
-} from '../model/slices/editableProfileCardSlice/editableProfileCardSlice';
-import { ProfileCardHeader } from './ProfileCardHeader/ProfileCardHeader';
-import { getProfileFormData } from '../model/selectors/getProfileFormData/getProfileFormData';
-import { ValidateProfileError } from '../model/types/EditableProfile';
+} from '../../model/slices/editableProfileCardSlice/editableProfileCardSlice';
+import { ProfileCardHeader } from '../ProfileCardHeader/ProfileCardHeader';
+import { getProfileFormData } from '../../model/selectors/getProfileFormData/getProfileFormData';
+import { ValidateProfileError } from '../../model/types/EditableProfile';
 import {
   getProfileFormReadonly,
-} from '../model/selectors/getProfileFormReadonly/getProfileFormReadonly';
+} from '../../model/selectors/getProfileFormReadonly/getProfileFormReadonly';
 import {
   getProfileUpdateIsLoading,
-} from '../model/selectors/getProfileUpdateIsLoading/getProfileIsLoading';
+} from '../../model/selectors/getProfileUpdateIsLoading/getProfileIsLoading';
 import {
   getProfileValidateErrors,
-} from '../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
-import { fetchProfileData } from '../model/services/fetchProfileData/fetchProfileData';
+} from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
+import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import classes from './EditableProfileCard.module.scss';
 
 interface EditableProfileCardProps {
@@ -127,62 +121,20 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
                          key={validationError}
                          theme={TextTheme.ERROR}
                          text={validateErrorTranslates[validationError]}
+                         data-testId="EditableProfileCard.Error"
                       />
                  ))}
-                 {profileFormData && (
-                 <VStack align="center" max>
-                      <Text title={t('profile')} />
-                      <div>
-                           {profileFormData.avatar
-                && (
-                <Avatar
-                   src={profileFormData.avatar}
-                   alt={t('avatar')}
-                />
-                )}
-                      </div>
-                      <VStack gap="16" align="center" max className={classes.profileData}>
-                           <Input
-                              value={profileFormData.firstname}
-                              placeholder={t('enter your firstname')}
-                              onChange={onChangeFirstname}
-                              readonly={readonly}
-                           />
-                           <Input
-                              value={profileFormData.username}
-                              placeholder={t('enter your username')}
-                              onChange={onChangeUsername}
-                              readonly={readonly}
-                           />
-
-                           <CurrencySelect
-                              readonly={readonly || false}
-                              value={profileFormData?.currency}
-                              onChangeOption={onChangeCurrency}
-                           />
-
-                           <CountrySelect
-                              readonly={readonly || false}
-                              value={profileFormData.country}
-                              onChangeOption={onChangeCountry}
-                           />
-                           <Input
-                              value={profileFormData.age}
-                              type="number"
-                              placeholder={t('enter your age')}
-                              onChange={onChangeAge}
-                              readonly={readonly}
-                              onKeyPress={onKeyPress}
-                           />
-                           <Input
-                              value={profileFormData.avatar}
-                              placeholder={t('place the link to your new avatar')}
-                              onChange={onChangeAvatar}
-                              readonly={readonly}
-                           />
-                      </VStack>
-                 </VStack>
-                 )}
+                 <ProfileCard
+                    readonly={readonly}
+                    profileFormData={profileFormData}
+                    onChangeUsername={onChangeUsername}
+                    onChangeFirstname={onChangeFirstname}
+                    onChangeAge={onChangeAge}
+                    onKeyPress={onKeyPress}
+                    onChangeCurrency={onChangeCurrency}
+                    onChangeCountry={onChangeCountry}
+                    onChangeAvatar={onChangeAvatar}
+                 />
             </VStack>
        </DynamicModuleLoader>
 

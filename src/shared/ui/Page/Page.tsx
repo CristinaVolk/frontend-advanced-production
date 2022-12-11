@@ -7,9 +7,7 @@ import { getScrollMemorizingByPath, scrollMemorizingActions } from 'features/Scr
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { StateSchema } from 'app/providers/StoreProvider';
-import {
-  useInitialEffect,
-} from 'shared/lib/hooks/useAppDispatch/useInitialEffect/useInitialEffect';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useTrottle } from 'shared/lib/hooks/useTrottle/useTrottle';
 import { PAGE_ID } from 'shared/const/common';
 import { useInfiniteScroll } from '../../lib/hooks/useInfiniteScroll/useInfiniteScroll';
