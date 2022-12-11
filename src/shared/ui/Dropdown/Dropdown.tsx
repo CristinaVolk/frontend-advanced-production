@@ -31,6 +31,7 @@ export const Dropdown = (props: DropdownProps) => {
                  {items.map((item) => {
                    const content = ({ active }: {active: boolean}) => (
                         <button
+                           key={item.href}
                            type="button"
                            disabled={item.disabled}
                            onClick={item.onClick}

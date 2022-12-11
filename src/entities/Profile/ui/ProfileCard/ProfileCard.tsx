@@ -65,14 +65,14 @@ export const ProfileCard = memo((props: ProfileCardProps) => {
                          placeholder={t('enter your firstname')}
                          onChange={onChangeFirstname}
                          readonly={readonly}
-                         data-testId="ProfileCard.Firstname"
+                         data-testid="ProfileCard.Firstname"
                       />
                       <Input
                          value={profileFormData.username}
                          placeholder={t('enter your username')}
                          onChange={onChangeUsername}
                          readonly={readonly}
-                         data-testId="ProfileCard.Username"
+                         data-testid="ProfileCard.Username"
                       />
 
                       <CurrencySelect

@@ -52,10 +52,11 @@ export const ListBox = (props:ListBoxProps) => {
                onChange={onChange}
             >
                  <HListbox.Button
-                    disabled={readonly}
+                    as="div"
                     className={classes.trigger}
                  >
                       <Button
+                         type="button"
                          theme={ButtonTheme.NEAT}
                       >
                            {selectedValue ?? defaultValue}

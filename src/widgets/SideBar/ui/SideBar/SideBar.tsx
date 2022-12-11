@@ -34,7 +34,7 @@ export const SideBar = memo(({ className }: SideBarProps) => {
 
   return (
        <aside
-          data-testId="sidebar"
+          data-testid="sidebar"
           className={
                classNames(
 			     classes.SideBar,
@@ -48,7 +48,7 @@ export const SideBar = memo(({ className }: SideBarProps) => {
             </VStack>
 
             <Button
-               data-testId="sidebar-toggle"
+               data-testid="sidebar-toggle"
                className={
                          classNames(classes.toggle, {}, [])
                     }
