@@ -24,7 +24,7 @@
     .options {
         position: absolute;
         width: 100%;
-        z-index: 10000;
+        z-index: var(--listbox-options-z-index);
         background: var(--listbox-bg);
         border-radius: 12px;
         text-shadow: 4px 4px 8px var(--listbox-bg);

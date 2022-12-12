@@ -6,6 +6,7 @@ import { AppLink } from '../AppLink/AppLink';
 import classes from './Dropdown.module.scss';
 
 interface DropdownItem {
+  id: string;
   disabled?: boolean;
   content?: ReactNode;
   onClick?: () => void;
@@ -31,8 +32,8 @@ export const Dropdown = (props: DropdownProps) => {
                  {items.map((item) => {
                    const content = ({ active }: {active: boolean}) => (
                         <button
-                           key={item.href}
                            type="button"
+                           key={item.id}
                            disabled={item.disabled}
                            onClick={item.onClick}
                            className={classNames(

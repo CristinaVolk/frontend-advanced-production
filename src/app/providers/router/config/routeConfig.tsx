@@ -1,17 +1,20 @@
 import { RouteProps } from 'react-router-dom';
+import { AppRoutes, RoutePaths } from 'shared/config/routes/routes';
 
 import { MainPageAsync } from 'pages/MainPage';
 import { AboutPageAsync } from 'pages/AboutPage';
 import { ProfilePageAsync } from 'pages/ProfilePage';
 import { NotFoundPage } from 'pages/NotFoundPage';
-
-import { AppRoutes, RoutePaths } from 'shared/config/routes/routes';
 import { ArticlePageAsync } from 'pages/ArticlePage';
 import { ArticleDetailsPageAsync } from 'pages/ArticleDetailsPage';
 import { ArticleEditPageAsync } from 'pages/ArticleEditPage';
+import { AdminPanelPageAsync } from 'pages/AdminPanelPage';
+import { ForbiddenPageAsync } from 'pages/ForbiddenPage';
+import { Roles, UserRoles } from 'entities/User';
 
 export type AppRoutesProps = RouteProps & {
   authOnly?: boolean;
+  roles?: UserRoles[];
 }
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
@@ -39,13 +42,24 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     authOnly: true,
   },
   [AppRoutes.ARTICLE_EDIT]: {
-    path: `${RoutePaths[AppRoutes.ARTICLE_EDIT]}`,
+    path: RoutePaths[AppRoutes.ARTICLE_EDIT],
     element: <ArticleEditPageAsync />,
     authOnly: true,
   },
   [AppRoutes.ARTICLE_CREATE]: {
-    path: `${RoutePaths[AppRoutes.ARTICLE_CREATE]}`,
+    path: RoutePaths[AppRoutes.ARTICLE_CREATE],
     element: <ArticleEditPageAsync />,
+    authOnly: true,
+  },
+  [AppRoutes.ADMIN_PANEL]: {
+    path: RoutePaths[AppRoutes.ADMIN_PANEL],
+    element: <AdminPanelPageAsync />,
+    authOnly: true,
+    roles: [Roles.MANAGER, Roles.ADMIN],
+  },
+  [AppRoutes.FORBIDDEN]: {
+    path: RoutePaths[AppRoutes.FORBIDDEN],
+    element: <ForbiddenPageAsync />,
     authOnly: true,
   },
   [AppRoutes.NOT_FOUND]: {

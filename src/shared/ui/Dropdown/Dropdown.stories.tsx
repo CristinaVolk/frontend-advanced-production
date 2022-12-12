@@ -39,13 +39,13 @@ Normal.args = {
   trigger: <Button theme={ButtonTheme.CREATIVE}>Open!</Button>,
   items: [
     {
-      content: 'first',
+      id: '1', content: 'first',
     },
     {
-      content: 'second',
+      id: '2', content: 'second',
     },
     {
-      content: 'third',
+      id: '3', content: 'third',
     },
   ],
 };
@@ -55,9 +55,9 @@ BottomLeft.args = {
   trigger: <Button theme={ButtonTheme.CREATIVE}>Open!</Button>,
   direction: 'bottomLeft',
   items: [
-    { content: <Text theme={TextTheme.PRIMARY} text="Primary" />, disabled: false },
-    { content: <Text theme={TextTheme.ERROR} text="Error" />, disabled: true },
-    { content: <Text theme={TextTheme.INVERTED} text="Inverted" />, disabled: false },
+    { id: '4', content: <Text theme={TextTheme.PRIMARY} text="Primary" />, disabled: false },
+    { id: '5', content: <Text theme={TextTheme.ERROR} text="Error" />, disabled: true },
+    { id: '6', content: <Text theme={TextTheme.INVERTED} text="Inverted" />, disabled: false },
   ],
 };
 
@@ -66,9 +66,11 @@ TopLeft.args = {
   trigger: <Button theme={ButtonTheme.CREATIVE}>Open!</Button>,
   direction: 'topLeft',
   items: [
-    { content: <Button theme={ButtonTheme.CLEAR}>Alert</Button>, disabled: false, onClick: () => { alert('Click!'); } },
-    { content: <Button theme={ButtonTheme.BACKGROUND}>Disabled</Button>, disabled: true },
-    { content: <Button theme={ButtonTheme.INVERTED_BACKGROUND}>Alert</Button>, disabled: false },
+    {
+      id: '7', content: <Button theme={ButtonTheme.CLEAR}>Alert</Button>, disabled: false, onClick: () => { alert('Click!'); },
+    },
+    { id: '8 ', content: <Button theme={ButtonTheme.BACKGROUND}>Disabled</Button>, disabled: true },
+    { id: '9 ', content: <Button theme={ButtonTheme.INVERTED_BACKGROUND}>Alert</Button>, disabled: false },
   ],
 };
 
@@ -77,8 +79,10 @@ Bottom.args = {
   trigger: <Button theme={ButtonTheme.CREATIVE}>Open!</Button>,
   direction: 'bottom',
   items: [
-    { content: <AppLink to="/about">I am a link</AppLink>, disabled: false, href: '/about' },
-    { content: 'Adjfhgnm,', disabled: false },
-    { content: 'Adjfhgnm,', disabled: false },
+    {
+      id: '10', content: <AppLink to="/about">I am a link</AppLink>, disabled: false, href: '/about',
+    },
+    { id: '11', content: 'Adjfhgnm,', disabled: false },
+    { id: '12', content: 'Adjfhgnm,', disabled: false },
   ],
 };

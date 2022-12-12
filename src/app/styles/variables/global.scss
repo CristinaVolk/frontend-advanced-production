@@ -32,6 +32,11 @@
 
     // z  Indexes
     --modal-z-index: 10;
+    --modal-closed-z-index: -1;
+    --sidebar-z-index: 2;
+    --button-z-index: 1;
+    --dropdown-z-index: 20;
+    --listbox-options-z-index: 15;
 
     // colors
     --overlay-color: rgb(10 1 1 / 60%);

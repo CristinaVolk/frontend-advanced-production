@@ -3,6 +3,7 @@
     {
       "id": "1",
       "username": "admin@admin.com",
+      "roles": ["USER", "ADMIN"],
       "password": "123",
       "avatar": "https://pbs.twimg.com/profile_images/540611068721364992/J4ityfdN_400x400.jpeg"
     },
@@ -10,7 +11,15 @@
       "id": "2",
       "username": "nimda@nimda.com",
       "password": "314",
+      "roles": ["USER"],
       "avatar": "https://i1.sndcdn.com/avatars-000756121903-98y986-t500x500.jpg"
+    },
+    {
+      "id": "3",
+      "username": "volk@com",
+      "password": "314",
+      "roles": ["MANAGER"],
+      "avatar": "https://images.immediate.co.uk/production/volatile/sites/23/2016/05/GettyImages-912769276-c96f25b.jpg?quality=90&resize=980,654"
     }
   ],
   "posts": [
@@ -1232,6 +1241,18 @@
       "country": "Belarus",
       "username": "nimda@nimda.com",
       "avatar": "https://i1.sndcdn.com/avatars-000756121903-98y986-t500x500.jpg"
+    },
+    {
+      "id": "3",
+      "firstname": "Orca",
+      "surname": "Orca Orca",
+      "age": 22,
+      "currency": "RUB",
+      "country": "Belarus",
+      "username": "volk@com",
+      "password": "314",
+      "roles": ["MANAGER"],
+      "avatar": "https://images.immediate.co.uk/production/volatile/sites/23/2016/05/GettyImages-912769276-c96f25b.jpg?quality=90&resize=980,654"
     }
   ]
 }
