@@ -1,5 +1,5 @@
+import { ValidateProfileError } from '../../consts/consts';
 import { validateProfileFormData } from '../validateProfileFormData/validateProfileFormData';
-import { ValidateProfileError } from '../../types/EditableProfile';
 
 const dataValue = {
   firstname: 'Cris',

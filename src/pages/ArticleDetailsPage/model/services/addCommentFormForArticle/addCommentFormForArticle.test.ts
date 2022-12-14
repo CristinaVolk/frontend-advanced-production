@@ -1,5 +1,5 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
-import { CommentErrorCodes } from '../../types/ArticleDetailsCommentsSchema';
+import { CommentErrorCodes } from '../../consts/consts';
 import { addCommentFormForArticle } from './addCommentFormForArticle';
 
 describe('addCommentFormForArticle.test', () => {

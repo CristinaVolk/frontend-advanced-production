@@ -3,9 +3,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { ThemeEnum } from 'app/providers/ThemeProvider';
-import {
-  Article, ArticleBlockType, ArticleType, ArticleView,
-} from '../../model/types/Article';
+import { ArticleBlockType, ArticleType, ArticleView } from '../../model/const/const';
+import { Article } from '../../model/types/Article';
 import { ArticleListItem } from './ArticleListItem';
 
 export default {

@@ -5,7 +5,7 @@ import { classNames } from 'shared/lib/classNames';
 
 import { ArticleSortField } from 'entities/Article';
 import { SortOrder } from 'shared/types/Order';
-import { ArticleSortFieldType } from 'entities/Article/model/types/Article';
+import { ArticleSortFieldType } from 'entities/Article/';
 import { Select, SelectOption } from '../Select/Select';
 import classes from './ArticleSortSelector.module.scss';
 

@@ -12,11 +12,9 @@ import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { TabItem } from 'shared/ui/Tabs/Tabs';
 
 import { ArticleTypedTabs } from 'entities/Article';
-import {
-  ArticleSortFieldType, ArticleType, ArticleView,
-} from 'entities/Article/model/types/Article';
 import { ArticleListViewSwitcher } from 'features/ArticleListViewSwitcher';
 
+import { ArticleSortFieldType, ArticleType, ArticleView } from 'entities/Article/';
 import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';
 import {
   getArticlePageOrder,

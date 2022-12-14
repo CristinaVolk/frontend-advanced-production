@@ -1,6 +1,6 @@
 import { StateSchema } from 'app/providers/StoreProvider';
+import { ValidateProfileError } from '../../consts/consts';
 import { getProfileUpdateError } from './getProfileUpdateError';
-import { ValidateProfileError } from '../../types/EditableProfile';
 
 describe('getProfileUpdateError.test', () => {
   const testValue = ValidateProfileError.NO_DATA;

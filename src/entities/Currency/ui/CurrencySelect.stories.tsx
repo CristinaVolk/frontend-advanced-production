@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { ThemeEnum } from 'app/providers/ThemeProvider';
 
-import { Currency } from '../model/types/Currency';
+import { Currency } from '../model/consts/Currency';
 import { CurrencySelect } from './CurrencySelect';
 
 export default {

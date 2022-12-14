@@ -1,6 +1,6 @@
 import { StoreProvider } from './ui/StoreProvider';
-import { StateSchema, ThunkConfig } from './config/StateSchema';
-import { AppDispatch } from './config/store';
+import type { StateSchema, ThunkConfig } from './config/StateSchema';
+import type { AppDispatch } from './config/store';
 
 export {
   StoreProvider, StateSchema, AppDispatch, ThunkConfig,

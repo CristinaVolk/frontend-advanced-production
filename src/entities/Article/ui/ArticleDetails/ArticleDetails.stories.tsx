@@ -4,7 +4,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
 import { ErrorCodes } from 'shared/const/common';
 
-import { Article, ArticleBlockType, ArticleType } from '../../model/types/Article';
+import { ArticleBlockType, ArticleType } from '../../model/const/const';
+import { Article } from '../../model/types/Article';
 import { ArticleDetails } from './ArticleDetails';
 
 export default {

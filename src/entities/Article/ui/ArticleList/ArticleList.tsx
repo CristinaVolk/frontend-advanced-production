@@ -5,7 +5,8 @@ import { classNames } from 'shared/lib/classNames';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import { PAGE_ID } from 'shared/const/common';
 import { HStack } from 'shared/ui/Stack';
-import { Article, ArticleView } from '../../model/types/Article';
+import { ArticleView } from '../../model/const/const';
+import { Article } from '../../model/types/Article';
 import { ArticleListItem } from '../../ui/ArticleListItem/ArticleListItem';
 
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';

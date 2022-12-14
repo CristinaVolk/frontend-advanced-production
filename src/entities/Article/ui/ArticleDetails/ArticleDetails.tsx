@@ -16,7 +16,8 @@ import { Icon } from 'shared/ui/Icon/Icon';
 import EyeIcon from 'shared/assets/icons/eye.svg';
 import CalendarIcon from 'shared/assets/icons/calendar.svg';
 import { HStack, VStack } from 'shared/ui/Stack';
-import { ArticleBlock, ArticleBlockType } from '../../model/types/Article';
+import { ArticleBlockType } from '../../model/const/const';
+import { ArticleBlock } from '../../model/types/Article';
 import {
   ArticleCodeBlockComponent,
 } from '../../ui/ArticleCodeBlockComponent/ArticleCodeBlockComponent';

@@ -4,7 +4,7 @@ import { getUserAuthData } from 'entities/User';
 import {
   getArticleDetailsData,
 } from 'entities/Article/model/selectors/getArticleDetails/getArticleDetails';
-import { CommentErrorCodes } from '../../types/ArticleDetailsCommentsSchema';
+import { CommentErrorCodes } from '../../consts/consts';
 import {
   fetchCommentsByArticleId,
 } from '../../services/fetchCommentsByArticleId/fetchCommentsByArticleId';

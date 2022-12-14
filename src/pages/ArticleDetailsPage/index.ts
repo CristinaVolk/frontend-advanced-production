@@ -1,8 +1,8 @@
-export {
+export type {
   ArticleDetailsCommentsSchema,
 } from './model/types/ArticleDetailsCommentsSchema';
-export {
+export type {
   ArticleDetailsRecommendationsSchema,
 } from './model/types/ArticleDetailsRecommendationsSchema';
 export { ArticleDetailsPageAsync } from './ui/ArticleDetailsPage/ArticleDetailsPageAsync';
-export { ArticleDetailsPageSchema } from './model/types/index';
+export type { ArticleDetailsPageSchema } from './model/types/index';

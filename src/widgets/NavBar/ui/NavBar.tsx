@@ -5,8 +5,9 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserAuthData, isUserAdmin, isUserManager } from 'entities/User';
-import { userActions } from 'entities/User/model/slices/userSlice';
+import {
+  getUserAuthData, isUserAdmin, isUserManager, userActions,
+} from 'entities/User';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { AppRoutes, RoutePaths } from 'shared/config/routes/routes';
 import { Dropdown } from 'shared/ui/Dropdown/Dropdown';

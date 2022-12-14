@@ -1,4 +1,4 @@
-export { ScrollMemorizingSchema } from './model/types/ScrollSchema';
+export type { ScrollMemorizingSchema } from './model/types/ScrollSchema';
 export { getScrollMemorizingByPath } from './model/selectors/getScrollMemorizing';
 export {
   scrollMemorizingReducer,

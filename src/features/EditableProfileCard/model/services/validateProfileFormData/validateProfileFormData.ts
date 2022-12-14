@@ -1,4 +1,5 @@
-import { EditableProfile, ValidateProfileError } from '../../types/EditableProfile';
+import { ValidateProfileError } from '../../consts/consts';
+import { EditableProfile } from '../../types/EditableProfile';
 
 export const validateProfileFormData = (editableProfile?: EditableProfile) => {
   const errors: ValidateProfileError[] = [];

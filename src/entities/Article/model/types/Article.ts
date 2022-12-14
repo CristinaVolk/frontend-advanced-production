@@ -1,29 +1,11 @@
 import { User } from 'entities/User';
-
-export enum ArticleBlockType {
-  CODE = 'CODE',
-  IMAGE = 'IMAGE',
-  TEXT = 'TEXT'
-}
-
-type ValueOf<T> = T[keyof T];
-export const ArticleSortField = {
-  VIEWS: 'views',
-  TITLE: 'title',
-  CREATED: 'created_at',
-} as const;
-
-export type ArticleSortFieldType = ValueOf<typeof ArticleSortField>;
+import { ArticleBlockType, ArticleSortField, ArticleType } from '../const/const';
 
 export interface ArticleBlockBase {
   id: string;
   type: ArticleBlockType;
 }
 
-export interface ArticleCodeBlock extends ArticleBlockBase {
-  type: ArticleBlockType.CODE
-  code: string;
-}
 export interface ArticleImageBlock extends ArticleBlockBase {
   type: ArticleBlockType.IMAGE
   src: string;
@@ -34,19 +16,14 @@ export interface ArticleTextBlock extends ArticleBlockBase {
   title?: string;
   paragraphs: Array<string>
 }
+export type ArticleSortFieldType = ValueOf<typeof ArticleSortField>;
+
+export interface ArticleCodeBlock extends ArticleBlockBase {
+  type: ArticleBlockType.CODE;
+  code: string;
+}
 
 export type ArticleBlock = ArticleTextBlock | ArticleCodeBlock | ArticleImageBlock;
-
-export enum ArticleType {
-  ALL = 'ALL',
-  IT = 'IT',
-  SCIENCE = 'SCIENCE',
-  ECONOMICS = 'ECONOMICS'
-}
-
-export enum ArticleError {
-  LOADING_ERROR = 'loading-error',
-}
 
 export interface Article {
   id: string;
@@ -58,9 +35,4 @@ export interface Article {
   type: Array<ArticleType>;
   blocks: Array<ArticleBlock>
   user: User
-}
-
-export enum ArticleView {
-  TILE = 'TILE',
-  LIST = 'LIST'
 }

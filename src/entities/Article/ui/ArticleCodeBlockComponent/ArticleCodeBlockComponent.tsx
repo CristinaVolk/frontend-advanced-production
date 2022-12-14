@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { classNames } from 'shared/lib/classNames';
 import { Code } from 'shared/ui/Code/Code';
 import { VStack } from 'shared/ui/Stack';
-import { ArticleCodeBlock } from '../../model/types/Article';
+import type { ArticleCodeBlock } from '../../model/types/Article';
 
 interface ArticleCodeBlockComponentProps {
   className?: string;

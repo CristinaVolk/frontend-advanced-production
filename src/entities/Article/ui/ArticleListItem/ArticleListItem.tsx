@@ -11,10 +11,9 @@ import { useTranslation } from 'react-i18next';
 import { RoutePaths } from 'shared/config/routes/routes';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
 import { HStack, VStack } from 'shared/ui/Stack';
+import { ArticleBlockType, ArticleView } from '../../model/const/const';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
-import {
-  Article, ArticleBlockType, ArticleTextBlock, ArticleView,
-} from '../../model/types/Article';
+import type { Article, ArticleTextBlock } from '../../model/types/Article';
 import classes from './ArticleListItem.module.scss';
 
 interface ArticleListItemProps {

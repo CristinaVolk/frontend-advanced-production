@@ -3,7 +3,7 @@ export {
   editableProfileCardReducer,
 } from './model/slices/editableProfileCardSlice/editableProfileCardSlice';
 
-export { EditableProfileCardSchema } from './model/types/EditableProfile';
+export type { EditableProfileCardSchema } from './model/types/EditableProfile';
 export { updateProfileData } from './model/services/updateProfileData/updateProfileData';
 export { fetchProfileData } from './model/services/fetchProfileData/fetchProfileData';
 
@@ -22,3 +22,4 @@ export {
 } from './model/selectors/getProfileUpdateIsLoading/getProfileIsLoading';
 
 export { EditableProfileCard } from './ui/EditableProfileCard/EditableProfileCard';
+export { ValidateProfileError } from './model/consts/consts';

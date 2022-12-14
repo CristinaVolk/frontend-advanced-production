@@ -18,7 +18,8 @@
     // instead of require(), but with * as
     "esModuleInterop": true,
     // without * as
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "isolatedModules": true
   },
   "ts-node": {
     "compilerOptions": {

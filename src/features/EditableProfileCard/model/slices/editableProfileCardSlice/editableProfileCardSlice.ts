@@ -1,9 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { ErrorCodes } from 'shared/const/common';
 
-import {
-  EditableProfile, EditableProfileCardSchema, ValidateProfileError,
-} from '../../types/EditableProfile';
+import { ValidateProfileError } from '../../consts/consts';
+import { EditableProfile, EditableProfileCardSchema } from '../../types/EditableProfile';
 
 import { updateProfileData } from '../../services/updateProfileData/updateProfileData';
 import { fetchProfileData } from '../../services/fetchProfileData/fetchProfileData';

@@ -14,12 +14,12 @@ import {
   DynamicModuleLoader, ReducersList,
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { ProfileCard } from 'entities/Profile';
+import { ValidateProfileError } from '../../model/consts/consts';
 import {
   editableProfileCardActions, editableProfileCardReducer,
 } from '../../model/slices/editableProfileCardSlice/editableProfileCardSlice';
 import { ProfileCardHeader } from '../ProfileCardHeader/ProfileCardHeader';
 import { getProfileFormData } from '../../model/selectors/getProfileFormData/getProfileFormData';
-import { ValidateProfileError } from '../../model/types/EditableProfile';
 import {
   getProfileFormReadonly,
 } from '../../model/selectors/getProfileFormReadonly/getProfileFormReadonly';
