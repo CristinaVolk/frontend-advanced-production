@@ -1,16 +1,13 @@
 import React, { memo } from 'react';
 import { classNames } from 'shared/lib/classNames';
 import { useSelector } from 'react-redux';
-
+import { Text } from 'shared/ui/Text/Text';
 import { ArticleList, ArticleView } from 'entities/Article';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useSearchParams } from 'react-router-dom';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useTranslation } from 'react-i18next';
 import {
-  getArticlePageIsLoading, getArticlePageView,
+  getArticlePageError, getArticlePageIsLoading, getArticlePageView,
 } from '../../model/selectors/getArticlePageSelector/getArticlePageSelector';
 import { getArticles } from '../../model/slices/articlePageSlice/articlePageSlice';
-import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 
 interface ArticleInfiniteListProps {
   className?: string;
@@ -21,13 +18,12 @@ export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
   const articles = useSelector(getArticles.selectAll);
   const isLoading = useSelector(getArticlePageIsLoading);
   const view = useSelector(getArticlePageView) || ArticleView.TILE;
+  const { t } = useTranslation('article');
+  const error = useSelector(getArticlePageError);
 
-  const dispatch = useAppDispatch();
-  const [searchParams] = useSearchParams();
-
-  useInitialEffect(() => {
-    dispatch(initArticlesPage(searchParams));
-  });
+  if (error) {
+    return <Text text={t('error')} />;
+  }
 
   return (
        <ArticleList
