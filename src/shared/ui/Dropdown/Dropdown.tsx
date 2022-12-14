@@ -33,7 +33,6 @@ export const Dropdown = (props: DropdownProps) => {
                    const content = ({ active }: {active: boolean}) => (
                         <button
                            type="button"
-                           key={item.id}
                            disabled={item.disabled}
                            onClick={item.onClick}
                            className={classNames(
@@ -51,14 +50,14 @@ export const Dropdown = (props: DropdownProps) => {
 
                    if (item.href) {
                      return (
-                          <Menu.Item disabled={item.disabled} as={AppLink} to={item.href}>
+                          <Menu.Item key={item.id} disabled={item.disabled} as={AppLink} to={item.href}>
                                {content}
                           </Menu.Item>
                      );
                    }
 
                    return (
-                        <Menu.Item disabled={item.disabled} as={Fragment}>
+                        <Menu.Item key={item.id} disabled={item.disabled} as={Fragment}>
                              {content}
                         </Menu.Item>
                    );

@@ -4,11 +4,14 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import { PAGE_ID } from 'shared/const/common';
+import { HStack } from 'shared/ui/Stack';
 import { Article, ArticleView } from '../../model/types/Article';
 import { ArticleListItem } from '../../ui/ArticleListItem/ArticleListItem';
 
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import classes from './ArticleList.module.scss';
+
+/* eslint-disable  */
 
 interface ArticleListProps {
     className?: string;
@@ -24,7 +27,6 @@ const getSkeletons = (view: ArticleView) => new Array(view === ArticleView.TILE 
   .map((item, index) => (
        <ArticleListItemSkeleton
           className={classes.card}
-         // eslint-disable-next-line react/no-array-index-key
           key={index}
           view={view}
        />
@@ -62,13 +64,14 @@ export const ArticleList = memo((props: ArticleListProps) => {
       );
     }
     return (
-         <div
+         <HStack
+            gap="16"
             key={key}
             style={style}
             className={classes.row}
          >
               {items}
-         </div>
+         </HStack>
     );
   };
 
@@ -80,8 +83,10 @@ export const ArticleList = memo((props: ArticleListProps) => {
     );
   }
 
+
   return (
-       <WindowScroller
+    // @ts-ignore
+    <WindowScroller
           onScroll={() => console.log('scroll')}
           scrollElement={document.getElementById(PAGE_ID) as Element}
        >
@@ -94,6 +99,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
               isScrolling,
             }) => (
                  <div
+                   // @ts-ignore
                     ref={registerChild}
                     className={classNames(
                       classes.ArticleList,
@@ -102,6 +108,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
                     )}
                  >
                       {isVirtualized ? (
+                      // @ts-ignore
                            <List
                               height={height ?? 700}
                               rowCount={rowCount}

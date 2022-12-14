@@ -10,6 +10,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useTranslation } from 'react-i18next';
 import { RoutePaths } from 'shared/config/routes/routes';
 import { AppLink } from 'shared/ui/AppLink/AppLink';
+import { HStack, VStack } from 'shared/ui/Stack';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import {
   Article, ArticleBlockType, ArticleTextBlock, ArticleView,
@@ -39,13 +40,13 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
     ) as ArticleTextBlock;
 
     return (
-         <div className={classNames(classes.ArticleListItem, {}, [className, classes[view]])}>
+         <VStack className={classNames(classes.ArticleListItem, {}, [className, classes[view]])}>
               <Card className={classes.card}>
-                   <div className={classes.header}>
+                   <HStack max justify="between" className={classes.header}>
                         <Avatar size={30} src={article.user.avatar} />
                         <Text text={article.user.username} className={classes.username} />
                         <Text text={article.createdAt} className={classes.date} />
-                   </div>
+                   </HStack>
                    <Text title={article.title} className={classes.title} />
                    {articleTypes}
                    {articleImage}
@@ -58,7 +59,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                      />
                      )}
 
-                   <div className={classes.footer}>
+                   <HStack justify="between" className={classes.footer}>
                         <AppLink
                            target={target}
                            to={RoutePaths.articles_details + article.id}
@@ -69,9 +70,9 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                         </AppLink>
 
                         {articleViews}
-                   </div>
+                   </HStack>
               </Card>
-         </div>
+         </VStack>
     );
   }
 
@@ -87,11 +88,11 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                       {articleImage}
                       <Text text={article.createdAt} className={classes.date} />
                  </div>
-                 <div className={classes.wrapperInfo}>
+                 <HStack>
                       {articleTypes}
                       {articleViews}
                       <Icon Svg={EyeIcon} />
-                 </div>
+                 </HStack>
                  <Text text={article.title} className={classes.title} />
             </Card>
        </AppLink>

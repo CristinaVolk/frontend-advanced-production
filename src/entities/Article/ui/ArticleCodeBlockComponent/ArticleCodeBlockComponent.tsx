@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
 import { classNames } from 'shared/lib/classNames';
 import { Code } from 'shared/ui/Code/Code';
+import { VStack } from 'shared/ui/Stack';
 import { ArticleCodeBlock } from '../../model/types/Article';
-import classes from './ArticleCodeBlockComponent.module.scss';
 
 interface ArticleCodeBlockComponentProps {
   className?: string;
@@ -12,8 +12,8 @@ interface ArticleCodeBlockComponentProps {
 export const ArticleCodeBlockComponent = memo((props: ArticleCodeBlockComponentProps) => {
   const { className, block } = props;
   return (
-       <div className={classNames(classes.ArticleCodeBlockComponent, {}, [className])}>
+       <VStack max justify="center" align="center" className={classNames('', {}, [className])}>
             <Code codingLines={block.code} />
-       </div>
+       </VStack>
   );
 });

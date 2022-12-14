@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 
 import { ArticleDetails } from 'entities/Article';
@@ -26,16 +25,7 @@ const reducers:ReducersList = {
 };
 
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
-  const { t } = useTranslation();
   const { id } = useParams<{id:string}>();
-
-  if (!id) {
-    return (
-         <Page className={classNames(classes.ArticleDetailsPage, {}, [className])}>
-              {t('Article has not been found')}
-         </Page>
-    );
-  }
 
   return (
        <DynamicModuleLoader reducers={reducers}>

@@ -4,6 +4,7 @@ import { StyleDecorator } from '../../src/shared/config/storybook/decorators/Sty
 import { ThemeDecorator } from '../../src/shared/config/storybook/decorators/ThemeDecorator';
 import { RouterDecorator } from '../../src/shared/config/storybook/decorators/RouterDecorator';
 import { StoreDecorator } from '../../src/shared/config/storybook/decorators/StoreDecorator';
+import { SuspenseDecorator } from '../../src/shared/config/storybook/decorators/SuspenseDecorator';
 import { ThemeEnum } from '../../src/app/providers/ThemeProvider';
 
 export const parameters = {
@@ -25,4 +26,4 @@ addDecorator(StoreDecorator({
 addDecorator(StyleDecorator);
 addDecorator(ThemeDecorator(ThemeEnum.LIGHT));
 addDecorator(RouterDecorator);
-// addDecorator(TranslationDecorator);
+addDecorator(SuspenseDecorator);

@@ -1,4 +1,4 @@
-import React, { memo, useCallback } from 'react';
+import React, { memo, Suspense, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
@@ -11,6 +11,7 @@ import { VStack } from 'shared/ui/Stack';
 import { AddCommentFormAsync } from 'features/AddCommentForm';
 import { CommentList } from 'entities/Comment';
 
+import { Loader } from 'shared/ui/Loader/Loader';
 import {
   fetchCommentsByArticleId,
 } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
@@ -24,7 +25,7 @@ import {
 
 interface ArticleDetailsCommentsProps {
   className?: string;
-  id: string
+  id?: string
 }
 
 export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) => {
@@ -46,8 +47,9 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
   return (
        <VStack max gap="16" className={classNames('', {}, [className])}>
             <Text title={t('Comments')} />
-
-            <AddCommentFormAsync onSendComment={onSendComment} />
+            <Suspense fallback={<Loader />}>
+                 <AddCommentFormAsync onSendComment={onSendComment} />
+            </Suspense>
 
             <CommentList
                isLoading={commentsIsLoading}

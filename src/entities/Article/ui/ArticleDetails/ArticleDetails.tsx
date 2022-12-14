@@ -35,7 +35,7 @@ import classes from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {
   className?: string;
-  id: string;
+  id?: string;
 }
 
 const reducers: ReducersList = {
