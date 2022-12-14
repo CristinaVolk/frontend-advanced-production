@@ -25,19 +25,20 @@ export const buildLoaders: buildLoadersType = (options) => {
 
   const cssLoader = buildCSSLoader(isDev);
 
-  const babelLoader = buildBabelLoader(isDev);
+  const codeBabelLoader = buildBabelLoader({ ...options, isTsx: false });
+  const tsxCodeBabelLoader = buildBabelLoader({ ...options, isTsx: true });
 
-  const tsLoader = {
-    test: /\.tsx?$/,
-    use: 'ts-loader',
-    exclude: /node_modules/,
-  };
+  // const tsLoader = {
+  //   test: /\.tsx?$/,
+  //   use: 'ts-loader',
+  //   exclude: /node_modules/,
+  // };
 
   return [
     fileLoader,
     svgLoader,
-    babelLoader,
-    tsLoader,
+    codeBabelLoader,
+    tsxCodeBabelLoader,
     cssLoader,
   ];
 };
