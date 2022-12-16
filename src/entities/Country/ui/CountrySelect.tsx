@@ -1,7 +1,7 @@
 import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ListBox } from 'shared/ui/ListBox/ListBox';
+import { ListBox } from 'shared/ui/Popups/UI/ListBox/ListBox';
 import { Country } from '../model/consts/Country';
 
 interface CountrySelectProps {
@@ -29,7 +29,7 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
 
   return (
        <ListBox
-          direction="bottom"
+          direction="top"
           defaultValue={t('Choose your country')}
           selectedValue={value}
           readonly={readonly}

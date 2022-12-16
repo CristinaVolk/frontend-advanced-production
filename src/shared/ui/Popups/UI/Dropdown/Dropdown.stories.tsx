@@ -1,9 +1,9 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { Button, ButtonTheme } from '../Button/Button';
-import { AppLink } from '../AppLink/AppLink';
-import { Text, TextTheme } from '../Text/Text';
+import { Button, ButtonTheme } from '../../../Button/Button';
+import { AppLink } from '../../../AppLink/AppLink';
+import { Text, TextTheme } from '../../../Text/Text';
 
 import { Dropdown } from './Dropdown';
 

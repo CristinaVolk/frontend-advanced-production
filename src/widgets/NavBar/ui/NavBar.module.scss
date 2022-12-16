@@ -4,6 +4,7 @@
     background: var(--bar-bg-color);
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 20px;
 
     .createArticle {
@@ -16,7 +17,6 @@
 
     .dropdown,
     .links {
-        margin-left: 15px;
         display: flex;
         gap: 15px;
 

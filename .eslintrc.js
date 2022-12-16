@@ -60,6 +60,7 @@ module.exports = {
       {
         markupOnly: true,
         ignoreAttribute: [
+          'border',
           'data-testid',
           'to',
           'target',

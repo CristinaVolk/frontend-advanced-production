@@ -9,9 +9,6 @@
 }
 
 .ListBox {
-    position: relative;
-    width: 100%;
-
     .trigger {
         background: none;
         margin: 0;
@@ -29,46 +26,9 @@
         border-radius: 12px;
         text-shadow: 4px 4px 8px var(--listbox-bg);
 
-        &.top {
-            bottom: 100%;
-        }
-
-        &.bottom {
-            top: 100%;
-        }
-
-        &.topRight {
-            bottom: 100%;
-            right: 50%;
-        }
-
-        &.bottomRight {
-            top: 100%;
-            left: 50%;
-        }
-
-        &.topLeft {
-            bottom: 100%;
-            left: 50%;
-        }
-
-        &.bottomLeft {
-            top: 100%;
-            right: 50%;
-        }
-
         .item {
             padding: 20px;
             border-radius: 12px;
-
-            &.active {
-                background: var(--inverted-primary-color);
-            }
-
-            &.unavailable {
-                opacity: 0.7;
-                cursor: none;
-            }
         }
     }
 }

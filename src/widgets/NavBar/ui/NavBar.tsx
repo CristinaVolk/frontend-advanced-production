@@ -4,14 +4,13 @@ import { classNames } from 'shared/lib/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { LoginModal } from 'features/AuthByUsername';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  getUserAuthData, isUserAdmin, isUserManager, userActions,
-} from 'entities/User';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { AppRoutes, RoutePaths } from 'shared/config/routes/routes';
-import { Dropdown } from 'shared/ui/Dropdown/Dropdown';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
+import { HStack } from 'shared/ui/Stack';
+import { NotificationButton } from 'features/NotificationButton';
+import { useSelector } from 'react-redux';
+import { getUserAuthData } from 'entities/User';
+import { AvatarDropdown } from 'features/AvatarDropdown/ui/AvatarDropdown';
 import classes from './NavBar.module.scss';
 
 interface NavBarProps {
@@ -22,10 +21,6 @@ export const NavBar = memo(({ className }: NavBarProps) => {
   const { t } = useTranslation();
   const [isAuthModal, setIsAuthModal] = useState(false);
   const authData = useSelector(getUserAuthData);
-  const dispatch = useDispatch();
-  const isAdmin = useSelector(isUserAdmin);
-  const isManager = useSelector(isUserManager);
-  const shouldAdminPanelBeDisplayed = isAdmin || isManager;
 
   const onOpenModal = useCallback(() => {
     setIsAuthModal(true);
@@ -39,10 +34,6 @@ export const NavBar = memo(({ className }: NavBarProps) => {
     setIsAuthModal(false);
   }, []);
 
-  const onLogout = useCallback(() => {
-    dispatch(userActions.logout());
-  }, [dispatch]);
-
   if (authData) {
     return (
          <nav className={classNames(classes.NavBar, {}, [className])}>
@@ -51,35 +42,19 @@ export const NavBar = memo(({ className }: NavBarProps) => {
                  title={t('Volk app')}
                  theme={TextTheme.INVERTED}
               />
-              <AppLink
-                 to={RoutePaths[AppRoutes.ARTICLE_CREATE]}
-                 theme={AppLinkTheme.PRIMARY}
-                 className={classes.createArticle}
-              >
-                   {t('create-article')}
-              </AppLink>
-              <Dropdown
-                 direction="bottomRight"
-                 className={classes.dropdown}
-                 trigger={<Avatar size={30} src={authData.avatar} />}
-                 items={[
-                   ...(shouldAdminPanelBeDisplayed ? [{
-                     id: '10',
-                     content: t('Admin'),
-                     href: RoutePaths[AppRoutes.ADMIN_PANEL],
-                   }] : []),
-                   {
-                     id: '1',
-                     content: t('Profile'),
-                     href: RoutePaths[AppRoutes.PROFILE] + authData.id,
-                   },
-                   {
-                     id: '2',
-                     content: t('Logout'),
-                     onClick: onLogout,
-                   },
-                 ]}
-              />
+
+              <HStack gap="16" className={classes.actions}>
+                   <AppLink
+                      to={RoutePaths[AppRoutes.ARTICLE_CREATE]}
+                      theme={AppLinkTheme.PRIMARY}
+                      className={classes.createArticle}
+                   >
+                        {t('create-article')}
+                   </AppLink>
+
+                   <NotificationButton />
+                   <AvatarDropdown />
+              </HStack>
          </nav>
     );
   }

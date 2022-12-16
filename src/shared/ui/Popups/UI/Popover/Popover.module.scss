@@ -1,0 +1,7 @@
+.panel {
+    position: absolute;
+    z-index: var(--dropdown-z-index);
+    border-radius: 8px;
+    background: var(--skeleton-color);
+    padding: 15px;
+}

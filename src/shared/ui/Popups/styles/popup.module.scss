@@ -1,0 +1,46 @@
+.popup {
+    position: relative;
+
+    & > button {
+        outline: none;
+        border: none;
+        background: none;
+    }
+}
+
+.top {
+    bottom: 100%;
+}
+
+.bottom {
+    top: 100%;
+}
+
+.topRight {
+    bottom: 100%;
+    right: 100%;
+}
+
+.bottomRight {
+    top: 100%;
+    left: 0;
+}
+
+.topLeft {
+    bottom: 100%;
+    left: 0;
+}
+
+.bottomLeft {
+    top: 100%;
+    right: 0;
+}
+
+.item.active {
+    background: var(--bar-bg-color);
+}
+
+.disabled {
+    opacity: 0.7;
+    cursor: none;
+}

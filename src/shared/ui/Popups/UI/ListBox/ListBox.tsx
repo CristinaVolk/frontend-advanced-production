@@ -1,12 +1,13 @@
 import React, { Fragment, ReactNode } from 'react';
 import { Listbox as HListbox } from '@headlessui/react';
 
-import { classNames } from '../../lib/classNames';
-import { DropdownDirection } from '../../types/ui';
-import { HStack } from '../Stack/HStack/HStack';
-import { Text, TextTheme } from '../Text/Text';
-import { Button, ButtonTheme } from '../Button/Button';
+import { classNames } from '../../../../lib/classNames';
+import { DropdownDirection } from '../../../../types/ui';
+import { HStack } from '../../../Stack/HStack/HStack';
+import { Text, TextTheme } from '../../../Text/Text';
+import { Button, ButtonTheme } from '../../../Button/Button';
 import classes from './ListBox.module.scss';
+import popupClasses from '../../styles/popup.module.scss';
 
 export interface ListBoxItem {
   value: string;
@@ -46,7 +47,7 @@ export const ListBox = (props:ListBoxProps) => {
                className={classNames(
                  classes.ListBox,
                  { },
-                 [className],
+                 [className, popupClasses.popup],
                )}
                value={selectedValue}
                onChange={onChange}
@@ -65,7 +66,7 @@ export const ListBox = (props:ListBoxProps) => {
                  <HListbox.Options className={classNames(
                    classes.options,
                    {},
-                   [classes[direction]],
+                   [popupClasses[direction]],
                  )}
                  >
                       {items?.map((item) => (
@@ -80,8 +81,8 @@ export const ListBox = (props:ListBoxProps) => {
                                         className={classNames(
                                           classes.item,
                                           {
-                                            [classes.active]: active,
-                                            [classes.unavailable]: item.unavailable,
+                                            [popupClasses.active]: active,
+                                            [popupClasses.disabled]: item.unavailable,
                                           },
                                           [],
                                         )}
