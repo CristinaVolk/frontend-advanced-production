@@ -1,10 +1,10 @@
 import React, {
-  memo, ReactNode, useCallback, useEffect, useState,
+  ReactNode, useCallback, useEffect, useState,
 } from 'react';
 
 import { classNames, Modes } from '@/shared/lib/classNames';
 import { useTheme } from '@/app/providers/ThemeProvider';
-import { useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
+import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
 import { Portal } from '../Portal/Portal';
 import { Overlay } from '../Overlay/Overlay';
 import classes from './DraggableDrawer.module.scss';
@@ -89,7 +89,7 @@ export const DraggableDrawer = (props: DraggableDrawerProps) => {
                  <Spring.a.div
                     className={classes.sheet}
                     {...bind()}
-                    style={{ bottom: `calc(-100vh + ${height / 1.7}px)`, y }}
+                    style={{ bottom: `calc(-100vh + ${height}px)`, y }}
                  >
                       {children}
                  </Spring.a.div>
@@ -98,10 +98,16 @@ export const DraggableDrawer = (props: DraggableDrawerProps) => {
   );
 };
 
-export const Drawer = memo((props: DraggableDrawerProps) => {
+const DrawerAsync = (props: DraggableDrawerProps) => {
   const { isLoaded } = useAnimationLibs();
   if (!isLoaded) {
     return null;
   }
   return <DraggableDrawer {...props} />;
-});
+};
+
+export const Drawer = (props: DraggableDrawerProps) => (
+     <AnimationProvider>
+          <DrawerAsync {...props} />
+     </AnimationProvider>
+);
