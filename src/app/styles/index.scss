@@ -9,11 +9,18 @@ body {
     color: var(--primary-color);
 }
 
-.app {
+.app,
+.app_modal,
+.app_drawer {
     min-height: 100vh;
     background: var(--bg-color);
     font: var(--font-m);
     color: var(--primary-color);
+}
+
+.app_modal {
+    display: flex;
+    justify-content: center;
 }
 
 .content-page {

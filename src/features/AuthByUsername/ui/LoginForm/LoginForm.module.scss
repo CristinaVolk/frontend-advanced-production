@@ -1,12 +1,11 @@
 .LoginForm {
-    background: #e2e2e5;
+    background: transparent;
     display: flex;
     flex-direction: column;
     height: calc(100% - 40px);
     position: absolute;
     place-content: center;
     width: calc(100% - 40px);
-    right: 200px;
 
     @media (max-width: 812px) {
         right: 0;

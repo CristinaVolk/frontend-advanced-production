@@ -31,7 +31,9 @@
     --sidebar-width-collapsed: 80px;
 
     // z  Indexes
-    --modal-z-index: 10;
+    --modal-z-index: 5;
+    --overlay-z-index: 3;
+    --modal-content-z-index: 4;
     --modal-closed-z-index: -1;
     --sidebar-z-index: 2;
     --button-z-index: 1;
