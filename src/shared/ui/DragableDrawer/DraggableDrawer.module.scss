@@ -1,0 +1,31 @@
+.DraggableDrawer {
+    display: flex;
+    overflow: hidden;
+
+    .sheet {
+        z-index: 100;
+        position: fixed;
+        left: 2vw;
+        height: calc(100vh + 100px);
+        width: 96vw;
+        border-radius: 12px 12px 0;
+        background: var(--bg-popover-notification);
+        touch-action: none;
+    }
+
+    .sheet > div {
+        border-bottom: 1px solid #eee;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        text-transform: capitalize;
+    }
+
+    &.isClosing {
+        .sheet {
+            transform: translateY(100%);
+            transition: 0.5s transform;
+        }
+    }
+}

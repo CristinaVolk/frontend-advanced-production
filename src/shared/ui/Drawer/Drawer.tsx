@@ -15,7 +15,8 @@ interface DrawerProps {
   lazy?: boolean;
 }
 
-export const Drawer = memo((props: DrawerProps) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const Drawer = memo((props: DrawerProps) => {
   const {
     className, children, isOpen, onClose, lazy,
   } = props;
@@ -39,7 +40,6 @@ export const Drawer = memo((props: DrawerProps) => {
        <Portal>
             <div className={classNames(classes.Drawer, modes, [className, theme, 'app_drawer'])}>
                  <Overlay
-                    className={classes.overlay}
                     onClick={close}
                  />
                  <div className={classes.content}>
