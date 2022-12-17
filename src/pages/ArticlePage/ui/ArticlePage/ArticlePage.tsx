@@ -1,12 +1,12 @@
 import React, { memo, useCallback } from 'react';
-import { classNames } from 'shared/lib/classNames';
+import { useSearchParams } from 'react-router-dom';
+import { classNames } from '@/shared/lib/classNames';
 import {
   DynamicModuleLoader, ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Page } from 'shared/ui/Page/Page';
-import { useSearchParams } from 'react-router-dom';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Page } from '@/shared/ui/Page/Page';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
 import {
   fetchNextArticlePage,

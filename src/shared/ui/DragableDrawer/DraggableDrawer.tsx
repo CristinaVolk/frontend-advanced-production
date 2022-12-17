@@ -2,9 +2,9 @@ import React, {
   memo, ReactNode, useCallback, useEffect, useState,
 } from 'react';
 
-import { classNames, Modes } from 'shared/lib/classNames';
-import { useTheme } from 'app/providers/ThemeProvider';
-import { useAnimationLibs } from 'shared/lib/components/AnimationProvider';
+import { classNames, Modes } from '@/shared/lib/classNames';
+import { useTheme } from '@/app/providers/ThemeProvider';
+import { useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
 import { Portal } from '../Portal/Portal';
 import { Overlay } from '../Overlay/Overlay';
 import classes from './DraggableDrawer.module.scss';

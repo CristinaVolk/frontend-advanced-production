@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/StoreProvider/config/StateSchema';
+import { ThunkConfig } from '@/app/providers/StoreProvider/config/StateSchema';
 import { articlePageActions } from '../../slices/articlePageSlice/articlePageSlice';
 import { fetchArticles } from '../../services/fetchArticles/fetchArticles';
 import {

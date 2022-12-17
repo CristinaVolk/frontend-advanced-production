@@ -1,5 +1,5 @@
-import { StateSchema } from 'app/providers/StoreProvider';
-import { ErrorCodes } from 'shared/const/common';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { ErrorCodes } from '@/shared/const/common';
 import { ArticleBlockType, ArticleType } from '../../const/const';
 import { Article } from '../../types/Article';
 import {

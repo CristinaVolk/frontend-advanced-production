@@ -2,19 +2,19 @@ import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { classNames } from 'shared/lib/classNames';
-import { Input } from 'shared/ui/Input/Input';
-import { Card } from 'shared/ui/Card/Card';
-import { ArticleSortSelector } from 'shared/ui/ArticleSortSelector/ArticleSortSelector';
-import { SortOrder } from 'shared/types/Order';
-import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
-import { TabItem } from 'shared/ui/Tabs/Tabs';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { classNames } from '@/shared/lib/classNames';
+import { Input } from '@/shared/ui/Input/Input';
+import { Card } from '@/shared/ui/Card/Card';
+import { ArticleSortSelector } from '@/shared/ui/ArticleSortSelector/ArticleSortSelector';
+import { SortOrder } from '@/shared/types/Order';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
+import { TabItem } from '@/shared/ui/Tabs/Tabs';
 
-import { ArticleTypedTabs } from 'entities/Article';
-import { ArticleListViewSwitcher } from 'features/ArticleListViewSwitcher';
+import { ArticleTypedTabs } from '@/entities/Article';
+import { ArticleListViewSwitcher } from '@/features/ArticleListViewSwitcher';
 
-import { ArticleSortFieldType, ArticleType, ArticleView } from 'entities/Article/';
+import { ArticleSortFieldType, ArticleType, ArticleView } from '@/entities/Article/';
 import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';
 import {
   getArticlePageOrder,

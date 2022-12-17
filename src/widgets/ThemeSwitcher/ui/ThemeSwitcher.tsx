@@ -1,9 +1,9 @@
-import { classNames } from 'shared/lib/classNames';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-
-import { ThemeEnum, useTheme } from 'app/providers/ThemeProvider';
-
 import { memo } from 'react';
+import { classNames } from '@/shared/lib/classNames';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+
+import { ThemeEnum, useTheme } from '@/app/providers/ThemeProvider';
+
 import IconLightTheme from '../../../shared/assets/icons/theme-light.svg';
 import IconDarkTheme from '../../../shared/assets/icons/theme-dark.svg';
 

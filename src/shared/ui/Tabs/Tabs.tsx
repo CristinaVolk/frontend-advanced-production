@@ -1,5 +1,5 @@
 import React, { ReactNode, useCallback } from 'react';
-import { classNames } from 'shared/lib/classNames';
+import { classNames } from '@/shared/lib/classNames';
 import { Card, CardTheme } from '../Card/Card';
 import classes from './Tabs.module.scss';
 

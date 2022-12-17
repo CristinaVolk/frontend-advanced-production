@@ -1,9 +1,9 @@
 import React, {
   InputHTMLAttributes, memo, useEffect, useRef, useState,
 } from 'react';
-import { classNames } from 'shared/lib/classNames';
-import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country';
+import { classNames } from '@/shared/lib/classNames';
+import { Currency } from '@/entities/Currency';
+import { Country } from '@/entities/Country';
 import { HStack } from '../Stack/HStack/HStack';
 import classes from './Input.module.scss';
 

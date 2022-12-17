@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/StoreProvider';
-import { ErrorCodes } from 'shared/const/common';
+import { ThunkConfig } from '@/app/providers/StoreProvider';
+import { ErrorCodes } from '@/shared/const/common';
 
 import { EditableProfile } from '../../types/EditableProfile';
 

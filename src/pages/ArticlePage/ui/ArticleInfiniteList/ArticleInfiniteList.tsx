@@ -1,9 +1,10 @@
 import React, { memo } from 'react';
-import { classNames } from 'shared/lib/classNames';
 import { useSelector } from 'react-redux';
-import { Text } from 'shared/ui/Text/Text';
-import { ArticleList, ArticleView } from 'entities/Article';
 import { useTranslation } from 'react-i18next';
+import { classNames } from '@/shared/lib/classNames';
+import { Text } from '@/shared/ui/Text/Text';
+import { ArticleList, ArticleView } from '@/entities/Article';
+
 import {
   getArticlePageError, getArticlePageIsLoading, getArticlePageView,
 } from '../../model/selectors/getArticlePageSelector/getArticlePageSelector';
@@ -27,7 +28,6 @@ export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
 
   return (
        <ArticleList
-          isVirtualized={false}
           articles={articles}
           isLoading={isLoading}
           view={view}

@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import React, { useState } from 'react';
-import { Input } from 'shared/ui/Input/Input';
-import { Text } from 'shared/ui/Text/Text';
-import { Page } from 'shared/ui/Page/Page';
+import { Input } from '@/shared/ui/Input/Input';
+import { Text } from '@/shared/ui/Text/Text';
+import { Page } from '@/shared/ui/Page/Page';
 
 const MainPage = () => {
   const { t } = useTranslation();

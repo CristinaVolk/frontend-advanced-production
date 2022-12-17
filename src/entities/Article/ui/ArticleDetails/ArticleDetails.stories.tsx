@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
-import { ErrorCodes } from 'shared/const/common';
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
+import { ErrorCodes } from '@/shared/const/common';
 
 import { ArticleBlockType, ArticleType } from '../../model/const/const';
 import { Article } from '../../model/types/Article';

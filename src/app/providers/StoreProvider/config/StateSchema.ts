@@ -4,15 +4,15 @@ import {
 import { CombinedState } from 'redux';
 import { AxiosInstance } from 'axios';
 
-import { UserSchema } from 'entities/User';
-import { LoginSchema } from 'features/AuthByUsername/model/types/LoginSchema';
-import { EditableProfileCardSchema } from 'features/EditableProfileCard';
-import { ArticleDetailsSchema } from 'entities/Article';
-import { ArticleDetailsPageSchema } from 'pages/ArticleDetailsPage';
-import { AddCommentFormSchema } from 'features/AddCommentForm';
-import { ArticlePageSchema } from 'pages/ArticlePage';
-import { ScrollMemorizingSchema } from 'features/ScrollMemorizing';
-import { rtkApi } from 'shared/api/rtkApi';
+import { UserSchema } from '@/entities/User';
+import { LoginSchema } from '@/features/AuthByUsername/model/types/LoginSchema';
+import { EditableProfileCardSchema } from '@/features/EditableProfileCard';
+import { ArticleDetailsSchema } from '@/entities/Article';
+import { ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage';
+import { AddCommentFormSchema } from '@/features/AddCommentForm';
+import { ArticlePageSchema } from '@/pages/ArticlePage';
+import { ScrollMemorizingSchema } from '@/features/ScrollMemorizing';
+import { rtkApi } from '@/shared/api/rtkApi';
 
 export interface StateSchema {
   user: UserSchema;

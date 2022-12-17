@@ -1,11 +1,11 @@
 import { useTranslation } from 'react-i18next';
 import React, { memo } from 'react';
 
-import { ArticleList } from 'entities/Article';
-import { classNames } from 'shared/lib/classNames';
-import { Text, TextSize } from 'shared/ui/Text/Text';
-import { Loader } from 'shared/ui/Loader/Loader';
-import { VStack } from 'shared/ui/Stack';
+import { ArticleList } from '@/entities/Article';
+import { classNames } from '@/shared/lib/classNames';
+import { Text, TextSize } from '@/shared/ui/Text/Text';
+import { Loader } from '@/shared/ui/Loader/Loader';
+import { VStack } from '@/shared/ui/Stack';
 import { useArticleRecommendations } from '../api/articleRecommendationsListApi';
 
 interface ArticleRecommendationsListProps {
@@ -34,7 +34,6 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
             <Text title={t('Recommendations')} />
             {articles && (
             <ArticleList
-               isVirtualized={false}
                isLoading={isLoading}
                target="_blank"
                articles={articles}

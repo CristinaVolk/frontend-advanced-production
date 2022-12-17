@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
-import { classNames } from 'shared/lib/classNames';
-
 import { useTranslation } from 'react-i18next';
-import { Page } from 'shared/ui/Page/Page';
+import { classNames } from '@/shared/lib/classNames';
+
+import { Page } from '@/shared/ui/Page/Page';
 import classes from './NotFoundPage.module.scss';
 
 interface NotFoundPageProps {

@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useMemo } from 'react';
-import { classNames } from 'shared/lib/classNames';
+import { classNames } from '@/shared/lib/classNames';
 import { HStack } from '../Stack/HStack/HStack';
 import { Text, TextTheme } from '../Text/Text';
 

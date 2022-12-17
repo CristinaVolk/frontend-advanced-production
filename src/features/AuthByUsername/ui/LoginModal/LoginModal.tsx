@@ -1,8 +1,8 @@
 import React, { FC, ReactNode, Suspense } from 'react';
 
-import { classNames } from 'shared/lib/classNames';
-import { Modal } from 'shared/ui/Modal/Modal';
-import { Loader } from 'shared/ui/Loader/Loader';
+import { classNames } from '@/shared/lib/classNames';
+import { Modal } from '@/shared/ui/Modal/Modal';
+import { Loader } from '@/shared/ui/Loader/Loader';
 
 import { LoginAsync } from '../LoginForm/LoginForm.async';
 

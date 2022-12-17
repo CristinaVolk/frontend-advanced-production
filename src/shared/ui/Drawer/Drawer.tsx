@@ -1,8 +1,8 @@
 import React, { memo, ReactNode } from 'react';
-import { classNames, Modes } from 'shared/lib/classNames';
+import { classNames, Modes } from '@/shared/lib/classNames';
 
-import { useTheme } from 'app/providers/ThemeProvider';
-import { useModal } from 'shared/lib/hooks/useModal/useModal';
+import { useTheme } from '@/app/providers/ThemeProvider';
+import { useModal } from '@/shared/lib/hooks/useModal/useModal';
 import { Portal } from '../Portal/Portal';
 import { Overlay } from '../Overlay/Overlay';
 import classes from './Drawer.module.scss';

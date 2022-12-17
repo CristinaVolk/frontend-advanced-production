@@ -1,6 +1,6 @@
-import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country';
-import { ErrorCodes } from 'shared/const/common';
+import { Currency } from '@/entities/Currency';
+import { Country } from '@/entities/Country';
+import { ErrorCodes } from '@/shared/const/common';
 import { ValidateProfileError } from '../consts/consts';
 
 export interface EditableProfile {

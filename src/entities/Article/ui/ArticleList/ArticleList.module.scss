@@ -1,14 +1,8 @@
 .ArticleList {
     &.TILE {
         display: flex;
+        gap: 30px;
         flex-wrap: wrap;
-        gap: 20px 30px;
-
-        .row {
-            display: flex;
-            gap: 30px;
-            margin-bottom: 16px;
-        }
 
         .card {
             display: inline-flex;
@@ -18,13 +12,9 @@
     }
 
     &.LIST {
-        .row {
-            background: var(--bg-color);
-
-            .card {
-                height: 700px;
-                margin: 20px 0;
-            }
+        .card {
+            height: 700px;
+            margin: 20px 0;
         }
     }
 }

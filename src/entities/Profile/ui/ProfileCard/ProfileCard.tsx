@@ -1,13 +1,13 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Text } from 'shared/ui/Text/Text';
-import { classNames } from 'shared/lib/classNames';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { VStack } from 'shared/ui/Stack';
-import { Input } from 'shared/ui/Input/Input';
-import { CurrencySelect } from 'entities/Currency';
-import { CountrySelect } from 'entities/Country/ui/CountrySelect';
+import { Text } from '@/shared/ui/Text/Text';
+import { classNames } from '@/shared/lib/classNames';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { VStack } from '@/shared/ui/Stack';
+import { Input } from '@/shared/ui/Input/Input';
+import { CurrencySelect } from '@/entities/Currency';
+import { CountrySelect } from '@/entities/Country/ui/CountrySelect';
 import classes from './ProfileCard.module.scss';
 import { Profile } from '../../model/types/Profile';
 

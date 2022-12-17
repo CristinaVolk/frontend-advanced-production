@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
-import { classNames } from 'shared/lib/classNames';
-
-import { Loader } from 'shared/ui/Loader/Loader';
 import { useTranslation } from 'react-i18next';
+import { classNames } from '@/shared/lib/classNames';
+
+import { Loader } from '@/shared/ui/Loader/Loader';
 import classes from './PageLoader.module.scss';
 
 interface PageLoaderProps {
