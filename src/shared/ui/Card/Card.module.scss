@@ -1,6 +1,10 @@
 .Card {
     padding: 15px;
     border-right: 12px;
+
+    &.max {
+        width: 100%;
+    }
 }
 
 .normal {

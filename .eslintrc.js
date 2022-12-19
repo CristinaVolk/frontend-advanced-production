@@ -60,6 +60,8 @@ module.exports = {
       {
         markupOnly: true,
         ignoreAttribute: [
+          'modalAlign',
+          'modalTheme',
           'border',
           'data-testid',
           'to',

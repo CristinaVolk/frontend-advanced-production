@@ -14,6 +14,7 @@ import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import { Drawer } from '@/shared/ui/DragableDrawer/DraggableDrawer';
 
 interface RatingProps {
+    rate?: number;
 	className?: string;
 	title?: string;
 	feedbackTitle?: string;
@@ -25,11 +26,11 @@ interface RatingProps {
 export const Rating = memo((props: RatingProps) => {
   const { t } = useTranslation('article');
   const {
-    className, title, feedbackTitle, hasFeedback, onCancel, onAccept,
+    className, title, feedbackTitle, hasFeedback, onCancel, onAccept, rate = 0,
   } = props;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [starsCount, setStarsCount] = useState(0);
+  const [starsCount, setStarsCount] = useState(rate);
 
   const [feedback, setFeedback] = useState('');
 
@@ -68,15 +69,21 @@ export const Rating = memo((props: RatingProps) => {
   );
 
   return (
-       <Card className={classNames('', {}, [className])}>
-            <VStack align="center" gap="8">
-                 <Text title={title} />
-                 <StarRating size={40} onSelect={onSelectStars} />
+       <Card max className={classNames('', {}, [className])}>
+            <VStack align="center" gap="8" max>
+                 {rate ? <Text title={t('thanks')} /> : <Text title={title} />}
+                 <StarRating
+                    selectedStars={starsCount}
+                    size={40}
+                    onSelect={onSelectStars}
+                 />
             </VStack>
             <BrowserView>
                  <Modal
                     lazy
                     isOpen={isModalOpen}
+                    modalTheme="primary"
+                    onClose={onCancelHandler}
                  >
                       {modalContent}
                  </Modal>

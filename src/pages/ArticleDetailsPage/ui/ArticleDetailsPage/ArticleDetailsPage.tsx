@@ -8,7 +8,7 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { Page } from '@/shared/ui/Page/Page';
 import { VStack } from '@/shared/ui/Stack';
-
+import { ArticleRatingAsync } from '@/features/ArticleRating';
 import { ArticleRecommendationsList } from '@/features/ArticleRecommendationsList';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
 import { articleDetailsPageReducer } from '../../model/slices';
@@ -27,6 +27,10 @@ const reducers:ReducersList = {
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
   const { id } = useParams<{id:string}>();
 
+  if (!id) {
+    return null;
+  }
+
   return (
        <DynamicModuleLoader reducers={reducers}>
 
@@ -35,6 +39,8 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
                       <ArticleDetailsPageHeader />
 
                       <ArticleDetails id={id} />
+
+                      <ArticleRatingAsync articleId={id} />
 
                       <ArticleRecommendationsList />
 

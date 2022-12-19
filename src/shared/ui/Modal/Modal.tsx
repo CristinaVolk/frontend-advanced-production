@@ -9,17 +9,22 @@ import classes from './Modal.module.scss';
 
 const ANIMATION_DELAY = 1000;
 
+export type ModalTheme = 'primary' | 'secondary';
+export type ModalAlign = 'start' | 'end' | 'center';
+
 interface ModalProps {
 	className?: string;
     children?: ReactNode;
     isOpen: boolean;
     lazy?: boolean;
-    onClose?: () => void
+    onClose?: () => void;
+    modalTheme?: ModalTheme;
+    modalAlign?: ModalAlign;
 }
 
 export const Modal = (props: ModalProps) => {
   const {
-    className, children, isOpen, onClose, lazy,
+    className, children, isOpen, onClose, lazy, modalTheme = '', modalAlign = '',
   } = props;
 
   const {
@@ -45,9 +50,23 @@ export const Modal = (props: ModalProps) => {
 
   return (
        <Portal>
-            <div className={classNames(classes.Modal, modes, [className, theme, 'app_modal'])}>
+            <div className={
+              classNames(
+                classes.Modal,
+                modes,
+                [className, theme, 'app_modal', classes[modalAlign]],
+              )
+            }
+            >
                  <Overlay className={classes.overlay} onClick={close} />
-                 <div className={classes.content} onClick={onContentClick}>
+                 <div
+                    className={classNames(
+                      classes.content,
+                      {},
+                      [classes[modalTheme]],
+                    )}
+                    onClick={onContentClick}
+                 >
                       {children}
                  </div>
             </div>

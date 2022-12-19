@@ -1421,5 +1421,105 @@
       "description": "Произошло какое-то событие",
       "userId": "2"
     }
+  ],
+  "article-rating": [
+    {
+      "id": "2",
+      "userId": "1",
+      "articleId": "4",
+      "feedback": "Amazing article!",
+      "rate": 0
+    },
+    {
+      "id": "3",
+      "userId": "1",
+      "articleId": "2",
+      "feedback": "Amazing article!",
+      "rate": 5
+    },
+    {
+      "id": "4",
+      "userId": "3",
+      "articleId": "2",
+      "feedback": "Quite fake article",
+      "rate": 2
+    },
+    {
+      "id": "5",
+      "userId": "3",
+      "articleId": "4",
+      "feedback": "Good article!",
+      "rate": 4
+    },
+    {
+      "id": "6",
+      "userId": "2",
+      "articleId": "1",
+      "feedback": "Not bad",
+      "rate": 3
+    },
+    {
+      "userId": "3",
+      "articleId": "5",
+      "rate": 3,
+      "feedback": "Tim tim",
+      "id": "t8HHr6u"
+    },
+    {
+      "userId": "3",
+      "articleId": "6",
+      "rate": 2,
+      "id": "TxRpAtH"
+    },
+    {
+      "userId": "3",
+      "articleId": "18",
+      "rate": 3,
+      "id": "mMDtYbM"
+    }
+  ],
+  "profile-rating": [
+    {
+      "id": "1",
+      "userId": "1",
+      "profileId": "2",
+      "feedback": "Amazing profile!",
+      "rate": 4
+    },
+    {
+      "id": "2",
+      "userId": "1",
+      "profileId": "4",
+      "feedback": "Amazing profile!",
+      "rate": 5
+    },
+    {
+      "id": "3",
+      "userId": "1",
+      "profileId": "2",
+      "feedback": "Amazing profile!",
+      "rate": 5
+    },
+    {
+      "id": "4",
+      "userId": "3",
+      "profileId": "2",
+      "feedback": "Quite fake",
+      "rate": 2
+    },
+    {
+      "id": "5",
+      "userId": "3",
+      "profileId": "4",
+      "feedback": "Good profile!",
+      "rate": 4
+    },
+    {
+      "id": "6",
+      "userId": "2",
+      "profileId": "1",
+      "feedback": "Not bad",
+      "rate": 3
+    }
   ]
 }

@@ -20,5 +20,7 @@
   "edit-article": "Editing the article",
   "create-article": "Creating a new article",
   "error": "error",
-  "feedback": "feedback"
+  "feedback": "Please give the feedback about the article",
+  "rating-title": "Rate the article",
+  "thanks": "Thanks for your feedback!"
 }

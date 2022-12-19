@@ -9,6 +9,17 @@
     height: 100%;
     pointer-events: none;
     z-index: var(--modal-closed-z-index);
+    align-items: center;
+
+    @media (max-width: 812px) {
+        &.start {
+            align-items: flex-start;
+        }
+
+        &.end {
+            align-items: flex-end;
+        }
+    }
 }
 
 .overlay {
@@ -27,6 +38,19 @@
     max-width: 100%;
     width: 630px;
     z-index: var(--modal-content-z-index);
+    background: transparent;
+}
+
+.content.primary {
+    background: var(--modal-bg-color-primary);
+}
+
+.content.secondary {
+    background: var(--modal-bg-color-secondary);
+}
+
+.content.transparent {
+    background: transparent;
 }
 
 .opened {
