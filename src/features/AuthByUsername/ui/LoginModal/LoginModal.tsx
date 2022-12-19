@@ -9,7 +9,7 @@ import { LoginAsync } from '../LoginForm/LoginForm.async';
 interface LoginModalProps {
 	className?: string;
 	isOpen: boolean;
-    onClose: () => void;
+    onClose?: () => void;
     children: ReactNode;
 }
 

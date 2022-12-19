@@ -25,7 +25,7 @@ const articlePageSlice = createSlice({
     view: ArticleView.TILE,
     ids: [],
     entities: {},
-    page: 1,
+    page: 0,
     hasMore: true,
     order: 'asc',
     sort: ArticleSortField.CREATED,

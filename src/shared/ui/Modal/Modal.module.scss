@@ -25,7 +25,6 @@
 
 .content {
     max-width: 100%;
-    margin: auto;
     width: 630px;
     z-index: var(--modal-content-z-index);
 }
@@ -37,6 +36,7 @@
 
     .content {
         transform: scale(0);
+        transition: transform 3s;
     }
 }
 

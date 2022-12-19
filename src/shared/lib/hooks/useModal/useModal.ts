@@ -6,7 +6,7 @@ interface UseModalProps {
   onClose?: () => void;
   isOpen?: boolean;
   lazy?: boolean;
-  animationDelay: number;
+  animationDelay?: number;
 }
 
 export function useModal(props: UseModalProps) {

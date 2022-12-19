@@ -1,7 +1,6 @@
-import React, { memo, useCallback } from 'react';
+import React, { memo, useCallback, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
 import { classNames } from '@/shared/lib/classNames';
 
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
@@ -18,13 +17,15 @@ import { getLoginError } from '../../model/selectors/getLoginError/getLoginError
 import {
   getLoginFormIsLoading,
 } from '../../model/selectors/getLoginIsLoading/getLoginFormIsLoading';
-import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { loginActions, loginReducer } from '../../model/slices/loginSlice';
 import classes from './LoginForm.module.scss';
+import {
+  loginByUsername,
+} from '@/features/AuthByUsername/model/services/loginByUsername/loginByUsername';
 
 interface LoginFormProps {
 	className?: string;
-    onSuccess: ()=> void;
+    onSuccess: () => void;
 }
 
 const initialReducers: ReducersList = {
@@ -38,7 +39,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
   const password = useSelector(getLoginPassword);
   const isLoading = useSelector(getLoginFormIsLoading);
   const error = useSelector(getLoginError);
-  const navigate = useNavigate();
+  const [isClosing, setIsClosing] = useState(false);
 
   const onChangeUsername = useCallback((value: string) => {
     dispatch(loginActions.setUsername(value));
@@ -51,14 +52,21 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
   const onLoginClick = useCallback(async () => {
     const result = await dispatch(loginByUsername({ username, password }));
     if (result.meta.requestStatus === 'fulfilled') {
-      onSuccess();
-      navigate('/about');
+      setIsClosing(true);
+      setTimeout(() => {
+        onSuccess();
+      }, 3000);
     }
-  }, [dispatch, username, password, onSuccess, navigate]);
+  }, [dispatch, username, password, onSuccess]);
 
   return (
        <DynamicModuleLoader reducers={initialReducers}>
-            <div className={classNames(classes.LoginForm, {}, [className])}>
+            <div className={classNames(
+              classes.LoginForm,
+              { [classes.isClosing]: isClosing },
+              [className],
+            )}
+            >
                  <div className={classes.container}>
 
                       <div className={classes.leftBox}>

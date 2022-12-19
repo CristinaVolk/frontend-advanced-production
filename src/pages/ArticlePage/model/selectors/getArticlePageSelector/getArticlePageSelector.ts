@@ -15,7 +15,7 @@ export const getArticlePageView = ((
 
 export const getArticlePagePage = ((
   state:StateSchema,
-) => state.articlePage?.page || 1);
+) => state.articlePage?.page ?? 0);
 
 export const getArticlePageHasMore = ((
   state:StateSchema,

@@ -24,7 +24,9 @@ export const loginByUsername = createAsyncThunk<
           throw new Error();
         }
 
-        dispatch(userActions.setAuthData(response.data));
+        setTimeout(() => {
+          dispatch(userActions.setAuthData(response.data));
+        }, 4000);
 
         return response.data;
       } catch (e) {

@@ -16,5 +16,7 @@
 	"INCORRECT_CREDENTIALS": "Wrong username or password",
 	"AgreementTerms": "By logging in you agree to the ridiculously long terms\n that you did not bother to read",
     "Logout": "Logout",
-	"create-article": "Create Article"
+	"create-article": "Create Article",
+	"feedbackTitle": "Please rate the article",
+	"Feedback": "Feedback"
 }

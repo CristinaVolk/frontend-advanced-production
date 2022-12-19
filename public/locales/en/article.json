@@ -19,5 +19,6 @@
   "not-found-articles": "Articles have not been found",
   "edit-article": "Editing the article",
   "create-article": "Creating a new article",
-  "error": "error"
+  "error": "error",
+  "feedback": "feedback"
 }
