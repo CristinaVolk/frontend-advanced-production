@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { DraggableDrawer } from './DraggableDrawer';
 
 export default {
-  title: '/DraggableDrawer',
+  title: 'shared/DraggableDrawer',
   component: DraggableDrawer,
   argTypes: {
     backgroundColor: { control: 'color' },

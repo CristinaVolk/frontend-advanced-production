@@ -16,7 +16,7 @@ const CSSStyles: React.CSSProperties = {
 };
 
 export default {
-  title: 'shared/Dropdown',
+  title: 'shared/Popups/Dropdown',
   component: Dropdown,
   argTypes: {
     backgroundColor: { control: 'color' },

@@ -4,7 +4,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Popover } from './Popover';
 
 export default {
-  title: '/Popover',
+  title: 'shared/Popups/Popover',
   component: Popover,
   argTypes: {
     backgroundColor: { control: 'color' },
