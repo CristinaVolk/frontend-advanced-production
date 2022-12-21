@@ -7,8 +7,7 @@ import { AppRouter } from '@/app/providers/router';
 import { NavBar } from '@/widgets/NavBar';
 import { SideBar } from '@/widgets/SideBar';
 
-import { userActions } from '@/entities/User/model/slices/userSlice';
-import { getUserIsInited } from '@/entities/User';
+import { getUserIsInited, userActions } from '@/entities/User';
 
 import { classNames } from '@/shared/lib/classNames';
 

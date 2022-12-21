@@ -5,7 +5,7 @@ import { CombinedState } from 'redux';
 import { AxiosInstance } from 'axios';
 
 import { UserSchema } from '@/entities/User';
-import { LoginSchema } from '@/features/AuthByUsername/model/types/LoginSchema';
+import { LoginSchema } from '@/features/AuthByUsername';
 import { EditableProfileCardSchema } from '@/features/EditableProfileCard';
 import { ArticleDetailsSchema } from '@/entities/Article';
 import { ArticleDetailsPageSchema } from '@/pages/ArticleDetailsPage';

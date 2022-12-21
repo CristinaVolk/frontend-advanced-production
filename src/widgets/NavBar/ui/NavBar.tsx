@@ -10,7 +10,7 @@ import { AppRoutes, RoutePaths } from '@/shared/config/routes/routes';
 import { HStack } from '@/shared/ui/Stack';
 import { NotificationButton } from '@/features/NotificationButton';
 import { getUserAuthData } from '@/entities/User';
-import { AvatarDropdown } from '@/features/AvatarDropdown/ui/AvatarDropdown';
+import { AvatarDropdown } from '@/features/AvatarDropdown';
 import classes from './NavBar.module.scss';
 
 interface NavBarProps {

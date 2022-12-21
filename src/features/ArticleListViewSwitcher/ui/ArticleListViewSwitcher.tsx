@@ -3,7 +3,7 @@ import { classNames } from '@/shared/lib/classNames';
 
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
 import { Icon } from '@/shared/ui/Icon/Icon';
-import { ArticleView } from '@/entities/Article/model/const/const';
+import { ArticleView } from '@/entities/Article';
 import { ListViewsTypes } from '../model/types/ListViewsTypes';
 import classes from './ArticleListViewSwitcher.module.scss';
 

@@ -28,6 +28,7 @@ module.exports = {
   ],
   rules: {
     'kvolk-plugin/path-checker': [2, { alias: '@' }],
+    'kvolk-plugin/public-api-imports': [2, { alias: '@' }],
     'import/no-extraneous-dependencies': [0],
     'guard-for-in': [1],
     '@typescript-eslint/no-var-requires': [0],

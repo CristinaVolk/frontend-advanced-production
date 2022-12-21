@@ -1,6 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { User } from '@/entities/User';
-import { userActions } from '@/entities/User/model/slices/userSlice';
+import { User, userActions } from '@/entities/User';
 import { ThunkConfig } from '@/app/providers/StoreProvider/config/StateSchema';
 import { ErrorCodes } from '@/shared/const/common';
 

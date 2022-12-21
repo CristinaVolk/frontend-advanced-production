@@ -7,7 +7,7 @@ import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { VStack } from '@/shared/ui/Stack';
 import { Input } from '@/shared/ui/Input/Input';
 import { CurrencySelect } from '@/entities/Currency';
-import { CountrySelect } from '@/entities/Country/ui/CountrySelect';
+import { CountrySelect } from '@/entities/Country';
 import classes from './ProfileCard.module.scss';
 import { Profile } from '../../model/types/Profile';
 

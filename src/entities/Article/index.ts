@@ -9,5 +9,5 @@ export type { Article, ArticleSortFieldType } from './model/types/Article';
 export { ArticleTypedTabs } from './ui/ArticleTypedTabs/ArticleTypedTabs';
 export { getArticleDetailsData } from './model/selectors/getArticleDetails/getArticleDetails';
 export {
-  ArticleError, ArticleType, ArticleView, ArticleSortField,
+  ArticleError, ArticleType, ArticleView, ArticleSortField, ArticleBlockType,
 } from './model/const/const';
