@@ -1,9 +1,6 @@
 import React, { Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { useTheme } from '@/app/providers/ThemeProvider';
-import { AppRouter } from '@/app/providers/router';
-
 import { NavBar } from '@/widgets/NavBar';
 import { SideBar } from '@/widgets/SideBar';
 
@@ -12,6 +9,8 @@ import { getUserIsInited, userActions } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames';
 
 import './styles/index.scss';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
+import { AppRouter } from '../app/providers/router';
 
 function App() {
   const { theme } = useTheme();

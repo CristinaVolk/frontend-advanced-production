@@ -1,13 +1,14 @@
 import { ActionCreatorWithPayload, createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from '@/app/providers/StoreProvider/config/StateSchema';
+import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { SortOrder } from '@/shared/types/Order';
-import { ArticleSortFieldType, ArticleType } from '@/entities/Article';
+import { ArticleType } from '@/entities/Article';
 import { articlePageActions } from '../../slices/articlePageSlice/articlePageSlice';
 import { fetchArticles } from '../../services/fetchArticles/fetchArticles';
 import {
   getArticlePageInited,
 } from '../../selectors/getArticlePageSelector/getArticlePageSelector';
+import { ArticleSortFieldType } from '@/shared/types/article';
 
 const mapParamToAction: Record<
   string,

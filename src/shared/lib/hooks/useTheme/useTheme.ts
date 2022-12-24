@@ -1,6 +1,8 @@
 import { useContext } from 'react';
 
-import { LOCAL_STORAGE_THEME_KEY, ThemeContext, ThemeEnum } from './ThemeContext';
+import { ThemeContext } from '../../context/ThemeContext';
+import { ThemeEnum } from '../../../const/theme';
+import { LOCAL_STORAGE_THEME_KEY } from '../../../const/localStorage';
 
 interface UseThemeHook {
 	theme: ThemeEnum;

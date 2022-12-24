@@ -1,7 +1,10 @@
+/* eslint-disable */
+// eslint-disable-current-file kvolk-plugin/layer-import
 import { Story } from '@storybook/react';
 import { ReducersMapObject } from '@reduxjs/toolkit';
 
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
+
 import { loginReducer } from '@/features/AuthByUsername';
 import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { editableProfileCardReducer } from '@/features/EditableProfileCard';

@@ -1,7 +1,7 @@
 import { configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { CombinedState } from 'redux';
 import { userReducer } from '@/entities/User';
-import { createReducerManager } from '@/app/providers/StoreProvider/config/reducerManager';
+import { createReducerManager } from '../config/reducerManager';
 import { $api } from '@/shared/api/api';
 import { scrollMemorizingReducer } from '@/features/ScrollMemorizing';
 import { rtkApi } from '@/shared/api/rtkApi';

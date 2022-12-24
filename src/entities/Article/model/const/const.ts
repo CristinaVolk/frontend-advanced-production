@@ -13,9 +13,3 @@ export enum ArticleError {
 export enum ArticleView {
   TILE = 'TILE', LIST = 'LIST'
 }
-
-export const ArticleSortField = {
-  VIEWS: 'views',
-  TITLE: 'title',
-  CREATED: 'created_at',
-} as const;

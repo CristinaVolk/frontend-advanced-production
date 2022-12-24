@@ -1,10 +1,10 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
-import { ThemeEnum } from '@/app/providers/ThemeProvider';
 
-import { Country } from '../model/consts/Country';
+import { Country } from '../../../shared/const/Country';
 import { CountrySelect } from './CountrySelect';
+import { ThemeEnum } from '@/shared/const/theme';
 
 export default {
   title: 'entities/CountrySelect',

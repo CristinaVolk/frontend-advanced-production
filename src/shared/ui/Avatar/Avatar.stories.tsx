@@ -1,9 +1,9 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
-import { ThemeEnum } from '@/app/providers/ThemeProvider';
 import { Avatar } from './Avatar';
 import AvatarImg from '../../assets/images/wolf_400x400.jpeg';
+import { ThemeEnum } from '@/shared/const/theme';
 
 export default {
   title: 'shared/Avatar',

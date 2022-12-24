@@ -3,13 +3,14 @@ import { Suspense } from 'react';
 
 import { createRoot } from 'react-dom/client';
 import { StoreProvider } from '@/app/providers/StoreProvider';
-import { ThemeEnum, ThemeProvider } from '@/app/providers/ThemeProvider';
+import { ThemeProvider } from '@/app/providers/ThemeProvider';
 import { ErrorBoundary } from '@/app/providers/ErrorBoundary';
 
 import App from './app/App';
 
 import '@/shared/config/i18n/i18n';
 import './app/styles/index.scss';
+import { ThemeEnum } from '@/shared/const/theme';
 
 const container = document.getElementById('root');
 
@@ -32,3 +33,6 @@ root.render(
           </StoreProvider>
      </BrowserRouter>,
 );
+export { ThemeEnum } from '@/shared/const/theme';
+export { ArticleSortField } from '@/shared/const/article';
+export type { ArticleSortFieldType } from '@/shared/types/article';

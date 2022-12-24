@@ -27,6 +27,13 @@ module.exports = {
     'kvolk-plugin',
   ],
   rules: {
+    'kvolk-plugin/layer-import': [
+      2,
+      {
+        alias: '@',
+        ignoreImportPatterns: ['**/StoreProvider'],
+      },
+    ],
     'kvolk-plugin/path-checker': [2, { alias: '@' }],
     'kvolk-plugin/public-api-imports': [2, { alias: '@' }],
     'import/no-extraneous-dependencies': [0],

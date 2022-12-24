@@ -2,10 +2,10 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
-import { ThemeEnum } from '@/app/providers/ThemeProvider';
 import { ArticleBlockType, ArticleType, ArticleView } from '../../model/const/const';
 import { Article } from '../../model/types/Article';
 import { ArticleListItem } from './ArticleListItem';
+import { ThemeEnum } from '@/shared/const/theme';
 
 export default {
   title: 'entities/ArticleListItem',

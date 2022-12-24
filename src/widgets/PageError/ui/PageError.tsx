@@ -3,8 +3,8 @@ import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
-import { ThemeEnum } from '@/app/providers/ThemeProvider';
 import classes from './PageError.module.scss';
+import { ThemeEnum } from '@/shared/const/theme';
 
 interface PageErrorProps {
 	className?: string;

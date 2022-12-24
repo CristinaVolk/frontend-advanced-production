@@ -1,5 +1,5 @@
 import { User } from '@/entities/User';
-import { ArticleBlockType, ArticleSortField, ArticleType } from '../const/const';
+import { ArticleBlockType, ArticleType } from '../const/const';
 
 export interface ArticleBlockBase {
   id: string;
@@ -16,7 +16,6 @@ export interface ArticleTextBlock extends ArticleBlockBase {
   title?: string;
   paragraphs: Array<string>
 }
-export type ArticleSortFieldType = ValueOf<typeof ArticleSortField>;
 
 export interface ArticleCodeBlock extends ArticleBlockBase {
   type: ArticleBlockType.CODE;

@@ -1,11 +1,9 @@
-import React, {
-  InputHTMLAttributes, memo, useEffect, useRef, useState,
-} from 'react';
-import { classNames } from '@/shared/lib/classNames';
-import { Currency } from '@/entities/Currency';
-import { Country } from '@/entities/Country';
+import React, { InputHTMLAttributes, memo, useEffect, useRef, useState } from 'react';
+import { classNames } from '../../lib/classNames';
 import { HStack } from '../Stack/HStack/HStack';
 import classes from './Input.module.scss';
+import { Country } from '../../const/Country';
+import { Currency } from '../../const/Currency';
 
 type TextColor = 'primary' | 'secondary';
 

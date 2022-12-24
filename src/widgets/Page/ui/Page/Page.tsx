@@ -1,6 +1,4 @@
-import React, {
-  memo, MutableRefObject, ReactNode, UIEvent, useRef,
-} from 'react';
+import React, { memo, MutableRefObject, ReactNode, UIEvent, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames';
@@ -10,7 +8,9 @@ import { StateSchema } from '@/app/providers/StoreProvider';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useTrottle } from '@/shared/lib/hooks/useTrottle/useTrottle';
 import { PAGE_ID } from '@/shared/const/common';
-import { useInfiniteScroll } from '../../lib/hooks/useInfiniteScroll/useInfiniteScroll';
+import {
+  useInfiniteScroll,
+} from '../../../../shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import classes from './Page.module.scss';
 
 interface PageProps {
@@ -40,7 +40,6 @@ export const Page = memo((props: PageProps) => {
   });
 
   const onScroll = useTrottle((event: UIEvent<HTMLDivElement>) => {
-    console.log(event.currentTarget.scrollTop, scrollPosition);
     dispatch(scrollMemorizingActions.setScrollPosition({
       position: event.currentTarget.scrollTop,
       path: pathname,

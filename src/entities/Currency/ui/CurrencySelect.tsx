@@ -1,7 +1,7 @@
 import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ListBox } from '@/shared/ui/Popups/UI/ListBox/ListBox';
-import { Currency } from '../model/consts/Currency';
+import { Currency } from '../../../shared/const/Currency';
 
 interface CurrencySelectProps {
     readonly: boolean;

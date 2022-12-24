@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { Rating } from './Rating';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
-import { ThemeEnum } from '@/app/providers/ThemeProvider';
+import { ThemeEnum } from '@/shared/const/theme';
 
 export default {
   title: 'entities/Rating',

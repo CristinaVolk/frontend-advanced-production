@@ -1,10 +1,10 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
-import { ThemeEnum } from '@/app/providers/ThemeProvider';
 
-import { Currency } from '../model/consts/Currency';
+import { Currency } from '../../../shared/const/Currency';
 import { CurrencySelect } from './CurrencySelect';
+import { ThemeEnum } from '@/shared/const/theme';
 
 export default {
   title: 'entities/CurrencySelect',

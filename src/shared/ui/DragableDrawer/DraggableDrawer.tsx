@@ -1,13 +1,11 @@
-import React, {
-  ReactNode, useCallback, useEffect, useState,
-} from 'react';
+import React, { ReactNode, useCallback, useEffect, useState } from 'react';
 
 import { classNames, Modes } from '@/shared/lib/classNames';
-import { useTheme } from '@/app/providers/ThemeProvider';
 import { AnimationProvider, useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
 import { Portal } from '../Portal/Portal';
 import { Overlay } from '../Overlay/Overlay';
 import classes from './DraggableDrawer.module.scss';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
 interface DraggableDrawerProps {
   className?: string;
