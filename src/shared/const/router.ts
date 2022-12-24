@@ -1,15 +1,15 @@
 export enum AppRoutes {
-	MAIN = 'main',
-    ABOUT = 'about',
-    PROFILE = 'profile',
-    ARTICLES = 'articles',
-    ARTICLES_DETAILS = 'articles_details',
-    ARTICLE_CREATE = 'articles_create',
-    ARTICLE_EDIT = 'articles_edit',
-    ADMIN_PANEL = 'admin_panel',
-    FORBIDDEN = 'forbidden',
+  MAIN = 'main',
+  ABOUT = 'about',
+  PROFILE = 'profile',
+  ARTICLES = 'articles',
+  ARTICLES_DETAILS = 'articles_details',
+  ARTICLE_CREATE = 'articles_create',
+  ARTICLE_EDIT = 'articles_edit',
+  ADMIN_PANEL = 'admin_panel',
+  FORBIDDEN = 'forbidden',
 
-    NOT_FOUND = 'not-found',
+  NOT_FOUND = 'not-found',
 }
 
 export const RoutePaths: Record<AppRoutes, string> = {

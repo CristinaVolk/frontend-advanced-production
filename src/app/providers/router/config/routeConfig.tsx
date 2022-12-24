@@ -1,6 +1,3 @@
-import { RouteProps } from 'react-router-dom';
-import { AppRoutes, RoutePaths } from '@/shared/config/routes/routes';
-
 import { MainPageAsync } from '@/pages/MainPage';
 import { AboutPageAsync } from '@/pages/AboutPage';
 import { ProfilePageAsync } from '@/pages/ProfilePage';
@@ -10,12 +7,9 @@ import { ArticleDetailsPageAsync } from '@/pages/ArticleDetailsPage';
 import { ArticleEditPageAsync } from '@/pages/ArticleEditPage';
 import { AdminPanelPageAsync } from '@/pages/AdminPanelPage';
 import { ForbiddenPageAsync } from '@/pages/ForbiddenPage';
-import { Roles, UserRoles } from '@/entities/User';
-
-export type AppRoutesProps = RouteProps & {
-  authOnly?: boolean;
-  roles?: UserRoles[];
-}
+import { Roles } from '@/entities/User';
+import { AppRoutes, RoutePaths } from '@/shared/const/router';
+import { AppRoutesProps } from '@/shared/types/router';
 
 export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.MAIN]: {

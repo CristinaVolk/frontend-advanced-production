@@ -56,6 +56,7 @@ module.exports = {
     'no-restricted-syntax': [0],
     'react/jsx-no-useless-fragment': [0],
     'no-undef': [0],
+    'object-curly-newline': [0],
     'i18next/no-literal-string': [
       2,
       {

@@ -8,13 +8,13 @@ import { Card } from '@/shared/ui/Card/Card';
 import { useHover } from '@/shared/lib/hooks/useHover/useHover';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
-import { RoutePaths } from '@/shared/config/routes/routes';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { ArticleBlockType, ArticleView } from '../../model/const/const';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import type { Article, ArticleTextBlock } from '../../model/types/Article';
 import classes from './ArticleListItem.module.scss';
+import { RoutePaths } from '@/shared/const/router';
 
 interface ArticleListItemProps {
     className?: string;
