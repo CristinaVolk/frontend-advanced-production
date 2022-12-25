@@ -5,7 +5,7 @@ import { classNames } from '@/shared/lib/classNames';
 import { Rating } from '@/entities/Rating';
 import { useGetArticleRating, useRateArticle } from '../model/api/articleRatingApi';
 import { getUserAuthData } from '@/entities/User';
-import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { Skeleton } from '@/shared/ui/Skeleton';
 
 export interface ArticleRatingProps {
 	className?: string;

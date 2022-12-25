@@ -3,8 +3,8 @@ import React, { memo } from 'react';
 
 import { ArticleList } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames';
-import { Text, TextSize } from '@/shared/ui/Text/Text';
-import { Loader } from '@/shared/ui/Loader/Loader';
+import { Text, TextSize } from '@/shared/ui/Text';
+import { Loader } from '@/shared/ui/Loader';
 import { VStack } from '@/shared/ui/Stack';
 import { useArticleRecommendations } from '../api/articleRecommendationsListApi';
 

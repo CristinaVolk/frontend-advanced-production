@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 
 import { classNames, Modes } from '@/shared/lib/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Text, TextTheme } from '@/shared/ui/Text/Text';
-import { Loader } from '@/shared/ui/Loader/Loader';
+import { Text, TextTheme } from '@/shared/ui/Text';
+import { Loader } from '@/shared/ui/Loader';
 import { ErrorCodes, validKeyboardKeys } from '@/shared/const/common';
 
 import { HStack, VStack } from '@/shared/ui/Stack';

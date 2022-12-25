@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames';
 
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
-import { Icon } from '@/shared/ui/Icon/Icon';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { Icon } from '@/shared/ui/Icon';
 import { ArticleView } from '@/entities/Article';
 import { ListViewsTypes } from '../model/types/ListViewsTypes';
 import classes from './ArticleListViewSwitcher.module.scss';
