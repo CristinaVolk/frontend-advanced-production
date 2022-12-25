@@ -25,8 +25,10 @@ module.exports = {
     'i18next',
     'react-hooks',
     'kvolk-plugin',
+    'unused-imports',
   ],
   rules: {
+    'unused-imports/no-unused-imports': [2],
     'kvolk-plugin/layer-import': [
       2,
       {
