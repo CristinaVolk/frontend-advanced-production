@@ -14,8 +14,7 @@ componentsDirectories?.forEach((directory) => {
   const indexFilePath = `${directory.getPath()}/index.ts`;
   const indexFile = directory.getSourceFile(indexFilePath);
   if (!indexFile) {
-    const sourceCode = `export { ${directory.getBaseName()} } from './${directory.getBaseName()}';
-    `;
+    const sourceCode = `export { ${directory.getBaseName()} } from './${directory.getBaseName()}';`;
     const file = directory.createSourceFile(indexFilePath, sourceCode, { overwrite: true });
     file.save();
   }
