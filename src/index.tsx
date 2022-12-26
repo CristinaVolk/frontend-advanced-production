@@ -33,6 +33,3 @@ root.render(
           </StoreProvider>
      </BrowserRouter>,
 );
-export { ThemeEnum } from '@/shared/const/theme';
-export { ArticleSortField } from '@/shared/const/article';
-export type { ArticleSortFieldType } from '@/shared/types/article';
