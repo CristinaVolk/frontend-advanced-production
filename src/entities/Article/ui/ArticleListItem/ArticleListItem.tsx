@@ -14,7 +14,7 @@ import { ArticleBlockType, ArticleView } from '../../model/const/const';
 import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import type { Article, ArticleTextBlock } from '../../model/types/Article';
 import classes from './ArticleListItem.module.scss';
-import { RoutePaths } from '@/shared/const/router';
+import { getRouteArticleDetails } from '@/shared/const/router';
 
 interface ArticleListItemProps {
     className?: string;
@@ -61,7 +61,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                    <HStack justify="between" className={classes.footer}>
                         <AppLink
                            target={target}
-                           to={RoutePaths.articles_details + article.id}
+                           to={getRouteArticleDetails(article.id)}
                         >
                              <Button theme={ButtonTheme.CREATIVE}>
                                   {t('read-more')}
@@ -78,7 +78,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   return (
        <AppLink
           target={target}
-          to={RoutePaths.articles_details + article.id}
+          to={getRouteArticleDetails(article.id)}
           {...bindHover}
           className={classNames(classes.ArticleListItem, {}, [className, classes[view]])}
        >

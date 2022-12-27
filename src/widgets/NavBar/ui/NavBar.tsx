@@ -11,7 +11,7 @@ import { NotificationButton } from '@/features/NotificationButton';
 import { getUserAuthData } from '@/entities/User';
 import { AvatarDropdown } from '@/features/AvatarDropdown';
 import classes from './NavBar.module.scss';
-import { AppRoutes, RoutePaths } from '@/shared/const/router';
+import { getRouteArticleCreate } from '@/shared/const/router';
 
 interface NavBarProps {
 	className?: string;
@@ -45,7 +45,7 @@ export const NavBar = memo(({ className }: NavBarProps) => {
 
               <HStack gap="16" className={classes.actions}>
                    <AppLink
-                      to={RoutePaths[AppRoutes.ARTICLE_CREATE]}
+                      to={getRouteArticleCreate()}
                       theme={AppLinkTheme.PRIMARY}
                       className={classes.createArticle}
                    >

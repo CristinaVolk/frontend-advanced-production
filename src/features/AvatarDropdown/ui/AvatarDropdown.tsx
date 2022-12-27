@@ -7,7 +7,7 @@ import { Avatar } from '@/shared/ui/Avatar';
 import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames';
 import classes from './AvatarDropdown.module.scss';
-import { AppRoutes, RoutePaths } from '@/shared/const/router';
+import { getRouteAdmin, getRouteProfile } from '@/shared/const/router';
 
 interface AvatarDropdownProps {
 	className?: string;
@@ -40,12 +40,12 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
 			  ...(shouldAdminPanelBeDisplayed ? [{
 			    id: '10',
 			    content: t('Admin'),
-			    href: RoutePaths[AppRoutes.ADMIN_PANEL],
+			    href: getRouteAdmin(),
 			  }] : []),
 			  {
 			    id: '1',
 			    content: t('Profile'),
-			    href: RoutePaths[AppRoutes.PROFILE] + authData.id,
+			    href: getRouteProfile(authData.id),
 			  },
 			  {
 			    id: '2',
