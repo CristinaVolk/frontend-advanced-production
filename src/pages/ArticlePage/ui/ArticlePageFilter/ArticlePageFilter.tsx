@@ -6,12 +6,11 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { classNames } from '@/shared/lib/classNames';
 import { Input } from '@/shared/ui/Input';
 import { Card } from '@/shared/ui/Card';
-import { ArticleSortSelector } from '@/shared/ui/ArticleSortSelector';
 import { SortOrder } from '@/shared/types/Order';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
 import { TabItem } from '@/shared/ui/Tabs';
 
-import { ArticleType, ArticleTypedTabs, ArticleView } from '@/entities/Article';
+import { ArticleType, ArticleView } from '@/entities/Article';
 import { ArticleListViewSwitcher } from '@/features/ArticleListViewSwitcher';
 import { fetchArticles } from '../../model/services/fetchArticles/fetchArticles';
 import {
@@ -24,6 +23,8 @@ import {
 import { articlePageActions } from '../../model/slices/articlePageSlice/articlePageSlice';
 import classes from './ArticlePageFilter.module.scss';
 import { ArticleSortFieldType } from '@/shared/types/article';
+import { ArticleSortSelector } from '@/features/ArticleSortSelector';
+import { ArticleTypedTabs } from '@/features/ArticleTypedTabs';
 
 interface ArticlePageFilterProps {
   className?: string;

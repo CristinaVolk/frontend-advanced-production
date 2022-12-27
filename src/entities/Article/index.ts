@@ -6,7 +6,6 @@ export { ArticleList } from './ui/ArticleList/ArticleList';
 
 export type { Article } from './model/types/Article';
 
-export { ArticleTypedTabs } from './ui/ArticleTypedTabs/ArticleTypedTabs';
 export { getArticleDetailsData } from './model/selectors/getArticleDetails/getArticleDetails';
 export {
   ArticleError, ArticleType, ArticleView, ArticleBlockType,
