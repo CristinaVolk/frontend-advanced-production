@@ -23,4 +23,5 @@ export const buildCSSLoader:buildCSSLoaderType = (isDev) => ({
       loader: 'sass-loader',
     },
   ],
+  exclude: /node_modules/,
 });

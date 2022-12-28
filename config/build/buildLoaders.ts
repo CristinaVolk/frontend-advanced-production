@@ -12,6 +12,7 @@ export const buildLoaders: buildLoadersType = (options) => {
   const svgLoader = {
     test: /\.svg?$/,
     use: ['@svgr/webpack'],
+    exclude: /node_modules/,
   };
 
   const fileLoader = {
@@ -21,6 +22,7 @@ export const buildLoaders: buildLoadersType = (options) => {
         loader: 'file-loader',
       },
     ],
+    exclude: /node_modules/,
   };
 
   const cssLoader = buildCSSLoader(isDev);
