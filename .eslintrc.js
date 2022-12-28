@@ -30,16 +30,20 @@ module.exports = {
   rules: {
     'unused-imports/no-unused-imports': [2],
     'kvolk-plugin/layer-import': [
-      1,
+      2,
       {
         alias: '@',
-        ignoreImportPatterns: ['**/StoreProvider', '**/testing', '**/StoreDecorator.tsx'],
+        ignoreImportPatterns: [
+          '**/StoreProvider',
+          '**/ThemeProvider',
+          '**/testing',
+        ],
       },
     ],
     'kvolk-plugin/path-checker': [2, { alias: '@' }],
-    'kvolk-plugin/public-api-imports': [1, {
+    'kvolk-plugin/public-api-imports': [2, {
       alias: '@',
-      testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+      testFilePatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
     }],
     'import/no-extraneous-dependencies': [0],
     'guard-for-in': [1],

@@ -2,7 +2,6 @@ import { Story } from '@storybook/react';
 import { ReducersMapObject } from '@reduxjs/toolkit';
 
 import { StateSchema, StoreProvider } from '@/app/providers/StoreProvider';
-
 import { ReducersList } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { editableProfileCardReducer } from '@/features/EditableProfileCard/testing';
 import { articleDetailsReducer } from '@/entities/Article/testing';
