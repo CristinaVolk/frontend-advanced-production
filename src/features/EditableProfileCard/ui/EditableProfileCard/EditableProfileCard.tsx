@@ -1,5 +1,4 @@
 import React, { memo, useCallback } from 'react';
-import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import { classNames, Modes } from '@/shared/lib/classNames';
@@ -16,18 +15,18 @@ import {
 import { ProfileCard } from '@/entities/Profile';
 import { ValidateProfileError } from '../../model/consts/consts';
 import {
-  editableProfileCardActions, editableProfileCardReducer,
+  editableProfileCardReducer, useEditableProfileCardActions,
 } from '../../model/slices/editableProfileCardSlice/editableProfileCardSlice';
 import { ProfileCardHeader } from '../ProfileCardHeader/ProfileCardHeader';
-import { getProfileFormData } from '../../model/selectors/getProfileFormData/getProfileFormData';
+import { getProfileHook } from '../../model/selectors/getProfileFormData/getProfileFormData';
 import {
-  getProfileFormReadonly,
+  getProfileReadonlyHook,
 } from '../../model/selectors/getProfileFormReadonly/getProfileFormReadonly';
 import {
-  getProfileUpdateIsLoading,
+  getProfileIsLoadingHook,
 } from '../../model/selectors/getProfileUpdateIsLoading/getProfileIsLoading';
 import {
-  getProfileValidateErrors,
+  getProfileValidateErrorsHook,
 } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import classes from './EditableProfileCard.module.scss';
@@ -42,10 +41,11 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   const { t } = useTranslation('profile');
 
   const dispatch = useAppDispatch();
-  const isLoading = useSelector(getProfileUpdateIsLoading);
-  const profileFormData = useSelector(getProfileFormData);
-  const readonly = useSelector(getProfileFormReadonly);
-  const validateProfileErrors = useSelector(getProfileValidateErrors);
+  const isLoading = getProfileIsLoadingHook();
+  const profileFormData = getProfileHook();
+  const readonly = getProfileReadonlyHook();
+  const validateProfileErrors = getProfileValidateErrorsHook();
+  const { updateData } = useEditableProfileCardActions();
 
   const modes: Modes = {
     [classes.isEditing]: !readonly,
@@ -58,28 +58,28 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
   });
 
   const onChangeFirstname = useCallback((value?: string) => {
-    dispatch(editableProfileCardActions.updateData({ firstname: value || '' }));
-  }, [dispatch]);
+    updateData({ firstname: value || '' });
+  }, [updateData]);
 
   const onChangeUsername = useCallback((value?: string) => {
-    dispatch(editableProfileCardActions.updateData({ username: value || '' }));
-  }, [dispatch]);
+    updateData({ username: value || '' });
+  }, [updateData]);
 
   const onChangeCurrency = useCallback((currency: string) => {
-    dispatch(editableProfileCardActions.updateData({ currency }));
-  }, [dispatch]);
+    updateData({ currency });
+  }, [updateData]);
 
   const onChangeCountry = useCallback((country: string) => {
-    dispatch(editableProfileCardActions.updateData({ country }));
-  }, [dispatch]);
+    updateData({ country });
+  }, [updateData]);
 
   const onChangeAge = useCallback((value?: string) => {
-    dispatch(editableProfileCardActions.updateData({ age: Number(value || 0) }));
-  }, [dispatch]);
+    updateData({ age: Number(value || 0) });
+  }, [updateData]);
 
   const onChangeAvatar = useCallback((avatar?: string) => {
-    dispatch(editableProfileCardActions.updateData({ avatar: avatar || '' }));
-  }, [dispatch]);
+    updateData({ avatar: avatar || '' });
+  }, [updateData]);
 
   const onKeyPress = (event: React.KeyboardEvent) => {
     if (

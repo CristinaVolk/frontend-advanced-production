@@ -2,8 +2,7 @@ import React, { memo, MutableRefObject, ReactNode, UIEvent, useRef } from 'react
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { getScrollMemorizingByPath, scrollMemorizingActions } from '@/features/ScrollMemorizing';
+import { getScrollMemorizingByPath, useScrollMemorizingActions } from '@/features/ScrollMemorizing';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useTrottle } from '@/shared/lib/hooks/useTrottle/useTrottle';
@@ -21,9 +20,10 @@ interface PageProps {
 
 export const Page = memo((props: PageProps) => {
   const { className, children, onScrollEnd } = props;
+
+  const { setScrollPosition } = useScrollMemorizingActions();
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
-  const dispatch = useAppDispatch();
   const { pathname } = useLocation();
   const scrollPosition = useSelector((
     state:StateSchema,
@@ -40,10 +40,10 @@ export const Page = memo((props: PageProps) => {
   });
 
   const onScroll = useTrottle((event: UIEvent<HTMLDivElement>) => {
-    dispatch(scrollMemorizingActions.setScrollPosition({
+    setScrollPosition({
       position: event.currentTarget.scrollTop,
       path: pathname,
-    }));
+    });
   }, 500);
 
   return (

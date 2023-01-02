@@ -3,4 +3,5 @@ export { getScrollMemorizingByPath } from './model/selectors/getScrollMemorizing
 export {
   scrollMemorizingReducer,
   scrollMemorizingActions,
+  useScrollMemorizingActions,
 } from './model/slices/scrollMemorizingSlice';

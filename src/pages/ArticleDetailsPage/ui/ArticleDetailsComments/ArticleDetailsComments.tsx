@@ -15,7 +15,7 @@ import { Loader } from '@/shared/ui/Loader';
 import {
   fetchCommentsByArticleId,
 } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { getArticleDetailsCommentsIsLoading } from '../../model/selectors/comments/comments';
+import { getArticleDetailsCommentsIsLoadingHook } from '../../model/selectors/comments/comments';
 import {
   getArticleComments,
 } from '../../model/slices/articleDetailsCommentsSlice/articleDetailsCommentSlice';
@@ -34,7 +34,7 @@ export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) 
 
   const dispatch = useAppDispatch();
   const comments = useSelector(getArticleComments.selectAll);
-  const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading);
+  const commentsIsLoading = getArticleDetailsCommentsIsLoadingHook();
 
   const onSendComment = useCallback((text = '') => {
     dispatch(addCommentFormForArticle(text));

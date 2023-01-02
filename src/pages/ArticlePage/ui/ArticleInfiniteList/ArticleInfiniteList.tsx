@@ -6,7 +6,7 @@ import { Text } from '@/shared/ui/Text';
 import { ArticleList, ArticleView } from '@/entities/Article';
 
 import {
-  getArticlePageError, getArticlePageIsLoading, getArticlePageView,
+  getArticlePageErrorHook, getArticlePageIsLoadingHook, getArticlePageViewHook,
 } from '../../model/selectors/getArticlePageSelector/getArticlePageSelector';
 import { getArticles } from '../../model/slices/articlePageSlice/articlePageSlice';
 
@@ -17,10 +17,11 @@ interface ArticleInfiniteListProps {
 export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
   const { className } = props;
   const articles = useSelector(getArticles.selectAll);
-  const isLoading = useSelector(getArticlePageIsLoading);
-  const view = useSelector(getArticlePageView) || ArticleView.TILE;
+  const isLoading = getArticlePageIsLoadingHook();
+  const view = getArticlePageViewHook() || ArticleView.TILE;
+  const error = getArticlePageErrorHook();
+
   const { t } = useTranslation('article');
-  const error = useSelector(getArticlePageError);
 
   if (error) {
     return <Text text={t('error')} />;

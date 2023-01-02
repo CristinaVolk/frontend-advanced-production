@@ -6,7 +6,9 @@ export { ArticleList } from './ui/ArticleList/ArticleList';
 
 export type { Article } from './model/types/Article';
 
-export { getArticleDetailsData } from './model/selectors/getArticleDetails/getArticleDetails';
+export {
+  getArticleDetailsData, getArticleDetailsHook,
+} from './model/selectors/getArticleDetails/getArticleDetails';
 export {
   ArticleError, ArticleType, ArticleView, ArticleBlockType,
 } from './model/const/const';

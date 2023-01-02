@@ -1,11 +1,12 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { PayloadAction } from '@reduxjs/toolkit';
 import { ScrollMemorizingSchema } from '../types/ScrollSchema';
+import { buildSlice } from '@/shared/lib/store';
 
 const initialState: ScrollMemorizingSchema = {
   scroll: {},
 };
 
-export const scrollMemorizingSlice = createSlice({
+export const scrollMemorizingSlice = buildSlice({
   name: 'scrollMemorizing',
   initialState,
   reducers: {
@@ -15,5 +16,8 @@ export const scrollMemorizingSlice = createSlice({
   },
 });
 
-export const { actions: scrollMemorizingActions } = scrollMemorizingSlice;
-export const { reducer: scrollMemorizingReducer } = scrollMemorizingSlice;
+export const {
+  actions: scrollMemorizingActions,
+  reducer: scrollMemorizingReducer,
+  useActions: useScrollMemorizingActions,
+} = scrollMemorizingSlice;

@@ -1,10 +1,8 @@
 import React, { memo, useCallback } from 'react';
-
-import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { Dropdown } from '@/shared/ui/Popups';
 import { Avatar } from '@/shared/ui/Avatar';
-import { getUserAuthData, isUserAdmin, isUserManager, userActions } from '@/entities/User';
+import { getAuthDataHook, isAdminHook, isManagerHook, useUserActions } from '@/entities/User';
 import { classNames } from '@/shared/lib/classNames';
 import classes from './AvatarDropdown.module.scss';
 import { getRouteAdmin, getRouteProfile } from '@/shared/const/router';
@@ -17,15 +15,15 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
   const { className } = props;
   const { t } = useTranslation();
 
-  const authData = useSelector(getUserAuthData);
-  const dispatch = useDispatch();
-  const isAdmin = useSelector(isUserAdmin);
-  const isManager = useSelector(isUserManager);
+  const authData = getAuthDataHook();
+  const isAdmin = isAdminHook();
+  const isManager = isManagerHook();
   const shouldAdminPanelBeDisplayed = isAdmin || isManager;
+  const { logout } = useUserActions();
 
   const onLogout = useCallback(() => {
-    dispatch(userActions.logout());
-  }, [dispatch]);
+    logout();
+  }, [logout]);
 
   if (!authData) {
     return null;

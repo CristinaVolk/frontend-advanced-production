@@ -1,10 +1,9 @@
 import React, { Suspense, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
 import { NavBar } from '@/widgets/NavBar';
 import { SideBar } from '@/widgets/SideBar';
 
-import { getUserIsInited, userActions } from '@/entities/User';
+import { getIsInitedHook, useUserActions } from '@/entities/User';
 
 import { classNames } from '@/shared/lib/classNames';
 
@@ -14,12 +13,12 @@ import { AppRouter } from '../app/providers/router';
 
 function App() {
   const { theme } = useTheme();
-  const dispatch = useDispatch();
-  const isInited = useSelector(getUserIsInited);
+  const isInited = getIsInitedHook();
+  const { initAuthData } = useUserActions();
 
   useEffect(() => {
-    dispatch(userActions.initAuthData());
-  }, [dispatch]);
+    initAuthData();
+  }, [initAuthData]);
 
   return (
        <div className={classNames('app', { dark: true }, [theme])}>

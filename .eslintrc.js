@@ -45,6 +45,7 @@ module.exports = {
       alias: '@',
       testFilePatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
     }],
+    '@typescript-eslint/ban-ts-comment': [0],
     'import/no-extraneous-dependencies': [0],
     'guard-for-in': [1],
     '@typescript-eslint/no-var-requires': [0],

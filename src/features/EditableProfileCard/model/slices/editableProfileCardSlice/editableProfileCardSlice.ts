@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { PayloadAction } from '@reduxjs/toolkit';
 import { ErrorCodes } from '@/shared/const/common';
 
 import { ValidateProfileError } from '../../consts/consts';
@@ -6,6 +6,7 @@ import { EditableProfile, EditableProfileCardSchema } from '../../types/Editable
 
 import { updateProfileData } from '../../services/updateProfileData/updateProfileData';
 import { fetchProfileData } from '../../services/fetchProfileData/fetchProfileData';
+import { buildSlice } from '@/shared/lib/store';
 
 const initialState: EditableProfileCardSchema = {
   formData: undefined,
@@ -16,7 +17,7 @@ const initialState: EditableProfileCardSchema = {
   validateProfileErrors: undefined,
 };
 
-export const editableProfileCardSlice = createSlice({
+export const editableProfileCardSlice = buildSlice({
   name: 'editableProfileSliceCard',
   initialState,
   reducers: {
@@ -70,5 +71,8 @@ export const editableProfileCardSlice = createSlice({
   },
 });
 
-export const { actions: editableProfileCardActions } = editableProfileCardSlice;
-export const { reducer: editableProfileCardReducer } = editableProfileCardSlice;
+export const {
+  actions: editableProfileCardActions,
+  reducer: editableProfileCardReducer,
+  useActions: useEditableProfileCardActions,
+} = editableProfileCardSlice;
