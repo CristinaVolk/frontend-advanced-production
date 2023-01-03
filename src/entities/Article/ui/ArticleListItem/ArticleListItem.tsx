@@ -15,6 +15,8 @@ import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleT
 import type { Article, ArticleTextBlock } from '../../model/types/Article';
 import classes from './ArticleListItem.module.scss';
 import { getRouteArticleDetails } from '@/shared/const/router';
+import { AppImage } from '@/shared/ui/AppImage';
+import { Skeleton } from '@/shared/ui/Skeleton';
 
 interface ArticleListItemProps {
     className?: string;
@@ -31,7 +33,14 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
   const { t } = useTranslation('article');
   const articleTypes = <Text text={article.type.join(', ')} className={classes.types} />;
   const articleViews = <Text text={String(article.views)} className={classes.views} />;
-  const articleImage = <img src={article.img} className={classes.img} alt={article.title} />;
+  const articleImage = (
+       <AppImage
+          fallback={<Skeleton width="100%" height={250} />}
+          src={article.img}
+          className={classes.img}
+          alt={article.title}
+       />
+  );
 
   if (view === ArticleView.LIST) {
     const textBlock = article.blocks.find(
@@ -48,6 +57,7 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                    </HStack>
                    <Text title={article.title} className={classes.title} />
                    {articleTypes}
+
                    {articleImage}
 
                    {textBlock
