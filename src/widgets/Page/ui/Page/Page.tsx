@@ -11,8 +11,9 @@ import {
   useInfiniteScroll,
 } from '../../../../shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import classes from './Page.module.scss';
+import { TestProps } from '@/shared/types/TestProps';
 
-interface PageProps {
+interface PageProps extends TestProps {
   className?: string;
   children?: ReactNode;
   onScrollEnd?: ()=>void;
@@ -52,6 +53,7 @@ export const Page = memo((props: PageProps) => {
           ref={wrapperRef}
           className={classNames(classes.Page, {}, [className])}
           onScroll={onScroll}
+          data-testid={props['data-testid'] ?? 'Page'}
        >
             {children}
             {onScrollEnd ? <div className={classes.trigger} ref={triggerRef} /> : null}
