@@ -10,6 +10,7 @@ module.exports = {
     'plugin:react/recommended',
     'airbnb',
     'plugin:i18next/recommended',
+    'plugin:storybook/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -19,32 +20,21 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: [
-    'react',
-    '@typescript-eslint',
-    'i18next',
-    'react-hooks',
-    'kvolk-plugin',
-    'unused-imports',
-  ],
+  plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks', 'kvolk-plugin', 'unused-imports'],
   rules: {
     'unused-imports/no-unused-imports': [2],
-    'kvolk-plugin/layer-import': [
-      2,
-      {
-        alias: '@',
-        ignoreImportPatterns: [
-          '**/StoreProvider',
-          '**/ThemeProvider',
-          '**/testing',
-        ],
-      },
-    ],
-    'kvolk-plugin/path-checker': [2, { alias: '@' }],
+    'kvolk-plugin/layer-import': [2, {
+      alias: '@',
+      ignoreImportPatterns: ['**/StoreProvider', '**/ThemeProvider', '**/testing'],
+    }],
+    'kvolk-plugin/path-checker': [2, {
+      alias: '@',
+    }],
     'kvolk-plugin/public-api-imports': [2, {
       alias: '@',
       testFilePatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
     }],
+    'import/no-import-module-exports': [1],
     '@typescript-eslint/ban-ts-comment': [0],
     'import/no-extraneous-dependencies': [0],
     'guard-for-in': [1],
@@ -74,46 +64,39 @@ module.exports = {
     'react/jsx-no-useless-fragment': [0],
     'no-undef': [0],
     'object-curly-newline': [0],
-    'i18next/no-literal-string': [
-      2,
-      {
-        markupOnly: true,
-        ignoreAttribute: [
-          'modalAlign',
-          'modalTheme',
-          'border',
-          'data-testid',
-          'to',
-          'target',
-          'direction',
-          'justify',
-          'align',
-          'gap',
-          'textColor',
-          'role',
-          'as',
-        ],
-      },
-    ],
-    'max-len': [2,
-      {
-        code: 106,
-        ignoreComments: true,
-      },
-    ],
+    'i18next/no-literal-string': [2, {
+      markupOnly: true,
+      ignoreAttribute: [
+        'modalAlign',
+        'modalTheme',
+        'border',
+        'data-testid',
+        'to',
+        'target',
+        'direction',
+        'justify',
+        'align',
+        'gap',
+        'textColor',
+        'role',
+        'as',
+      ],
+    }],
+    'max-len': [2, {
+      code: 106,
+      ignoreComments: true,
+    }],
   },
   globals: {
     __IS_DEV__: true,
     __API__: true,
     __PROJECT__: true,
   },
-  overrides: [
-    {
-      files: ['**/src/**/*.{test,stories}.{ts,tsx,js}'],
-      rules: {
-        'i18next/no-literal-string': [0],
-        'max-len': [0],
-      },
+  overrides: [{
+    files: ['**/src/**/*.{test,stories}.{ts,tsx,js}'],
+    rules: {
+      'i18next/no-literal-string': [0],
+      'max-len': [0],
     },
-  ],
+  }],
 };

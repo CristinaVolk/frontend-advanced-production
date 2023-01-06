@@ -7,9 +7,7 @@ import { StateSchema } from '@/app/providers/StoreProvider';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useTrottle } from '@/shared/lib/hooks/useTrottle/useTrottle';
 import { PAGE_ID } from '@/shared/const/common';
-import {
-  useInfiniteScroll,
-} from '../../../../shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
+import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import classes from './Page.module.scss';
 import { TestProps } from '@/shared/types/TestProps';
 
