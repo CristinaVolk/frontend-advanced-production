@@ -27,6 +27,15 @@
         "MANAGER"
       ],
       "avatar": "https://images.immediate.co.uk/production/volatile/sites/23/2016/05/GettyImages-912769276-c96f25b.jpg?quality=90&resize=980,654"
+    },
+    {
+      "id": "4",
+      "username": "test@user.com",
+      "roles": [
+        "USER"
+      ],
+      "password": "123",
+      "avatar": "https://pbs.twimg.com/profile_images/540611068721364992/J4ityfdN_400x400.jpeg"
     }
   ],
   "posts": [
@@ -1386,6 +1395,18 @@
         "MANAGER"
       ],
       "avatar": "https://images.immediate.co.uk/production/volatile/sites/23/2016/05/GettyImages-912769276-c96f25b.jpg?quality=90&resize=980,654"
+    },
+    {
+      "id": "4",
+      "username": "test@user.com",
+      "firstname": "Test",
+      "surname": "Test",
+      "age": 22,
+      "currency": "USD",
+      "country": "Ireland",
+      "roles": ["USER"],
+      "password": "123",
+      "avatar": "https://pbs.twimg.com/profile_images/540611068721364992/J4ityfdN_400x400.jpeg"
     }
   ],
   "notifications": [
