@@ -36,6 +36,7 @@ module.exports = {
     }],
     'import/no-import-module-exports': [1],
     '@typescript-eslint/ban-ts-comment': [0],
+    '@typescript-eslint/no-namespace': [0],
     'import/no-extraneous-dependencies': [0],
     'guard-for-in': [1],
     '@typescript-eslint/no-var-requires': [0],

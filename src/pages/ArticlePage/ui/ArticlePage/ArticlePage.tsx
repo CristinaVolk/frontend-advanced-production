@@ -45,7 +45,6 @@ const ArticlePage = memo((props: ArticlePageProps) => {
             >
                  <ArticlePageFilter />
                  <ArticleInfiniteList className={classes.list} />
-
             </Page>
        </DynamicModuleLoader>
   );

@@ -50,17 +50,20 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
                    && <Text theme={TextTheme.ERROR} align={TextAlign.CENTER} text={error} />}
 
             <HStack
+               data-testid="AddCommentForm"
                max
                gap="16"
                className={classNames(classes.AddCommentForm, {}, [className])}
             >
                  <Input
+                    data-testid="AddCommentForm.Input"
                     className={classes.input}
                     placeholder={t('enter-your-comment')}
                     value={commentText}
                     onChange={onCommentTextChange}
                  />
                  <Button
+                    data-testid="AddCommentForm.Button"
                     theme={ButtonTheme.CREATIVE}
                     onClick={onSendCommentHandler}
                  >

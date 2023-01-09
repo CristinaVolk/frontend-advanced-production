@@ -41,7 +41,12 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
   if (!isLoading && !articles.length) {
     return (
-         <div className={classNames(classes.ArticleList, {}, [className, classes[view]])}>
+         <div
+            className={
+           classNames(classes.ArticleList, {}, [className, classes[view]])
+         }
+            data-testid="ArticleList"
+         >
               <Text size={TextSize.L} title={t('not-found-articles')} />
          </div>
     );
@@ -49,6 +54,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
   return (
        <div
+          data-testid="ArticleList"
           className={classNames(classes.ArticleList, {}, [className, classes[view]])}
        >
             {articles.map((item) => (

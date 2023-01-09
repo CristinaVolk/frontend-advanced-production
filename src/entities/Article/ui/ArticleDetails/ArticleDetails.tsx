@@ -110,7 +110,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                  src={articleDetailsData?.img}
                  alt={articleDetailsData?.title}
               />
-              <VStack max align="start" gap="8">
+              <VStack max align="start" gap="8" data-testid="ArticleDetails.Info">
                    <Text
                       title={articleDetailsData?.title}
                       text={articleDetailsData?.subtitle}

@@ -50,7 +50,7 @@ export const Text = memo((props: TextProps) => {
     'data-testid': dataTestId = '',
   } = props;
 
-  const HeaderTage = mapSizeToHeaderTage[size];
+  const HeaderTag = mapSizeToHeaderTage[size];
 
   return (
        <div className={classNames(
@@ -60,12 +60,12 @@ export const Text = memo((props: TextProps) => {
        )}
        >
             {title && (
-            <HeaderTage
+            <HeaderTag
                className={classes.title}
                data-testid={`${dataTestId}Header`}
             >
                  {title}
-            </HeaderTage>
+            </HeaderTag>
             )}
             {text && (
             <p

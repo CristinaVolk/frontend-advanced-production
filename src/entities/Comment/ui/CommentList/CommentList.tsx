@@ -31,6 +31,7 @@ export const CommentList = memo((props: CommentListProps) => {
          >
               <CommentCard isLoading={isLoading} />
               <CommentCard isLoading={isLoading} />
+              <CommentCard isLoading={isLoading} />
          </VStack>
     );
   }
