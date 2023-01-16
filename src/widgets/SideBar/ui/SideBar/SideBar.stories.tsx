@@ -6,14 +6,16 @@ import { SideBar } from './SideBar';
 import { ThemeEnum } from '@/shared/const/theme';
 
 export default {
-  title: 'widgets/SideBar',
-  component: SideBar,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+    title: 'widgets/SideBar',
+    component: SideBar,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof SideBar>;
 
-const Template: ComponentStory<typeof SideBar> = (args) => <SideBar {...args} />;
+const Template: ComponentStory<typeof SideBar> = (args) => (
+    <SideBar {...args} />
+);
 
 export const LightBar = Template.bind({});
 LightBar.args = {};

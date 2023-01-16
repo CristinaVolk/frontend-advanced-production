@@ -6,19 +6,17 @@ import { Page } from '@/widgets/Page';
 import classes from './NotFoundPage.module.scss';
 
 interface NotFoundPageProps {
-	className?: string;
+    className?: string;
 }
 
 export const NotFoundPage = memo(({ className }: NotFoundPageProps) => {
-  const { t } = useTranslation();
-  return (
-       <Page
-          data-testid="NotFoundPage"
-          className={classNames(classes.NotFoundPage, {}, [className])}
-       >
-            <h1>
-                 {t('not-found-page')}
-            </h1>
-       </Page>
-  );
+    const { t } = useTranslation();
+    return (
+        <Page
+            data-testid="NotFoundPage"
+            className={classNames(classes.NotFoundPage, {}, [className])}
+        >
+            <h1>{t('not-found-page')}</h1>
+        </Page>
+    );
 });

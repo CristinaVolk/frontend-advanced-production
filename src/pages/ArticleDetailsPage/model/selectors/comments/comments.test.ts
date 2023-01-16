@@ -1,46 +1,55 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
 import {
-  getArticleDetailsCommentsError, getArticleDetailsCommentsIsLoading,
+    getArticleDetailsCommentsError,
+    getArticleDetailsCommentsIsLoading,
 } from '../../selectors/comments/comments';
 
 describe('getArticleDetailsCommentsIsLoading test', () => {
-  test('with value', () => {
-    const state:DeepPartial<StateSchema> = {
-      articleDetailsPage: {
-        comments: {
-          isLoading: true,
-        },
-      },
-    };
+    test('with value', () => {
+        const state: DeepPartial<StateSchema> = {
+            articleDetailsPage: {
+                comments: {
+                    isLoading: true,
+                },
+            },
+        };
 
-    expect(getArticleDetailsCommentsIsLoading(state as StateSchema)).toBeTruthy();
-  });
+        expect(
+            getArticleDetailsCommentsIsLoading(state as StateSchema),
+        ).toBeTruthy();
+    });
 
-  test('with empty state passed', () => {
-    const state:DeepPartial<StateSchema> = {};
+    test('with empty state passed', () => {
+        const state: DeepPartial<StateSchema> = {};
 
-    expect(getArticleDetailsCommentsIsLoading(state as StateSchema)).toBeFalsy();
-  });
+        expect(
+            getArticleDetailsCommentsIsLoading(state as StateSchema),
+        ).toBeFalsy();
+    });
 });
 
 describe('getArticleDetailsCommentsError test', () => {
-  const testValue = 'error occurred';
+    const testValue = 'error occurred';
 
-  test('with value', () => {
-    const state:DeepPartial<StateSchema> = {
-      articleDetailsPage: {
-        comments: {
-          error: 'error occurred',
-        },
-      },
-    };
+    test('with value', () => {
+        const state: DeepPartial<StateSchema> = {
+            articleDetailsPage: {
+                comments: {
+                    error: 'error occurred',
+                },
+            },
+        };
 
-    expect(getArticleDetailsCommentsError(state as StateSchema)).toBe(testValue);
-  });
+        expect(getArticleDetailsCommentsError(state as StateSchema)).toBe(
+            testValue,
+        );
+    });
 
-  test('with empty state passed', () => {
-    const state:DeepPartial<StateSchema> = {};
+    test('with empty state passed', () => {
+        const state: DeepPartial<StateSchema> = {};
 
-    expect(getArticleDetailsCommentsError(state as StateSchema)).toBeUndefined();
-  });
+        expect(
+            getArticleDetailsCommentsError(state as StateSchema),
+        ).toBeUndefined();
+    });
 });

@@ -6,15 +6,15 @@ import { Loader } from '@/shared/ui/Loader';
 import classes from './PageLoader.module.scss';
 
 interface PageLoaderProps {
-	className?: string;
+    className?: string;
 }
 
 export const PageLoader = memo(({ className }: PageLoaderProps) => {
-  const { t } = useTranslation();
-  return (
-       <section className={classNames(classes.PageLoader, {}, [className])}>
+    const { t } = useTranslation();
+    return (
+        <section className={classNames(classes.PageLoader, {}, [className])}>
             <h1>{t('loading')}</h1>
             <Loader className="lds-grid" />
-       </section>
-  );
+        </section>
+    );
 });

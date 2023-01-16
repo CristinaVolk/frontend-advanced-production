@@ -9,50 +9,38 @@ import { CommentCard } from '../CommentCard/CommentCard';
 import { Comment } from '../../model/types/Comment';
 
 interface CommentListProps {
-  comments?: Array<Comment>;
-  isLoading?: boolean;
-  className?: string;
+    comments?: Array<Comment>;
+    isLoading?: boolean;
+    className?: string;
 }
 
 export const CommentList = memo((props: CommentListProps) => {
-  const { className, comments, isLoading } = props;
-  const { t } = useTranslation();
+    const { className, comments, isLoading } = props;
+    const { t } = useTranslation();
 
-  if (isLoading) {
+    if (isLoading) {
+        return (
+            <VStack max gap="8" className={classNames('', {}, [className])}>
+                <CommentCard isLoading={isLoading} />
+                <CommentCard isLoading={isLoading} />
+                <CommentCard isLoading={isLoading} />
+            </VStack>
+        );
+    }
+
     return (
-         <VStack
-            max
-            gap="8"
-            className={classNames(
-              '',
-              {},
-              [className],
-            )}
-         >
-              <CommentCard isLoading={isLoading} />
-              <CommentCard isLoading={isLoading} />
-              <CommentCard isLoading={isLoading} />
-         </VStack>
-    );
-  }
-
-  return (
-       <VStack
-          gap="8"
-          max
-          className={classNames('', {}, [className])}
-       >
-            {(comments?.length === 0)
-              ? <Text title={t('No comments yet')} />
-              : comments?.map(
-                (commentItem) => (
-                     <CommentCard
+        <VStack gap="8" max className={classNames('', {}, [className])}>
+            {comments?.length === 0 ? (
+                <Text title={t('No comments yet')} />
+            ) : (
+                comments?.map((commentItem) => (
+                    <CommentCard
                         isLoading={isLoading}
                         key={commentItem.id}
                         comment={commentItem}
-                     />
-                ),
-              )}
-       </VStack>
-  );
+                    />
+                ))
+            )}
+        </VStack>
+    );
 });

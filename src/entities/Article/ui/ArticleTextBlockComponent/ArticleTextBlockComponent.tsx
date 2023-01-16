@@ -5,25 +5,31 @@ import { ArticleTextBlock } from '../../model/types/Article';
 import classes from './ArticleTextBlockComponent.module.scss';
 
 interface ArticleTextBlockComponentProps {
-  className?: string;
-  block?: ArticleTextBlock
+    className?: string;
+    block?: ArticleTextBlock;
 }
 
-export const ArticleTextBlockComponent = memo((props: ArticleTextBlockComponentProps) => {
-  const { block, className } = props;
+export const ArticleTextBlockComponent = memo(
+    (props: ArticleTextBlockComponentProps) => {
+        const { block, className } = props;
 
-  return (
-       <div className={classNames(classes.ArticleTextBlockComponent, {}, [className])}>
-            { block?.title && (
-            <Text title={block.title} className={classes.title} />
-            )}
-            {block?.paragraphs.map((paragraph) => (
-                 <Text
-                    key={paragraph}
-                    text={paragraph}
-                    className={classes.paragraph}
-                 />
-            ))}
-       </div>
-  );
-});
+        return (
+            <div
+                className={classNames(classes.ArticleTextBlockComponent, {}, [
+                    className,
+                ])}
+            >
+                {block?.title && (
+                    <Text title={block.title} className={classes.title} />
+                )}
+                {block?.paragraphs.map((paragraph) => (
+                    <Text
+                        key={paragraph}
+                        text={paragraph}
+                        className={classes.paragraph}
+                    />
+                ))}
+            </div>
+        );
+    },
+);

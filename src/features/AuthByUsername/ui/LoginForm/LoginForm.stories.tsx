@@ -6,52 +6,56 @@ import LoginForm from './LoginForm';
 import { ThemeEnum } from '@/shared/const/theme';
 
 export default {
-  title: 'features/LoginForm',
-  component: LoginForm,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
-  args: {
-    isOpen: true,
-  },
+    title: 'features/LoginForm',
+    component: LoginForm,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
+    args: {
+        isOpen: true,
+    },
 } as ComponentMeta<typeof LoginForm>;
 
-const Template: ComponentStory<typeof LoginForm> = (args) => <LoginForm {...args} />;
+const Template: ComponentStory<typeof LoginForm> = (args) => (
+    <LoginForm {...args} />
+);
 
 export const LightLoginForm = Template.bind({});
-LightLoginForm.args = {
-};
-LightLoginForm.decorators = [StoreDecorator({
-  loginForm: {
-    username: 'admin',
-    password: '123',
-  },
-})];
+LightLoginForm.args = {};
+LightLoginForm.decorators = [
+    StoreDecorator({
+        loginForm: {
+            username: 'admin',
+            password: '123',
+        },
+    }),
+];
 
 export const DarkLoginForm = Template.bind({});
-DarkLoginForm.args = {
-};
+DarkLoginForm.args = {};
 DarkLoginForm.decorators = [ThemeDecorator(ThemeEnum.DARK)];
 
 export const DarkLoginWithError = Template.bind({});
-DarkLoginWithError.args = {
-};
+DarkLoginWithError.args = {};
 DarkLoginWithError.decorators = [ThemeDecorator(ThemeEnum.DARK)];
-DarkLoginWithError.decorators = [StoreDecorator({
-  loginForm: {
-    username: 'admin',
-    password: '123',
-    error: 'Wrong username or password',
-  },
-})];
+DarkLoginWithError.decorators = [
+    StoreDecorator({
+        loginForm: {
+            username: 'admin',
+            password: '123',
+            error: 'Wrong username or password',
+        },
+    }),
+];
 
 export const LightLoginFormPending = Template.bind({});
-LightLoginFormPending.args = {
-};
-LightLoginFormPending.decorators = [StoreDecorator({
-  loginForm: {
-    username: 'admin',
-    password: '123',
-    isLoading: true,
-  },
-})];
+LightLoginFormPending.args = {};
+LightLoginFormPending.decorators = [
+    StoreDecorator({
+        loginForm: {
+            username: 'admin',
+            password: '123',
+            isLoading: true,
+        },
+    }),
+];

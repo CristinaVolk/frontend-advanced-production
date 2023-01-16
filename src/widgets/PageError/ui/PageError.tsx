@@ -7,26 +7,23 @@ import classes from './PageError.module.scss';
 import { ThemeEnum } from '@/shared/const/theme';
 
 interface PageErrorProps {
-	className?: string;
+    className?: string;
 }
 
 export const PageError = memo(({ className }: PageErrorProps) => {
-  const { t } = useTranslation('error');
-  const onRefresh = () => {
-    // eslint-disable-next-line no-restricted-globals
-    location.reload();
-  };
+    const { t } = useTranslation('error');
+    const onRefresh = () => {
+        // eslint-disable-next-line no-restricted-globals
+        location.reload();
+    };
 
-  return (
-       <section className={`app ${ThemeEnum.DARK}`}>
+    return (
+        <section className={`app ${ThemeEnum.DARK}`}>
             <div className={classNames(classes.PageError, {}, [className])}>
-                 <Button
-                    onClick={onRefresh}
-                    theme={ButtonTheme.CREATIVE}
-                 >
-                      {t('refresh')}
-                 </Button>
+                <Button onClick={onRefresh} theme={ButtonTheme.CREATIVE}>
+                    {t('refresh')}
+                </Button>
             </div>
-       </section>
-  );
+        </section>
+    );
 });

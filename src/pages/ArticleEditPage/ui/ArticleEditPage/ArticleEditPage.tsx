@@ -6,23 +6,23 @@ import { classNames } from '@/shared/lib/classNames';
 import { Page } from '@/widgets/Page';
 
 interface ArticleEditPageProps {
-  className?: string;
+    className?: string;
 }
 
 const ArticleEditPage = memo((props: ArticleEditPageProps) => {
-  const { className } = props;
-  const { t } = useTranslation('article');
-  const { id } = useParams<{id:string}>();
-  const isEdit = Boolean(id);
+    const { className } = props;
+    const { t } = useTranslation('article');
+    const { id } = useParams<{ id: string }>();
+    const isEdit = Boolean(id);
 
-  return (
-       <Page
-          data-testid="ArticleEditPage"
-          className={classNames('', {}, [className])}
-       >
+    return (
+        <Page
+            data-testid="ArticleEditPage"
+            className={classNames('', {}, [className])}
+        >
             {isEdit ? t('edit-article') : t('create-article')}
-       </Page>
-  );
+        </Page>
+    );
 });
 
 export default ArticleEditPage;

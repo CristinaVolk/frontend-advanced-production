@@ -15,101 +15,110 @@ import { Drawer } from '@/shared/ui/DragableDrawer';
 
 interface RatingProps {
     rate?: number;
-	className?: string;
-	title?: string;
-	feedbackTitle?: string;
-	hasFeedback?: boolean;
-	onCancel?: (starsCount: number) => void;
-	onAccept?: (starsCount: number, feedback?: string) => void;
+    className?: string;
+    title?: string;
+    feedbackTitle?: string;
+    hasFeedback?: boolean;
+    onCancel?: (starsCount: number) => void;
+    onAccept?: (starsCount: number, feedback?: string) => void;
 }
 
 export const Rating = memo((props: RatingProps) => {
-  const { t } = useTranslation('article');
-  const {
-    className, title, feedbackTitle, hasFeedback, onCancel, onAccept, rate = 0,
-  } = props;
+    const { t } = useTranslation('article');
+    const {
+        className,
+        title,
+        feedbackTitle,
+        hasFeedback,
+        onCancel,
+        onAccept,
+        rate = 0,
+    } = props;
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [starsCount, setStarsCount] = useState(rate);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [starsCount, setStarsCount] = useState(rate);
 
-  const [feedback, setFeedback] = useState('');
+    const [feedback, setFeedback] = useState('');
 
-  const onSelectStars = useCallback((selectedStarsCount: number) => {
-    setStarsCount(selectedStarsCount);
-    if (hasFeedback) {
-      setIsModalOpen(true);
-    } else {
-      onAccept?.(selectedStarsCount);
-    }
-  }, [hasFeedback, onAccept]);
+    const onSelectStars = useCallback(
+        (selectedStarsCount: number) => {
+            setStarsCount(selectedStarsCount);
+            if (hasFeedback) {
+                setIsModalOpen(true);
+            } else {
+                onAccept?.(selectedStarsCount);
+            }
+        },
+        [hasFeedback, onAccept],
+    );
 
-  const onCancelHandler = useCallback(() => {
-    onCancel?.(starsCount);
-    setIsModalOpen(false);
-  }, [onCancel, starsCount]);
+    const onCancelHandler = useCallback(() => {
+        onCancel?.(starsCount);
+        setIsModalOpen(false);
+    }, [onCancel, starsCount]);
 
-  const onAcceptHandler = useCallback(() => {
-    onAccept?.(starsCount, feedback);
-    setIsModalOpen(false);
-  }, [feedback, onAccept, starsCount]);
+    const onAcceptHandler = useCallback(() => {
+        onAccept?.(starsCount, feedback);
+        setIsModalOpen(false);
+    }, [feedback, onAccept, starsCount]);
 
-  const modalContent = (
-       <VStack max gap="32">
+    const modalContent = (
+        <VStack max gap="32">
             <Text title={feedbackTitle} />
             <Input
-               data-testid="RatingModal.Input"
-               placeholder={t('feedback')}
-               onChange={setFeedback}
+                data-testid="RatingModal.Input"
+                placeholder={t('feedback')}
+                onChange={setFeedback}
             />
             <HStack max justify="end" gap="16">
-                 <Button
+                <Button
                     data-testid="RatingModal.Close"
                     theme={ButtonTheme.NEAT}
                     onClick={onCancelHandler}
-                 >
-                      {t('Close')}
-                 </Button>
-                 <Button
+                >
+                    {t('Close')}
+                </Button>
+                <Button
                     data-testid="RatingModal.Send"
                     theme={ButtonTheme.NEAT}
                     onClick={onAcceptHandler}
-                 >
-                      {t('Send')}
-                 </Button>
+                >
+                    {t('Send')}
+                </Button>
             </HStack>
-       </VStack>
-  );
+        </VStack>
+    );
 
-  return (
-       <Card
-          data-testid="RatingCard"
-          max
-          className={classNames('', {}, [className])}
-       >
+    return (
+        <Card
+            data-testid="RatingCard"
+            max
+            className={classNames('', {}, [className])}
+        >
             <VStack align="center" gap="8" max>
-                 {rate ? <Text title={t('thanks')} /> : <Text title={title} />}
-                 <StarRating
+                {rate ? <Text title={t('thanks')} /> : <Text title={title} />}
+                <StarRating
                     selectedStars={starsCount}
                     size={40}
                     onSelect={onSelectStars}
-                 />
+                />
             </VStack>
             <BrowserView>
-                 <Modal
+                <Modal
                     lazy
                     isOpen={isModalOpen}
                     modalTheme="primary"
                     onClose={onCancelHandler}
-                 >
-                      {modalContent}
-                 </Modal>
+                >
+                    {modalContent}
+                </Modal>
             </BrowserView>
 
             <MobileView>
-                 <Drawer isOpen={isModalOpen} onClose={onCancelHandler}>
-                      {modalContent}
-                 </Drawer>
+                <Drawer isOpen={isModalOpen} onClose={onCancelHandler}>
+                    {modalContent}
+                </Drawer>
             </MobileView>
-       </Card>
-  );
+        </Card>
+    );
 });

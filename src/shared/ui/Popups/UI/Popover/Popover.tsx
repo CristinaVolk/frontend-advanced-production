@@ -6,27 +6,30 @@ import classes from './Popover.module.scss';
 import popupClasses from '../../styles/popup.module.scss';
 
 interface PopoverProps {
-  className?: string;
-  direction?: DropdownDirection;
-  trigger: ReactNode;
-  children: ReactNode;
+    className?: string;
+    direction?: DropdownDirection;
+    trigger: ReactNode;
+    children: ReactNode;
 }
 
 export function Popover(props: PopoverProps) {
-  const {
-    className, direction = 'bottomLeft', trigger, children,
-  } = props;
-  return (
-       <HPopover className={classNames(classes.Popover, {}, [className, popupClasses.popup])}>
-            <HPopover.Button
-               as="div"
-            >
-                 {trigger}
-            </HPopover.Button>
+    const { className, direction = 'bottomLeft', trigger, children } = props;
+    return (
+        <HPopover
+            className={classNames(classes.Popover, {}, [
+                className,
+                popupClasses.popup,
+            ])}
+        >
+            <HPopover.Button as="div">{trigger}</HPopover.Button>
 
-            <HPopover.Panel className={classNames(classes.panel, {}, [popupClasses[direction]])}>
-                 {children}
+            <HPopover.Panel
+                className={classNames(classes.panel, {}, [
+                    popupClasses[direction],
+                ])}
+            >
+                {children}
             </HPopover.Panel>
-       </HPopover>
-  );
+        </HPopover>
+    );
 }

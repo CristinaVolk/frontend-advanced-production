@@ -6,23 +6,19 @@ import { NavBar } from './NavBar';
 import { ThemeEnum } from '@/shared/const/theme';
 
 export default {
-  title: 'widgets/NavBar',
-  component: NavBar,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+    title: 'widgets/NavBar',
+    component: NavBar,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof NavBar>;
 
 const Template: ComponentStory<typeof NavBar> = (args) => <NavBar {...args} />;
 
 export const Light = Template.bind({});
-Light.args = {
-
-};
+Light.args = {};
 Light.decorators = [ThemeDecorator(ThemeEnum.LIGHT)];
 
 export const Dark = Template.bind({});
-Dark.args = {
-
-};
+Dark.args = {};
 Dark.decorators = [ThemeDecorator(ThemeEnum.DARK)];

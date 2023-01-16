@@ -10,21 +10,24 @@ import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/testing';
 import { loginReducer } from '@/features/AuthByUsername/testing';
 
 const defaultAsyncReducers: ReducersList = {
-  loginForm: loginReducer,
-  editableProfileCard: editableProfileCardReducer,
-  articleDetails: articleDetailsReducer,
-  addCommentForm: addCommentFormReducer,
-  articleDetailsPage: articleDetailsPageReducer,
+    loginForm: loginReducer,
+    editableProfileCard: editableProfileCardReducer,
+    articleDetails: articleDetailsReducer,
+    addCommentForm: addCommentFormReducer,
+    articleDetailsPage: articleDetailsPageReducer,
 };
 
-export const StoreDecorator = (
-  state: DeepPartial<StateSchema>,
-  asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>,
-) => (StoryComponent: Story) => (
-     <StoreProvider
-        initialState={state}
-        asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
-     >
-          <StoryComponent />
-     </StoreProvider>
-);
+export const StoreDecorator =
+    (
+        state: DeepPartial<StateSchema>,
+        asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>,
+    ) =>
+    (StoryComponent: Story) =>
+        (
+            <StoreProvider
+                initialState={state}
+                asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}
+            >
+                <StoryComponent />
+            </StoreProvider>
+        );

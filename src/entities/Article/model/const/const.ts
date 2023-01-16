@@ -1,15 +1,21 @@
 export enum ArticleBlockType {
-  CODE = 'CODE', IMAGE = 'IMAGE', TEXT = 'TEXT'
+    CODE = 'CODE',
+    IMAGE = 'IMAGE',
+    TEXT = 'TEXT',
 }
 
 export enum ArticleType {
-  ALL = 'ALL', IT = 'IT', SCIENCE = 'SCIENCE', ECONOMICS = 'ECONOMICS'
+    ALL = 'ALL',
+    IT = 'IT',
+    SCIENCE = 'SCIENCE',
+    ECONOMICS = 'ECONOMICS',
 }
 
 export enum ArticleError {
-  LOADING_ERROR = 'loading-error',
+    LOADING_ERROR = 'loading-error',
 }
 
 export enum ArticleView {
-  TILE = 'TILE', LIST = 'LIST'
+    TILE = 'TILE',
+    LIST = 'LIST',
 }

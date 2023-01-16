@@ -9,40 +9,46 @@ import { VStack } from '@/shared/ui/Stack';
 import { useArticleRecommendations } from '../api/articleRecommendationsListApi';
 
 interface ArticleRecommendationsListProps {
-	className?: string;
+    className?: string;
 }
 
-export const ArticleRecommendationsList = memo((props: ArticleRecommendationsListProps) => {
-  const { t } = useTranslation(('article'));
-  const { className } = props;
-  const { isLoading, data: articles, error } = useArticleRecommendations(3);
+export const ArticleRecommendationsList = memo(
+    (props: ArticleRecommendationsListProps) => {
+        const { t } = useTranslation('article');
+        const { className } = props;
+        const {
+            isLoading,
+            data: articles,
+            error,
+        } = useArticleRecommendations(3);
 
-  if (isLoading) {
-    return <Loader />;
-  }
+        if (isLoading) {
+            return <Loader />;
+        }
 
-  if (error) {
-    return (
-         <div className={classNames('', {}, [])}>
-              <Text size={TextSize.M} title={t('Error')} />
-         </div>
-    );
-  }
+        if (error) {
+            return (
+                <div className={classNames('', {}, [])}>
+                    <Text size={TextSize.M} title={t('Error')} />
+                </div>
+            );
+        }
 
-  return (
-       <VStack
-          data-testid="ArticleRecommendationsList"
-          gap="8"
-          className={classNames('', {}, [className])}
-       >
-            <Text title={t('Recommendations')} />
-            {articles && (
-            <ArticleList
-               isLoading={isLoading}
-               target="_blank"
-               articles={articles}
-            />
-            )}
-       </VStack>
-  );
-});
+        return (
+            <VStack
+                data-testid="ArticleRecommendationsList"
+                gap="8"
+                className={classNames('', {}, [className])}
+            >
+                <Text title={t('Recommendations')} />
+                {articles && (
+                    <ArticleList
+                        isLoading={isLoading}
+                        target="_blank"
+                        articles={articles}
+                    />
+                )}
+            </VStack>
+        );
+    },
+);

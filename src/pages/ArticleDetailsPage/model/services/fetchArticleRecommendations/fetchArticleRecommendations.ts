@@ -4,32 +4,26 @@ import { Article } from '@/entities/Article';
 import { ErrorCodes } from '@/shared/const/common';
 
 export const fetchArticleRecommendations = createAsyncThunk<
-  Array<Article>,
-  void,
-  ThunkConfig<string>
-  >(
-    'articlePage/fetchArticleRecommendations',
-    async (_, thunkAPI) => {
-      const { extra, rejectWithValue } = thunkAPI;
+    Array<Article>,
+    void,
+    ThunkConfig<string>
+>('articlePage/fetchArticleRecommendations', async (_, thunkAPI) => {
+    const { extra, rejectWithValue } = thunkAPI;
 
-      try {
-        const response = await extra.api.get<Array<Article>>(
-          '/articles',
-          {
+    try {
+        const response = await extra.api.get<Array<Article>>('/articles', {
             params: {
-              _expand: 'user',
-              _limit: '4',
+                _expand: 'user',
+                _limit: '4',
             },
-          },
-        );
+        });
 
         if (!response.data) {
-          throw new Error();
+            throw new Error();
         }
 
         return response.data;
-      } catch (e) {
+    } catch (e) {
         return rejectWithValue(ErrorCodes.SERVER_DOWN);
-      }
-    },
-  );
+    }
+});

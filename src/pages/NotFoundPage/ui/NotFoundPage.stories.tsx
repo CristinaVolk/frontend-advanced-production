@@ -6,23 +6,21 @@ import { NotFoundPage } from './NotFoundPage';
 import { ThemeEnum } from '@/shared/const/theme';
 
 export default {
-  title: 'pages/NotFoundPage',
-  component: NotFoundPage,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+    title: 'pages/NotFoundPage',
+    component: NotFoundPage,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof NotFoundPage>;
 
-const Template: ComponentStory<typeof NotFoundPage> = (args) => <NotFoundPage {...args} />;
+const Template: ComponentStory<typeof NotFoundPage> = (args) => (
+    <NotFoundPage {...args} />
+);
 
 export const LightNotFound = Template.bind({});
-LightNotFound.args = {
-
-};
+LightNotFound.args = {};
 LightNotFound.decorators = [ThemeDecorator(ThemeEnum.LIGHT)];
 
 export const DarkNotFound = Template.bind({});
-DarkNotFound.args = {
-
-};
+DarkNotFound.args = {};
 DarkNotFound.decorators = [ThemeDecorator(ThemeEnum.DARK)];

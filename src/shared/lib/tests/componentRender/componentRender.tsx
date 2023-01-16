@@ -12,45 +12,46 @@ import { ThemeEnum } from '@/shared/const/theme';
 import '@/app/styles/index.scss';
 
 interface ComponentRenderOptions {
-  route?: string;
-  initialState?: DeepPartial<StateSchema>;
-  asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>,
-  theme?: ThemeEnum,
+    route?: string;
+    initialState?: DeepPartial<StateSchema>;
+    asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>;
+    theme?: ThemeEnum;
 }
 
 interface TestProviderProps {
-  children: ReactNode;
-  options?: ComponentRenderOptions
+    children: ReactNode;
+    options?: ComponentRenderOptions;
 }
 
-export function TestProvider(props:TestProviderProps) {
-  const {
-    options = {},
-    children,
-  } = props;
+export function TestProvider(props: TestProviderProps) {
+    const { options = {}, children } = props;
 
-  const {
-    route = '/',
-    asyncReducers,
-    initialState,
-    theme = ThemeEnum.LIGHT,
-  } = options;
+    const {
+        route = '/',
+        asyncReducers,
+        initialState,
+        theme = ThemeEnum.LIGHT,
+    } = options;
 
-  return (
-       <MemoryRouter initialEntries={[route]}>
-            <StoreProvider asyncReducers={asyncReducers} initialState={initialState}>
-                 <ThemeProvider initialTheme={theme}>
-                      <I18nextProvider i18n={i18nextForTesting}>
-                           <div className={`app ${theme}`}>
-                                {children}
-                           </div>
-                      </I18nextProvider>
-                 </ThemeProvider>
+    return (
+        <MemoryRouter initialEntries={[route]}>
+            <StoreProvider
+                asyncReducers={asyncReducers}
+                initialState={initialState}
+            >
+                <ThemeProvider initialTheme={theme}>
+                    <I18nextProvider i18n={i18nextForTesting}>
+                        <div className={`app ${theme}`}>{children}</div>
+                    </I18nextProvider>
+                </ThemeProvider>
             </StoreProvider>
-       </MemoryRouter>
-  );
+        </MemoryRouter>
+    );
 }
 
-export function componentRender(component: ReactNode, options?: ComponentRenderOptions) {
-  return render(<TestProvider options={options}>{component}</TestProvider>);
+export function componentRender(
+    component: ReactNode,
+    options?: ComponentRenderOptions,
+) {
+    return render(<TestProvider options={options}>{component}</TestProvider>);
 }

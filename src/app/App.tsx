@@ -12,27 +12,27 @@ import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { AppRouter } from '../app/providers/router';
 
 function App() {
-  const { theme } = useTheme();
-  const isInited = getIsInitedHook();
-  const { initAuthData } = useUserActions();
+    const { theme } = useTheme();
+    const isInited = getIsInitedHook();
+    const { initAuthData } = useUserActions();
 
-  useEffect(() => {
-    initAuthData();
-  }, [initAuthData]);
+    useEffect(() => {
+        initAuthData();
+    }, [initAuthData]);
 
-  return (
-       <div className={classNames('app', { dark: true }, [theme])}>
+    return (
+        <div className={classNames('app', { dark: true }, [theme])}>
             {isInited && (
-            <Suspense fallback="">
-                 <NavBar />
-                 <div className="content-page">
-                      <SideBar />
-                      <AppRouter />
-                 </div>
-            </Suspense>
+                <Suspense fallback="">
+                    <NavBar />
+                    <div className="content-page">
+                        <SideBar />
+                        <AppRouter />
+                    </div>
+                </Suspense>
             )}
-       </div>
-  );
+        </div>
+    );
 }
 
 export default App;

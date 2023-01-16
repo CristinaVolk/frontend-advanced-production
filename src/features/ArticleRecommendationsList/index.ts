@@ -1,5 +1,3 @@
 import { ArticleRecommendationsList } from './ui/ArticleRecommendationsList';
 
-export {
-  ArticleRecommendationsList,
-};
+export { ArticleRecommendationsList };

@@ -11,46 +11,47 @@ import { Drawer } from '@/shared/ui/DragableDrawer';
 import classes from './NotificationButton.module.scss';
 
 interface NotificationButtonProps {
-	className?: string;
+    className?: string;
 }
 
 export const NotificationButton = memo((props: NotificationButtonProps) => {
-  const { className } = props;
-  const [isOpen, setIsOpen] = useState(false);
+    const { className } = props;
+    const [isOpen, setIsOpen] = useState(false);
 
-  const onOpenDrawer = useCallback(() => {
-    setIsOpen(true);
-  }, []);
+    const onOpenDrawer = useCallback(() => {
+        setIsOpen(true);
+    }, []);
 
-  const onCloseDrawer = useCallback(() => {
-    setIsOpen(false);
-  }, []);
+    const onCloseDrawer = useCallback(() => {
+        setIsOpen(false);
+    }, []);
 
-  const trigger = (
-       <Button onClick={onOpenDrawer} theme={ButtonTheme.CLEAR}>
+    const trigger = (
+        <Button onClick={onOpenDrawer} theme={ButtonTheme.CLEAR}>
             <Icon Svg={NotificationIcon} />
-       </Button>
-  );
+        </Button>
+    );
 
-  return (
-       <div>
+    return (
+        <div>
             <BrowserView>
-                 <Popover
-                    className={classNames(classes.NotificationButton, {}, [className])}
+                <Popover
+                    className={classNames(classes.NotificationButton, {}, [
+                        className,
+                    ])}
                     trigger={trigger}
-                 >
-                      <NotificationsList className={classes.notifications} />
-                 </Popover>
+                >
+                    <NotificationsList className={classes.notifications} />
+                </Popover>
             </BrowserView>
 
             <MobileView>
-                 {trigger}
+                {trigger}
 
-                 <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
-                      <NotificationsList />
-                 </Drawer>
-
+                <Drawer isOpen={isOpen} onClose={onCloseDrawer}>
+                    <NotificationsList />
+                </Drawer>
             </MobileView>
-       </div>
-  );
+        </div>
+    );
 });

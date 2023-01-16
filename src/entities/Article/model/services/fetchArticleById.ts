@@ -4,31 +4,28 @@ import { ArticleError } from '../const/const';
 import { Article } from '../types/Article';
 
 export const fetchArticleById = createAsyncThunk<
-  Article,
-  string | undefined,
-  ThunkConfig<string>
-  >(
-    'article/fetchArticleById',
-    async (articleId, thunkAPI) => {
-      const { extra, rejectWithValue } = thunkAPI;
-      try {
+    Article,
+    string | undefined,
+    ThunkConfig<string>
+>('article/fetchArticleById', async (articleId, thunkAPI) => {
+    const { extra, rejectWithValue } = thunkAPI;
+    try {
         if (!articleId) {
-          throw new Error('The article id has not been provided');
+            throw new Error('The article id has not been provided');
         }
         const response = await extra.api.get(`/articles/${articleId}`, {
-          params: {
-            _expand: 'user',
-          },
+            params: {
+                _expand: 'user',
+            },
         });
 
         if (!response.data) {
-          throw new Error();
+            throw new Error();
         }
 
         return response.data;
-      } catch (e) {
+    } catch (e) {
         console.log(e);
         return rejectWithValue(ArticleError.LOADING_ERROR);
-      }
-    },
-  );
+    }
+});

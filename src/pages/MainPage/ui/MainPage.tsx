@@ -4,15 +4,13 @@ import { Text } from '@/shared/ui/Text';
 import { Page } from '@/widgets/Page';
 
 const MainPage = () => {
-  const { t } = useTranslation();
+    const { t } = useTranslation();
 
-  return (
-       <Page
-          data-testid="MainPage"
-       >
+    return (
+        <Page data-testid="MainPage">
             <Text title={t('main')} />
-       </Page>
-  );
+        </Page>
+    );
 };
 
 export default MainPage;

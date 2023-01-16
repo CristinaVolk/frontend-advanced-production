@@ -1,16 +1,22 @@
 import { useCallback, useRef } from 'react';
 
-export const useTrottle = (callback: (...args: any[]) => void, delay: number) => {
-  const trottle = useRef(false);
+export const useTrottle = (
+    callback: (...args: any[]) => void,
+    delay: number,
+) => {
+    const trottle = useRef(false);
 
-  return useCallback((...args: any[]) => {
-    if (!trottle.current) {
-      callback(...args);
-      trottle.current = true;
-    }
+    return useCallback(
+        (...args: any[]) => {
+            if (!trottle.current) {
+                callback(...args);
+                trottle.current = true;
+            }
 
-    setTimeout(() => {
-      trottle.current = false;
-    }, delay);
-  }, [callback, delay]);
+            setTimeout(() => {
+                trottle.current = false;
+            }, delay);
+        },
+        [callback, delay],
+    );
 };

@@ -7,8 +7,12 @@ export { ArticleList } from './ui/ArticleList/ArticleList';
 export type { Article } from './model/types/Article';
 
 export {
-  getArticleDetailsData, getArticleDetailsHook,
+    getArticleDetailsData,
+    getArticleDetailsHook,
 } from './model/selectors/getArticleDetails/getArticleDetails';
 export {
-  ArticleError, ArticleType, ArticleView, ArticleBlockType,
+    ArticleError,
+    ArticleType,
+    ArticleView,
+    ArticleBlockType,
 } from './model/const/const';

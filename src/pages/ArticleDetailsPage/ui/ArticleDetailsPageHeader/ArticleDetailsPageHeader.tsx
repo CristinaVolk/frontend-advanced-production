@@ -11,50 +11,51 @@ import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
 import { getArticleDetailsHook } from '@/entities/Article';
 
 interface ArticleDetailsPageHeaderProps {
-  className?: string;
+    className?: string;
 }
 
-export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderProps) => {
-  const { className } = props;
-  const navigate = useNavigate();
-  const { t } = useTranslation('article');
-  const canEdit = getCanEditHook();
-  const articleData = getArticleDetailsHook();
+export const ArticleDetailsPageHeader = memo(
+    (props: ArticleDetailsPageHeaderProps) => {
+        const { className } = props;
+        const navigate = useNavigate();
+        const { t } = useTranslation('article');
+        const canEdit = getCanEditHook();
+        const articleData = getArticleDetailsHook();
 
-  const onBackToArticleList = useCallback(() => {
-    navigate(getRouteArticles());
-  }, [navigate]);
+        const onBackToArticleList = useCallback(() => {
+            navigate(getRouteArticles());
+        }, [navigate]);
 
-  const onEditArticle = useCallback(() => {
-    if (articleData && articleData.id) {
-      navigate(getRouteArticleEdit(articleData.id));
-    }
-  }, [articleData, navigate]);
+        const onEditArticle = useCallback(() => {
+            if (articleData && articleData.id) {
+                navigate(getRouteArticleEdit(articleData.id));
+            }
+        }, [articleData, navigate]);
 
-  return (
-       <HStack
-          max
-          justify="between"
-          className={
-         classNames(classes.ArticleDetailsPageHeader, {}, [className])
-       }
-       >
-            <Button
-               onClick={onBackToArticleList}
-               theme={ButtonTheme.CREATIVE}
+        return (
+            <HStack
+                max
+                justify="between"
+                className={classNames(classes.ArticleDetailsPageHeader, {}, [
+                    className,
+                ])}
             >
-                 {t('back-to-list')}
-            </Button>
-            {canEdit
-           && (
-           <Button
-              className={classes.editBtn}
-              theme={ButtonTheme.CREATIVE}
-              onClick={onEditArticle}
-           >
-                {t('edit-article')}
-           </Button>
-           )}
-       </HStack>
-  );
-});
+                <Button
+                    onClick={onBackToArticleList}
+                    theme={ButtonTheme.CREATIVE}
+                >
+                    {t('back-to-list')}
+                </Button>
+                {canEdit && (
+                    <Button
+                        className={classes.editBtn}
+                        theme={ButtonTheme.CREATIVE}
+                        onClick={onEditArticle}
+                    >
+                        {t('edit-article')}
+                    </Button>
+                )}
+            </HStack>
+        );
+    },
+);

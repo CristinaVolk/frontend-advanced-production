@@ -5,36 +5,37 @@ import { Currency } from '../../../shared/const/Currency';
 
 interface CurrencySelectProps {
     readonly: boolean;
-	value?: string;
-	onChangeOption?: (value:Currency) => void;
+    value?: string;
+    onChangeOption?: (value: Currency) => void;
 }
 
 export const CurrencySelect = memo((props: CurrencySelectProps) => {
-  const {
-    onChangeOption, value, readonly,
-  } = props;
+    const { onChangeOption, value, readonly } = props;
 
-  const options = [
-    { value: Currency.RUB, content: Currency.RUB, unavailable: false },
-    { value: Currency.EUR, content: Currency.EUR, unavailable: false },
-    { value: Currency.USD, content: Currency.USD, unavailable: false },
-  ];
+    const options = [
+        { value: Currency.RUB, content: Currency.RUB, unavailable: false },
+        { value: Currency.EUR, content: Currency.EUR, unavailable: false },
+        { value: Currency.USD, content: Currency.USD, unavailable: false },
+    ];
 
-  const { t } = useTranslation();
+    const { t } = useTranslation();
 
-  const onChangeHandler = useCallback((value: string) => {
-    onChangeOption?.(value as Currency);
-  }, [onChangeOption]);
+    const onChangeHandler = useCallback(
+        (value: string) => {
+            onChangeOption?.(value as Currency);
+        },
+        [onChangeOption],
+    );
 
-  return (
-       <ListBox
-          direction="top"
-          defaultValue={t('Choose your currency')}
-          selectedValue={value}
-          onChange={onChangeHandler}
-          items={options}
-          readonly={readonly}
-          label={t('Choose your currency >')}
-       />
-  );
+    return (
+        <ListBox
+            direction="top"
+            defaultValue={t('Choose your currency')}
+            selectedValue={value}
+            onChange={onChangeHandler}
+            items={options}
+            readonly={readonly}
+            label={t('Choose your currency >')}
+        />
+    );
 });

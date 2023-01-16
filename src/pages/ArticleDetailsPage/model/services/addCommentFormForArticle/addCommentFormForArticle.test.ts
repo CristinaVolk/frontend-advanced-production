@@ -3,49 +3,45 @@ import { CommentErrorCodes } from '../../consts/consts';
 import { addCommentFormForArticle } from './addCommentFormForArticle';
 
 describe('addCommentFormForArticle.test', () => {
-  const commentBody = {
-    articleId: '1',
-    userId: '1',
-    text: 'comment 1',
-  };
+    const commentBody = {
+        articleId: '1',
+        userId: '1',
+        text: 'comment 1',
+    };
 
-  test('success data', async () => {
-    const testAsyncThunk = new TestAsyncThunk(
-      addCommentFormForArticle,
-      {
-        user: {
-          authData: { id: '1', username: 'admin' },
-        },
-        articleDetails: {
-          data: { id: '1' },
-        },
-      },
-    );
-    testAsyncThunk.api.post.mockReturnValue(Promise.resolve({ data: commentBody }));
-    const result = await testAsyncThunk.callThunk(commentBody.articleId);
+    test('success data', async () => {
+        const testAsyncThunk = new TestAsyncThunk(addCommentFormForArticle, {
+            user: {
+                authData: { id: '1', username: 'admin' },
+            },
+            articleDetails: {
+                data: { id: '1' },
+            },
+        });
+        testAsyncThunk.api.post.mockReturnValue(
+            Promise.resolve({ data: commentBody }),
+        );
+        const result = await testAsyncThunk.callThunk(commentBody.articleId);
 
-    expect(testAsyncThunk.api.post).toHaveBeenCalled();
-    expect(result.meta.requestStatus).toBe('fulfilled');
-    expect(result.payload).toEqual(commentBody);
-  });
+        expect(testAsyncThunk.api.post).toHaveBeenCalled();
+        expect(result.meta.requestStatus).toBe('fulfilled');
+        expect(result.payload).toEqual(commentBody);
+    });
 
-  test('rejected case when server is down', async () => {
-    const testAsyncThunk = new TestAsyncThunk(
-      addCommentFormForArticle,
-      {
-        user: {
-          authData: { id: '1', username: 'admin' },
-        },
-        articleDetails: {
-          data: { id: '1' },
-        },
-      },
-    );
-    testAsyncThunk.api.post.mockReturnValue(Promise.reject());
-    const result = await testAsyncThunk.callThunk(commentBody.articleId);
+    test('rejected case when server is down', async () => {
+        const testAsyncThunk = new TestAsyncThunk(addCommentFormForArticle, {
+            user: {
+                authData: { id: '1', username: 'admin' },
+            },
+            articleDetails: {
+                data: { id: '1' },
+            },
+        });
+        testAsyncThunk.api.post.mockReturnValue(Promise.reject());
+        const result = await testAsyncThunk.callThunk(commentBody.articleId);
 
-    expect(testAsyncThunk.api.post).toHaveBeenCalled();
-    expect(result.meta.requestStatus).toBe('rejected');
-    expect(result.payload).toEqual(CommentErrorCodes.SERVER_DOWN);
-  });
+        expect(testAsyncThunk.api.post).toHaveBeenCalled();
+        expect(result.meta.requestStatus).toBe('rejected');
+        expect(result.payload).toEqual(CommentErrorCodes.SERVER_DOWN);
+    });
 });

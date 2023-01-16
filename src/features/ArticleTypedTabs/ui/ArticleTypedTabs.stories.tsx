@@ -4,14 +4,16 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ArticleTypedTabs } from './ArticleTypedTabs';
 
 export default {
-  title: 'features/ArticleTypedTabs',
-  component: ArticleTypedTabs,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+    title: 'features/ArticleTypedTabs',
+    component: ArticleTypedTabs,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof ArticleTypedTabs>;
 
-const Template: ComponentStory<typeof ArticleTypedTabs> = (args) => <ArticleTypedTabs {...args} />;
+const Template: ComponentStory<typeof ArticleTypedTabs> = (args) => (
+    <ArticleTypedTabs {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};

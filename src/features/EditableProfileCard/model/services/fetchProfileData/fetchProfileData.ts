@@ -4,17 +4,20 @@ import { ErrorCodes } from '@/shared/const/common';
 
 import { EditableProfile } from '../../types/EditableProfile';
 
-export const fetchProfileData = createAsyncThunk<EditableProfile, string, ThunkConfig<string>>(
-  'profile/fetchProfileData',
-  async (userId, thunkAPI) => {
+export const fetchProfileData = createAsyncThunk<
+    EditableProfile,
+    string,
+    ThunkConfig<string>
+>('profile/fetchProfileData', async (userId, thunkAPI) => {
     const { extra, rejectWithValue } = thunkAPI;
 
     try {
-      const response = await extra.api.get<EditableProfile>(`/profile/${userId}`);
+        const response = await extra.api.get<EditableProfile>(
+            `/profile/${userId}`,
+        );
 
-      return response.data;
+        return response.data;
     } catch (e) {
-      return rejectWithValue(ErrorCodes.INCORRECT_CREDENTIALS);
+        return rejectWithValue(ErrorCodes.INCORRECT_CREDENTIALS);
     }
-  },
-);
+});

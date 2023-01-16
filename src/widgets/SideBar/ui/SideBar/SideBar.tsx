@@ -12,65 +12,62 @@ import { getSideBarItems } from '../../model/selectors/getSideBarItems';
 import classes from './SideBar.module.scss';
 
 interface SideBarProps {
-	className?: string;
+    className?: string;
 }
 
 export const SideBar = memo(({ className }: SideBarProps) => {
-  const [collapsed, setCollapsed] = useState<boolean>(false);
+    const [collapsed, setCollapsed] = useState<boolean>(false);
 
-  const onToggle = () => {
-    setCollapsed((prevState) => !prevState);
-  };
+    const onToggle = () => {
+        setCollapsed((prevState) => !prevState);
+    };
 
-  const sideBarItemsList = useSelector(getSideBarItems);
+    const sideBarItemsList = useSelector(getSideBarItems);
 
-  const itemsList = useMemo(() => sideBarItemsList.map(
-    (item) => (
-         <div key={item.path} className={classes.linkItem}>
-              <SideBarItem item={item} />
-         </div>
-    ),
-  ), [sideBarItemsList]);
+    const itemsList = useMemo(
+        () =>
+            sideBarItemsList.map((item) => (
+                <div key={item.path} className={classes.linkItem}>
+                    <SideBarItem item={item} />
+                </div>
+            )),
+        [sideBarItemsList],
+    );
 
-  return (
-       <aside
-          data-testid="sidebar"
-          className={
-               classNames(
-			     classes.SideBar,
-			  { [classes.collapsed]: collapsed },
-			  [className],
-               )
-          }
-       >
+    return (
+        <aside
+            data-testid="sidebar"
+            className={classNames(
+                classes.SideBar,
+                { [classes.collapsed]: collapsed },
+                [className],
+            )}
+        >
             <VStack role="navigation" gap="4" className={classes.linkItems}>
-                 {itemsList}
+                {itemsList}
             </VStack>
 
             <Button
-               data-testid="sidebar-toggle"
-               className={
-                         classNames(classes.toggle, {}, [])
-                    }
-               theme={ButtonTheme.BACKGROUND}
-               square
-               size={ButtonSize.M}
-               onClick={onToggle}
+                data-testid="sidebar-toggle"
+                className={classNames(classes.toggle, {}, [])}
+                theme={ButtonTheme.BACKGROUND}
+                square
+                size={ButtonSize.M}
+                onClick={onToggle}
             >
-                 {collapsed ? '>' : '<' }
+                {collapsed ? '>' : '<'}
             </Button>
 
-            <div className={
-                    classNames(
-				  classes.switchers,
-				  { [classes.expanded]: !collapsed },
-				  [],
-                    )
-               }
+            <div
+                className={classNames(
+                    classes.switchers,
+                    { [classes.expanded]: !collapsed },
+                    [],
+                )}
             >
-                 <ThemeSwitcher />
-                 <LangSwitcher short={collapsed} />
+                <ThemeSwitcher />
+                <LangSwitcher short={collapsed} />
             </div>
-       </aside>
-  );
+        </aside>
+    );
 });

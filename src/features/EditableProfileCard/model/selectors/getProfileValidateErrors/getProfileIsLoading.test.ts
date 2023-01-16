@@ -3,24 +3,26 @@ import { ValidateProfileError } from '../../consts/consts';
 import { getProfileValidateErrors } from './getProfileValidateErrors';
 
 describe('getProfileValidateErrors.test', () => {
-  const testValue = [
-    ValidateProfileError.INCORRECT_COUNTRY,
-    ValidateProfileError.INCORRECT_AGE,
-  ];
+    const testValue = [
+        ValidateProfileError.INCORRECT_COUNTRY,
+        ValidateProfileError.INCORRECT_AGE,
+    ];
 
-  test('with value', () => {
-    const state:DeepPartial<StateSchema> = {
-      editableProfileCard: {
-        validateProfileErrors: testValue,
-      },
-    };
+    test('with value', () => {
+        const state: DeepPartial<StateSchema> = {
+            editableProfileCard: {
+                validateProfileErrors: testValue,
+            },
+        };
 
-    expect(getProfileValidateErrors(state as StateSchema)).toEqual(testValue);
-  });
+        expect(getProfileValidateErrors(state as StateSchema)).toEqual(
+            testValue,
+        );
+    });
 
-  test('with empty state passed', () => {
-    const state:DeepPartial<StateSchema> = {};
+    test('with empty state passed', () => {
+        const state: DeepPartial<StateSchema> = {};
 
-    expect(getProfileValidateErrors(state as StateSchema)).toBeUndefined();
-  });
+        expect(getProfileValidateErrors(state as StateSchema)).toBeUndefined();
+    });
 });

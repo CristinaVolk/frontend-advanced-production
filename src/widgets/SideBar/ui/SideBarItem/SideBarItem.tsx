@@ -7,28 +7,26 @@ import classes from './SideBarItem.module.scss';
 import { SideBarItemType } from '../../model/types/sidebar';
 
 type SideBarItemProps = {
-  item : SideBarItemType;
-}
+    item: SideBarItemType;
+};
 
 export const SideBarItem = memo(({ item }: SideBarItemProps) => {
-  const { path, text, Icon } = item;
-  const { t } = useTranslation();
-  const isAuth = useSelector(getUserAuthData);
+    const { path, text, Icon } = item;
+    const { t } = useTranslation();
+    const isAuth = useSelector(getUserAuthData);
 
-  if (!isAuth && item.authOnly) {
-    return null;
-  }
+    if (!isAuth && item.authOnly) {
+        return null;
+    }
 
-  return (
-       <AppLink
-          theme={AppLinkTheme.PRIMARY}
-          className={classes.link}
-          to={path}
-       >
+    return (
+        <AppLink
+            theme={AppLinkTheme.PRIMARY}
+            className={classes.link}
+            to={path}
+        >
             <Icon className={classes.icon} />
-            <span>
-                 {t(text)}
-            </span>
-       </AppLink>
-  );
+            <span>{t(text)}</span>
+        </AppLink>
+    );
 });

@@ -8,48 +8,54 @@ import { EditableProfileCard } from './EditableProfileCard';
 import { ThemeEnum } from '@/shared/const/theme';
 
 export default {
-  title: 'features/EditableProfileCard',
-  component: EditableProfileCard,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+    title: 'features/EditableProfileCard',
+    component: EditableProfileCard,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof EditableProfileCard>;
 
 const Template: ComponentStory<typeof EditableProfileCard> = (args) => (
-     <EditableProfileCard {...args} />
+    <EditableProfileCard {...args} />
 );
 
 export const LightEditableProfileCard = Template.bind({});
-LightEditableProfileCard.decorators = [ThemeDecorator(ThemeEnum.LIGHT), StoreDecorator({
-  editableProfileCard: {
-    isLoading: false,
-    data: {
-      firstname: 'Cris',
-      surname: 'Volk',
-      age: 22,
-      currency: 'EUR',
-      country: 'Scotland',
-      username: 'admin@admin.com',
-      avatar: 'https://pbs.twimg.com/profile_images/540611068721364992/J4ityfdN_400x400.jpeg',
-    },
-    formData: {
-      firstname: 'Cris',
-      surname: 'Volk',
-      age: 22,
-      currency: 'EUR',
-      country: 'Scotland',
-      username: 'admin@admin.com',
-      avatar: 'https://pbs.twimg.com/profile_images/540611068721364992/J4ityfdN_400x400.jpeg',
-    },
-  },
-})];
+LightEditableProfileCard.decorators = [
+    ThemeDecorator(ThemeEnum.LIGHT),
+    StoreDecorator({
+        editableProfileCard: {
+            isLoading: false,
+            data: {
+                firstname: 'Cris',
+                surname: 'Volk',
+                age: 22,
+                currency: 'EUR',
+                country: 'Scotland',
+                username: 'admin@admin.com',
+                avatar: 'https://pbs.twimg.com/profile_images/540611068721364992/J4ityfdN_400x400.jpeg',
+            },
+            formData: {
+                firstname: 'Cris',
+                surname: 'Volk',
+                age: 22,
+                currency: 'EUR',
+                country: 'Scotland',
+                username: 'admin@admin.com',
+                avatar: 'https://pbs.twimg.com/profile_images/540611068721364992/J4ityfdN_400x400.jpeg',
+            },
+        },
+    }),
+];
 
 export const DarkEditableProfileCardWithError = Template.bind({});
-DarkEditableProfileCardWithError.decorators = [ThemeDecorator(ThemeEnum.DARK), StoreDecorator({
-  editableProfileCard: {
-    isLoading: false,
-    error: ErrorCodes.INCORRECT_CREDENTIALS,
-    data: undefined,
-    formData: undefined,
-  },
-})];
+DarkEditableProfileCardWithError.decorators = [
+    ThemeDecorator(ThemeEnum.DARK),
+    StoreDecorator({
+        editableProfileCard: {
+            isLoading: false,
+            error: ErrorCodes.INCORRECT_CREDENTIALS,
+            data: undefined,
+            formData: undefined,
+        },
+    }),
+];

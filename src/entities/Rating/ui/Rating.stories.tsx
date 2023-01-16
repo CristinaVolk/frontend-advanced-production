@@ -6,11 +6,11 @@ import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecora
 import { ThemeEnum } from '@/shared/const/theme';
 
 export default {
-  title: 'entities/Rating',
-  component: Rating,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+    title: 'entities/Rating',
+    component: Rating,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof Rating>;
 
 const Template: ComponentStory<typeof Rating> = (args) => <Rating {...args} />;
@@ -20,6 +20,6 @@ Normal.args = {};
 
 export const RatedDark = Template.bind({});
 RatedDark.args = {
-  rate: 3,
+    rate: 3,
 };
 RatedDark.decorators = [ThemeDecorator(ThemeEnum.DARK)];

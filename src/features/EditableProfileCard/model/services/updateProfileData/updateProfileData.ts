@@ -8,36 +8,33 @@ import { getProfileFormData } from '../../selectors/getProfileFormData/getProfil
 import { EditableProfile } from '../../types/EditableProfile';
 
 export const updateProfileData = createAsyncThunk<
-  EditableProfile,
-  void,
-  ThunkConfig<Array<ValidateProfileError| ErrorCodes> | undefined>
-  >(
-    'editableProfileSliceCard/updateProfileData',
-    async (_, thunkAPI) => {
-      const { extra, rejectWithValue, getState } = thunkAPI;
-      const profileFormData = getProfileFormData(getState());
+    EditableProfile,
+    void,
+    ThunkConfig<Array<ValidateProfileError | ErrorCodes> | undefined>
+>('editableProfileSliceCard/updateProfileData', async (_, thunkAPI) => {
+    const { extra, rejectWithValue, getState } = thunkAPI;
+    const profileFormData = getProfileFormData(getState());
 
-      const validationErrors = validateProfileFormData(profileFormData);
-      const profileId = profileFormData?.id;
+    const validationErrors = validateProfileFormData(profileFormData);
+    const profileId = profileFormData?.id;
 
-      if (validationErrors.length) {
+    if (validationErrors.length) {
         return rejectWithValue(validationErrors);
-      }
+    }
 
-      try {
+    try {
         const response = await extra.api.put<EditableProfile>(
-          `/profile/${profileId}`,
-          profileFormData,
+            `/profile/${profileId}`,
+            profileFormData,
         );
 
         if (!response.data) {
-          throw new Error();
+            throw new Error();
         }
 
         return response.data;
-      } catch (e) {
+    } catch (e) {
         console.log(e);
         return rejectWithValue([ErrorCodes.SERVER_DOWN]);
-      }
-    },
-  );
+    }
+});

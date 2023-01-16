@@ -5,21 +5,21 @@ import { componentRender } from '@/shared/lib/tests/componentRender/componentRen
 import { SideBar } from './SideBar';
 
 describe('SideBar test', () => {
-  test('component render', () => {
-    const SideBarWithTranslation = withTranslation()(SideBar);
-    componentRender(<SideBarWithTranslation />);
-    screen.debug();
-    expect(screen.getByTestId('sidebar')).toBeInTheDocument();
-  });
+    test('component render', () => {
+        const SideBarWithTranslation = withTranslation()(SideBar);
+        componentRender(<SideBarWithTranslation />);
+        screen.debug();
+        expect(screen.getByTestId('sidebar')).toBeInTheDocument();
+    });
 
-  test('component render', () => {
-    const SideBarWithTranslation = withTranslation()(SideBar);
-    componentRender(<SideBarWithTranslation />);
+    test('component render', () => {
+        const SideBarWithTranslation = withTranslation()(SideBar);
+        componentRender(<SideBarWithTranslation />);
 
-    const toggleButton = screen.getByTestId('sidebar-toggle');
-    fireEvent.click(toggleButton);
+        const toggleButton = screen.getByTestId('sidebar-toggle');
+        fireEvent.click(toggleButton);
 
-    expect(screen.getByTestId('sidebar')).toBeInTheDocument();
-    expect(screen.getByTestId('sidebar')).toHaveClass('collapsed');
-  });
+        expect(screen.getByTestId('sidebar')).toBeInTheDocument();
+        expect(screen.getByTestId('sidebar')).toHaveClass('collapsed');
+    });
 });

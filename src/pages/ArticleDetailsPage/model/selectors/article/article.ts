@@ -4,14 +4,14 @@ import { getArticleDetailsData } from '@/entities/Article';
 import { buildSelector } from '@/shared/lib/store';
 
 export const getCanEditArticle = createSelector(
-  getUserAuthData,
-  getArticleDetailsData,
-  (userAuth, articleData) => {
-    if (!userAuth || !articleData) {
-      return false;
-    }
-    return userAuth?.id === articleData?.user.id;
-  },
+    getUserAuthData,
+    getArticleDetailsData,
+    (userAuth, articleData) => {
+        if (!userAuth || !articleData) {
+            return false;
+        }
+        return userAuth?.id === articleData?.user.id;
+    },
 );
 
 export const [getCanEditHook] = buildSelector(getCanEditArticle);

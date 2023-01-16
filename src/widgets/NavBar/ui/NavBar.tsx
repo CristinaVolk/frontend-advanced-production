@@ -14,75 +14,69 @@ import classes from './NavBar.module.scss';
 import { getRouteArticleCreate } from '@/shared/const/router';
 
 interface NavBarProps {
-	className?: string;
+    className?: string;
 }
 
 export const NavBar = memo(({ className }: NavBarProps) => {
-  const { t } = useTranslation();
-  const [isAuthModal, setIsAuthModal] = useState(false);
-  const authData = useSelector(getUserAuthData);
+    const { t } = useTranslation();
+    const [isAuthModal, setIsAuthModal] = useState(false);
+    const authData = useSelector(getUserAuthData);
 
-  const onOpenModal = useCallback(() => {
-    setIsAuthModal(true);
-  }, []);
+    const onOpenModal = useCallback(() => {
+        setIsAuthModal(true);
+    }, []);
 
-  const openHandler = useCallback(() => {
-    onOpenModal();
-  }, [onOpenModal]);
+    const openHandler = useCallback(() => {
+        onOpenModal();
+    }, [onOpenModal]);
 
-  const onCloseModal = useCallback(() => {
-    setIsAuthModal(false);
-  }, []);
+    const onCloseModal = useCallback(() => {
+        setIsAuthModal(false);
+    }, []);
 
-  if (authData) {
-    return (
-         <nav className={classNames(classes.NavBar, {}, [className])}>
-              <Text
-                 className={classes.appName}
-                 title={t('Volk app')}
-                 theme={TextTheme.INVERTED}
-              />
+    if (authData) {
+        return (
+            <nav className={classNames(classes.NavBar, {}, [className])}>
+                <Text
+                    className={classes.appName}
+                    title={t('Volk app')}
+                    theme={TextTheme.INVERTED}
+                />
 
-              <HStack gap="16" className={classes.actions}>
-                   <AppLink
-                      to={getRouteArticleCreate()}
-                      theme={AppLinkTheme.PRIMARY}
-                      className={classes.createArticle}
-                   >
+                <HStack gap="16" className={classes.actions}>
+                    <AppLink
+                        to={getRouteArticleCreate()}
+                        theme={AppLinkTheme.PRIMARY}
+                        className={classes.createArticle}
+                    >
                         {t('create-article')}
-                   </AppLink>
-                   <HStack gap="16" className={classes.actions} />
+                    </AppLink>
+                    <HStack gap="16" className={classes.actions} />
 
-                   <NotificationButton />
-                   <AvatarDropdown />
-              </HStack>
-         </nav>
-    );
-  }
+                    <NotificationButton />
+                    <AvatarDropdown />
+                </HStack>
+            </nav>
+        );
+    }
 
-  return (
-       <nav className={classNames(classes.NavBar, {}, [className])}>
+    return (
+        <nav className={classNames(classes.NavBar, {}, [className])}>
             <Button
-               className={classes.loginBtn}
-               theme={ButtonTheme.BACKGROUND}
-               onClick={openHandler}
+                className={classes.loginBtn}
+                theme={ButtonTheme.BACKGROUND}
+                onClick={openHandler}
             >
-                 {t('Login')}
+                {t('Login')}
             </Button>
 
             <LoginModal
-               isOpen={isAuthModal}
-               onClose={onCloseModal}
-               className={
-              classNames(
-                classes.LoginModal,
-                {},
-                [className],
-              )
-            }
+                isOpen={isAuthModal}
+                onClose={onCloseModal}
+                className={classNames(classes.LoginModal, {}, [className])}
             >
-                 {t('Login')}
+                {t('Login')}
             </LoginModal>
-       </nav>
-  );
+        </nav>
+    );
 });

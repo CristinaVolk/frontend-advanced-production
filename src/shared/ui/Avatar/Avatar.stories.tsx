@@ -6,38 +6,38 @@ import AvatarImg from '../../assets/images/wolf_400x400.jpeg';
 import { ThemeEnum } from '@/shared/const/theme';
 
 export default {
-  title: 'shared/Avatar',
-  component: Avatar,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+    title: 'shared/Avatar',
+    component: Avatar,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof Avatar>;
 
 const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />;
 
 export const DefaultAvatar = Template.bind({});
 DefaultAvatar.args = {
-  src: AvatarImg,
-  alt: 'avatar',
+    src: AvatarImg,
+    alt: 'avatar',
 };
 
 export const SmallAvatar = Template.bind({});
 SmallAvatar.args = {
-  src: AvatarImg,
-  alt: 'avatar',
-  size: 50,
+    src: AvatarImg,
+    alt: 'avatar',
+    size: 50,
 };
 
 export const BigAvatar = Template.bind({});
 BigAvatar.args = {
-  src: AvatarImg,
-  alt: 'avatar',
-  size: 350,
+    src: AvatarImg,
+    alt: 'avatar',
+    size: 350,
 };
 
 export const DarkVersion = Template.bind({});
 DarkVersion.args = {
-  src: AvatarImg,
-  alt: 'avatar',
+    src: AvatarImg,
+    alt: 'avatar',
 };
 DarkVersion.decorators = [ThemeDecorator(ThemeEnum.DARK)];

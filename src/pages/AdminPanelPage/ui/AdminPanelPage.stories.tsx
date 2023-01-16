@@ -6,15 +6,15 @@ import AdminPanelPage from './AdminPanelPage';
 import { ThemeEnum } from '@/shared/const/theme';
 
 export default {
-  title: 'pages/AdminPanelPage',
-  component: AdminPanelPage,
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+    title: 'pages/AdminPanelPage',
+    component: AdminPanelPage,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
 } as ComponentMeta<typeof AdminPanelPage>;
 
 const Template: ComponentStory<typeof AdminPanelPage> = () => (
-     <AdminPanelPage />
+    <AdminPanelPage />
 );
 
 export const LightAdminPanelPage = Template.bind({});

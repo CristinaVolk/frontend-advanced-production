@@ -6,19 +6,15 @@ import { VStack } from '@/shared/ui/Stack';
 import { EditableProfileCard } from '@/features/EditableProfileCard';
 
 const ProfilePage = memo(() => {
-  const { id } = useParams<{id:string}>();
+    const { id } = useParams<{ id: string }>();
 
-  return (
-
-       <Page
-          data-testid="ProfilePage"
-       >
+    return (
+        <Page data-testid="ProfilePage">
             <VStack gap="32">
-                 <EditableProfileCard id={id} />
+                <EditableProfileCard id={id} />
             </VStack>
-       </Page>
-
-  );
+        </Page>
+    );
 });
 
 export default ProfilePage;
