@@ -16,6 +16,7 @@ import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 import classes from './ArticleDetailsPage.module.scss';
+import { getFeatureFlags } from '@/shared/lib/features';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -27,6 +28,7 @@ const reducers: ReducersList = {
 
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     const { id } = useParams<{ id: string }>();
+    const isArticleRatingEnabled = getFeatureFlags('isArticleRatingEnabled');
 
     if (!id) {
         return null;
@@ -45,7 +47,9 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
                     <ArticleDetails id={id} />
 
-                    <ArticleRatingAsync articleId={id} />
+                    {isArticleRatingEnabled && (
+                        <ArticleRatingAsync articleId={id} />
+                    )}
 
                     <ArticleRecommendationsList />
 

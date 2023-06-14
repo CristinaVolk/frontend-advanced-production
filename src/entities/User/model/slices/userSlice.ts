@@ -2,6 +2,7 @@ import { PayloadAction } from '@reduxjs/toolkit';
 import { USER_LOCAL_STORAGE_KEY } from '@/shared/const/localStorage';
 import { User, UserSchema } from '../types/UserSchema';
 import { buildSlice } from '@/shared/lib/store';
+import { setFeatureFlags } from '@/shared/lib/features';
 
 const initialState: UserSchema = {
     authData: undefined,
@@ -18,11 +19,15 @@ export const userSlice = buildSlice({
                 USER_LOCAL_STORAGE_KEY,
                 JSON.stringify(action.payload),
             );
+            console.log(action.payload.features);
+            setFeatureFlags(action.payload.features);
         },
         initAuthData: (state) => {
             const userData = localStorage.getItem(USER_LOCAL_STORAGE_KEY);
             if (userData) {
-                state.authData = JSON.parse(userData);
+                const json = JSON.parse(userData) as User;
+                state.authData = json;
+                setFeatureFlags(json.features);
             }
             state._inited = true;
         },
