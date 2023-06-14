@@ -5,7 +5,11 @@ import { createReducerManager } from '../config/reducerManager';
 import { $api } from '@/shared/api/api';
 import { scrollMemorizingReducer } from '@/features/ScrollMemorizing';
 import { rtkApi } from '@/shared/api/rtkApi';
-import { StateSchema, ThunkExtraArg } from './StateSchema';
+import {
+    ReduxStoreWithManager,
+    StateSchema,
+    ThunkExtraArg,
+} from './StateSchema';
 
 export function createReduxStore(
     initialState?: StateSchema,
@@ -25,19 +29,15 @@ export function createReduxStore(
 
     const store = configureStore({
         reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
-        devTools: __IS_DEV__,
         preloadedState: initialState,
+        devTools: __IS_DEV__,
         middleware: (getDefaultMiddleware) =>
             getDefaultMiddleware({
-                thunk: {
-                    extraArgument: extraThunk,
-                },
+                thunk: { extraArgument: extraThunk },
             }).concat(rtkApi.middleware),
     });
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    store.reducerManager = reducerManager;
+    (store as ReduxStoreWithManager).reducerManager = reducerManager;
 
     return store;
 }

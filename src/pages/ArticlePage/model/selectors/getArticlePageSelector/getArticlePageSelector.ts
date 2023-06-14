@@ -59,3 +59,7 @@ export const getArticlePageType = (state: StateSchema) =>
     state.articlePage?.type ?? ArticleType.ALL;
 
 export const [getArticleTypeHook] = buildSelector(getArticlePageType);
+
+export const [useArticleItemById] = buildSelector(
+    (state, id: string) => state.articlePage?.entities[id],
+);

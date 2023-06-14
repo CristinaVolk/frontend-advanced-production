@@ -1,12 +1,8 @@
-import {
-    AnyAction,
-    EnhancedStore,
-    Reducer,
-    ReducersMapObject,
-} from '@reduxjs/toolkit';
+import { AnyAction, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { CombinedState } from 'redux';
 import { AxiosInstance } from 'axios';
 
+import { ToolkitStore } from '@reduxjs/toolkit/dist/configureStore';
 import { UserSchema } from '@/entities/User';
 import { LoginSchema } from '@/features/AuthByUsername';
 import { EditableProfileCardSchema } from '@/features/EditableProfileCard';
@@ -43,7 +39,7 @@ export interface ReducerManager {
     remove: (key: StateSchemaKey) => void;
 }
 
-export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
+export interface ReduxStoreWithManager extends ToolkitStore<StateSchema> {
     reducerManager: ReducerManager;
 }
 

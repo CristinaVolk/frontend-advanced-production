@@ -130,7 +130,8 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.6.6",
-    "@reduxjs/toolkit": "^1.9.1",
+    "@reduxjs/toolkit": "^1.9.2",
+    "@types/react-redux": "^7.1.25",
     "axios": "^0.26.1",
     "concurrently": "^7.0.0",
     "i18next": "^21.6.11",

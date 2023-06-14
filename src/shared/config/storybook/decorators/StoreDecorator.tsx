@@ -8,6 +8,7 @@ import { articleDetailsReducer } from '@/entities/Article/testing';
 import { addCommentFormReducer } from '@/features/AddCommentForm/testing';
 import { articleDetailsPageReducer } from '@/pages/ArticleDetailsPage/testing';
 import { loginReducer } from '@/features/AuthByUsername/testing';
+import { articlePageReducer } from '@/pages/ArticlePage/testing';
 
 const defaultAsyncReducers: ReducersList = {
     loginForm: loginReducer,
@@ -15,6 +16,7 @@ const defaultAsyncReducers: ReducersList = {
     articleDetails: articleDetailsReducer,
     addCommentForm: addCommentFormReducer,
     articleDetailsPage: articleDetailsPageReducer,
+    articlePage: articlePageReducer,
 };
 
 export const StoreDecorator =

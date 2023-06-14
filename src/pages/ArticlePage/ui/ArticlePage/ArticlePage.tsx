@@ -5,7 +5,6 @@ import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Page } from '@/widgets/Page';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';
@@ -14,6 +13,7 @@ import { ArticlePageFilter } from '../ArticlePageFilter/ArticlePageFilter';
 import { articlePageReducer } from '../../model/slices/articlePageSlice/articlePageSlice';
 import classes from './ArticlePage.module.scss';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 
 interface ArticlePageProps {
     className?: string;
@@ -27,7 +27,7 @@ const ArticlePage = memo((props: ArticlePageProps) => {
     const dispatch = useAppDispatch();
     const [searchParams] = useSearchParams();
 
-    const onLoadPageNext = useCallback(() => {
+    const onLoadPageNext = useCallback(async () => {
         dispatch(fetchNextArticlePage());
     }, [dispatch]);
 
