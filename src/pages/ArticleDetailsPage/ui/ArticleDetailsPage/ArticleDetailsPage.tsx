@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 
 import { ArticleDetails } from '@/entities/Article';
@@ -16,7 +17,8 @@ import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 import classes from './ArticleDetailsPage.module.scss';
-import { getFeatureFlags } from '@/shared/lib/features';
+import { toggleFeatures } from '@/shared/lib/features';
+import { Card } from '@/shared/ui/Card';
 
 interface ArticleDetailsPageProps {
     className?: string;
@@ -28,11 +30,17 @@ const reducers: ReducersList = {
 
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     const { id } = useParams<{ id: string }>();
-    const isArticleRatingEnabled = getFeatureFlags('isArticleRatingEnabled');
+    const { t } = useTranslation();
 
     if (!id) {
         return null;
     }
+
+    const rating = toggleFeatures({
+        name: 'isArticleRatingEnabled',
+        on: () => <ArticleRatingAsync articleId={id} />,
+        off: () => <Card>{t('The Article rating will appear soon')}</Card>,
+    });
 
     return (
         <DynamicModuleLoader reducers={reducers}>
@@ -47,9 +55,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
                     <ArticleDetails id={id} />
 
-                    {isArticleRatingEnabled && (
-                        <ArticleRatingAsync articleId={id} />
-                    )}
+                    {rating}
 
                     <ArticleRecommendationsList />
 

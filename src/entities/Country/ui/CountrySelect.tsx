@@ -44,7 +44,7 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
             readonly={readonly}
             onChange={onChangeHandler}
             items={options}
-            label={t('Choose your currency >')}
+            label={t('Choose your country >')}
         />
     );
 });

@@ -59,6 +59,7 @@ module.exports = {
                 ],
             },
         ],
+        'react/no-unstable-nested-components': [1],
         'import/no-import-module-exports': [1],
         '@typescript-eslint/ban-ts-comment': [0],
         '@typescript-eslint/no-namespace': [0],
