@@ -2,17 +2,16 @@ import { useContext } from 'react';
 
 import { ThemeContext } from '../../context/ThemeContext';
 import { ThemeEnum } from '../../../const/theme';
-import { LOCAL_STORAGE_THEME_KEY } from '../../../const/localStorage';
 
 interface UseThemeHook {
     theme: ThemeEnum;
-    toggleTheme: () => void;
+    toggleTheme: (saveAction: (theme: ThemeEnum) => void) => void;
 }
 
 export function useTheme(): UseThemeHook {
     const { theme, setTheme } = useContext(ThemeContext);
 
-    const toggleTheme = () => {
+    const toggleTheme = (saveAction: (theme: ThemeEnum) => void) => {
         let newTheme: ThemeEnum;
         switch (theme) {
             case ThemeEnum.DARK:
@@ -28,7 +27,7 @@ export function useTheme(): UseThemeHook {
                 newTheme = ThemeEnum.LIGHT;
         }
         setTheme?.(newTheme);
-        localStorage.setItem(LOCAL_STORAGE_THEME_KEY, newTheme);
+        saveAction?.(newTheme);
     };
 
     return {

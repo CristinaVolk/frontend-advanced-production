@@ -9,6 +9,10 @@ import {
     getUserIsInited,
 } from './model/selectors/getUserAuthIsInited/getUserIsInited';
 import {
+    getUserJsonSettingsHook,
+    userJsonSettingsSelector,
+} from './model/selectors/getUserJsonSettings/getUserJsonSettings';
+import {
     userActions,
     userReducer,
     useUserActions,
@@ -19,6 +23,7 @@ import {
     isAdminHook,
     isManagerHook,
 } from './model/selectors/getUserRoles/getUserRoles';
+import { saveJsonSettings } from './model/services/saveJsonSettings/saveJsonSettings';
 
 export {
     userReducer,
@@ -35,4 +40,7 @@ export {
     getAuthDataHook,
     isAdminHook,
     isManagerHook,
+    userJsonSettingsSelector,
+    getUserJsonSettingsHook,
+    saveJsonSettings,
 };

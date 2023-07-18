@@ -1,12 +1,8 @@
-import { FC, ReactNode, useMemo, useState } from 'react';
+import { FC, ReactNode, useEffect, useMemo, useState } from 'react';
 
 import { ThemeContext } from '../../../../shared/lib/context/ThemeContext';
 import { ThemeEnum } from '@/shared/const/theme';
-import { LOCAL_STORAGE_THEME_KEY } from '@/shared/const/localStorage';
-
-const defaultTheme =
-    (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as ThemeEnum) ||
-    ThemeEnum.LIGHT;
+import { userJsonSettingsSelector } from '@/entities/User';
 
 interface ThemeProviderProps {
     initialTheme: ThemeEnum;
@@ -14,7 +10,17 @@ interface ThemeProviderProps {
 }
 export const ThemeProvider: FC<ThemeProviderProps> = (props) => {
     const { children, initialTheme } = props;
+    const { theme: defaultTheme = ThemeEnum.DARK } = userJsonSettingsSelector();
+    const [isThemeInit, setThemeInit] = useState<boolean>(false);
+
     const [theme, setTheme] = useState<ThemeEnum>(initialTheme || defaultTheme);
+
+    useEffect(() => {
+        if (!isThemeInit) {
+            setThemeInit(true);
+            setTheme(defaultTheme);
+        }
+    }, [defaultTheme, isThemeInit]);
 
     const defaultProps = useMemo(
         () => ({
