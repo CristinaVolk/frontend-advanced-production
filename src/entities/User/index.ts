@@ -24,6 +24,7 @@ import {
     isManagerHook,
 } from './model/selectors/getUserRoles/getUserRoles';
 import { saveJsonSettings } from './model/services/saveJsonSettings/saveJsonSettings';
+import { initAuthData } from './model/services/initAuthData/initAuthData';
 
 export {
     userReducer,
@@ -43,4 +44,5 @@ export {
     userJsonSettingsSelector,
     getUserJsonSettingsHook,
     saveJsonSettings,
+    initAuthData,
 };

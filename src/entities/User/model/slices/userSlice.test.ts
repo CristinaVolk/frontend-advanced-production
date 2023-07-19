@@ -30,30 +30,6 @@ describe('userSlice.test', () => {
         });
     });
 
-    test('should init user data', () => {
-        const state: DeepPartial<UserSchema> = {
-            authData: testUserData,
-            _inited: true,
-        };
-
-        expect(
-            userReducer(state as UserSchema, userActions.initAuthData()),
-        ).toEqual({ authData: testUserData, _inited: true });
-    });
-
-    test('should init user data with user undefined', () => {
-        localStorage.setItem(USER_LOCAL_STORAGE_KEY, JSON.stringify({}));
-
-        const state: DeepPartial<UserSchema> = {
-            authData: undefined,
-            _inited: false,
-        };
-
-        expect(
-            userReducer(state as UserSchema, userActions.initAuthData()),
-        ).toEqual({ authData: {}, _inited: true });
-    });
-
     test('logout action', () => {
         const state: DeepPartial<UserSchema> = {
             authData: testUserData,

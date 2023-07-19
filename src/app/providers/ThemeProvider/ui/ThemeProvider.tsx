@@ -10,13 +10,15 @@ interface ThemeProviderProps {
 }
 export const ThemeProvider: FC<ThemeProviderProps> = (props) => {
     const { children, initialTheme } = props;
-    const { theme: defaultTheme = ThemeEnum.DARK } = userJsonSettingsSelector();
+    const { theme: defaultTheme } = userJsonSettingsSelector();
     const [isThemeInit, setThemeInit] = useState<boolean>(false);
 
-    const [theme, setTheme] = useState<ThemeEnum>(initialTheme || defaultTheme);
+    const [theme, setTheme] = useState<ThemeEnum>(
+        initialTheme || defaultTheme || ThemeEnum.LIGHT,
+    );
 
     useEffect(() => {
-        if (!isThemeInit) {
+        if (!isThemeInit && defaultTheme) {
             setThemeInit(true);
             setTheme(defaultTheme);
         }
