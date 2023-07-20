@@ -14,7 +14,8 @@
       "jsonSettings": {
         "theme": "app_light",
         "isFirstVisit": true,
-        "hasSettingsPageBeenOpened": false
+        "hasSettingsPageBeenOpened": false,
+        "hasArticlesPageGreetingsBeenOpened": true
       },
       "avatar": "https://pbs.twimg.com/profile_images/540611068721364992/J4ityfdN_400x400.jpeg"
     },
@@ -31,7 +32,8 @@
       "jsonSettings": {
         "theme": "app_dark",
         "isFirstVisit": true,
-        "hasSettingsPageBeenOpened": false
+        "hasSettingsPageBeenOpened": false,
+        "hasArticlesPageGreetingsBeenOpened": false
       },
       "avatar": "https://i1.sndcdn.com/avatars-000756121903-98y986-t500x500.jpg"
     },
@@ -48,7 +50,8 @@
       "jsonSettings": {
         "theme": "app_dark",
         "isFirstVisit": true,
-        "hasSettingsPageBeenOpened": false
+        "hasSettingsPageBeenOpened": false,
+        "hasArticlesPageGreetingsBeenOpened": true
       },
       "avatar": "https://images.immediate.co.uk/production/volatile/sites/23/2016/05/GettyImages-912769276-c96f25b.jpg?quality=90&resize=980,654"
     },
@@ -65,7 +68,8 @@
       "jsonSettings": {
         "theme": "app_dark",
         "isFirstVisit": true,
-        "hasSettingsPageBeenOpened": false
+        "hasSettingsPageBeenOpened": false,
+        "hasArticlesPageGreetingsBeenOpened": false
       },
       "avatar": "https://pbs.twimg.com/profile_images/540611068721364992/J4ityfdN_400x400.jpeg"
     }

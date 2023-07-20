@@ -1,3 +1,8 @@
+.Text {
+    display: flex;
+    flex-direction: column;
+}
+
 .title {
     color: var(--primary-color);
     font: var(--font-l);
