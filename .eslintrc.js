@@ -105,6 +105,7 @@ module.exports = {
                     'textColor',
                     'role',
                     'as',
+                    'feature',
                 ],
             },
         ],

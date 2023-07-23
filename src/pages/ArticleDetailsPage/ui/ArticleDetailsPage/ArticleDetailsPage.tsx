@@ -17,7 +17,7 @@ import { articleDetailsPageReducer } from '../../model/slices';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 import classes from './ArticleDetailsPage.module.scss';
-import { toggleFeatures } from '@/shared/lib/features';
+import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
 import { Card } from '@/shared/ui/Card';
 
 interface ArticleDetailsPageProps {
@@ -56,6 +56,16 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
                     <ArticleDetails id={id} />
 
                     {rating}
+
+                    <ToggleFeatures
+                        feature="isArticleRatingEnabled"
+                        on={<ArticleRatingAsync articleId={id} />}
+                        off={
+                            <Card>
+                                {t('The Article rating will appear soon')}
+                            </Card>
+                        }
+                    />
 
                     <ArticleRecommendationsList />
 
