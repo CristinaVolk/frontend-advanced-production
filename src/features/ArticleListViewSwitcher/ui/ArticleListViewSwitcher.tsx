@@ -41,7 +41,7 @@ export const ArticleListViewSwitcher = memo(
                             [],
                         )}
                     >
-                        <Icon Svg={listViewType.icon} />
+                        <Icon width={24} height={24} Svg={listViewType.icon} />
                     </Button>
                 ))}
             </div>

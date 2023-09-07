@@ -22,12 +22,13 @@ import { TestProps } from '@/shared/types/TestProps';
 import { toggleFeatures } from '@/shared/lib/features';
 
 interface PageProps extends TestProps {
+    className?: string;
     children?: ReactNode;
     onScrollEnd?: () => void;
 }
 
 export const Page = memo((props: PageProps) => {
-    const { children, onScrollEnd } = props;
+    const { children, onScrollEnd, className } = props;
 
     const { setScrollPosition } = useScrollMemorizingActions();
     const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
@@ -62,7 +63,7 @@ export const Page = memo((props: PageProps) => {
                 toggleFeatures({
                     name: 'isAppRedesigned',
                     on: () => classes.PageRedesigned,
-                    off: () => classes.Page,
+                    off: () => classNames(classes.Page, {}, [className]),
                 }),
             )}
             onScroll={onScroll}
