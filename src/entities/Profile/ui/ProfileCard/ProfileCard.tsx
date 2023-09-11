@@ -1,11 +1,11 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Text } from '@/shared/ui/Text';
+import { Text } from '@/shared/ui/deprecated/Text';
 import { classNames } from '@/shared/lib/classNames';
-import { Avatar } from '@/shared/ui/Avatar';
-import { VStack } from '@/shared/ui/Stack';
-import { Input } from '@/shared/ui/Input';
+import { Avatar } from '@/shared/ui/deprecated/Avatar';
+import { VStack } from '@/shared/ui/deprecated/Stack';
+import { Input } from '@/shared/ui/deprecated/Input';
 import { CurrencySelect } from '@/entities/Currency';
 import { CountrySelect } from '@/entities/Country';
 import classes from './ProfileCard.module.scss';

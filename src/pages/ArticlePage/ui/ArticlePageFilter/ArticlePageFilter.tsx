@@ -3,11 +3,11 @@ import { useTranslation } from 'react-i18next';
 
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { classNames } from '@/shared/lib/classNames';
-import { Input } from '@/shared/ui/Input';
-import { Card } from '@/shared/ui/Card';
+import { Input } from '@/shared/ui/deprecated/Input';
+import { Card } from '@/shared/ui/deprecated/Card';
 import { SortOrder } from '@/shared/types/Order';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
-import { TabItem } from '@/shared/ui/Tabs';
+import { TabItem } from '@/shared/ui/deprecated/Tabs';
 
 import { ArticleType, ArticleView } from '@/entities/Article';
 import { ArticleListViewSwitcher } from '@/features/ArticleListViewSwitcher';

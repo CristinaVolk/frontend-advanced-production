@@ -4,14 +4,14 @@ import { useTranslation } from 'react-i18next';
 
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { classNames } from '@/shared/lib/classNames';
-import { Text } from '@/shared/ui/Text';
+import { Text } from '@/shared/ui/deprecated/Text';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { VStack } from '@/shared/ui/Stack';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 
 import { AddCommentFormAsync } from '@/features/AddCommentForm';
 import { CommentList } from '@/entities/Comment';
 
-import { Loader } from '@/shared/ui/Loader';
+import { Loader } from '@/shared/ui/deprecated/Loader';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { getArticleDetailsCommentsIsLoadingHook } from '../../model/selectors/comments/comments';
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice/articleDetailsCommentSlice';

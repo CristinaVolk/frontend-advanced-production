@@ -2,9 +2,9 @@ import React, { memo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
-import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
 import { classNames } from '@/shared/lib/classNames';
-import { HStack } from '@/shared/ui/Stack';
+import { HStack } from '@/shared/ui/deprecated/Stack';
 import { getCanEditHook } from '../../model/selectors/article/article';
 import classes from './ArticleDetailsPageHeader.module.scss';
 import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';

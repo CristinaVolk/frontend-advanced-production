@@ -3,9 +3,9 @@ import React, { memo } from 'react';
 
 import { ArticleList } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames';
-import { Text, TextSize } from '@/shared/ui/Text';
-import { Loader } from '@/shared/ui/Loader';
-import { VStack } from '@/shared/ui/Stack';
+import { Text, TextSize } from '@/shared/ui/deprecated/Text';
+import { Loader } from '@/shared/ui/deprecated/Loader';
+import { VStack } from '@/shared/ui/deprecated/Stack';
 import { useArticleRecommendations } from '../api/articleRecommendationsListApi';
 
 interface ArticleRecommendationsListProps {

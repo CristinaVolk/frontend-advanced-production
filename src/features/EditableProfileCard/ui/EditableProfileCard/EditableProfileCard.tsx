@@ -3,11 +3,11 @@ import { useTranslation } from 'react-i18next';
 
 import { classNames, Modes } from '@/shared/lib/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Text, TextTheme } from '@/shared/ui/Text';
-import { Loader } from '@/shared/ui/Loader';
+import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
+import { Loader } from '@/shared/ui/deprecated/Loader';
 import { ErrorCodes, validKeyboardKeys } from '@/shared/const/common';
 
-import { HStack, VStack } from '@/shared/ui/Stack';
+import { HStack, VStack } from '@/shared/ui/deprecated/Stack';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import {
     DynamicModuleLoader,
