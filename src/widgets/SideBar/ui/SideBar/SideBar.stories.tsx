@@ -13,9 +13,7 @@ export default {
     },
 } as ComponentMeta<typeof SideBar>;
 
-const Template: ComponentStory<typeof SideBar> = (args) => (
-    <SideBar {...args} />
-);
+const Template: ComponentStory<typeof SideBar> = () => <SideBar />;
 
 export const LightBar = Template.bind({});
 LightBar.args = {};
