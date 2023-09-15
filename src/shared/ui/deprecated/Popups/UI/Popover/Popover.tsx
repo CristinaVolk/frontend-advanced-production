@@ -13,7 +13,7 @@ interface PopoverProps {
 }
 
 /**
- * deprecated
+ * @deprecated
  */
 export function Popover(props: PopoverProps) {
     const { className, direction = 'bottomLeft', trigger, children } = props;

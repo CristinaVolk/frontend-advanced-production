@@ -11,7 +11,7 @@ interface SkeletonProps {
 }
 
 /**
- * deprecated
+ * @deprecated
  */
 export const Skeleton = (props: SkeletonProps) => {
     const { className, width, height, border } = props;

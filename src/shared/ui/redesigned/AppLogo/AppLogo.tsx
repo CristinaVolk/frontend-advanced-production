@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import classes from './AppLogo.module.scss';
 import { classNames } from '@/shared/lib/classNames';
 import AppSvg from '@/shared/assets/icons/tim-avatar.svg';
-import { HStack } from '../../deprecated/Stack';
+import { HStack } from '../Stack';
 
 interface AppLogoProps {
     className?: string;

@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames';
 import { Code } from '@/shared/ui/deprecated/Code';
-import { VStack } from '@/shared/ui/deprecated/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import type { ArticleCodeBlock } from '../../model/types/Article';
 
 interface ArticleCodeBlockComponentProps {

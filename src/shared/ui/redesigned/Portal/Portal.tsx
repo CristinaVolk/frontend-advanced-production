@@ -7,9 +7,6 @@ interface PortalProps {
     className?: string;
 }
 
-/**
- * deprecated
- */
 export const Portal = (props: PortalProps) => {
     const { children, element = document.body } = props;
 

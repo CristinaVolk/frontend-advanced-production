@@ -34,7 +34,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 /**
- * deprecated
+ * @deprecated
  */
 export const Button: FC<ButtonProps> = (props: ButtonProps) => {
     const {

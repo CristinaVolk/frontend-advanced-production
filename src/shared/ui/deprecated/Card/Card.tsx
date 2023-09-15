@@ -16,7 +16,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * deprecated
+ * @deprecated
  */
 export const Card = memo((props: CardProps) => {
     const {

@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import classes from './AppLogo.module.scss';
 import { classNames } from '@/shared/lib/classNames';
-import { HStack } from '../Stack';
+import { HStack } from '../../redesigned/Stack';
 import AppSvg from '@/shared/assets/icons/tim-avatar.svg';
 
 interface AppLogoProps {
@@ -9,7 +9,7 @@ interface AppLogoProps {
 }
 
 /**
- * deprecated
+ * @deprecated
  */
 export const AppLogo = memo((props: AppLogoProps) => {
     const { className } = props;

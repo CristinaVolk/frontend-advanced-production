@@ -2,7 +2,7 @@ import React, { CSSProperties, useMemo } from 'react';
 import { classNames } from '@/shared/lib/classNames';
 
 import classes from './Avatar.module.scss';
-import { AppImage } from '../AppImage/AppImage';
+import { AppImage } from '../../redesigned/AppImage/AppImage';
 import { Icon } from '../Icon/Icon';
 import UserIcon from '../../../assets/icons/app-icon.svg';
 import { Skeleton } from '../Skeleton/Skeleton';
@@ -15,7 +15,7 @@ interface AvatarProps {
 }
 
 /**
- * deprecated
+ * @deprecated
  */
 export const Avatar = (props: AvatarProps) => {
     const { className, src, alt, size } = props;

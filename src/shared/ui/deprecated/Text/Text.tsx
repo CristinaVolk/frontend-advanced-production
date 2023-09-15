@@ -40,7 +40,7 @@ interface TextProps {
 }
 
 /**
- * deprecated
+ * @deprecated
  */
 export const Text = memo((props: TextProps) => {
     const {

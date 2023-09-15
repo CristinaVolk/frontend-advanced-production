@@ -6,7 +6,7 @@ import React, {
     useState,
 } from 'react';
 import { classNames } from '../../../lib/classNames';
-import { HStack } from '../Stack/HStack/HStack';
+import { HStack } from '../../redesigned/Stack/HStack/HStack';
 import classes from './Input.module.scss';
 import { Country } from '../../../const/Country';
 import { Currency } from '../../../const/Currency';
@@ -29,7 +29,7 @@ interface InputProps extends HTMLInputProps {
 }
 
 /**
- * deprecated
+ * @deprecated
  */
 export const Input = memo((props: InputProps) => {
     const {

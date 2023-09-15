@@ -3,7 +3,7 @@ import { Listbox as HListbox } from '@headlessui/react';
 
 import { classNames } from '../../../../../lib/classNames';
 import { DropdownDirection } from '../../../../../types/ui';
-import { HStack } from '../../../Stack/HStack/HStack';
+import { HStack } from '../../../../redesigned/Stack/HStack/HStack';
 import { Text, TextTheme } from '../../../Text/Text';
 import { Button, ButtonTheme } from '../../../Button/Button';
 import classes from './ListBox.module.scss';
@@ -27,7 +27,7 @@ export interface ListBoxProps {
 }
 
 /**
- * deprecated
+ * @deprecated
  */
 export const ListBox = (props: ListBoxProps) => {
     const {

@@ -10,7 +10,7 @@ interface CodeProps {
 }
 
 /**
- * deprecated
+ * @deprecated
  */
 export const Code = (props: CodeProps) => {
     const { className, codingLines } = props;

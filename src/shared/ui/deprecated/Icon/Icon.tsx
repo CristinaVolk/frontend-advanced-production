@@ -10,7 +10,7 @@ interface IconProps extends React.SVGProps<SVGSVGElement> {
 }
 
 /**
- * deprecated
+ * @deprecated
  */
 export const Icon = (props: IconProps) => {
     const { className, Svg, inverted, ...restProps } = props;

@@ -49,7 +49,7 @@ const gapClasses: Record<FlexGap, string> = {
 };
 
 /**
- * deprecated
+ * @deprecated
  */
 export const Flex = (props: FlexProps) => {
     const {

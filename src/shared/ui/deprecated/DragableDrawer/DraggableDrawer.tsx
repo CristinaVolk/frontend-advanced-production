@@ -5,8 +5,8 @@ import {
     AnimationProvider,
     useAnimationLibs,
 } from '@/shared/lib/components/AnimationProvider';
-import { Portal } from '../Portal/Portal';
-import { Overlay } from '../Overlay/Overlay';
+import { Portal } from '../../redesigned/Portal/Portal';
+import { Overlay } from '../../redesigned/Overlay/Overlay';
 import classes from './DraggableDrawer.module.scss';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
@@ -21,7 +21,7 @@ interface DraggableDrawerProps {
 const height = window.innerHeight - 100;
 
 /**
- * deprecated
+ * @deprecated
  */
 export const DraggableDrawer = (props: DraggableDrawerProps) => {
     const { className, children, isOpen, onClose } = props;

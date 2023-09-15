@@ -16,7 +16,7 @@ interface AppLinkProps extends LinkProps {
 }
 
 /**
- * deprecated
+ * @deprecated
  */
 export const AppLink: FC<AppLinkProps> = forwardRef(
     (props: AppLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => {

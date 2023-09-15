@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useMemo } from 'react';
 import { classNames } from '@/shared/lib/classNames';
-import { HStack } from '../Stack/HStack/HStack';
+import { HStack } from '../../redesigned/Stack/HStack/HStack';
 import { Text, TextTheme } from '../Text/Text';
 
 import classes from './Select.module.scss';
@@ -21,7 +21,7 @@ interface SelectProps<T extends string> {
 }
 
 /**
- * deprecated
+ * @deprecated
  */
 export const Select = <T extends string>(props: SelectProps<T>) => {
     const {
