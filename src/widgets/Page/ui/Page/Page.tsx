@@ -19,7 +19,6 @@ import { PAGE_ID } from '@/shared/const/common';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import classes from './Page.module.scss';
 import { TestProps } from '@/shared/types/TestProps';
-import { toggleFeatures } from '@/shared/lib/features';
 
 interface PageProps extends TestProps {
     className?: string;
@@ -59,13 +58,7 @@ export const Page = memo((props: PageProps) => {
         <main
             id={PAGE_ID}
             ref={wrapperRef}
-            className={classNames(
-                toggleFeatures({
-                    name: 'isAppRedesigned',
-                    on: () => classes.PageRedesigned,
-                    off: () => classNames(classes.Page, {}, [className]),
-                }),
-            )}
+            className={classNames(classes.PageRedesigned, {}, [className])}
             onScroll={onScroll}
             data-testid={props['data-testid'] ?? 'Page'}
         >

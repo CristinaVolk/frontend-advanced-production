@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
-import { Text, TextSize, TextTheme } from './Text';
+import { Text } from './Text';
 import { ThemeEnum } from '@/shared/const/theme';
 
 export default {
@@ -52,13 +52,13 @@ onlyTitleLight.args = {
 export const FullTitleError = Template.bind({});
 FullTitleError.args = {
     text: 'ERROR',
-    theme: TextTheme.ERROR,
+    variant: 'error',
 };
 
 export const FullTitleErrorDark = Template.bind({});
 FullTitleErrorDark.args = {
     text: 'ERROR',
-    theme: TextTheme.ERROR,
+    variant: 'error',
 };
 FullTitleErrorDark.decorators = [ThemeDecorator(ThemeEnum.DARK)];
 
@@ -66,12 +66,12 @@ export const FullTextSizeL = Template.bind({});
 FullTextSizeL.args = {
     title: 'React',
     text: 'React is awesome',
-    size: TextSize.L,
+    size: 'l',
 };
 
 export const FullTextSizeM = Template.bind({});
 FullTextSizeM.args = {
     title: 'React',
     text: 'React is awesome',
-    size: TextSize.M,
+    size: 'm',
 };
