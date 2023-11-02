@@ -1,4 +1,4 @@
-import React, { Fragment, ReactNode } from 'react';
+import React, { Fragment, ReactNode, useMemo } from 'react';
 import { Listbox as HListbox } from '@headlessui/react';
 
 import { classNames } from '../../../../../lib/classNames';
@@ -9,24 +9,24 @@ import { Button } from '../../../Button/Button';
 import classes from './ListBox.module.scss';
 import popupClasses from '../../styles/popup.module.scss';
 
-export interface ListBoxItem {
-    value: string;
+export interface ListBoxItem<T extends string> {
+    value: T;
     content: ReactNode;
-    unavailable: boolean;
+    unavailable?: boolean;
 }
 
-export interface ListBoxProps {
-    items?: ListBoxItem[];
+export interface ListBoxProps<T extends string> {
+    items?: ListBoxItem<T>[];
     className?: string;
-    selectedValue?: string;
-    onChange?: (selectedValue: string) => void;
+    selectedValue?: T;
     defaultValue?: string;
+    onChange?: (selectedValue: T) => void;
     readonly?: boolean;
-    direction: DropdownDirection;
+    direction?: DropdownDirection;
     label?: string;
 }
 
-export const ListBox = (props: ListBoxProps) => {
+export function ListBox<T extends string>(props: ListBoxProps<T>) {
     const {
         items,
         className,
@@ -39,6 +39,10 @@ export const ListBox = (props: ListBoxProps) => {
     } = props;
 
     const menuClasses = [popupClasses[direction], popupClasses.menu];
+    const selectedItem = useMemo(
+        () => items?.find((item) => item.value === selectedValue),
+        [items, selectedValue],
+    );
 
     return (
         <HStack max justify="between">
@@ -54,8 +58,8 @@ export const ListBox = (props: ListBoxProps) => {
                 onChange={onChange}
             >
                 <HListbox.Button as="div" className={classes.trigger}>
-                    <Button type="button">
-                        {selectedValue ?? defaultValue}
+                    <Button variant="filled" type="button">
+                        {selectedItem?.content ?? defaultValue}
                     </Button>
                 </HListbox.Button>
                 <HListbox.Options
@@ -76,6 +80,7 @@ export const ListBox = (props: ListBoxProps) => {
                                             [popupClasses.active]: active,
                                             [popupClasses.disabled]:
                                                 item.unavailable,
+                                            [popupClasses.selected]: selected,
                                         },
                                         [],
                                     )}
@@ -90,4 +95,4 @@ export const ListBox = (props: ListBoxProps) => {
             </HListbox>
         </HStack>
     );
-};
+}

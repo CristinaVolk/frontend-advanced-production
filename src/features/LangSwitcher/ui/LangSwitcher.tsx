@@ -6,9 +6,10 @@ import { Button } from '@/shared/ui/redesigned/Button';
 
 interface LangSwitcherProps {
     short?: boolean;
+    className?: string;
 }
 
-export const LangSwitcher = memo(({ short }: LangSwitcherProps) => {
+export const LangSwitcher = memo(({ short, className }: LangSwitcherProps) => {
     const { t, i18n } = useTranslation();
 
     const toggleLanguage = () => {
@@ -16,7 +17,7 @@ export const LangSwitcher = memo(({ short }: LangSwitcherProps) => {
     };
 
     return (
-        <Button variant="clear" onClick={toggleLanguage}>
+        <Button className={className} variant="clear" onClick={toggleLanguage}>
             {short ? t('language-short') : t('language-long')}
         </Button>
     );

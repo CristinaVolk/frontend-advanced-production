@@ -19,6 +19,7 @@ import { PAGE_ID } from '@/shared/const/common';
 import { useInfiniteScroll } from '@/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
 import classes from './Page.module.scss';
 import { TestProps } from '@/shared/types/TestProps';
+import { toggleFeatures } from '@/shared/lib/features';
 
 interface PageProps extends TestProps {
     className?: string;
@@ -39,7 +40,11 @@ export const Page = memo((props: PageProps) => {
 
     useInfiniteScroll({
         triggerRef,
-        wrapperRef,
+        wrapperRef: toggleFeatures({
+            name: 'isAppRedesigned',
+            on: () => undefined,
+            off: () => wrapperRef,
+        }),
         callback: onScrollEnd,
     });
 

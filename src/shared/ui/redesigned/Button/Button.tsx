@@ -3,7 +3,7 @@ import React, { ButtonHTMLAttributes, FC, ReactNode } from 'react';
 import { classNames, Modes } from '@/shared/lib/classNames';
 import classes from './Button.module.scss';
 
-export type ButtonVariant = 'clear' | 'outline';
+export type ButtonVariant = 'clear' | 'outline' | 'filled';
 
 export type ButtonSize = 'm' | 'l' | 'xl';
 

@@ -8,3 +8,9 @@
         opacity: 0.3;
     }
 }
+
+.ArticleListViewSwitcherRedesigned {
+    .notSelected {
+        color: var(--light-bg-redesigned);
+    }
+}
