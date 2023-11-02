@@ -1,12 +1,12 @@
 import React, {
     InputHTMLAttributes,
     memo,
+    ReactNode,
     useEffect,
     useRef,
     useState,
 } from 'react';
-import { classNames } from '../../../lib/classNames';
-import { HStack } from '../../redesigned/Stack/HStack/HStack';
+import { classNames, Modes } from '../../../lib/classNames';
 import classes from './Input.module.scss';
 import { Country } from '../../../const/Country';
 import { Currency } from '../../../const/Currency';
@@ -26,6 +26,8 @@ interface InputProps extends HTMLInputProps {
     readonly?: boolean;
     onKeyPress?: (event: React.KeyboardEvent) => void;
     textColor?: TextColor;
+    addonRight?: ReactNode;
+    addonLeft?: ReactNode;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -39,11 +41,12 @@ export const Input = memo((props: InputProps) => {
         autofocus,
         readonly,
         textColor = 'primary',
+        addonRight,
+        addonLeft,
         ...restProps
     } = props;
 
     const [focused, setFocused] = useState(false);
-    const [caretPosition, setCaretPosition] = useState(0);
     const inputRef = useRef<HTMLInputElement>(null);
 
     const onBlur = () => {
@@ -54,15 +57,8 @@ export const Input = memo((props: InputProps) => {
         setFocused(true);
     };
 
-    const isCaretVisible = !focused && !readonly;
-
-    const onSelect = (event: any) => {
-        setCaretPosition(event?.target?.selectionStart || 0);
-    };
-
     const onHandleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         onChange?.(event.target.value);
-        setCaretPosition(event.target.value.length);
     };
 
     useEffect(() => {
@@ -72,38 +68,30 @@ export const Input = memo((props: InputProps) => {
         }
     }, [autofocus]);
 
+    const modes: Modes = {
+        [classes.readonly]: readonly,
+        [classes.focused]: focused,
+        [classes.withAddonLeft]: Boolean(addonLeft),
+        [classes.withAddonRight]: Boolean(addonRight),
+    };
+
     return (
-        <HStack
-            gap="8"
-            max
-            className={classNames(classes.InputWrapper, {}, [className])}
-        >
-            {placeholder && (
-                <div className={classes.placeholder}>{`${placeholder} >`}</div>
-            )}
-            <div className={classes.caretWrapper}>
-                <input
-                    ref={inputRef}
-                    className={classNames(classes.input, {}, [
-                        classes[textColor],
-                    ])}
-                    value={value}
-                    type={type}
-                    onChange={onHandleChange}
-                    onKeyDown={onKeyPress}
-                    onFocus={onFocus}
-                    onBlur={onBlur}
-                    onSelect={onSelect}
-                    readOnly={readonly}
-                    {...restProps}
-                />
-                {isCaretVisible && (
-                    <span
-                        className={classes.caret}
-                        style={{ left: `${caretPosition * 5}px` }}
-                    />
-                )}
-            </div>
-        </HStack>
+        <div className={classNames(classes.InputWrapper, modes, [className])}>
+            <div className={classes.addonLeft}>{addonLeft}</div>
+            <input
+                ref={inputRef}
+                className={classNames(classes.input, {}, [classes[textColor]])}
+                value={value}
+                placeholder={placeholder}
+                type={type}
+                onChange={onHandleChange}
+                onKeyDown={onKeyPress}
+                onFocus={onFocus}
+                onBlur={onBlur}
+                readOnly={readonly}
+                {...restProps}
+            />
+            <div className={classes.addonRight}>{addonRight}</div>
+        </div>
     );
 });

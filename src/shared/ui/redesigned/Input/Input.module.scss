@@ -1,66 +1,47 @@
 .InputWrapper {
-    box-shadow:
-        rgb(0 0 0 / 9%) 0 2px 1px,
-        rgb(0 0 0 / 9%) 0 4px 2px,
-        rgb(0 0 0 / 9%) 0 8px 4px,
-        rgb(0 0 0 / 9%) 0 16px 8px,
-        rgb(0 0 0 / 9%) 0 32px 16px;
+    display: flex;
+    align-items: center;
+    border-radius: 48px;
+    padding: 8px 16px;
+    border: 1px solid var(--icon-redesigned);
+    height: 32px;
+    width: 100%;
 }
 
-.placeholder {
-    margin: 5px 10px;
+.addonLeft, .addonRight {
+    display: flex;
 }
 
 .input {
-    background: transparent;
-    width: 100%;
     border: none;
     outline: none;
-    text-shadow: 0 0 0 var(--modal-font-color);
+    width: 100%;
+    color: var(--text-redesigned);
+    background: none;
 
-    &:focus {
-        outline: none;
+    &::placeholder {
+        color: var(--hint-redesigned);
     }
+}
 
-    &.primary {
-        color: var(--primary-color);
-    }
+.focused {
+    border: 2px solid var(--accent-redesigned);
 
-    &.secondary {
-        color: var(--modal-font-color);
+    .addonLeft svg,
+    .addonRight svg {
+        color: var(--accent-redesigned);
     }
+}
+
+.withAddonLeft {
+    padding-left: 8px;
+}
+
+.withAddonRight {
+    padding-right: 8px;
 }
 
 .readonly {
     opacity: 0.7;
 }
 
-.caretWrapper {
-    position: relative;
-    margin-top: 5px;
-    flex-grow: 1;
-}
-
-.caret {
-    height: 3px;
-    width: 9px;
-    background: var(--modal-font-color);
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    animation: blink 0.7s forwards infinite;
-}
-
-@keyframes blink {
-    0% {
-        opacity: 0;
-    }
-
-    50% {
-        opacity: 0.01;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}

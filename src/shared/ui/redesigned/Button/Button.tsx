@@ -33,6 +33,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
      * Expands the button to the full width
      */
     fullWidth?: boolean;
+
+    addonRight?: ReactNode;
+    addonLeft?: ReactNode;
 }
 
 export const Button: FC<ButtonProps> = (props: ButtonProps) => {
@@ -44,6 +47,8 @@ export const Button: FC<ButtonProps> = (props: ButtonProps) => {
         size = 'm',
         disabled,
         fullWidth,
+        addonRight,
+        addonLeft,
         ...restProps
     } = props;
 
@@ -51,6 +56,7 @@ export const Button: FC<ButtonProps> = (props: ButtonProps) => {
         [classes.square]: square,
         [classes.disabled]: disabled,
         [classes.fullWidth]: fullWidth,
+        [classes.withAddon]: Boolean(addonLeft) || Boolean(addonRight),
     };
 
     return (
@@ -64,7 +70,10 @@ export const Button: FC<ButtonProps> = (props: ButtonProps) => {
             disabled={disabled}
             {...restProps}
         >
+            <div className={classes.addonLeft}>{addonLeft}</div>
+
             {children}
+            <div className={classes.addonRight}>{addonRight}</div>
         </button>
     );
 };
