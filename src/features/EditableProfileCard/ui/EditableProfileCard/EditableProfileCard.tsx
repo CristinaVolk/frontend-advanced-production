@@ -3,17 +3,25 @@ import { useTranslation } from 'react-i18next';
 
 import { classNames, Modes } from '@/shared/lib/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
-import { Loader } from '@/shared/ui/deprecated/Loader';
+import {
+    Text as TextDeprecated,
+    TextTheme as TextThemeDeprecated,
+} from '@/shared/ui/deprecated/Text';
+import { Text } from '@/shared/ui/redesigned/Text';
+
 import { ErrorCodes, validKeyboardKeys } from '@/shared/const/common';
 
-import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import {
     DynamicModuleLoader,
     ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { ProfileCard } from '@/entities/Profile';
+import {
+    ProfileCard,
+    ProfileCardDeprecatedLoader,
+    ProfileCardSkeletonRedesigned,
+} from '@/entities/Profile';
 import { ValidateProfileError } from '../../model/consts/consts';
 import {
     editableProfileCardReducer,
@@ -26,6 +34,7 @@ import { getProfileIsLoadingHook } from '../../model/selectors/getProfileUpdateI
 import { getProfileValidateErrorsHook } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import classes from './EditableProfileCard.module.scss';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface EditableProfileCardProps {
     id?: string;
@@ -125,9 +134,11 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     return (
         <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
             {isLoading && (
-                <HStack justify="center">
-                    <Loader />
-                </HStack>
+                <ToggleFeatures
+                    feature="isAppRedesigned"
+                    on={<ProfileCardSkeletonRedesigned />}
+                    off={<ProfileCardDeprecatedLoader />}
+                />
             )}
             <VStack
                 max
@@ -139,13 +150,32 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
 
                 {validateProfileErrors?.length &&
                     validateProfileErrors.map((validationError) => (
-                        <Text
-                            key={validationError}
-                            theme={TextTheme.ERROR}
-                            text={validateErrorTranslates[validationError]}
-                            data-testid="EditableProfileCard.Error"
+                        <ToggleFeatures
+                            feature="isAppRedesigned"
+                            on={
+                                <Text
+                                    align="center"
+                                    key={validationError}
+                                    variant="error"
+                                    text={
+                                        validateErrorTranslates[validationError]
+                                    }
+                                    data-testid="EditableProfileCard.Error"
+                                />
+                            }
+                            off={
+                                <TextDeprecated
+                                    key={validationError}
+                                    theme={TextThemeDeprecated.ERROR}
+                                    text={
+                                        validateErrorTranslates[validationError]
+                                    }
+                                    data-testid="EditableProfileCard.Error"
+                                />
+                            }
                         />
                     ))}
+
                 <ProfileCard
                     readonly={readonly}
                     profileFormData={profileFormData}

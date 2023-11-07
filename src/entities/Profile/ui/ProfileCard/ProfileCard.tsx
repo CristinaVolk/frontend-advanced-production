@@ -1,14 +1,7 @@
 import React, { memo } from 'react';
-import { useTranslation } from 'react-i18next';
-
-import { Text } from '@/shared/ui/deprecated/Text';
-import { classNames } from '@/shared/lib/classNames';
-import { Avatar } from '@/shared/ui/deprecated/Avatar';
-import { VStack } from '@/shared/ui/redesigned/Stack';
-import { Input } from '@/shared/ui/deprecated/Input';
-import { CurrencySelect } from '@/entities/Currency';
-import { CountrySelect } from '@/entities/Country';
-import classes from './ProfileCard.module.scss';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { ProfileCardDeprecated } from '../ProfileCardDeprecated/ProfileCardDeprecated';
+import { ProfileCardRedesigned } from '../ProfileCardRedesigned/ProfileCardRedesigned';
 import { Profile } from '../../model/types/Profile';
 
 interface ProfileCardProps {
@@ -24,84 +17,10 @@ interface ProfileCardProps {
     readonly?: boolean;
 }
 
-export const ProfileCard = memo((props: ProfileCardProps) => {
-    const {
-        profileFormData,
-        className,
-        readonly,
-        onChangeFirstname,
-        onChangeUsername,
-        onChangeCurrency,
-        onChangeCountry,
-        onChangeAvatar,
-        onChangeAge,
-        onKeyPress,
-    } = props;
-
-    const { t } = useTranslation('profile');
-
-    return (
-        <div className={classNames(classes.ProfileCard, {}, [className])}>
-            {profileFormData && (
-                <VStack align="center" max>
-                    <Text title={t('profile')} />
-                    <div>
-                        {profileFormData.avatar && (
-                            <Avatar
-                                src={profileFormData.avatar}
-                                alt={t('avatar')}
-                            />
-                        )}
-                    </div>
-                    <VStack
-                        gap="16"
-                        align="center"
-                        max
-                        className={classes.profileData}
-                    >
-                        <Input
-                            value={profileFormData.firstname}
-                            placeholder={t('enter your firstname')}
-                            onChange={onChangeFirstname}
-                            readonly={readonly}
-                            data-testid="ProfileCard.Firstname"
-                        />
-                        <Input
-                            value={profileFormData.username}
-                            placeholder={t('enter your username')}
-                            onChange={onChangeUsername}
-                            readonly={readonly}
-                            data-testid="ProfileCard.Username"
-                        />
-
-                        <CurrencySelect
-                            readonly={readonly || false}
-                            value={profileFormData?.currency}
-                            onChangeOption={onChangeCurrency}
-                        />
-
-                        <CountrySelect
-                            readonly={readonly || false}
-                            value={profileFormData.country}
-                            onChangeOption={onChangeCountry}
-                        />
-                        <Input
-                            value={profileFormData.age}
-                            type="number"
-                            placeholder={t('enter your age')}
-                            onChange={onChangeAge}
-                            readonly={readonly}
-                            onKeyPress={onKeyPress}
-                        />
-                        <Input
-                            value={profileFormData.avatar}
-                            placeholder={t('place the link to your new avatar')}
-                            onChange={onChangeAvatar}
-                            readonly={readonly}
-                        />
-                    </VStack>
-                </VStack>
-            )}
-        </div>
-    );
-});
+export const ProfileCard = memo((props: ProfileCardProps) => (
+    <ToggleFeatures
+        feature="isAppRedesigned"
+        on={<ProfileCardRedesigned {...props} />}
+        off={<ProfileCardDeprecated {...props} />}
+    />
+));

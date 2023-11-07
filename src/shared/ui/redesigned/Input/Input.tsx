@@ -10,17 +10,21 @@ import { classNames, Modes } from '../../../lib/classNames';
 import classes from './Input.module.scss';
 import { Country } from '../../../const/Country';
 import { Currency } from '../../../const/Currency';
+import { HStack } from '../Stack';
+import { Text } from '../Text';
 
 type TextColor = 'primary' | 'secondary';
+type InputSize = 's' | 'm' | 'l';
 
 type HTMLInputProps = Omit<
     InputHTMLAttributes<HTMLInputElement>,
-    'value' | 'onChange' | 'readonly' | 'onKeyDown'
+    'value' | 'onChange' | 'readonly' | 'onKeyDown' | 'size'
 >;
 
 interface InputProps extends HTMLInputProps {
     className?: string;
     value?: string | number | Country | Currency;
+    label?: string;
     autofocus?: boolean;
     onChange?: (value: string) => void;
     readonly?: boolean;
@@ -28,12 +32,14 @@ interface InputProps extends HTMLInputProps {
     textColor?: TextColor;
     addonRight?: ReactNode;
     addonLeft?: ReactNode;
+    size?: InputSize;
 }
 
 export const Input = memo((props: InputProps) => {
     const {
         className,
         value,
+        label,
         onChange,
         onKeyPress,
         placeholder,
@@ -43,6 +49,7 @@ export const Input = memo((props: InputProps) => {
         textColor = 'primary',
         addonRight,
         addonLeft,
+        size = 'm',
         ...restProps
     } = props;
 
@@ -75,8 +82,13 @@ export const Input = memo((props: InputProps) => {
         [classes.withAddonRight]: Boolean(addonRight),
     };
 
-    return (
-        <div className={classNames(classes.InputWrapper, modes, [className])}>
+    const input = (
+        <div
+            className={classNames(classes.InputWrapper, modes, [
+                className,
+                classes[size],
+            ])}
+        >
             <div className={classes.addonLeft}>{addonLeft}</div>
             <input
                 ref={inputRef}
@@ -94,4 +106,15 @@ export const Input = memo((props: InputProps) => {
             <div className={classes.addonRight}>{addonRight}</div>
         </div>
     );
+
+    if (label) {
+        return (
+            <HStack gap="8">
+                <Text text={label} />
+                {input}
+            </HStack>
+        );
+    }
+
+    return input;
 });

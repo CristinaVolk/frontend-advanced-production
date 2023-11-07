@@ -1,0 +1,19 @@
+.ProfileCard {
+    margin: 10px;
+    border: 1px solid var(--bar-bg-color);
+    padding: 20px;
+    box-shadow: rgb(0 0 0 / 35%) 0 5px 15px;
+    width: 100%;
+
+    .avatarWrapper {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+.error,
+.loading {
+    display: grid;
+    place-items: center center;
+    height: 500px;
+}

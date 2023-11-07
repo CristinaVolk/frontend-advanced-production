@@ -1,8 +1,11 @@
 import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { ListBox } from '@/shared/ui/deprecated/Popups';
+import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
+
 import { Country } from '../../../shared/const/Country';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface CountrySelectProps {
     value?: string;
@@ -20,8 +23,16 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
             content: Country.SCOTLAND,
             unavailable: false,
         },
-        { value: Country.GB, content: Country.GB, unavailable: false },
-        { value: Country.USA, content: Country.USA, unavailable: true },
+        {
+            value: Country.GB,
+            content: Country.GB,
+            unavailable: false,
+        },
+        {
+            value: Country.USA,
+            content: Country.USA,
+            unavailable: true,
+        },
         {
             value: Country.IRELAND,
             content: Country.IRELAND,
@@ -36,15 +47,22 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
         [onChangeOption],
     );
 
+    const listBoxProps = {
+        ...props,
+        direction: 'top' as const,
+        defaultValue: t('Choose your country'),
+        selectedValue: value,
+        readonly,
+        onChange: onChangeHandler,
+        items: options,
+        label: t('Choose your country >'),
+    };
+
     return (
-        <ListBox
-            direction="top"
-            defaultValue={t('Choose your country')}
-            selectedValue={value}
-            readonly={readonly}
-            onChange={onChangeHandler}
-            items={options}
-            label={t('Choose your country >')}
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={<ListBox {...listBoxProps} />}
+            off={<ListBoxDeprecated {...listBoxProps} />}
         />
     );
 });

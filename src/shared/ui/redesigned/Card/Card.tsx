@@ -4,7 +4,7 @@ import { classNames } from '@/shared/lib/classNames';
 import classes from './Card.module.scss';
 
 export type CardVariant = 'normal' | 'outlined' | 'light';
-export type CardPaddings = '0' | '8' | '16' | '24';
+export type CardPaddings = '0' | '8' | '16' | '24' | '36' | '48';
 export type CardBorder = 'smooth' | 'round';
 
 interface CardProps extends HTMLAttributes<HTMLDivElement> {
@@ -35,6 +35,8 @@ export const Card = memo((props: CardProps) => {
         '8': 'gap_8',
         '16': 'gap_16',
         '24': 'gap_24',
+        '36': 'gap_36',
+        '48': 'gap_48',
     };
 
     return (
