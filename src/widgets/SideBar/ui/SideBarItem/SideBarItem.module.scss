@@ -37,8 +37,20 @@
     }
 }
 
+
+
+
 .active {
-    background: linear-gradient(89.97deg, rgb(29 89 255 / 30%) 1.15%, rgb(94 211 243 / 0%) 99.97%);
+    background:
+            radial-gradient(
+                            57.05% 57.05% at 49.84% 42.95%,
+                            rgb(94 211 243 / 20%) 0%,
+                            rgb(94 211 243 / 13.2%) 7.81%,
+                            rgb(94 211 243 / 8.3%) 29.69%,
+                            rgb(94 211 243 / 3.86%) 56.77%,
+                            rgb(94 211 243 / 2.19%) 77.6%,
+                            rgb(94 211 243 / 0%) 100%
+            );
     position: relative;
 
     &::before {
