@@ -40,6 +40,8 @@ export const ArticleListViewSwitcher = memo(
                 <HStack gap="8">
                     {ListViewsTypes.map((listViewType) => (
                         <Icon
+                            clickable
+                            onClick={onIconClick(listViewType.view)}
                             key={listViewType.view}
                             className={classNames(
                                 '',
