@@ -76,3 +76,25 @@
         }
     }
 }
+
+
+.ArticleListItemRedesigned {
+    &.LIST {
+        .img {
+            width: 100%;
+            max-height: 420px;
+            object-fit: cover;
+        }
+
+        .textBlock {
+            height: 72px;
+            overflow: hidden;
+        }
+    }
+}
+
+.ArticleListItemRedesigned {
+    &.LIST {
+        width: 100%;
+    }
+}
