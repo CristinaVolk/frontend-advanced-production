@@ -4,7 +4,7 @@ import { BrowserView, MobileView } from 'react-device-detect';
 import NotificationIconRedesigned from '@/shared/assets/icons/notification.svg';
 import { NotificationsList } from '@/entities/Notification';
 import { classNames } from '@/shared/lib/classNames';
-import { Drawer as DrawerDeprecated } from '@/shared/ui/deprecated/DragableDrawer';
+import { Drawer as DrawerDeprecated } from '@/shared/ui/redesigned/DragableDrawer';
 import classes from './NotificationButton.module.scss';
 import { Icon } from '@/shared/ui/redesigned/Icon';
 import { Popover } from '@/shared/ui/redesigned/Popups';

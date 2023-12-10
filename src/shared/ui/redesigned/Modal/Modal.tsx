@@ -1,10 +1,10 @@
 import React, { ReactNode } from 'react';
 import { classNames, Modes } from '../../../lib/classNames';
 import { useModal } from '../../../lib/hooks/useModal/useModal';
-import { Portal } from '../../redesigned/Portal/Portal';
+import { Portal } from '../Portal/Portal';
 import classes from './Modal.module.scss';
 import { useTheme } from '../../../lib/hooks/useTheme/useTheme';
-import { Overlay } from '../../redesigned/Overlay';
+import { Overlay } from '../Overlay';
 
 const ANIMATION_DELAY = 1000;
 
@@ -21,9 +21,6 @@ interface ModalProps {
     modalAlign?: ModalAlign;
 }
 
-/**
- * @deprecated
- */
 export const Modal = (props: ModalProps) => {
     const {
         className,
@@ -59,7 +56,7 @@ export const Modal = (props: ModalProps) => {
     }
 
     return (
-        <Portal>
+        <Portal element={document.getElementById('app') ?? document.body}>
             <div
                 className={classNames(classes.Modal, modes, [
                     className,
@@ -68,7 +65,6 @@ export const Modal = (props: ModalProps) => {
                     classes[modalAlign],
                 ])}
             >
-                {/* eslint-disable-next-line react/jsx-no-undef */}
                 <Overlay className={classes.overlay} onClick={close} />
                 <div
                     className={classNames(classes.content, {}, [

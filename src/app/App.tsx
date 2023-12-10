@@ -13,6 +13,7 @@ import { AppRouter } from '../app/providers/router';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Loader } from '@/shared/ui/deprecated/Loader';
 import { MainLayout } from '@/shared/layouts/MainLayout';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 function App() {
     const { theme } = useTheme();
@@ -28,15 +29,34 @@ function App() {
     }
 
     return (
-        <div className={classNames('app_redesigned', {}, [theme])}>
-            <Suspense fallback="">
-                <MainLayout
-                    header={<NavBar />}
-                    content={<AppRouter />}
-                    sidebar={<SideBar />}
-                />
-            </Suspense>
-        </div>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <div
+                    id="app"
+                    className={classNames('app_redesigned', {}, [theme])}
+                >
+                    <Suspense fallback="">
+                        <MainLayout
+                            header={<NavBar />}
+                            content={<AppRouter />}
+                            sidebar={<SideBar />}
+                        />
+                    </Suspense>
+                </div>
+            }
+            off={
+                <div id="app" className={classNames('app', {}, [theme])}>
+                    <Suspense fallback="">
+                        <MainLayout
+                            header={<NavBar />}
+                            content={<AppRouter />}
+                            sidebar={<SideBar />}
+                        />
+                    </Suspense>
+                </div>
+            }
+        />
     );
 }
 

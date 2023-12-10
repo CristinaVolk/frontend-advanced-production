@@ -57,6 +57,8 @@
     opacity: 1;
     pointer-events: auto;
     z-index: var(--modal-z-index);
+    display: flex;
+    justify-content: center;
 
     .content {
         transform: scale(0);

@@ -9,7 +9,6 @@
         width: 96vw;
         height: 90%;
         border-radius: 12px 12px 0;
-        background: var(--bg-popover-notification);
         touch-action: none;
     }
 
@@ -27,5 +26,17 @@
             transform: translateY(100%);
             transition: 0.5s transform;
         }
+    }
+}
+
+.drawerNew {
+    .sheet {
+        background: var(--light-bg-redesigned);
+    }
+}
+
+.drawerOld {
+    .sheet {
+        background: var(--bg-color);
     }
 }
