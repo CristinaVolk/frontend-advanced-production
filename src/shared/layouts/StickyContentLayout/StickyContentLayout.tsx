@@ -16,9 +16,9 @@ export const StickyContentLayout = memo((props: StickyContentLayoutProps) => {
         <div
             className={classNames(classes.StickyContentLayout, {}, [className])}
         >
-            {right && <div className={classes.left}>{left}</div>}
+            {left && <div className={classes.left}>{left}</div>}
             <div className={classes.content}>{content}</div>
-            {left && <div className={classes.right}>{right}</div>}
+            {right && <div className={classes.right}>{right}</div>}
         </div>
     );
 });

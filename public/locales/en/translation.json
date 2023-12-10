@@ -19,5 +19,9 @@
     "Logout": "Logout",
 	"create-article": "Create Article",
     "feedbackTitle": "Please rate the article",
-	"Feedback": "Feedback"
+	"Feedback": "Feedback",
+	"{{ count }} views_zero": "{{ count }} views",
+	"{{ count }} views_one": "{{ count }} view",
+	"{{ count }} views_few": "{{ count }} views",
+	"{{ count }} views_other": "{{ count }} views"
 }
