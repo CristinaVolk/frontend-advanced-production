@@ -18,9 +18,9 @@ const mapSizeToHeaderTag: Record<TextSize, headerTagType> = {
 };
 
 const mapSizeToClass: Record<TextSize, string> = {
-    s: 'size_s',
-    m: 'size_m',
-    l: 'size_l',
+    s: classes.size_s,
+    m: classes.size_m,
+    l: classes.size_l,
 };
 
 interface TextProps {

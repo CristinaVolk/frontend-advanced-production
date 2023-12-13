@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames';
-import { Code } from '@/shared/ui/deprecated/Code';
+import { Code } from '@/shared/ui/redesigned/Code';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import type { ArticleCodeBlock } from '../../model/types/Article';
 
