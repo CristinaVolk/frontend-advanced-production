@@ -8,7 +8,7 @@ import classes from '../ArticleDetails.module.scss';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 
 export const ArticleDetailsLoadingRedesigned = () => (
-    <VStack gap="16">
+    <VStack gap="16" max>
         <VStack max align="center">
             <Skeleton width={200} height={200} border="50%" />
         </VStack>

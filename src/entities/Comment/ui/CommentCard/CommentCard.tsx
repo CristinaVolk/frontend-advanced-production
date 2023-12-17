@@ -1,15 +1,23 @@
 import React, { memo } from 'react';
 
 import { classNames } from '@/shared/lib/classNames';
-import { Avatar } from '@/shared/ui/deprecated/Avatar';
-import { Text } from '@/shared/ui/deprecated/Text';
-import { Skeleton } from '@/shared/ui/deprecated/Skeleton';
-import { AppLink } from '@/shared/ui/deprecated/AppLink';
+import { Avatar as AvatarDeprecated } from '@/shared/ui/deprecated/Avatar';
+import { Avatar as AvatarRedesigned } from '@/shared/ui/redesigned/Avatar';
+
+import { Text as TextRedesigned } from '@/shared/ui/redesigned/Text';
+
+import { Skeleton as SkeletonDeprecated } from '@/shared/ui/deprecated/Skeleton';
+import { Skeleton as SkeletonRedesigned } from '@/shared/ui/redesigned/Skeleton';
+
+import { AppLink as AppLinkDeprecated } from '@/shared/ui/deprecated/AppLink';
+import { AppLink as AppLinkRedesigned } from '@/shared/ui/redesigned/AppLink';
 
 import { HStack, VStack } from '@/shared/ui/redesigned/Stack';
 import classes from './CommentCard.module.scss';
 import { Comment } from '../../model/types/Comment';
 import { getRouteProfile } from '@/shared/const/router';
+import { ToggleFeatures, toggleFeatures } from '@/shared/lib/features';
+import { Card } from '@/shared/ui/redesigned/Card';
 
 interface CommentCardProps {
     className?: string;
@@ -19,6 +27,11 @@ interface CommentCardProps {
 
 export const CommentCard = memo((props: CommentCardProps) => {
     const { className, comment, isLoading } = props;
+    const Skeleton = toggleFeatures({
+        name: 'isAppRedesigned',
+        on: () => SkeletonRedesigned,
+        off: () => SkeletonDeprecated,
+    });
 
     if (isLoading) {
         return (
@@ -41,24 +54,71 @@ export const CommentCard = memo((props: CommentCardProps) => {
     }
 
     return (
-        <VStack
-            data-testid="CommentCard.Content"
-            max
-            className={classNames(classes.CommentCard, {}, [className])}
-        >
-            {comment && comment.user && (
-                <>
-                    <AppLink to={getRouteProfile(comment.user.id)}>
-                        <HStack gap="16">
-                            {comment.user.avatar ? (
-                                <Avatar size={30} src={comment.user.avatar} />
-                            ) : null}
-                            <Text title={comment.user.username} />
-                        </HStack>
-                    </AppLink>
-                    <Text text={comment.text} />
-                </>
-            )}
-        </VStack>
+        <ToggleFeatures
+            feature="isAppRedesigned"
+            on={
+                <Card border="round" cardPaddings="24" max>
+                    <VStack
+                        data-testid="CommentCard.Content"
+                        max
+                        className={classNames(
+                            classes.CommentCardRedesigned,
+                            {},
+                            [className],
+                        )}
+                    >
+                        {comment && comment.user && (
+                            <>
+                                <AppLinkRedesigned
+                                    to={getRouteProfile(comment.user.id)}
+                                >
+                                    <HStack gap="8">
+                                        {comment.user.avatar ? (
+                                            <AvatarRedesigned
+                                                size={30}
+                                                src={comment.user.avatar}
+                                            />
+                                        ) : null}
+                                        <TextRedesigned
+                                            bold
+                                            title={comment.user.username}
+                                        />
+                                    </HStack>
+                                </AppLinkRedesigned>
+                                <TextRedesigned text={comment.text} />
+                            </>
+                        )}
+                    </VStack>
+                </Card>
+            }
+            off={
+                <VStack
+                    data-testid="CommentCard.Content"
+                    max
+                    className={classNames(classes.CommentCard, {}, [className])}
+                >
+                    {comment && comment.user && (
+                        <>
+                            <AppLinkDeprecated
+                                to={getRouteProfile(comment.user.id)}
+                            >
+                                <HStack gap="16">
+                                    {comment.user.avatar ? (
+                                        <AvatarDeprecated
+                                            size={30}
+                                            src={comment.user.avatar}
+                                        />
+                                    ) : null}
+                                    <TextRedesigned
+                                        title={comment.user.username}
+                                    />
+                                </HStack>
+                            </AppLinkDeprecated>
+                            <TextRedesigned text={comment.text} />
+                        </>
+                    )}
+                </VStack>
+            }
+        />
     );
 });

@@ -1,3 +1,19 @@
+.StarRatingDeprecated {
+    .StarIcon {
+        &.hovered {
+            fill: var(--primary-color);
+        }
+    }
+}
+
+.StarRatingRedesigned {
+    .StarIcon {
+        &.hovered {
+            fill: var(--icon-redesigned);
+        }
+    }
+}
+
 .StarIcon {
     cursor: pointer;
     fill: none;

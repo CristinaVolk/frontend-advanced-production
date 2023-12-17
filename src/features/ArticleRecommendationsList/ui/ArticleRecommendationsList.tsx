@@ -3,10 +3,16 @@ import React, { memo } from 'react';
 
 import { ArticleList } from '@/entities/Article';
 import { classNames } from '@/shared/lib/classNames';
-import { Text, TextSize } from '@/shared/ui/deprecated/Text';
+import {
+    Text as TextDeprecated,
+    TextSize,
+    TextTheme,
+} from '@/shared/ui/deprecated/Text';
+import { Text as TextRedesigned } from '@/shared/ui/redesigned/Text';
 import { Loader } from '@/shared/ui/deprecated/Loader';
 import { VStack } from '@/shared/ui/redesigned/Stack';
 import { useArticleRecommendations } from '../api/articleRecommendationsListApi';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface ArticleRecommendationsListProps {
     className?: string;
@@ -29,7 +35,23 @@ export const ArticleRecommendationsList = memo(
         if (error) {
             return (
                 <div className={classNames('', {}, [])}>
-                    <Text size={TextSize.M} title={t('Error')} />
+                    <ToggleFeatures
+                        feature="isAppRedesigned"
+                        on={
+                            <TextRedesigned
+                                size="m"
+                                title={t('Error')}
+                                variant="error"
+                            />
+                        }
+                        off={
+                            <TextDeprecated
+                                size={TextSize.M}
+                                title={t('Error')}
+                                theme={TextTheme.ERROR}
+                            />
+                        }
+                    />
                 </div>
             );
         }
@@ -40,7 +62,12 @@ export const ArticleRecommendationsList = memo(
                 gap="8"
                 className={classNames('', {}, [className])}
             >
-                <Text title={t('Recommendations')} />
+                <ToggleFeatures
+                    feature="isAppRedesigned"
+                    on={<TextRedesigned title={t('Recommendations')} />}
+                    off={<TextDeprecated title={t('Recommendations')} />}
+                />
+
                 {articles && (
                     <ArticleList
                         isLoading={isLoading}
