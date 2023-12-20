@@ -142,6 +142,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
             )}
             <VStack
                 max
+                gap="24"
                 className={classNames(classes.EditableProfileCard, modes, [
                     className,
                 ])}

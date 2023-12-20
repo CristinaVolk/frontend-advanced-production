@@ -1,11 +1,16 @@
 import React, { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/classNames';
+import { Button as ButtonRedesigned } from '@/shared/ui/redesigned/Button';
+import {
+    Button as ButtonDeprecated,
+    ButtonTheme,
+} from '@/shared/ui/deprecated/Button';
+import { Input as InputDeprecated } from '@/shared/ui/deprecated/Input';
+import { Input as InputRedesigned } from '@/shared/ui/redesigned/Input';
 
-import { Button, ButtonTheme } from '@/shared/ui/deprecated/Button';
-import { Input } from '@/shared/ui/deprecated/Input';
-import { Text, TextTheme } from '@/shared/ui/deprecated/Text';
-
+import { Text as TextDeprecated, TextTheme } from '@/shared/ui/deprecated/Text';
+import { Text as TextRedesigned } from '@/shared/ui/redesigned/Text';
 import {
     DynamicModuleLoader,
     ReducersList,
@@ -18,6 +23,8 @@ import { loginReducer, useLoginActions } from '../../model/slices/loginSlice';
 import classes from './LoginForm.module.scss';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import { getPasswordHook } from '../../model/selectors/getLoginPassword/getLoginPassword';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { VStack } from '@/shared/ui/redesigned/Stack';
 
 interface LoginFormProps {
     className?: string;
@@ -71,53 +78,117 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
 
     return (
         <DynamicModuleLoader reducers={initialReducers}>
-            <div
-                className={classNames(
-                    classes.LoginForm,
-                    { [classes.isClosing]: isClosing },
-                    [className],
-                )}
-            >
-                <div className={classes.container}>
-                    <div className={classes.leftBox}>
-                        <Text title={t('Login')} />
-
-                        <div className={classes.login}>{t('Login')}</div>
-                        <div className={classes.eula}>
-                            {t('AgreementTerms')}
-                        </div>
-                    </div>
-                    <div className={classes.rightBox}>
-                        <div>
-                            <Input
-                                textColor="secondary"
-                                placeholder={t('EnterUsername')}
-                                autofocus
-                                onChange={onChangeUsername}
-                                value={username}
-                            />
-                            <Input
-                                type="password"
-                                placeholder={t('EnterPassword')}
-                                textColor="secondary"
-                                onChange={onChangePassword}
-                                value={password}
-                            />
-                        </div>
-                        {error && (
-                            <Text theme={TextTheme.ERROR} text={t(error)} />
+            <ToggleFeatures
+                feature="isAppRedesigned"
+                on={
+                    <div
+                        className={classNames(
+                            classes.LoginForm,
+                            { [classes.isClosing]: isClosing },
+                            [className],
                         )}
-                        <Button
-                            className={classes.loginButton}
-                            theme={ButtonTheme.CLEAR}
-                            onClick={onLoginClick}
-                            disabled={isLoading}
-                        >
-                            {t('Login')}
-                        </Button>
+                    >
+                        <div className={classes.container}>
+                            <div className={classes.leftBox}>
+                                <TextRedesigned title={t('Login')} />
+
+                                <div className={classes.login}>
+                                    {t('Login')}
+                                </div>
+                                <div className={classes.eula}>
+                                    {t('AgreementTerms')}
+                                </div>
+                            </div>
+                            <div className={classes.rightBox}>
+                                <VStack gap="8">
+                                    <InputRedesigned
+                                        textColor="secondary"
+                                        placeholder={t('EnterUsername')}
+                                        autofocus
+                                        onChange={onChangeUsername}
+                                        value={username}
+                                    />
+                                    <InputRedesigned
+                                        type="password"
+                                        placeholder={t('EnterPassword')}
+                                        textColor="secondary"
+                                        onChange={onChangePassword}
+                                        value={password}
+                                    />
+                                </VStack>
+                                {error && (
+                                    <TextRedesigned
+                                        variant="error"
+                                        text={t(error)}
+                                    />
+                                )}
+                                <ButtonRedesigned
+                                    className={classes.loginButton}
+                                    variant="clear"
+                                    onClick={onLoginClick}
+                                    disabled={isLoading}
+                                >
+                                    {t('Login')}
+                                </ButtonRedesigned>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
+                }
+                off={
+                    <div
+                        className={classNames(
+                            classes.LoginForm,
+                            { [classes.isClosing]: isClosing },
+                            [className],
+                        )}
+                    >
+                        <div className={classes.container}>
+                            <div className={classes.leftBox}>
+                                <TextDeprecated title={t('Login')} />
+
+                                <div className={classes.login}>
+                                    {t('Login')}
+                                </div>
+                                <div className={classes.eula}>
+                                    {t('AgreementTerms')}
+                                </div>
+                            </div>
+                            <div className={classes.rightBox}>
+                                <div>
+                                    <InputDeprecated
+                                        textColor="secondary"
+                                        placeholder={t('EnterUsername')}
+                                        autofocus
+                                        onChange={onChangeUsername}
+                                        value={username}
+                                    />
+                                    <InputDeprecated
+                                        type="password"
+                                        placeholder={t('EnterPassword')}
+                                        textColor="secondary"
+                                        onChange={onChangePassword}
+                                        value={password}
+                                    />
+                                </div>
+                                {error && (
+                                    <TextDeprecated
+                                        theme={TextTheme.ERROR}
+                                        text={t(error)}
+                                    />
+                                )}
+                                <ButtonDeprecated
+                                    className={classes.loginButton}
+                                    theme={ButtonTheme.CLEAR}
+                                    onClick={onLoginClick}
+                                    disabled={isLoading}
+                                >
+                                    {t('Login')}
+                                </ButtonDeprecated>
+                            </div>
+                        </div>
+                    </div>
+                }
+            />
         </DynamicModuleLoader>
     );
 });

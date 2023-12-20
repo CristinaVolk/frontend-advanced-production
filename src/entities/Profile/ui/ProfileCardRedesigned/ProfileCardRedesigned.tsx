@@ -24,7 +24,11 @@ interface ProfileCardProps {
 
 export const ProfileCardSkeletonRedesigned = () => (
     <Card cardPaddings="24" max>
-        <VStack>
+        <VStack gap="24">
+            <HStack max justify="end">
+                <Skeleton width={128} height={38} />
+            </HStack>
+
             <HStack max justify="center">
                 <Skeleton width={128} height={128} border="100%" />
             </HStack>
@@ -80,7 +84,7 @@ export const ProfileCardRedesigned = memo((props: ProfileCardProps) => {
                     </HStack>
                 )}
 
-                <HStack gap="24">
+                <HStack max gap="24">
                     <VStack max gap="16">
                         <Input
                             value={profileFormData.firstname}

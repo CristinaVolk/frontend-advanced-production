@@ -12,17 +12,19 @@ interface AvatarProps {
     src?: string;
     alt?: string;
     size?: number;
+    borderRadius?: string;
 }
 
 export const Avatar = (props: AvatarProps) => {
-    const { className, src, alt, size } = props;
+    const { className, src, alt, size, borderRadius } = props;
 
     const styles = useMemo<CSSProperties>(
         () => ({
             width: size || 100,
             height: size || 100,
+            borderRadius: borderRadius || '50%',
         }),
-        [size],
+        [size, borderRadius],
     );
 
     const errorFallback = <Icon width={size} height={size} Svg={UserIcon} />;

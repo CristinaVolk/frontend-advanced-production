@@ -4,6 +4,7 @@ import { classNames, Modes } from '@/shared/lib/classNames';
 import classes from './Button.module.scss';
 
 export type ButtonVariant = 'clear' | 'outline' | 'filled';
+export type ButtonColor = 'normal' | 'success' | 'error';
 
 export type ButtonSize = 'm' | 'l' | 'xl';
 
@@ -21,6 +22,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
      * Size of the button according to the design system
      */
     size?: ButtonSize;
+    /**
+     * Color of the button according to the design system
+     */
+    color?: ButtonColor;
     /**
      * Flag responsible for button activating
      */
@@ -45,6 +50,7 @@ export const Button: FC<ButtonProps> = (props: ButtonProps) => {
         variant = 'outline',
         square,
         size = 'm',
+        color = 'normal',
         disabled,
         fullWidth,
         addonRight,
@@ -66,6 +72,7 @@ export const Button: FC<ButtonProps> = (props: ButtonProps) => {
                 className,
                 classes[variant],
                 classes[size],
+                classes[color],
             ])}
             disabled={disabled}
             {...restProps}
