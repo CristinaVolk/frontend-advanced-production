@@ -21,8 +21,10 @@ function App() {
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        dispatch(initAuthData());
-    }, [dispatch]);
+        if (!isInited) {
+            dispatch(initAuthData());
+        }
+    }, [dispatch, isInited]);
 
     if (!isInited) {
         return <Loader />;

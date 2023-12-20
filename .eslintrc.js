@@ -30,6 +30,7 @@ module.exports = {
         'unused-imports',
     ],
     rules: {
+        '@typescript-eslint/no-empty-function': [1],
         'unused-imports/no-unused-imports': [2],
         'kvolk-plugin/layer-import': [
             2,

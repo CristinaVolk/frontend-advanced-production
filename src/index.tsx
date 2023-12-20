@@ -11,6 +11,7 @@ import App from './app/App';
 import '@/shared/config/i18n/i18n';
 import './app/styles/index.scss';
 import { ThemeEnum } from '@/shared/const/theme';
+import { ForceUpdateProvider } from '@/shared/lib/render/forceUpdate';
 
 const container = document.getElementById('root');
 
@@ -25,9 +26,11 @@ root.render(
         <StoreProvider>
             <Suspense fallback="">
                 <ErrorBoundary>
-                    <ThemeProvider initialTheme={ThemeEnum.LIGHT}>
-                        <App />
-                    </ThemeProvider>
+                    <ForceUpdateProvider>
+                        <ThemeProvider initialTheme={ThemeEnum.LIGHT}>
+                            <App />
+                        </ThemeProvider>
+                    </ForceUpdateProvider>
                 </ErrorBoundary>
             </Suspense>
         </StoreProvider>

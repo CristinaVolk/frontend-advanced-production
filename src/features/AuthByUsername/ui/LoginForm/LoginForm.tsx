@@ -25,6 +25,7 @@ import { loginByUsername } from '../../model/services/loginByUsername/loginByUse
 import { getPasswordHook } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { VStack } from '@/shared/ui/redesigned/Stack';
+import { useForceUpdate } from '@/shared/lib/render/forceUpdate';
 
 interface LoginFormProps {
     className?: string;
@@ -44,6 +45,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
     const password = getPasswordHook();
     const isLoading = getIsLoadingHook();
     const error = getLoginErrorHook();
+    const forceUpdate = useForceUpdate();
 
     const [isClosing, setIsClosing] = useState(false);
 
@@ -72,9 +74,10 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
             setIsClosing(true);
             setTimeout(() => {
                 onSuccess();
+                forceUpdate();
             }, 3000);
         }
-    }, [dispatch, password, username, onSuccess]);
+    }, [dispatch, username, password, onSuccess, forceUpdate]);
 
     return (
         <DynamicModuleLoader reducers={initialReducers}>
