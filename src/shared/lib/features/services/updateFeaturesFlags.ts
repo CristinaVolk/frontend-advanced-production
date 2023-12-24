@@ -13,7 +13,7 @@ export const updateFeaturesFlags = createAsyncThunk<
     void,
     UpdateFeatureFlagOptions,
     ThunkConfig<string>
->('user/updateFeaturesFlags', async ({ userId, newFeatures }, thunkAPI) => {
+>('features/updateFeaturesFlags', async ({ userId, newFeatures }, thunkAPI) => {
     const { dispatch, rejectWithValue } = thunkAPI;
 
     const allFeatures = {
@@ -30,7 +30,7 @@ export const updateFeaturesFlags = createAsyncThunk<
         );
 
         setFeatureFlags(allFeatures);
-        // window.location.reload();
+        window.location.reload();
 
         return undefined;
     } catch (e) {
