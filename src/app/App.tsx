@@ -11,9 +11,10 @@ import './styles/index.scss';
 import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 import { AppRouter } from '../app/providers/router';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Loader } from '@/shared/ui/deprecated/Loader';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 import { ToggleFeatures } from '@/shared/lib/features';
+import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
+import { Loader } from '@/shared/ui/deprecated/Loader';
 
 function App() {
     const { theme } = useTheme();
@@ -27,7 +28,20 @@ function App() {
     }, [dispatch, isInited]);
 
     if (!isInited) {
-        return <Loader />;
+        return (
+            <ToggleFeatures
+                feature="isAppRedesigned"
+                on={
+                    <div
+                        id="app"
+                        className={classNames('app_redesigned', {}, [theme])}
+                    >
+                        <AppLoaderLayout />{' '}
+                    </div>
+                }
+                off={<Loader />}
+            />
+        );
     }
 
     return (
