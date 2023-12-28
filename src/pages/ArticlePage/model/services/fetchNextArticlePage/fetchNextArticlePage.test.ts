@@ -27,7 +27,7 @@ describe('fetchNextArticlePage.test', () => {
         await thunk.callThunk();
 
         expect(thunk.dispatch).toHaveBeenCalledTimes(4);
-        expect(fetchArticles).toHaveBeenCalledWith({ replace: false });
+        expect(fetchArticles).toHaveBeenCalledWith({ replace: true });
     });
 
     test('failure fetchNextArticlePage', async () => {

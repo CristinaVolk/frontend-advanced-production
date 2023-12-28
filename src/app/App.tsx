@@ -16,6 +16,7 @@ import { ToggleFeatures } from '@/shared/lib/features';
 import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
 import { Loader } from '@/shared/ui/deprecated/Loader';
 import { useAppToolbar } from './lib/useAppToolbar/useAppToolbar';
+import { withTheme } from '../app/providers/ThemeProvider/ui/withTheme';
 
 function App() {
     const { theme } = useTheme();
@@ -79,4 +80,4 @@ function App() {
     );
 }
 
-export default App;
+export default withTheme(App);
